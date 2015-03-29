@@ -29,5 +29,5 @@ ogr2ogr --config PG_USE_COPY YES -f "PostgreSQL" PG:"dbname=$DBNAME" -t_srs EPSG
 showcount ${file/.geojson}
 done
 psql -d $DBNAME -f mergetrees.sql
-showcount
+showcount alltrees
 date
