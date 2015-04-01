@@ -32,7 +32,7 @@ INSERT INTO alltrees (the_geom, ref, genus, species, common, location, height, c
 SELECT the_geom,
 tree_id AS ref,
 genus_desc AS genus,
-spec_desc AS species,
+trim(concat(genus_desc, ' ', spec_desc)) AS species, -- should handle this better with a specific field, like "scientific" for merged name.
 common_nam AS common,
 split_part(location_t, ' ', 1) AS location,
 height_m AS height,
@@ -87,7 +87,7 @@ to_date("date planted", 'DD/MM/YYYY') AS planted,
 FROM melbourne;
 
 INSERT INTO alltrees (the_geom, tree_type, genus, species, common, height, dbh, health, structure, captured, ule_min, ule_max, ref, location, maturity, source)
-SELECT the_geom,  tree_type, genus, concat(genus, ' ', species) AS species /* sorry! */, common, height, dbh, health, structure, to_date(captured,'YYYY-MM-DD'), ule_min, ule_max, ref, location, maturity, 'geelong'
+SELECT the_geom,  tree_type, genus, concat(genus, ' ', lower(species)) AS species /* sorry! */, common, height, dbh, health, structure, to_date(captured,'YYYY-MM-DD'), ule_min, ule_max, ref, location, maturity, 'geelong'
 FROM geelong;
 
 INSERT INTO alltrees (the_geom, ref, source)
