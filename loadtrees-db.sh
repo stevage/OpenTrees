@@ -3,10 +3,12 @@ TABLE=trees
 TABLEOPTIONS="-lco GEOMETRY_NAME=the_geom -lco FID=gid -nlt GEOMETRY"
 function showcount() {
   t=$TABLE
+  total=" in total."
   if [[ -n "$1" ]]; then
     t=$1
+    total=""
   fi
-  psql -d $DBNAME -c "select concat(count(*), ' trees total.') from $t;" | grep 'trees'
+  psql -d $DBNAME -c "select concat(count(*), ' trees $total') from $t;" | grep 'trees'
 }
 
 date
@@ -28,6 +30,13 @@ echo "Loading $file"
 ogr2ogr --config PG_USE_COPY YES -f "PostgreSQL" PG:"dbname=$DBNAME" -t_srs EPSG:3857 $file -overwrite $TABLEOPTIONS -nln ${file/.geojson}
 showcount ${file/.geojson}
 done
+
+echo "Merging all trees into one table."
 psql -d $DBNAME -f mergetrees.sql
 showcount alltrees
+
+echo "Cleaning and processing merged trees."
+psql -d $DBNAME -f cleantrees.sql
+
+
 date
