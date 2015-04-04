@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset='utf-8'>
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script>
@@ -16,6 +15,10 @@
 
   </script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+  <link rel="shortcut icon" href="http://tree111.png"/>
+  <!-- favicon: made by http://www.flaticon.com/authors/freepik, CC-BY 3.0 -->
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
   <link href="https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css" rel="stylesheet" />
@@ -52,7 +55,7 @@
     }
     #wikitext {
       width:300px;
-      height:200px;
+      max-height:200px;
       overflow:scroll;
       background:#eee;
       opacity:0.9;
@@ -87,36 +90,12 @@
   </div>
   </div>
   <div id="map"></div>
-  <div id="wikibox"></div>
+  <div id="wikibox">
+    <div id="wikiimg"></div>
+    <div id="wikitext"></div>
+  </div>
 
   <script>
-    // surely there's a better way? I can't make Wikipedia's funky CORS work.
-    d3.jsonp = function (url, callback) {
-      function rand() {
-        var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-          c = '', i = -1;
-        while (++i < 15) c += chars.charAt(Math.floor(Math.random() * 52));
-        return c;
-      }
-
-      function create(url) {
-        var e = url.match(/callback=d3.jsonp.(\w+)/),
-          c = e ? e[1] : rand();
-        d3.jsonp[c] = function(data) {
-          callback(data);
-          delete d3.jsonp[c];
-          script.remove();
-        };
-        return 'd3.jsonp.' + c;
-      }
-
-      var cb = create(url),
-        script = d3.select('head')
-        .append('script')
-        .attr('type', 'text/javascript')
-        .attr('src', url.replace(/(\{|%7B)callback(\{|%7D)/, cb));
-    };
-    
     
     function toSpeciesCase(str) {
       str = str.replace(/\s+Sp./i, '');
@@ -128,9 +107,10 @@
     
     var base = "http://guru.cycletour.org:80/tilelive/",
 
-        mapName = "supertrees_1677f4";
+        mapName = "supertrees_f882c6";
     var map;    
-    d3.json(base + mapName + ".json", function(tilejson) {
+    $.getJSON(base + mapName + ".json", {}, function(tilejson) {
+      //tilejson.grids[0] = "http://guru.cycletour.org/tile/supertrees/{z}/{x}/{y}.grid.json";
       map = L.mapbox.map('map', tilejson, { 
         zoom: 12,
         maxZoom: L.Browser.retina ? 15 : 16, 
@@ -144,32 +124,35 @@
       map.setView(L.latLng(-38, 144), 9);
       map.gridLayer.on('click',function(e) { 
         // e.data has what we clicked on
-        if (e.data && e.data.species) {
+        if (e.data && e.data.genus) {
           // &origin=guru.cycletour.org - how to make the HTTP headers match up?
-          var textapi = 'http://en.wikipedia.org/w/api.php?action=query&prop=extracts&redirects&format=json&callback=d3.jsonp.text&titles=';
-          var imageapi = 'http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&redirects&format=json&callback=d3.jsonp.image&titles=';
-          var species = toSpeciesCase(e.data.species);
+          var wikiapi = 'http://en.wikipedia.org/w/api.php?action=query&format=json';
+          var textapi = wikiapi + '&prop=extracts&redirects&titles=';
+          var imageapi = wikiapi + '&prop=pageimages&redirects&titles=';
+          var species = toSpeciesCase(e.data.genus + (e.data.species ? " " + e.data.species : ""));
           console.log('Searching Wikipedia for: ' + species);
-          d3.jsonp(imageapi + encodeURIComponent(species), function(wikijson) {
+          $.ajax(imageapi + encodeURIComponent(species), { dataType: 'jsonp', success: function(wikijson) {
             pages = wikijson.query.pages;
             page = pages[Object.keys(pages)[0]];
             if (page && page.thumbnail && page.thumbnail.source) {
               thumb = page.thumbnail.source.replace(/\/\d\dpx-/, L.Browser.retina ? '/600px-' : '/300px-');
-              $("#wikibox").html('<img src="' + thumb + '"/>');
-              $("#wikibox").append('<p><small><a href="https://en.wikipedia.org/wiki/File:' +page.pageimage + '">Source: Wikipedia. Click for attribution and licence.</a></small></p>');
-              d3.jsonp(textapi + encodeURIComponent(species), function(wikijson) {
-                pages = wikijson.query.pages;
-                page = pages[Object.keys(pages)[0]];
-                if (page && page.extract) {
-                  $("#wikibox").append('<div id="wikitext">' + page.extract + '</div>' + 
-                    '<p><small>Source: <a href="http://en.wikipedia.org/wiki/' + encodeURIComponent(page.title) + '">Wikipedia</a></small></p>');
-                }
-              });
+              $("#wikiimg").html('<img src="' + thumb + '"/>');
+              $("#wikiimg").append('<p><small><a href="https://en.wikipedia.org/wiki/File:' +page.pageimage + '">Source: Wikipedia. Click for attribution and licence.</a></small></p>');
+            }
+          }});
+          $.ajax(textapi + encodeURIComponent(species), { dataType: 'jsonp', success: function(wikijson) {
+            pages = wikijson.query.pages;
+            page = pages[Object.keys(pages)[0]];
+            if (page && page.extract) {
+              $("#wikitext").html(page.extract +
+                '<p><small>Source: <a href="http://en.wikipedia.org/wiki/' + encodeURIComponent(page.title) + '">Wikipedia</a></small></p>');
+              $("#wikitext").show();
             } else {
               // not found
-              $("#wikibox").html('(Searching Wikipedia came up empty.)');
+              $("#wikiimg").html('');
+              $("#wikitext").html('Nothing on Wikipedia.');
             }
-          });
+          }});
           
         }
       });
