@@ -85,7 +85,7 @@ WHERE scientific LIKE 'Angpohora costata';
 \echo "Fix Qurecus"
 UPDATE alltrees
 SET genus='Quercus'
-WHERE genus='Qurecus'
+WHERE genus='Qurecus';
 
  --33 only
 \echo "Fix Cordylines"
