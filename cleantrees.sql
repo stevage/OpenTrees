@@ -92,3 +92,8 @@ WHERE genus='Qurecus';
 UPDATE alltrees
 SET scientific='Cordyline',species=''
 WHERE scientific LIKE 'Cordyline cordyline';
+
+\echo Create indexes
+CREATE INDEX alltrees_species ON alltrees (genus,species);
+CREATE INDEX alltrees_source ON alltrees (source);
+VACUUM ANALYZE alltrees;
