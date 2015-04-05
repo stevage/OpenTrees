@@ -116,3 +116,17 @@ SELECT the_geom,
 "species name (inspection)",
 "common name (inspection)"
 FROM adelaide;
+
+\echo "Waite Arboretum (Adelaide)"
+INSERT INTO alltrees (the_geom, source, ref, scientific, common, planted)
+SELECT the_geom,
+'waite arboretum',
+tree_id, -- also treeid and num
+scientific,
+commonname,
+-- family (woot!)
+CASE WHEN length(yearplant::varchar) = 4 THEN to_date(yearplant::varchar, 'YYYY') END AS planted
+FROM waite;
+
+-- not used: grid, distrib, nrbtrees, nrbt_point, nattrustli, nt_num, habitat
+

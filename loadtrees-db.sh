@@ -12,8 +12,7 @@ function showcount() {
 }
 
 date
-
-#psql -d $DBNAME -c "drop table $TABLE;"
+psql -d $DBNAME -c "drop table $TABLE;"
 echo "Loading melbourne.csv"
 ogr2ogr --config PG_USE_COPY YES -overwrite -f "PostgreSQL" PG:"dbname=$DBNAME" -t_srs EPSG:3857 melbourne.vrt -nln melbourne $TABLEOPTIONS
 showcount melbourne
@@ -32,6 +31,10 @@ echo "Loading $file"
 ogr2ogr --config PG_USE_COPY YES -f "PostgreSQL" PG:"dbname=$DBNAME" -t_srs EPSG:3857 $file -overwrite $TABLEOPTIONS -nln ${file/.geojson}
 showcount ${file/.geojson}
 done
+
+echo "Loading waite_arboretum.zip"
+ogr2ogr --config PG_USE_COPY YES -overwrite -f "PostgreSQL" PG:"dbname=$DBNAME" -t_srs EPSG:3857 WaiteTreeID_2014_App_Joined_19062014.shp -nln waite $TABLEOPTIONS
+showcount waite
 
 echo "Merging all trees into one table."
 psql -d $DBNAME -f mergetrees.sql

@@ -17,3 +17,5 @@ wget -O manningham.geojson 'http://data.gov.au/geoserver/manningham-streettrees/
 wget -O geelong.geojson 'http://data.gov.au/geoserver/geelong-trees/wfs?request=GetFeature&typeName=13b1196c_7fb7_436a_86bc_ab24c16526de&outputFormat=json'
 wget -O melbourne.csv 'https://data.melbourne.vic.gov.au/api/views/8reg-ju2w/rows.csv?accessType=DOWNLOAD'
 wget -O adelaide.csv 'http://opendata.adelaidecitycouncil.com/street_trees/street_trees.csv'
+wget -O waite_arboretum.zip http://data.sa.gov.au/storage/f/2014-06-23T06%3A12%3A22.180Z/waitetreeid-2014-app-joined-19062014.zip
+unzip waite_arboretum.zip
