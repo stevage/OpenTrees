@@ -83,8 +83,8 @@
 <body>
   <div id="header" class="container">
   <div class="a">
-    <h1>Opentrees.org – 365,164 open data trees</h1>
-    <p>Data published by the local government areas of Melbourne, Greater Geelong, Ballarat, Manningham, Wyndham, Colac-Otways and Corangamite. You can find the raw data on <a href="http://data.gov.au">data.gov.au</a> and <a href="http://data.melbourne.vic.gov.au">data.melbourne.vic.gov.au</a>. To contribute, follow the standards at <a href="http://opencouncildata.org/">opencouncildata.org</a>. Click a tree for a Wikipedia image!</p>
+    <h1>Opentrees.org – 371,653 open data trees</h1>
+    <p>Data published by the local government areas of Melbourne, Greater Geelong, Ballarat, Manningham, Wyndham, Colac-Otways, Corangamite and Adelaide. You can find the raw data on <a href="http://data.gov.au">data.gov.au</a> and <a href="http://data.melbourne.vic.gov.au">data.melbourne.vic.gov.au</a>. To contribute, follow the standards at <a href="http://opencouncildata.org/">opencouncildata.org</a>. Click a tree for a Wikipedia image!</p>
     <small>Made by <a href="http://stevebennett.me">Steve Bennett</a> (<a href="stevage@gmail.com">email</a>, <a href="http://twitter.com/stevage1">Twitter</a>) for <a href="http://au.okfn.org/">Open Knowledge Australia</a>.</small>
 
   </div>
@@ -99,33 +99,38 @@
     
     function toSpeciesCase(str) {
       str = str.replace(/\s+Sp./i, '');
-      str = str.replace(/\s+Cultivar/, '');
+      str = str.replace(/\s+Cultivar/i, '');
       str = str.replace(/\s+'.*$/g, '');
       return str.toLowerCase().replace(/^w\w/, function (txt) { return txt.toUpperCase(); });
     }
 
     
-    var base = "http://guru.cycletour.org:80/tilelive/",
-
+    var base = "http://guru.cycletour.org/tilelive/",
         mapName = "supertrees_f882c6";
+        
     var map;    
     $.getJSON(base + mapName + ".json", {}, function(tilejson) {
       //tilejson.grids[0] = "http://guru.cycletour.org/tile/supertrees/{z}/{x}/{y}.grid.json";
-      map = L.mapbox.map('map', tilejson, { 
+      var osmtrees = L.tileLayer("http://guru.cycletour.org/tile/osmtrees/{z}/{x}/{y}.png");
+      var dynamictrees = L.tileLayer("http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png");
+      tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=3';
+      tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=3';
+      tilejson.maxzoom = 20;
+      tilejson.minzoom = 8;
+      delete tilejson.bounds;
+
+      var treegrid = L.mapbox.gridLayer(tilejson);
+      map = L.mapbox.map ('map', tilejson, {
         zoom: 12,
-        maxZoom: L.Browser.retina ? 15 : 16, 
-        minZoom: 8,
-        tileLayer: { 
-          detectRetina: true
-          }
       });
-      osmtrees = L.tileLayer('http://guru.cycletour.org/tile/osmtrees/{z}/{x}/{y}.png');
-      L.control.layers([], {"OpenStreetMap trees": osmtrees}).addTo(map);
+      L.control.layers(
+        [], { "OpenStreetMap trees": osmtrees},
+        { "collapsed": false, position: "bottomright" }
+        ).addTo(map);
       map.setView(L.latLng(-38, 144), 9);
       map.gridLayer.on('click',function(e) { 
         // e.data has what we clicked on
         if (e.data && e.data.genus) {
-          // &origin=guru.cycletour.org - how to make the HTTP headers match up?
           var wikiapi = 'http://en.wikipedia.org/w/api.php?action=query&format=json';
           var textapi = wikiapi + '&prop=extracts&redirects&titles=';
           var imageapi = wikiapi + '&prop=pageimages&redirects&titles=';
