@@ -65,12 +65,13 @@ UPDATE alltrees
 SET genus=coalesce(genus,''), 
     species=coalesce(species,''), 
     variety=coalesce(variety,''),
-    scientific=coalesce(scientific,'');
+    scientific=coalesce(scientific,'')
+WHERE coalesce(genus,species,variety,scientific,'Z') = 'Z';
 
 \echo "Fix 'Botlebrush'es"
 UPDATE alltrees
 SET common='Red Bottlebrush',species='',variety='King''s Park Special'
-WHERE scientific='Callistemon kings park special';
+WHERE scientific='Callistemon kings park special' AND common ILIKE '%botle%';
 
 \echo "Fix euky dwarves"
 UPDATE alltrees
