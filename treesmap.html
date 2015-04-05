@@ -33,7 +33,7 @@
       height: calc(100% - 160px);
     }
     .map-tooltip {
-      width: 320px;
+      width: 260px;
       min-height:340px;
     }
     .map-tooltip table {
@@ -85,7 +85,7 @@
   <div class="a">
     <h1>Opentrees.org – 371,653 open data trees</h1>
     <p>Data published by the local government areas of Melbourne, Greater Geelong, Ballarat, Manningham, Wyndham, Colac-Otways, Corangamite and Adelaide. You can find the raw data on <a href="http://data.gov.au">data.gov.au</a> and <a href="http://data.melbourne.vic.gov.au">data.melbourne.vic.gov.au</a>. To contribute, follow the standards at <a href="http://opencouncildata.org/">opencouncildata.org</a>. Click a tree for a Wikipedia image!</p>
-    <small>Made by <a href="http://stevebennett.me">Steve Bennett</a> (<a href="stevage@gmail.com">email</a>, <a href="http://twitter.com/stevage1">Twitter</a>) for <a href="http://au.okfn.org/">Open Knowledge Australia</a>.</small>
+    <small>Made by <a href="http://stevebennett.me">Steve Bennett</a> (<a href="stevage@gmail.com">email</a>, <a href="http://twitter.com/stevage1">Twitter</a>) for <a href="http://au.okfn.org/">Open Knowledge Australia</a>. <a href="https://github.com/okfnau/treesmap">Source code</a>.</small>
 
   </div>
   </div>
@@ -104,6 +104,12 @@
       return str.toLowerCase().replace(/^w\w/, function (txt) { return txt.toUpperCase(); });
     }
 
+    if (window.location.href.match("embed")) {
+      // cut down some chrome for embedding
+      $("#header").hide();
+      $("#map").css("height","100%");
+    }
+
     
     var base = "http://guru.cycletour.org/tilelive/",
         mapName = "supertrees_f882c6";
@@ -111,10 +117,9 @@
     var map;    
     $.getJSON(base + mapName + ".json", {}, function(tilejson) {
       //tilejson.grids[0] = "http://guru.cycletour.org/tile/supertrees/{z}/{x}/{y}.grid.json";
-      var osmtrees = L.tileLayer("http://guru.cycletour.org/tile/osmtrees/{z}/{x}/{y}.png" );
       tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=4';
       tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=5';
-      tilejson.maxzoom = 20;
+      tilejson.maxzoom = 22;
       tilejson.minzoom = 8;
       delete tilejson.bounds;
 
@@ -123,8 +128,13 @@
         zoom: 12,
         tileLayer: { detectRetina: true }
       });
+
+      var osmtrees = L.tileLayer("http://guru.cycletour.org/tile/osmtrees/{z}/{x}/{y}.png" );
+      var interestingtrees = L.tileLayer("http://guru.cycletour.org/interesting/{z}/{x}/{y}.png?updated=4", {
+        detectRetina:true} );
+
       L.control.layers(
-        [], { "OpenStreetMap trees": osmtrees},
+        [], { "OpenStreetMap trees": osmtrees, "Interesting trees": interestingtrees},
         { "collapsed": false, position: "bottomright" }
         ).addTo(map);
       map.setView(L.latLng(-38, 144), 9);
