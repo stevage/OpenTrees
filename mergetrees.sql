@@ -29,9 +29,8 @@ CREATE TABLE alltrees
   CONSTRAINT alltrees_pkey PRIMARY KEY (gid)
 )
 ;
-
+\echo "Colac Otways"
 INSERT INTO alltrees (the_geom, ref, genus, species, scientific, common, location, height, crown, dbh, planted, maturity, source)
-
 SELECT the_geom,
 tree_id AS ref,
 genus_desc AS genus,
@@ -47,6 +46,7 @@ life_stage AS maturity,
 'colac_otways' AS source
 FROM colac_otways;
 
+\echo "Corangamite"
 INSERT INTO alltrees (the_geom, ref, height, crown, scientific, common, location, source)
 SELECT the_geom,
 id AS ref,
@@ -58,6 +58,7 @@ CASE when tree_type like 'STREET TREE' THEN 'street' when tree_type like 'PARK T
 'corangamite' AS source
 FROM corangamite;
 
+\echo "Manningham"
 INSERT INTO alltrees (the_geom, captured, ref, scientific, height, dbh, source)
 select the_geom,
 to_date(date1, 'YYYY-MM-DD') AS captured,
@@ -68,7 +69,7 @@ dbh AS dbh,
 'manningham' AS source 
 FROM manningham;
 
-
+\echo "Ballarat"
 INSERT INTO alltrees (the_geom, scientific, crown, ref, source)
 select the_geom, 
 case when tspecies like 'Not Assessed' then '' else tspecies end AS scientific,
@@ -77,8 +78,8 @@ central_as AS ref,
 'ballarat' AS source
 from ballarat;
 
+\echo "Melbourne"
 INSERT INTO alltrees (the_geom, ref, common, scientific, dbh, planted, maturity, ule_min, source)
-
 SELECT the_geom,
 "com id" AS ref,
 "common name" AS common,
@@ -90,16 +91,19 @@ to_date("date planted", 'DD/MM/YYYY') AS planted,
 'melbourne' AS source
 FROM melbourne;
 
+\echo "Geelong"
 INSERT INTO alltrees (the_geom, tree_type, genus, species, scientific, common, height, dbh, health, structure, captured, ule_min, ule_max, ref, location, maturity, source)
 SELECT the_geom,  tree_type, genus, species, concat(genus, ' ', lower(species)) AS scientific, common, height, dbh, health, structure, to_date(captured,'YYYY-MM-DD'), ule_min, ule_max, ref, location, maturity, 'geelong'
 FROM geelong;
 
+\echo "Wyndham"
 INSERT INTO alltrees (the_geom, ref, source)
 SELECT the_geom,
 asset_id AS ref,
 'wyndham' AS source
 FROM wyndham;
 
+\echo "Adelaide"
 INSERT INTO alltrees (the_geom, ref, source, dbh, health, height, structure, maturity, scientific, common)
 SELECT the_geom,
 "asset id (identifier)",

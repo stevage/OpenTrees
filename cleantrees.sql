@@ -87,7 +87,8 @@ UPDATE alltrees
 SET genus='Quercus'
 WHERE genus='Qurecus'
 
-\echo "Fix Cordylines" --33 only
+ --33 only
+\echo "Fix Cordylines"
 UPDATE alltrees
 SET scientific='Cordyline',species=''
 WHERE scientific LIKE 'Cordyline cordyline';
