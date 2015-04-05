@@ -107,7 +107,7 @@ FROM wyndham;
 INSERT INTO alltrees (the_geom, ref, source, dbh, health, height, structure, maturity, scientific, common)
 SELECT the_geom,
 "asset id (identifier)",
-"adelaide",
+'adelaide',
 "circum (inspection)",
 "vigour (inspection)",
 "height (inspection)",
