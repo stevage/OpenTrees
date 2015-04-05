@@ -83,8 +83,8 @@
 <body>
   <div id="header" class="container">
   <div class="a">
-    <h1>Opentrees.org – 371,653 open data trees</h1>
-    <p>Data published by the local government areas of Melbourne, Greater Geelong, Ballarat, Manningham, Wyndham, Colac-Otways, Corangamite and Adelaide. You can find the raw data on <a href="http://data.gov.au">data.gov.au</a> and <a href="http://data.melbourne.vic.gov.au">data.melbourne.vic.gov.au</a>. To contribute, follow the standards at <a href="http://opencouncildata.org/">opencouncildata.org</a>. Click a tree for a Wikipedia image!</p>
+    <h1>Opentrees.org – 373,678 open data trees</h1>
+    <p>Data published by the local government areas of Melbourne, Greater Geelong, Ballarat, Manningham, Wyndham, Colac-Otways, Corangamite and Adelaide, plus the Waite Arboretum. You can find the raw data on <a href="http://data.gov.au">data.gov.au</a>, <a href="http://data.melbourne.vic.gov.au">data.melbourne.vic.gov.au</a> and <a href="http://data.sa.gov.au">data.sa.gov.au</a>. To contribute, follow the standards at <a href="http://opencouncildata.org/">opencouncildata.org</a>. Click a tree for a Wikipedia image!</p>
     <small>Made by <a href="http://stevebennett.me">Steve Bennett</a> (<a href="stevage@gmail.com">email</a>, <a href="http://twitter.com/stevage1">Twitter</a>) for <a href="http://au.okfn.org/">Open Knowledge Australia</a>. <a href="https://github.com/okfnau/treesmap">Source code</a>.</small>
 
   </div>
@@ -117,8 +117,8 @@
     var map;    
     $.getJSON(base + mapName + ".json", {}, function(tilejson) {
       //tilejson.grids[0] = "http://guru.cycletour.org/tile/supertrees/{z}/{x}/{y}.grid.json";
-      tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=4';
-      tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=5';
+      tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=6';
+      tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=6';
       tilejson.maxzoom = 22;
       tilejson.minzoom = 8;
       delete tilejson.bounds;
