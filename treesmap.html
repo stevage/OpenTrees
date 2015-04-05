@@ -111,10 +111,9 @@
     var map;    
     $.getJSON(base + mapName + ".json", {}, function(tilejson) {
       //tilejson.grids[0] = "http://guru.cycletour.org/tile/supertrees/{z}/{x}/{y}.grid.json";
-      var osmtrees = L.tileLayer("http://guru.cycletour.org/tile/osmtrees/{z}/{x}/{y}.png");
-      var dynamictrees = L.tileLayer("http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png");
-      tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=3';
-      tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=3';
+      var osmtrees = L.tileLayer("http://guru.cycletour.org/tile/osmtrees/{z}/{x}/{y}.png" );
+      tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=4';
+      tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=5';
       tilejson.maxzoom = 20;
       tilejson.minzoom = 8;
       delete tilejson.bounds;
@@ -122,6 +121,7 @@
       var treegrid = L.mapbox.gridLayer(tilejson);
       map = L.mapbox.map ('map', tilejson, {
         zoom: 12,
+        tileLayer: { detectRetina: true }
       });
       L.control.layers(
         [], { "OpenStreetMap trees": osmtrees},
