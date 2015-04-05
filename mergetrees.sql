@@ -99,3 +99,16 @@ SELECT the_geom,
 asset_id AS ref,
 'wyndham' AS source
 FROM wyndham;
+
+INSERT INTO alltrees (the_geom, ref, source, dbh, health, height, structure, maturity, scientific, common)
+SELECT the_geom,
+"asset id (identifier)",
+"adelaide",
+"circum (inspection)",
+"vigour (inspection)",
+"height (inspection)",
+"structure (inspection)",
+"age (inspection)",
+"species name (inspection)",
+"common name (inspection)"
+FROM adelaide;

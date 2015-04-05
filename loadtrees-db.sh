@@ -20,6 +20,8 @@ showcount melbourne
 echo "Loading wyndham-cut.csv"
 ogr2ogr --config PG_USE_COPY YES -overwrite -f "PostgreSQL" PG:"dbname=$DBNAME" -t_srs EPSG:3857 wyndham.vrt -nln wyndham $TABLEOPTIONS
 showcount wyndham
+echo "Loading adelaide.csv. (Expect two 'tolerance' errors due to missing data.)"
+ogr2ogr --config PG_USE_COPY YES -overwrite -f "PostgreSQL" PG:"dbname=$DBNAME" -t_srs EPSG:3857 adelaide.vrt -nln adelaide -skipfailures $TABLEOPTIONS
 
 
 # Load Wyndham trees via WFS. Their other exports are a bit broken.

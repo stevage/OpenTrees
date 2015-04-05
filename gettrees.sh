@@ -16,3 +16,4 @@ wget -O ballarat.geojson 'http://data.gov.au/geoserver/ballarattrees/wfs?request
 wget -O manningham.geojson 'http://data.gov.au/geoserver/manningham-streettrees/wfs?request=GetFeature&typeName=1aef5123_24ff_4084_a0f1_a52ca71e9e99&outputFormat=json'
 wget -O geelong.geojson 'http://data.gov.au/geoserver/geelong-trees/wfs?request=GetFeature&typeName=13b1196c_7fb7_436a_86bc_ab24c16526de&outputFormat=json'
 wget -O melbourne.csv 'https://data.melbourne.vic.gov.au/api/views/8reg-ju2w/rows.csv?accessType=DOWNLOAD'
+wget -O adelaide.csv 'http://opendata.adelaidecitycouncil.com/street_trees/street_trees.csv'
