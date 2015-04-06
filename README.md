@@ -8,3 +8,8 @@ The source code for the webpage at http://opentrees.org is also here.
 2. loadtrees-db.sh: load each dataset into its own PostGIS table
 3. mergetrees.sql: extract data from fields into standard schema
 4. cleantrees.sql: fix up all kinds of data errors
+
+## Author
+All code (so far) written by Steve Bennett (stevage@gmail.com, stevebennett.me)
+
+All code released under Creative Commons Attribution (CC-BY 3.0 AU)
