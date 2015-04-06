@@ -104,6 +104,19 @@
       return str.toLowerCase().replace(/^w\w/, function (txt) { return txt.toUpperCase(); });
     }
 
+    function doBookmarks() {
+      bookmarks={ 
+        "adelaide": { x: 138.6217, y: -34.9491, z: 13 },
+        "melbourne": { x: 144.95, y: -37.8, z: 11 },
+        "manningham": { x: 145.15, y: -37.77, z: 13}
+      };
+      bookmark = window.location.href.match(/#([a-zA-Z0-9_-]+)/);
+      if (bookmark && bookmark[1] && (b = bookmarks[bookmark[1]])) {
+        map.setView(L.latLng(b.y,b.x), b.z);
+      }
+
+    }
+
     if (window.location.href.match("embed")) {
       // cut down some chrome for embedding
       $("#header").hide();
@@ -138,9 +151,7 @@
         { "collapsed": false, position: "bottomright" }
         ).addTo(map);
       map.setView(L.latLng(-38, 144), 9);
-      if (window.location.href.match("adelaide")) {
-        map.setView(L.latLng(-34.9491,138.6217), 13);
-      }
+      doBookmarks();
 
       map.gridLayer.on('click',function(e) { 
         // e.data has what we clicked on
