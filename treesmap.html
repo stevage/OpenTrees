@@ -84,7 +84,7 @@
   <div id="header" class="container">
   <div class="a">
     <h1>Opentrees.org – 373,678 open data trees</h1>
-    <p>Data published by the local government areas of Melbourne, Greater Geelong, Ballarat, Manningham, Wyndham, Colac-Otways, Corangamite and Adelaide, plus the Waite Arboretum. You can find the raw data on <a href="http://data.gov.au">data.gov.au</a>, <a href="http://data.melbourne.vic.gov.au">data.melbourne.vic.gov.au</a> and <a href="http://data.sa.gov.au">data.sa.gov.au</a>. To contribute, follow the standards at <a href="http://opencouncildata.org/">opencouncildata.org</a>. Click a tree for a Wikipedia image!</p>
+    <p>Data published by the local government areas of Melbourne, <a href="#geelong" onclick="doBookmarks('geelong')">Greater Geelong</a>, Ballarat, Manningham, Wyndham, Colac-Otways, Corangamite and <a href="#adelaide" onclick="doBookmarks('adelaide')">Adelaide</a>, plus the Waite Arboretum. You can find the raw data on <a href="http://data.gov.au">data.gov.au</a>, <a href="http://data.melbourne.vic.gov.au">data.melbourne.vic.gov.au</a> and <a href="http://data.sa.gov.au">data.sa.gov.au</a>. To contribute, follow the standards at <a href="http://opencouncildata.org/">opencouncildata.org</a>. Click a tree for a Wikipedia image!</p>
     <small>Made by <a href="http://stevebennett.me">Steve Bennett</a> (<a href="stevage@gmail.com">email</a>, <a href="http://twitter.com/stevage1">Twitter</a>) for <a href="http://au.okfn.org/">Open Knowledge Australia</a>. <a href="https://github.com/okfnau/treesmap">Source code</a>.</small>
 
   </div>
@@ -104,15 +104,21 @@
       return str.toLowerCase().replace(/^w\w/, function (txt) { return txt.toUpperCase(); });
     }
 
-    function doBookmarks() {
+    function doBookmarks(bookmark) {
       bookmarks={ 
         "adelaide": { x: 138.6217, y: -34.9491, z: 13 },
         "melbourne": { x: 144.95, y: -37.8, z: 11 },
         "manningham": { x: 145.15, y: -37.77, z: 13},
         "geelong": { x: 144.5, y: -38.15, z: 11}
       };
-      bookmark = window.location.href.match(/#([a-zA-Z0-9_-]+)/);
-      if (bookmark && bookmark[1] && (b = bookmarks[bookmark[1]])) {
+      if (!bookmark) {
+        var matches = window.location.href.match(/#([a-zA-Z0-9_-]+)/);
+        if (matches) {
+          bookmark = matches[1];
+        }
+
+      }
+      if (b = bookmarks[bookmark]) {
         map.setView(L.latLng(b.y,b.x), b.z);
       }
 
@@ -144,7 +150,7 @@
       });
 
       var osmtrees = L.tileLayer("http://guru.cycletour.org/tile/osmtrees/{z}/{x}/{y}.png" );
-      var interestingtrees = L.tileLayer("http://guru.cycletour.org/interesting/{z}/{x}/{y}.png?updated=4", {
+      var interestingtrees = L.tileLayer("http://guru.cycletour.org/interesting/{z}/{x}/{y}.png?updated=7", {
         detectRetina:true} );
 
       L.control.layers(
