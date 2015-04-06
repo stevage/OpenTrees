@@ -63,6 +63,7 @@ body,html { width: 100%; height: 100%; }
 #header {
   height:160px;
   font-family: lato, sans-serif;
+
 }
 #header h1 {
   font-family: lancelot, serif;
@@ -83,8 +84,15 @@ body,html { width: 100%; height: 100%; }
   margin-left:2em;
 }
 
-body { margin: 0;
+body { 
+  margin: 0;
   background: hsl(100,31%,70%);
+  /* http://subtlepatterns.com/tree-bark/ */
+  background-image: 
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNYfXr2bAAG4wKtJwTv8QAAAABJRU5ErkJggg==),
+    url('tree_bark/tree_bark.png'); /* http://px64.net/ */
+  /*background-color: green;*/
+  font-kerning: normal; /* Why isn't this on by default? The title "OpenTrees.org" looks pretty bad without it. */
 }
 a,a:hover,a:focus,a:visited {
   color: hsl(120,80%,25%);
