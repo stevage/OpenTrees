@@ -117,8 +117,8 @@
     var map;    
     $.getJSON(base + mapName + ".json", {}, function(tilejson) {
       //tilejson.grids[0] = "http://guru.cycletour.org/tile/supertrees/{z}/{x}/{y}.grid.json";
-      tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=6';
-      tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=6';
+      tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=7';
+      tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=7';
       tilejson.maxzoom = 22;
       tilejson.minzoom = 8;
       delete tilejson.bounds;
@@ -138,6 +138,10 @@
         { "collapsed": false, position: "bottomright" }
         ).addTo(map);
       map.setView(L.latLng(-38, 144), 9);
+      if (window.location.href.match("adelaide")) {
+        map.setView(L.latLng(-34.9491,138.6217), 13);
+      }
+
       map.gridLayer.on('click',function(e) { 
         // e.data has what we clicked on
         if (e.data && e.data.genus) {
@@ -175,4 +179,4 @@
       
   </script>
 </body>
-</html>
+</html>git p
