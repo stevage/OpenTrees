@@ -20,31 +20,41 @@
   <!-- favicon: made by http://www.flaticon.com/authors/freepik, CC-BY 3.0 -->
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="http://use.edgefonts.net/lancelot;neuton;lato.js"></script>
+
 
   <link href="https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css" rel="stylesheet" />
   <style>
-    #banner {
-      width:100%;
-      height:150px;
-    }
     body,html { width: 100%; height: 100%; }
     #map { 
       width: 100%;
       height: calc(100% - 160px);
+      border-top: 1px solid gray;
     }
     .map-tooltip {
       width: 260px;
       min-height:340px;
+      background:#eee;
+      border:1px solid #aaa;
     }
     .map-tooltip table {
       position:absolute;
       top:75px;
+      max-width: 245px;
     }
     .map-tooltip-content > b {
-      font-size: 160%;
+      font-size: 24px;
+      font-family: lancelot,"Helvetica Neue", Helvetica,Arial,sans-serif;
     }
     .map-tooltip-content > b i{
       display:block;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .map-tooltip-content th {
+      color: #555;
+      padding-right:8px;
     }
     #wikibox {
       position:absolute;
@@ -68,25 +78,61 @@
     #wikitext {
         border:1px solid gray;
     }
+    #wikitext h2 {
+      font-family:lancelot;
+      
+      font-weight:600;
+    }
+
     #wikibox img {
       width:300px;
     }
     #header {
       height:160px;
+      font-family: lato, sans-serif;
+    }
+    #header h1 {
+      font-family: lancelot, serif;
+      font-size:44px;
+      font-weight:600;
+      margin-top:12px;
+    }
+    .header-title {
+      color:hsl(120,60%,20%);
+      /*border-bottom: 1px solid gray;*/
     }
     body { margin: 0;
-      background: hsl(100,31%,67%);
+      background: hsl(100,31%,70%);
     }
+    a {
+      color: hsl(120,80%,25%);
+      font-weight: 600;
+    }
+    #logo {
+      background-image: url('tree65.svg');
+      background-size:contain;
+      background-repeat:no-repeat;
+      width:104px;
+      height:100px;
+      float:left;
+      margin: 18px 4px;
+    }
+
+        /*<div>Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>*/
+
   </style>
   <title>Trees map</title>
 </head>
 <body>
-  <div id="header" class="container">
+  <div class="container">
+  <div id="logo"></div>
+  <div id="header">
   <div class="a">
-    <h1>Opentrees.org – 373,678 open data trees</h1>
-    <p>Data published by the local government areas of Melbourne, <a href="#geelong" onclick="doBookmarks('geelong')">Greater Geelong</a>, Ballarat, Manningham, Wyndham, Colac-Otways, Corangamite and <a href="#adelaide" onclick="doBookmarks('adelaide')">Adelaide</a>, plus the Waite Arboretum. You can find the raw data on <a href="http://data.gov.au">data.gov.au</a>, <a href="http://data.melbourne.vic.gov.au">data.melbourne.vic.gov.au</a> and <a href="http://data.sa.gov.au">data.sa.gov.au</a>. To contribute, follow the standards at <a href="http://opencouncildata.org/">opencouncildata.org</a>. Click a tree for a Wikipedia image!</p>
+    <h1><span class="header-title">OpenTrees.org</span> &nbsp; <small>373,678 open data trees</small></h1>
+    <p>Tree data from Melbourne, <a href="#geelong" onclick="doBookmarks('geelong')">Greater Geelong</a>, Ballarat, Manningham, Wyndham, Colac-Otways, Corangamite and <a href="#adelaide" onclick="doBookmarks('adelaide')">Adelaide</a>, plus the Waite Arboretum. You can find the raw data on <a href="http://data.gov.au">data.gov.au</a>, <a href="http://data.melbourne.vic.gov.au">data.melbourne.vic.gov.au</a> and <a href="http://data.sa.gov.au">data.sa.gov.au</a>. To contribute, follow the standards at <a href="http://opencouncildata.org/">opencouncildata.org</a>. Click a tree for a Wikipedia image!</p>
     <small>Made by <a href="http://stevebennett.me">Steve Bennett</a> (<a href="stevage@gmail.com">email</a>, <a href="http://twitter.com/stevage1">Twitter</a>) for <a href="http://au.okfn.org/">Open Knowledge Australia</a>. <a href="https://github.com/okfnau/treesmap">Source code</a>.</small>
 
+  </div>
   </div>
   </div>
   <div id="map"></div>
