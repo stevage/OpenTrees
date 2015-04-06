@@ -94,6 +94,13 @@ UPDATE alltrees
 SET scientific='Cordyline',species=''
 WHERE scientific LIKE 'Cordyline cordyline';
 
+\echo "Blank out non-assessed crown widths."
+UPDATE alltrees
+SET crown=NULL
+WHERE crown ilike 'Not Assessed';
+
+-- TODO: handle all the dbh's that are ranges in mm.
+
 \echo Create indexes
 CREATE INDEX alltrees_species ON alltrees (genus,species);
 CREATE INDEX alltrees_source ON alltrees (source);
