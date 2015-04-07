@@ -93,11 +93,38 @@ UPDATE alltrees
 SET species='bucculenta', scientific='Hakea bucculenta'
 WHERE scientific='Hakea bacculenta'
 
+\echo "Fix Leptosprmum"
+UPDATE alltrees
+SET scientific='Leptospermum laevigatum',genus='Leptospermum'
+WHERE scientific LIKE 'Leptosprmum laevigatum';
+
+\echo "Fix Lophostermon"
+UPDATE alltrees
+SET scientific='Lophostemon confertus',genus='Lophostemon'
+WHERE scientific LIKE 'Lophostermon confertus';
+
+\echo "Fix Photina, Photinea"
+UPDATE alltrees
+SET scientific=concat('Photinia ', species),genus='Photinia'
+WHERE genus LIKE 'Photinea' OR genus LIKE 'Photina';
+
+\echo "Fix Poplus"
+UPDATE alltrees
+SET scientific=concat('Populus ', species),genus='Populus'
+WHERE genus LIKE 'Poplus';
+
+\echo "Fix Poplus"
+UPDATE alltrees
+SET scientific=concat('Populus ', species),genus='Populus'
+WHERE genus LIKE 'Poplus';
+
  --33 only
 \echo "Fix Cordylines"
 UPDATE alltrees
 SET scientific='Cordyline',species=''
 WHERE scientific LIKE 'Cordyline cordyline';
+
+
 
 \echo "Blank out non-assessed crown widths."
 UPDATE alltrees
