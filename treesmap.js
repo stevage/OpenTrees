@@ -10,7 +10,8 @@ function doBookmarks(bookmark) {
     "adelaide": { x: 138.6217, y: -34.9491, z: 13 },
     "melbourne": { x: 144.95, y: -37.8, z: 11 },
     "manningham": { x: 145.15, y: -37.77, z: 13},
-    "geelong": { x: 144.5, y: -38.15, z: 11}
+    "geelong": { x: 144.5, y: -38.15, z: 11},
+    "ballarat": { x: 143.83, y: -37.56, z: 12}
   };
   if (!bookmark) {
     var matches = window.location.href.match(/#([a-zA-Z0-9_-]+)/);
