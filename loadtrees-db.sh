@@ -43,5 +43,11 @@ showcount alltrees
 echo "Cleaning and processing merged trees."
 psql -d $DBNAME -f cleantrees.sql
 
+echo "Making species interestingness table."
+psql -d $DBNAME -f makespecies.sql
+
+echo "Dumping all data to disk and zipping as alltrees.tar.gz"
+psql -d $DBNAME -c "COPY alltrees to '`pwd`/alltrees.csv' DELIMITER ',' CSV HEADER;"
+tar -czvf alltrees.tar.gz alltrees.csv
 
 date
