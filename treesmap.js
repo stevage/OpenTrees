@@ -75,6 +75,8 @@ $.getJSON(base + mapName + ".json", {}, function(tilejson) {
         pages = wikijson.query.pages;
         page = pages[Object.keys(pages)[0]];
         if (page && page.thumbnail && page.thumbnail.source) {
+          // TODO: if there is no high res image available, then the call to thumb/600px- fails. Not easy to handle
+          // without making the failing call and then trying again.
           thumb = page.thumbnail.source.replace(/\/\d\dpx-/, L.Browser.retina ? '/600px-' : '/300px-');
           $("#wikiimg").html('<img src="' + thumb + '"/>');
           $("#wikiimg").append('<p><small><a href="https://en.wikipedia.org/wiki/File:' +page.pageimage + '">Source: Wikipedia. Click for attribution and licence.</a></small></p>');
