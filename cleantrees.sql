@@ -88,6 +88,11 @@ UPDATE alltrees
 SET genus='Quercus'
 WHERE genus='Qurecus';
 
+\echo "Fix bacculenta"
+UPDATE alltrees
+SET species='bucculenta', scientific='Hakea bucculenta'
+WHERE scientific='Hakea bacculenta'
+
  --33 only
 \echo "Fix Cordylines"
 UPDATE alltrees
