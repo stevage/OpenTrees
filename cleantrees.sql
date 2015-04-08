@@ -113,11 +113,6 @@ UPDATE alltrees
 SET scientific=concat('Populus ', species),genus='Populus'
 WHERE genus LIKE 'Poplus';
 
-\echo "Fix Poplus"
-UPDATE alltrees
-SET scientific=concat('Populus ', species),genus='Populus'
-WHERE genus LIKE 'Poplus';
-
  --33 only
 \echo "Fix Cordylines"
 UPDATE alltrees
