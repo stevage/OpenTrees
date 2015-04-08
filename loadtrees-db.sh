@@ -53,6 +53,7 @@ psql -d $DBNAME -c 'UPDATE alltrees SET lon=st_xmin(st_transform(the_geom,4674))
 echo "Dumping all data to disk and zipping as alltrees.tar.gz"
 psql -d $DBNAME -c "\copy alltrees to 'alltrees-tmp.csv' csv header"
 csvcut -C 3 < alltrees-tmp.csv > alltrees.csv
+rm alltrees-tmp.csv
 tar -czvf alltrees.tar.gz alltrees.csv
 
 date
