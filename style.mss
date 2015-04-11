@@ -34,26 +34,36 @@ Map {
   [zoom = 19] { marker-width: 12; marker-line-width: 7; }  
   [zoom >= 20] { marker-width: 14; marker-line-width: 8; }  
   marker-fill:hsl(110,80%, 30%);
-  marker-line-color:hsl(110,80%, 70%);
+  marker-line-color:hsl(110,80%, 75%);
   [zoom <= 12] { marker-line-opacity: 0.1; }
   [zoom = 13] { marker-line-opacity:0.2; }
   [zoom = 14] { marker-line-opacity:0.35; }
   [zoom >= 15] { marker-line-opacity:0.5; }
   marker-allow-overlap:true;
   marker-ignore-placement:true;
-  #trees[species=''] {
-    marker-line-color:hsl(120,60%,60%);
-    marker-fill:      hsl(120,60%,40%);
-  }
 
-  #trees[genus=''] {
-    marker-line-color:hsl(130,30%,60%);
-    marker-fill:      hsl(130,30%,40%);
-  }
-  #trees[health='Dead'], #trees[description='Stump'] {
-    marker-line-color:darkgray;
-    marker-fill:black;
-  }
+}
+
+#trees[count < 25] { 
+  marker-line-color: orange;/*hsl(210,80%,70%);*/ 
+}
+#trees[count < 5] { 
+  marker-line-color: red; 
+}
+
+
+#trees[species=''] {
+  marker-line-color:hsl(120,60%,60%);
+  marker-fill:      hsl(120,60%,40%);
+}
+
+#trees[genus=''] {
+  marker-line-color:hsl(130,30%,60%);
+  marker-fill:      hsl(130,30%,40%);
+}
+#trees[health='Dead'], #trees[description='Stump'] {
+  marker-line-color:darkgray;
+  marker-fill:black;
 }
 
 
@@ -61,6 +71,14 @@ Map {
 #roads[zoom >= 14] {
   line-color:lightgrey;
   line-width:0.5;
+}
+#roads[zoom >= 15][highway != 'residential'][highway != 'service'],
+#roads[zoom >= 16]{ 
+  text-name:[name];
+  text-face-name:'DejaVu Sans Book';
+  text-placement:line;
+  text-fill:grey;
+  text-opacity:0.5;
 }
 
 #roads[highway = 'motorway'] {
@@ -118,7 +136,7 @@ Map {
   text-name:[LGA_NAME11];
   text-face-name:'Roboto Condensed Light';
   text-size: 14;
-  text-fill: grey;
+  text-fill: hsl(20,70%,40%);
   text-allow-overlap:true;
   text-opacity:0.8;
   [zoom >= 11] { text-opacity:0.5; }
@@ -127,16 +145,8 @@ Map {
   text-wrap-width:50;
   text-wrap-before:true;
   text-placement:interior;
-  line-color:hsl(30,10%,60%);
+  line-color:hsl(20,70%,60%);
   line-width:0.5;
   line-opacity:0.5;
 
 }
-
-#waite {
-  line-color:hsl(110,50%,10%);
-  line-width:0.5;
-  polygon-opacity:1;
-  polygon-fill:hsl(110,50%,40%);
-}
-
