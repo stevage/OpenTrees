@@ -5,25 +5,30 @@ function toSpeciesCase(str) {
   return str.toLowerCase().replace(/^w\w/, function (txt) { return txt.toUpperCase(); });
 }
 
-function doBookmarks(bookmark) {
+function bookmark(bm) {
   bookmarks={ 
     "adelaide": { x: 138.6217, y: -34.9491, z: 13 },
     "melbourne": { x: 144.95, y: -37.8, z: 11 },
     "manningham": { x: 145.15, y: -37.77, z: 13},
     "geelong": { x: 144.5, y: -38.15, z: 11},
-    "ballarat": { x: 143.83, y: -37.56, z: 12}
-  };
-  if (!bookmark) {
-    var matches = window.location.href.match(/#([a-zA-Z0-9_-]+)/);
-    if (matches) {
-      bookmark = matches[1];
-    }
+    "ballarat": { x: 143.83, y: -37.56, z: 12},
+    "colac-otways": { x: 143.61, y: -38.4, z: 10},
+    "corangamite": { x: 143.1, y: -38.3, z: 10},
+    "waite": { x: 138.63, y: -34.97, z: 16 },
+    "wyndham": { x: 144.62, y: -37.92, z: 12 }
 
-  }
-  if (b = bookmarks[bookmark]) {
+  };
+  if (b = bookmarks[bm]) {
     map.setView(L.latLng(b.y,b.x), b.z);
   }
+}
 
+function doBookmarks() {
+    var matches = window.location.href.match(/#([a-zA-Z0-9_-]+)/);
+    if (matches) {
+      bookmark(matches[1]);
+    }
+  
 }
 
 if (window.location.href.match("embed")) {
@@ -40,8 +45,8 @@ var base = "http://guru.cycletour.org/tilelive/",
 var map;    
 $.getJSON(base + mapName + ".json", {}, function(tilejson) {
   //tilejson.grids[0] = "http://guru.cycletour.org/tile/supertrees/{z}/{x}/{y}.grid.json";
-  tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=7';
-  tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=7';
+  tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=8';
+  tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=8';
   tilejson.maxzoom = 22;
   tilejson.minzoom = 8;
   delete tilejson.bounds;
