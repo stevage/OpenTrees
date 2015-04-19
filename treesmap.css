@@ -104,11 +104,23 @@ a,a:hover,a:focus,a:visited {
   background-image: url('tree65.svg');
   background-size:contain;
   background-repeat:no-repeat;
-  width:104px;
-  height:100px;
+  width:100px;
+  height:120px;
   float:left;
-  margin: 18px 4px;
+  margin: 18px 6px;
 }
 
 /*<div>Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>*/
 
+.ocdlogo {
+    background-image:url('http://opencouncildata.org/powered_by_opencouncildata.png');
+    width:100px;
+    height:23px;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    vertical-align:bottom;
+    margin-top:2px;
+    top:123px;
+    position:absolute;
+}
