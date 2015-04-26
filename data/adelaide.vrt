@@ -1,0 +1,8 @@
+<OGRVRTDataSource>
+    <OGRVRTLayer name="adelaide">
+        <SrcDataSource>adelaide.csv</SrcDataSource>
+        <GeometryType>wkbPoint</GeometryType>
+        <LayerSRS>EPSG:28354</LayerSRS>
+        <GeometryField encoding="PointFromColumns" x="Easting (Location/Map Coordinates)" y="Northing (Location/Map Coordinates)"/>
+    </OGRVRTLayer>
+</OGRVRTDataSource>
