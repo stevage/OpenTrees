@@ -1,6 +1,6 @@
 DBNAME=trees
 TABLE=trees
-export function showcount() {
+function showcount() {
   t=$TABLE
   total=" in total."
   if [[ -n "$1" ]]; then

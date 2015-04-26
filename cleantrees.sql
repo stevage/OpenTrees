@@ -91,7 +91,7 @@ WHERE genus='Qurecus';
 \echo "Fix bacculenta"
 UPDATE alltrees
 SET species='bucculenta', scientific='Hakea bucculenta'
-WHERE scientific='Hakea bacculenta'
+WHERE scientific='Hakea bacculenta';
 
 \echo "Fix Leptosprmum"
 UPDATE alltrees
