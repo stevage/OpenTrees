@@ -1,8 +1,14 @@
 # opentrees.org
 
-This repository contains mostly scripts to fetch trees datasets for various councils in Victoria and load it into a database. 
+This repository contains scripts to fetch trees datasets for various councils in Victoria and load it into a database. It also contains a simple static website with a map of all the trees. This requires TileMill running server-side.
 
 The source code for the webpage at http://opentrees.org is also here.
+
+## Dependencies
+
+sudo apt-get install -y wget gdal-bin jq
+
+## How to use
 
 1. gettrees.sh: download a number of individual datasets
 2. loadtrees-db.sh: load each dataset into its own PostGIS table
@@ -10,6 +16,6 @@ The source code for the webpage at http://opentrees.org is also here.
 4. cleantrees.sql: fix up all kinds of data errors
 
 ## Author
-All code (so far) written by Steve Bennett (stevage@gmail.com, stevebennett.me)
+All code (so far) written by Steve Bennett (stevage@gmail.com, stevebennett.me, @stevage1)
 
 All code released under Creative Commons Attribution (CC-BY 3.0 AU)

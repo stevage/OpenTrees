@@ -26,6 +26,7 @@ CREATE TABLE alltrees
   lat character varying,
   lon character varying,
   source character varying,
+  surveytype character varying,
   CONSTRAINT alltrees_pkey PRIMARY KEY (gid)
 )
 ;
@@ -130,3 +131,27 @@ FROM waite;
 
 -- not used: grid, distrib, nrbtrees, nrbt_point, nattrustli, nt_num, habitat
 
+-- Should do something with SURVEYTYPE: Quadrat, Species List for Defined Area, Specimen, General observations, Incidental
+\echo "VicGov VBA Flora100"
+INSERT INTO alltrees (the_geom, source, ref, scientific, common, captured, description, surveytype)
+SELECT the_geom,
+'vba flora 100',
+RECORD_ID AS ref,
+SCI_NAME AS scientific,
+COMM_NAME AS common,
+to_date(STARTDATE::varchar, 'YYYYMMDD') AS captured, -- I have no idea what this date represents, goes back to 1700.
+concat(coalesce(VIC_LF,''), ' (', SURVEYTYPE, ')') AS description, -- more we could jam in here
+SURVEYTYPE AS surveytype
+FROM flora100;
+
+\echo "VicGov VBA Flora25"
+INSERT INTO alltrees (the_geom, source, ref, scientific, common, captured, description, surveytype)
+SELECT the_geom,
+'vba flora 25',
+RECORD_ID AS ref,
+SCI_NAME AS scientific,
+COMM_NAME AS common,
+to_date(STARTDATE::varchar, 'YYYYMMDD') AS captured,
+concat(coalesce(VIC_LF,''), ' (', SURVEYTYPE, ')') AS description,
+SURVEYTYPE AS surveytype
+FROM flora25;
