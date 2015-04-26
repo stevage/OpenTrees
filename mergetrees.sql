@@ -52,9 +52,9 @@ INSERT INTO alltrees (the_geom, ref, height, crown, scientific, common, location
 SELECT the_geom,
 id AS ref,
 height AS height,
-crownwidth AS crown,
-bot_name AS scientific,
-com_name AS common,
+width AS crown,
+species AS scientific,
+name AS common,
 CASE when tree_type like 'STREET TREE' THEN 'street' when tree_type like 'PARK TREE' then 'park' else '' end AS location,
 'corangamite' AS source
 FROM corangamite;
@@ -130,7 +130,7 @@ CASE WHEN length(yearplant::varchar) = 4 THEN to_date(yearplant::varchar, 'YYYY'
 FROM waite;
 
 -- not used: grid, distrib, nrbtrees, nrbt_point, nattrustli, nt_num, habitat
-
+\q
 -- Should do something with SURVEYTYPE: Quadrat, Species List for Defined Area, Specimen, General observations, Incidental
 \echo "VicGov VBA Flora100"
 INSERT INTO alltrees (the_geom, source, ref, scientific, common, captured, description, surveytype)
