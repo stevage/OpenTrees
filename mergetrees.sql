@@ -129,6 +129,18 @@ commonname,
 CASE WHEN length(yearplant::varchar) = 4 THEN to_date(yearplant::varchar, 'YYYY') END AS planted
 FROM waite;
 
+\echo "Burnside (Adelaide)"
+INSERT INTO alltrees(the_geom, source, ref, common, maturity, height)
+-- also circumfere
+SELECT the_geom, 
+'Burnside', 
+id, 
+commonname,
+treeage,
+treeheight
+FROM burnside;
+
+
 -- not used: grid, distrib, nrbtrees, nrbt_point, nattrustli, nt_num, habitat
 \q
 -- Should do something with SURVEYTYPE: Quadrat, Species List for Defined Area, Specimen, General observations, Incidental

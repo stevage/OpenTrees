@@ -15,8 +15,8 @@ function bookmark(bm) {
     "colac-otways": { x: 143.61, y: -38.4, z: 10},
     "corangamite": { x: 143.1, y: -38.3, z: 10},
     "waite": { x: 138.63, y: -34.97, z: 16 },
-    "wyndham": { x: 144.62, y: -37.92, z: 12 }
-
+    "wyndham": { x: 144.62, y: -37.92, z: 12 },
+    "burnside": { x: 138.6, y: -34.94, z: 14 }
   };
   if (b = bookmarks[bm]) {
     map.setView(L.latLng(b.y,b.x), b.z);
@@ -31,6 +31,41 @@ function doBookmarks() {
   
 }
 
+function clickGrid(e) { 
+  if (!e.data || !e.data.genus)
+    return;
+  var wikiapi = 'http://en.wikipedia.org/w/api.php?action=query&format=json';
+  var textapi = wikiapi + '&prop=extracts&redirects&titles=';
+  var imageapi = wikiapi + '&prop=pageimages&redirects&titles=';
+  var species = toSpeciesCase(e.data.genus + (e.data.species ? " " + e.data.species : ""));
+
+  console.log('Searching Wikipedia for: ' + species);
+  $.ajax(imageapi + encodeURIComponent(species), { dataType: 'jsonp', success: function(wikijson) {
+    pages = wikijson.query.pages;
+    page = pages[Object.keys(pages)[0]];
+    if (page && page.thumbnail && page.thumbnail.source) {
+      // TODO: if there is no high res image available, then the call to thumb/600px- fails. Not easy to handle
+      // without making the failing call and then trying again.
+      thumb = page.thumbnail.source.replace(/\/\d\dpx-/, L.Browser.retina ? '/600px-' : '/300px-');
+      $("#wikiimg").html('<img src="' + thumb + '"/>');
+      $("#wikiimg").append('<p><small><a href="https://en.wikipedia.org/wiki/File:' +page.pageimage + '">Source: Wikipedia. Click for attribution and licence.</a></small></p>');
+    }
+  }});
+  $.ajax(textapi + encodeURIComponent(species), { dataType: 'jsonp', success: function(wikijson) {
+    pages = wikijson.query.pages;
+    page = pages[Object.keys(pages)[0]];
+    if (page && page.extract) {
+      $("#wikitext").html(page.extract +
+        '<p><small>Source: <a href="http://en.wikipedia.org/wiki/' + encodeURIComponent(page.title) + '">Wikipedia</a></small></p>');
+      $("#wikitext").show();
+    } else {
+      // not found
+      $("#wikiimg").html('');
+      $("#wikitext").html('Nothing on Wikipedia.');
+    }
+  }});
+}
+
 if (window.location.href.match("embed")) {
   // cut down some chrome for embedding
   $("#header").hide();
@@ -40,7 +75,7 @@ if (window.location.href.match("embed")) {
 
 
 var base = "http://guru.cycletour.org/tilelive/",
-    mapName = "supertrees_f882c6";
+    mapName = "supertrees_f59571";
     
 var map;    
 $.getJSON(base + mapName + ".json", {}, function(tilejson) {
@@ -68,39 +103,5 @@ $.getJSON(base + mapName + ".json", {}, function(tilejson) {
   map.setView(L.latLng(-38, 144), 9);
   doBookmarks();
 
-  map.gridLayer.on('click',function(e) { 
-    // e.data has what we clicked on
-    if (e.data && e.data.genus) {
-      var wikiapi = 'http://en.wikipedia.org/w/api.php?action=query&format=json';
-      var textapi = wikiapi + '&prop=extracts&redirects&titles=';
-      var imageapi = wikiapi + '&prop=pageimages&redirects&titles=';
-      var species = toSpeciesCase(e.data.genus + (e.data.species ? " " + e.data.species : ""));
-      console.log('Searching Wikipedia for: ' + species);
-      $.ajax(imageapi + encodeURIComponent(species), { dataType: 'jsonp', success: function(wikijson) {
-        pages = wikijson.query.pages;
-        page = pages[Object.keys(pages)[0]];
-        if (page && page.thumbnail && page.thumbnail.source) {
-          // TODO: if there is no high res image available, then the call to thumb/600px- fails. Not easy to handle
-          // without making the failing call and then trying again.
-          thumb = page.thumbnail.source.replace(/\/\d\dpx-/, L.Browser.retina ? '/600px-' : '/300px-');
-          $("#wikiimg").html('<img src="' + thumb + '"/>');
-          $("#wikiimg").append('<p><small><a href="https://en.wikipedia.org/wiki/File:' +page.pageimage + '">Source: Wikipedia. Click for attribution and licence.</a></small></p>');
-        }
-      }});
-      $.ajax(textapi + encodeURIComponent(species), { dataType: 'jsonp', success: function(wikijson) {
-        pages = wikijson.query.pages;
-        page = pages[Object.keys(pages)[0]];
-        if (page && page.extract) {
-          $("#wikitext").html(page.extract +
-            '<p><small>Source: <a href="http://en.wikipedia.org/wiki/' + encodeURIComponent(page.title) + '">Wikipedia</a></small></p>');
-          $("#wikitext").show();
-        } else {
-          // not found
-          $("#wikiimg").html('');
-          $("#wikitext").html('Nothing on Wikipedia.');
-        }
-      }});
-      
-    }
-  });
+  map.gridLayer.on('click', clickGrid);
 });
