@@ -18,7 +18,7 @@ function bookmark(bm) {
     "corangamite": { x: 143.1, y: -38.3, z: 10},
     "waite": { x: 138.63, y: -34.97, z: 16 },
     "wyndham": { x: 144.62, y: -37.92, z: 12 },
-    "burnside": { x: 138.6, y: -34.94, z: 14 }
+    "burnside": { x: 138.65, y: -34.94, z: 13 }
   };
   if (b = bookmarks[bm]) {
     map.setView(L.latLng(b.y,b.x), b.z);
