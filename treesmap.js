@@ -77,15 +77,20 @@ function clickGrid(e) {
   if (d.source && d.ref) {
     window.location.hash = d.source + '-' + d.ref;
   } 
-  if (!e.data.genus)
+  var searchterm;
+  if (e.data.genus) {
+      searchterm = toSpeciesCase(e.data.genus + (e.data.species ? " " + e.data.species : ""));
+  } else if (e.data.common) {
+    searchterm = e.data.common;
+  } else {
     return;
+  }
   var wikiapi = 'http://en.wikipedia.org/w/api.php?action=query&format=json';
   var textapi = wikiapi + '&prop=extracts&redirects&titles=';
   var imageapi = wikiapi + '&prop=pageimages&redirects&titles=';
-  var species = toSpeciesCase(e.data.genus + (e.data.species ? " " + e.data.species : ""));
 
-  console.log('Searching Wikipedia for: ' + species);
-  $.ajax(imageapi + encodeURIComponent(species), { dataType: 'jsonp', success: function(wikijson) {
+  console.log('Searching Wikipedia for: ' + searchterm);
+  $.ajax(imageapi + encodeURIComponent(searchterm), { dataType: 'jsonp', success: function(wikijson) {
     pages = wikijson.query.pages;
     page = pages[Object.keys(pages)[0]];
     if (page && page.thumbnail && page.thumbnail.source) {
@@ -96,7 +101,7 @@ function clickGrid(e) {
       $("#wikiimg").append('<p><small><a href="https://en.wikipedia.org/wiki/File:' +page.pageimage + '">Source: Wikipedia. Click for attribution and licence.</a></small></p>');
     }
   }});
-  $.ajax(textapi + encodeURIComponent(species), { dataType: 'jsonp', success: function(wikijson) {
+  $.ajax(textapi + encodeURIComponent(searchterm), { dataType: 'jsonp', success: function(wikijson) {
     pages = wikijson.query.pages;
     page = pages[Object.keys(pages)[0]];
     if (page && page.extract) {
