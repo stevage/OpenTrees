@@ -52,10 +52,12 @@ function doBookmarks() {
 
 function clickGrid(e) {
   var d = e.data;
+  if (!d)
+    return;
   if (d.source && d.ref) {
     window.location.hash = d.source + '-' + d.ref;
   } 
-  if (!e.data || !e.data.genus)
+  if (!e.data.genus)
     return;
   var wikiapi = 'http://en.wikipedia.org/w/api.php?action=query&format=json';
   var textapi = wikiapi + '&prop=extracts&redirects&titles=';
