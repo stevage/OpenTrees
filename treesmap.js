@@ -5,6 +5,8 @@ function toSpeciesCase(str) {
   return str.toLowerCase().replace(/^w\w/, function (txt) { return txt.toUpperCase(); });
 }
 
+var hasBookmark=false;
+
 function bookmark(bm) {
   bookmarks={ 
     "adelaide": { x: 138.6217, y: -34.9491, z: 13 },
@@ -20,9 +22,9 @@ function bookmark(bm) {
   };
   if (b = bookmarks[bm]) {
     map.setView(L.latLng(b.y,b.x), b.z);
+    hasBookmark=true;
   }
 }
-
 function doBookmarks() {
     var matches = window.location.href.match(/#([a-z_-]+-[0-9]+)/);
     if (matches) {
@@ -33,10 +35,13 @@ function doBookmarks() {
           tree.genus + ' ' + tree.species
 
           map.setView(L.latLng(tree.lat,tree.lon), 16);
-          L.marker([tree.lat, tree.lon]).addTo(map)
+          var icon = L.MakiMarkers.icon({icon: "park2", color: "#5c2", size: "l"});
+
+          L.marker([tree.lat, tree.lon], {icon: icon, opacity:0.8}).addTo(map)
           .bindPopup(text)
           .openPopup();
           clickGrid({data: tree});
+          hasBookmark=true;
         });
       });
       return;
@@ -46,8 +51,23 @@ function doBookmarks() {
     matches = window.location.href.match(/#([a-zA-Z0-9_-]+)/);
     if (matches) {
       bookmark(matches[1]);
+      return;
     }
+    // 
   
+}
+var hereMarker;
+function onLocationFound(e) {
+
+  var icon = L.MakiMarkers.icon({icon: "star", color: "#cc2", size: "m"});
+  hereMarker = L.marker(e.latlng, {icon: icon})
+    .addTo(map)
+    .bindPopup('<h3>You are here!</h3>' + 
+      '<a href="javascript:map.removeLayer(hereMarker);">Hide this</a>');
+  if (!hasBookmark) {
+    map.setView(e.latlng, 14);
+  }
+
 }
 
 function clickGrid(e) {
@@ -129,4 +149,6 @@ $.getJSON(base + mapName + ".json", {}, function(tilejson) {
   doBookmarks();
 
   map.gridLayer.on('click', clickGrid);
+  map.on('locationfound', onLocationFound);
+  map.locate();
 });
