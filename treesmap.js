@@ -24,14 +24,37 @@ function bookmark(bm) {
 }
 
 function doBookmarks() {
-    var matches = window.location.href.match(/#([a-zA-Z0-9_-]+)/);
+    var matches = window.location.href.match(/#([a-z_-]+-[0-9]+)/);
+    if (matches) {
+      $.getJSON('http://www.opentrees.org:3000/trees?uniqueref=eq.' + matches[1], function(j) {
+        // sometimes unique references aren't unique (eg, manningham-20171)
+        j.forEach(function(tree) {
+          var text = '<h2>' + tree.uniqueref + '</h2>' + 
+          tree.genus + ' ' + tree.species
+
+          map.setView(L.latLng(tree.lat,tree.lon), 16);
+          L.marker([tree.lat, tree.lon]).addTo(map)
+          .bindPopup(text)
+          .openPopup();
+          clickGrid({data: tree});
+        });
+      });
+      return;
+    }
+
+
+    matches = window.location.href.match(/#([a-zA-Z0-9_-]+)/);
     if (matches) {
       bookmark(matches[1]);
     }
   
 }
 
-function clickGrid(e) { 
+function clickGrid(e) {
+  var d = e.data;
+  if (d.source && d.ref) {
+    window.location.hash = d.source + '-' + d.ref;
+  } 
   if (!e.data || !e.data.genus)
     return;
   var wikiapi = 'http://en.wikipedia.org/w/api.php?action=query&format=json';
