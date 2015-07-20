@@ -37,7 +37,10 @@ function doBookmarks() {
           map.setView(L.latLng(tree.lat,tree.lon), 16);
           var icon = L.MakiMarkers.icon({icon: "park2", color: "#5c2", size: "l"});
 
-          L.marker([tree.lat, tree.lon], {icon: icon, opacity:0.8}).addTo(map)
+          L.marker([tree.lat, tree.lon], {
+            icon: icon, 
+            opacity:0.8
+          }).addTo(map)
           .bindPopup(text)
           .openPopup();
           clickGrid({data: tree});
@@ -56,6 +59,31 @@ function doBookmarks() {
     // 
   
 }
+var similarTrees=[];
+function findSimilar(genus, species) {
+  while (similarTrees.length) {
+    map.removeLayer(similarTrees.pop());
+  }
+  $.getJSON('http://www.opentrees.org:3000/specieslatlon?species=ilike.' + species + '&genus=ilike.' + genus, function(j) {
+      j.forEach(function(tree) {
+        var text = '<h2>' +
+        tree.genus + ' ' + tree.species
+        + '</h2>'
+
+        var icon = L.MakiMarkers.icon({icon: "park2", color: "#4ad", size: "s"});
+
+        var m = L.marker([tree.lat, tree.lon], {
+          icon: icon, 
+          opacity:0.6,
+          bounceOnAdd: true
+        })
+          .addTo(map)
+          .bindPopup(text);
+        similarTrees.push(m);
+      });
+  });
+}
+
 var hereMarker;
 function onLocationFound(e) {
 
@@ -64,7 +92,7 @@ function onLocationFound(e) {
     .addTo(map)
     .bindPopup('<h3>You are here!</h3>' + 
       '<a href="javascript:map.removeLayer(hereMarker);">Hide this</a>');
-  if (!hasBookmark) {
+  if (!hasBookmark && !isEmbedded) {
     map.setView(e.latlng, 14);
   }
 
@@ -114,13 +142,17 @@ function clickGrid(e) {
       $("#wikitext").html('Nothing on Wikipedia.');
     }
   }});
+  if (e.data.count < 100000) /* 1000 good */ {
+    findSimilar(e.data.genus , e.data.species);
+  }
 }
-
+var isEmbedded=false;
 if (window.location.href.match("embed")) {
   // cut down some chrome for embedding
   $("#header").hide();
   $("#logo").hide();
   $("#map").css("height","100%");
+  isEmbedded = true;
 }
 
 
