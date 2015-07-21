@@ -177,7 +177,9 @@ $.getJSON(base + mapName + ".json", {}, function(tilejson) {
   tilejson.minzoom = 8;
 
   var teaser = tilejson.template.match(/{{#__teaser__}}([^]*){{\/__teaser__}}/m)[1];
-  tilejson.template = tilejson.template.replace('{{#__full__}}{{/__full__}}', '{{#__full__}}' + teaser + '{{/__full__}}');
+  tilejson.template = tilejson.template.replace('{{#__full__}}{{/__full__}}', '{{#__full__}}' + teaser + 
+    '<p class="pinned-label">Pinned - click anywhere to unpin.</p>' + 
+    '{{/__full__}}');
 
   delete tilejson.bounds;
 

@@ -129,3 +129,8 @@ a,a:hover,a:focus,a:visited {
     top:123px;
     position:absolute;
 }
+
+.pinned-label {
+  position:absolute;
+  bottom:0.5em;
+}
