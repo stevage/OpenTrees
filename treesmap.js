@@ -45,6 +45,12 @@ function doBookmarks() {
           .openPopup();
           clickGrid({data: tree});
           hasBookmark=true;
+
+          // trigger display of tree information
+          treegrid._move({latlng: L.latLng(tree.lat, tree.lon)});
+          
+          //treegrid._moveentd({latlng: L.latLng(tree.lat, tree.lon)});
+
         });
       });
       return;
@@ -75,7 +81,9 @@ function findSimilar(genus, species) {
         var m = L.marker([tree.lat, tree.lon], {
           icon: icon, 
           opacity:0.6,
-          bounceOnAdd: true
+          bounceOnAdd: true,
+          bounceOnAddDuration: 2000 + Math.random()*2000,
+          bounceOnAddHeight: 200 + Math.random() * 50
         })
           .addTo(map)
           .bindPopup(text);
@@ -142,7 +150,7 @@ function clickGrid(e) {
       $("#wikitext").html('Nothing on Wikipedia.');
     }
   }});
-  if (e.data.count < 100000) /* 1000 good */ {
+  if (e.data.count < 1000) /* 1000 good */ {
     findSimilar(e.data.genus , e.data.species);
   }
 }
@@ -160,19 +168,26 @@ var base = "http://guru.cycletour.org/tilelive/",
     mapName = "supertrees_f59571";
     
 var map;    
+var treegrid;
 $.getJSON(base + mapName + ".json", {}, function(tilejson) {
   //tilejson.grids[0] = "http://guru.cycletour.org/tile/supertrees/{z}/{x}/{y}.grid.json";
   tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=8';
   tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=8';
   tilejson.maxzoom = 22;
   tilejson.minzoom = 8;
+
+  var teaser = tilejson.template.match(/{{#__teaser__}}([^]*){{\/__teaser__}}/m)[1];
+  tilejson.template = tilejson.template.replace('{{#__full__}}{{/__full__}}', '{{#__full__}}' + teaser + '{{/__full__}}');
+
   delete tilejson.bounds;
 
-  var treegrid = L.mapbox.gridLayer(tilejson);
   map = L.mapbox.map ('map', tilejson, {
     zoom: 12,
     tileLayer: { detectRetina: true }
   });
+  treegrid = map.gridLayer;
+  treegrid.on('click', clickGrid);
+
 
   var osmtrees = L.tileLayer("http://guru.cycletour.org/tile/osmtrees/{z}/{x}/{y}.png" );
   var interestingtrees = L.tileLayer("http://guru.cycletour.org/interesting/{z}/{x}/{y}.png?updated=7", {
@@ -185,7 +200,6 @@ $.getJSON(base + mapName + ".json", {}, function(tilejson) {
   map.setView(L.latLng(-38, 144), 9);
   doBookmarks();
 
-  map.gridLayer.on('click', clickGrid);
   map.on('locationfound', onLocationFound);
   map.locate();
 });
