@@ -1,4 +1,6 @@
-﻿DROP TABLE alltrees;
+﻿DROP VIEW "1".trees;
+DROP VIEW "1".specieslatlon;
+DROP TABLE alltrees;
 CREATE TABLE alltrees
 (
   gid serial NOT NULL,
@@ -140,7 +142,21 @@ treeage,
 treeheight
 FROM burnside;
 
-
+\echo "Launceston"
+INSERT INTO alltrees(the_geom, source, ref, common, scientific, maturity, planted, dbh, height, crown, health, captured)
+SELECT the_geom,
+'Launceston',
+objectid,
+name,
+genusspeci,
+age,
+case when planteddat = '0' then NULL else planteddat::date end,
+diameter_c,-- centimetres, I guess
+height_m,
+horizontal,
+vitality,
+auditdate::date --lasteditda
+FROM launceston;
 -- not used: grid, distrib, nrbtrees, nrbt_point, nattrustli, nt_num, habitat
 \q
 -- Should do something with SURVEYTYPE: Quadrat, Species List for Defined Area, Specimen, General observations, Incidental

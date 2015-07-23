@@ -54,5 +54,11 @@
         "id": "burnside",
         "download": "https://data.sa.gov.au/data/dataset/b7e1c8f6-169c-41bd-b5d7-140395a41c38/resource/6d1912aa-4775-4f5e-b00d-18456ad872a5/download/burnsidetrees.geojson",
         "format": "geojson"
+    },
+    {
+        "id": "launceston",
+        "download": "http://lcc.launceston.opendata.arcgis.com/datasets/63b09a3688804a17b0edc4b3b072a0d7_1.zip",
+        "format": "zip",
+        "filename": "Trees.shp"
     }
 ]

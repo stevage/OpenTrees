@@ -37,7 +37,8 @@ SET species=''
 WHERE lower(trim(species)) LIKE 'sp.' 
    OR lower(trim(species)) LIKE 'sp'
    OR lower(trim(species)) LIKE 'spp'
-   OR lower(trim(species)) LIKE 'spp.';
+   OR lower(trim(species)) LIKE 'spp.'
+   OR lower(trim(species)) LIKE 'species';
 
 \echo "Handle 'cultivar'"
 UPDATE alltrees
