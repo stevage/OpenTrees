@@ -60,5 +60,11 @@
         "download": "http://lcc.launceston.opendata.arcgis.com/datasets/63b09a3688804a17b0edc4b3b072a0d7_1.zip",
         "format": "zip",
         "filename": "Trees.shp"
-    }
+    },
+   {
+        "id": "hobsons_bay",
+        "download": "http://data.gov.au/dataset/d704b913-3986-40c5-9bc9-595e29ba43c6/resource/42720d14-cc6e-4a90-a1bd-123ed449d449/download/20150807.2---Trees.csv",
+        "format": "csv",
+        "filename": "hobsons_bay.vrt"
+    }    
 ]

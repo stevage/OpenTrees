@@ -19,7 +19,8 @@ function bookmark(bm) {
     "waite": { x: 138.63, y: -34.97, z: 16 },
     "wyndham": { x: 144.62, y: -37.92, z: 12 },
     "burnside": { x: 138.65, y: -34.94, z: 13 },
-    "launceston": { x: 147.1471, y: -41.4477, z: 13 }
+    "launceston": { x: 147.1471, y: -41.4477, z: 13 },
+    "hobsons_bay": { y: -37.8609, x: 144.8674, z: 12 }
   };
   if (b = bookmarks[bm]) {
     map.setView(L.latLng(b.y,b.x), b.z);

@@ -157,6 +157,17 @@ horizontal,
 vitality,
 auditdate::date --lasteditda
 FROM launceston;
+
+\echo "Hobsons Bay"
+INSERT INTO alltrees(the_geom, source, genus, species, dbh, tree_type)
+SELECT the_geom,
+'Hobsons Bay',
+Genus,
+Species,
+DBH,
+Type
+FROM hobsons_bay;
+
 -- not used: grid, distrib, nrbtrees, nrbt_point, nattrustli, nt_num, habitat
 \q
 -- Should do something with SURVEYTYPE: Quadrat, Species List for Defined Area, Specimen, General observations, Incidental
