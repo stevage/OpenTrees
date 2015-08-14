@@ -167,7 +167,7 @@ if (window.location.href.match("embed")) {
 
 
 var base = "http://guru.cycletour.org/tilelive/",
-    mapName = "supertrees_f59571";
+    mapName = "supertrees_2d8e02"; // also need to update /etc/nginx/sites-enabled/default
     
 var map;    
 var treegrid;
