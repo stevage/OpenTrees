@@ -18,7 +18,9 @@ function bookmark(bm) {
     "corangamite": { x: 143.1, y: -38.3, z: 10},
     "waite": { x: 138.63, y: -34.97, z: 16 },
     "wyndham": { x: 144.62, y: -37.92, z: 12 },
-    "burnside": { x: 138.65, y: -34.94, z: 13 }
+    "burnside": { x: 138.65, y: -34.94, z: 13 },
+    "launceston": { x: 147.1471, y: -41.4477, z: 13 },
+    "hobsons_bay": { y: -37.8609, x: 144.8674, z: 12 }
   };
   if (b = bookmarks[bm]) {
     map.setView(L.latLng(b.y,b.x), b.z);
@@ -165,14 +167,14 @@ if (window.location.href.match("embed")) {
 
 
 var base = "http://guru.cycletour.org/tilelive/",
-    mapName = "supertrees_f59571";
+    mapName = "supertrees_2d8e02";
     
 var map;    
 var treegrid;
 $.getJSON(base + mapName + ".json", {}, function(tilejson) {
   //tilejson.grids[0] = "http://guru.cycletour.org/tile/supertrees/{z}/{x}/{y}.grid.json";
-  tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=8';
-  tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=8';
+  tilejson.grids[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.grid.json?updated=10';
+  tilejson.tiles[0] = 'http://guru.cycletour.org/treetiles/{z}/{x}/{y}.png?updated=10';
   tilejson.maxzoom = 22;
   tilejson.minzoom = 8;
 
