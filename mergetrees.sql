@@ -168,6 +168,14 @@ DBH,
 Type
 FROM hobsons_bay;
 
+\echo "Glenelg"
+INSERT INTO 
+ alltrees(the_geom, source, ref,         name, genus, species, dbh, year_min, year_max, common, height, address, crown, age)
+SELECT the_geom, 'Glenelg', description, name, genus, species, dbh, year_min, year_max, common, height, address, crown, age
+FROM glenelg;
+
+
+
 -- not used: grid, distrib, nrbtrees, nrbt_point, nattrustli, nt_num, habitat
 \q
 -- Should do something with SURVEYTYPE: Quadrat, Species List for Defined Area, Specimen, General observations, Incidental
