@@ -21,7 +21,7 @@ function bookmark(bm) {
     "burnside": { x: 138.65, y: -34.94, z: 13 },
     "launceston": { x: 147.1471, y: -41.4477, z: 13 },
     "hobsons_bay": { y: -37.8609, x: 144.8674, z: 12 },
-    "glenelg": { y: -38.0594, x: 141.4050, z: 10 }
+    "glenelg": { z: 14, y: -38.3377, x: 141.5816 }
   };
   if (b = bookmarks[bm]) {
     map.setView(L.latLng(b.y,b.x), b.z);
