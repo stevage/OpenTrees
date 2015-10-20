@@ -29,6 +29,7 @@ CREATE TABLE alltrees
   lon character varying,
   source character varying,
   surveytype character varying,
+  address character varying,
   CONSTRAINT alltrees_pkey PRIMARY KEY (gid)
 )
 ;
@@ -170,8 +171,8 @@ FROM hobsons_bay;
 
 \echo "Glenelg"
 INSERT INTO 
- alltrees(the_geom, source, ref,         name, genus, species, dbh, year_min, year_max, common, height, address, crown, age)
-SELECT the_geom, 'Glenelg', description, name, genus, species, dbh, year_min, year_max, common, height, address, crown, age
+ alltrees(the_geom, source, ref, genus, species, dbh, common, height, address, crown, ule_min)
+SELECT the_geom, 'Glenelg', ref, genus, species, dbh, common, height, address, crown, ule_min
 FROM glenelg;
 
 

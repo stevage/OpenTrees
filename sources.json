@@ -69,8 +69,8 @@
     },
     {
         "id": "glenelg",
-        "download": "http://data.gov.au/dataset/eba51b79-f979-4179-934b-22980649f25c/resource/c535999d-3e2a-4440-8304-d973af60c28c/download/Glenelg-Street-and-Park-Trees.csv",
+        "download": "http://data.gov.au/dataset/3721ad67-7b5b-4815-96b1-9d8b1a89dbd7/resource/b9ff3d44-17b4-4f87-8a28-2d540fa37d8f/download/Glenelg-Street-and-Park-Trees.csv",
         "format": "csv",
         "filename": "glenelg.vrt"
     }    
-]]
+]
