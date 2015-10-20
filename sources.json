@@ -66,5 +66,11 @@
         "download": "http://data.gov.au/dataset/d704b913-3986-40c5-9bc9-595e29ba43c6/resource/42720d14-cc6e-4a90-a1bd-123ed449d449/download/20150807.2---Trees.csv",
         "format": "csv",
         "filename": "hobsons_bay.vrt"
+    },
+    {
+        "id": "glenelg",
+        "download": "http://data.gov.au/dataset/eba51b79-f979-4179-934b-22980649f25c/resource/c535999d-3e2a-4440-8304-d973af60c28c/download/Glenelg-Street-and-Park-Trees.csv",
+        "format": "csv",
+        "filename": "glenelg.vrt"
     }    
-]
+]]

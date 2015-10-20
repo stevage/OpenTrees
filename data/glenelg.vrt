@@ -1,0 +1,8 @@
+<OGRVRTDataSource>
+    <OGRVRTLayer name="glenelg">
+        <SrcDataSource>glenelg.csv</SrcDataSource>
+        <GeometryType>wkbPoint</GeometryType>
+        <LayerSRS>EPSG:4326</LayerSRS>
+        <GeometryField encoding="PointFromColumns" x="lon" y="lat"/>
+    </OGRVRTLayer>
+</OGRVRTDataSource>
