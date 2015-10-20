@@ -30,7 +30,7 @@ SET genus=trim(substr(scientific, 1, strpos(scientific, ' ') - 1)),
     species=trim(substr(scientific, strpos(scientific, ' ')))
 WHERE scientific LIKE'% %' and genus is null;
 
-\echo "Process species identied as 'Sp.' or 'Spp'"
+\echo "Process species identified as 'Sp.' or 'Spp'"
 -- 'Sp.' means non-identified species, 'Spp.' technically means a mix of several unidentified species.
 UPDATE alltrees
 SET species=''
@@ -69,53 +69,53 @@ SET genus=coalesce(genus,''),
     scientific=coalesce(scientific,'')
 WHERE coalesce(genus,species,variety,scientific,'Z') = 'Z';
 
-\echo "Fix 'Botlebrush'es"
+\echo "Botlebrush -> Bottlebrush"
 UPDATE alltrees
 SET common='Red Bottlebrush',species='',variety='King''s Park Special'
 WHERE scientific='Callistemon kings park special' AND common ILIKE '%botle%';
 
-\echo "Fix euky dwarves"
+\echo "Eucalyptus leucoxylon euky dwarf -> Eucalyptus leucoxylon"
 UPDATE alltrees
 SET scientific='Eucalyptus leucoxylon',species='leucoxylon'
 WHERE scientific LIKE 'Eucalyptus leucoxylon euky dwar%';
 
-\echo "Fix Angpohoras"
+\echo "Angpohoras -> Angophora"
 UPDATE alltrees
 SET scientific='Angophora costata',genus='Angophora'
 WHERE scientific LIKE 'Angpohora costata';
 
-\echo "Fix Qurecus"
+\echo "Qurecus -> Quercus"
 UPDATE alltrees
 SET genus='Quercus'
 WHERE genus='Qurecus';
 
-\echo "Fix bacculenta"
+\echo "Bacculenta -> Bucculenta"
 UPDATE alltrees
 SET species='bucculenta', scientific='Hakea bucculenta'
 WHERE scientific='Hakea bacculenta';
 
-\echo "Fix Leptosprmum"
+\echo "Leptosprmum -> Leptospermum"
 UPDATE alltrees
 SET scientific='Leptospermum laevigatum',genus='Leptospermum'
 WHERE scientific LIKE 'Leptosprmum laevigatum';
 
-\echo "Fix Lophostermon"
+\echo "Lophostermon -> Lophostemon"
 UPDATE alltrees
 SET scientific='Lophostemon confertus',genus='Lophostemon'
 WHERE scientific LIKE 'Lophostermon confertus';
 
-\echo "Fix Photina, Photinea"
+\echo "Photina, Photinea -> Photinia"
 UPDATE alltrees
 SET scientific=concat('Photinia ', species),genus='Photinia'
 WHERE genus LIKE 'Photinea' OR genus LIKE 'Photina';
 
-\echo "Fix Poplus"
+\echo "Poplus -> Populus"
 UPDATE alltrees
 SET scientific=concat('Populus ', species),genus='Populus'
 WHERE genus LIKE 'Poplus';
 
  --33 only
-\echo "Fix Cordylines"
+\echo "Cordyline cordyline -> Cordyline"
 UPDATE alltrees
 SET scientific='Cordyline',species=''
 WHERE scientific LIKE 'Cordyline cordyline';
