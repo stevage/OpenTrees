@@ -83,13 +83,17 @@ function lookupWikipedia(searchterm) {
 
 }
 
+function closeInfo() {
+   $('#info').removeClass('pinned');
+    $('#info').addClass('hidden');
+}
+
 function toggleInfo(show) {
     if (show) {
         $('#info').removeClass('hidden');
 
     } else {
-       $('#info').removeClass('pinned');
-        $('#info').addClass('hidden');
+        closeInfo();
     }
 }
 
@@ -154,8 +158,7 @@ map.on('style.load', function() {
     });
 
 });
-
-$('#info .closex').click( function(){
-    toggleInfo(false);
-    $('#map').focus();
+$(function() {
+    $('#info .closex').click(closeInfo);
+    $('#info').on('swipeleft', closeInfo);
 });

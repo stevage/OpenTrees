@@ -80,7 +80,7 @@ header h1 {
     width:300px;
     background:white;
     border:1px solid lightgray;
-    max-height: calc(100%-40px);
+    max-height: calc(100% - 40px);
     font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size:13px;
     color:#333;
@@ -170,7 +170,7 @@ header h1 {
 #wikibox {
     max-height:600px;
     overflow-y: scroll;
-    overflow-x:clip;
+    overflow-x:hidden;
 }
 
 
