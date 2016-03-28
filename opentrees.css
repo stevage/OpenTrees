@@ -94,7 +94,7 @@ header h1 {
 @media screen and (max-width: 640px) {
     #info {
         top: 40px;
-        max-height:calc(100% - 40px);
+        max-height:calc(100% - 45px);
     }
 }
 
@@ -183,32 +183,31 @@ header h1 {
 }
 
 #wikibox {
+  flex: 1 1 auto;
     overflow-y: scroll;
     overflow-x:hidden;
 }
 
 
 #wikitext {
-  flex: 1 1 auto;
   width:300px;
   /*max-height:200px;*/
   overflow:scroll;
-  background:#eee;
+  /*background:#eee;*/
   opacity:0.9;
   font-size: 80%;
 }
 #wikitext h2 {
   font-size:20px;
 }
-#wikitext {
-    border:1px solid gray;
-}
 #wikitext h2 {
   font-family:lancelot;
   font-weight:600;
 }
 #wikiimg {
-    flex: 1 2 auto;
+    display:inline-block;
+    float:right;
+    /*flex: 1 2 auto;*/
 }
 
 #wikiimg a {
@@ -220,11 +219,17 @@ header h1 {
 #wikiimg img {
     object-fit:scale-down;
     max-width:300px;
+    max-height:240px;
     /*max-height:300px;*/
-    margin:0 auto;
+    margin:0 0 0.5em 0.5em;
     display:block;
     border:none;
     box-shadow:2px 2px 4px 0px grey;    
+    transition:max-height 1s;
+}
+
+#wikiimg img:hover {
+    max-height:500px;
 }
 
 

@@ -1,5 +1,5 @@
 'use strict';
-/* global mapboxgl,$,console*/
+/* global mapboxgl,$,console,window*/
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmFnZSIsImEiOiJGcW03aExzIn0.QUkUmTGIO3gGt83HiRIjQw';
 var map = new mapboxgl.Map({
@@ -47,6 +47,8 @@ function lookupWikipedia(searchterm) {
     var textapi = wikiapi + '&prop=extracts&redirects&titles=';
     var imageapi = wikiapi + '&prop=pageimages&redirects&titles=';
 
+    var wikiimg = $('<div id="wikiimg"></div>');
+
     console.log('Searching Wikipedia for: ' + searchterm);
     $.ajax(imageapi + encodeURIComponent(searchterm), { 
         dataType: 'jsonp', 
@@ -57,8 +59,10 @@ function lookupWikipedia(searchterm) {
                 // TODO: if there is no high res image available, then the call to thumb/600px- fails. Not easy to handle
                 // without making the failing call and then trying again.
                 var thumb = page.thumbnail.source.replace(/\/\d\dpx-/, window.devicePixelRatio > 1 ? '/600px-' : '/300px-');
-                $("#wikiimg").html('<img src="' + thumb + '"/>');
-                $("#wikiimg").append('<p><small><a href="https://en.wikipedia.org/wiki/File:' +page.pageimage + '">Credit: Wikipedia.</a></small></p>');
+                wikiimg.html('<img src="' + thumb + '"/>');
+                //wikiimg = $('<div id="#wikiimg"><img src="' + thumb + '"/></div>');
+
+                //##RESTORE THIS$("#wikiimg").append('<p><small><a href="https://en.wikipedia.org/wiki/File:' +page.pageimage + '">Credit: Wikipedia.</a></small></p>');
             }
         }
     });
@@ -72,6 +76,7 @@ function lookupWikipedia(searchterm) {
             if (page && page.extract) {
                 $("#wikitext").html(page.extract +
                   '<p><small>Read more on <a href="http://en.wikipedia.org/wiki/' + encodeURIComponent(page.title) + '">Wikipedia</a></small></p>');
+                $("#wikitext").prepend(wikiimg); // ## check to see if we have image?
                 $("#wikitext").show();
             } else {
                 // not found
