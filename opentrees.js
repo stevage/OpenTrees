@@ -30,12 +30,14 @@ function updateInfoTable(props) {
     }    
     $("#treetitle").html(val(props.common) || (val(props.scientific) ? '<i>' + props.scientific + '</i>':'') || 'Tree #' + props.ref);
     $("#infotable").html('');
+    var speciesCount = props.species_count ? '<small>' + props.species_count + '</small>' : '';
     addRow("Scientific name", (props.common && props.scientific)? '<i>' + props.scientific + '</i>':'');
     addRow('Maturity',props.maturity);
     addRow('Planted',props.planted);
     addRow('Diameter (DBH)',props.dbh);
     addRow('Height',props.height ? props.height : '');
     addRow('Life expectancy', props.ule_min ? props.ule_min  : '');
+    addRow('Count', props.species_count ? Number(props.species_count).toLocaleString():'');
     addRow('ID', (props.source ? props.source + ': ' : '') + val(props.ref));
 
 }

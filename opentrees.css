@@ -136,9 +136,19 @@ header h1 {
     background-color:hsl(100,30%,82%);/*#ddd;*/
     padding:0.5em;
     margin-top:0;
+    margin-bottom:0;
     border-top:1px solid hsl(100,30%,30%);
     border-bottom:1px solid hsl(100,30%,30%);
     font-size:20px;
+}
+
+
+#infotable {
+    border-spacing:0.5em;
+    margin:0;
+    padding:0;
+    width:100%;
+    border-bottom:1px solid hsl(100,30%,90%);
 }
 
 #infotable th {
@@ -148,14 +158,6 @@ header h1 {
     height:20px;
     padding:0;
 
-}
-
-#infotable {
-    border-spacing:0.5em;
-    margin:0;
-    padding:0;
-    width:100%;
-    border-bottom:1px solid hsl(100,30%,90%);
 }
 
 #infotablebox {
