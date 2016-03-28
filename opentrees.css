@@ -74,18 +74,28 @@ header h1 {
 
 
 #info {
+    display:flex;
+    flex-flow:column;
     position:absolute;
     left:0px;
     top:70px;
     width:300px;
     background:white;
     border:1px solid lightgray;
-    max-height: calc(100% - 40px);
+    max-height: calc(100% - 75px);
     font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size:13px;
     color:#333;
     transition: width 0.2s;
     transition: left 0.2s;
+    opacity:0.8;
+}
+
+@media screen and (max-width: 640px) {
+    #info {
+        top: 40px;
+        max-height:calc(100% - 40px);
+    }
 }
 
 
@@ -102,9 +112,6 @@ header h1 {
     transition-delay:0.4s;
 }
 
-#info  {
-    opacity:0.8;
-}
 #info.pinned {
     border: 2px solid gray;
     opacity:1;
@@ -134,6 +141,8 @@ header h1 {
 
 
 #info >h3 {
+    flex: 0 0 auto;
+
     background-color:hsl(100,30%,82%);/*#ddd;*/
     padding:0.5em;
     margin-top:0;
@@ -166,6 +175,7 @@ header h1 {
 }
 
 #infotablebox {
+    flex: 0 0 auto;
     overflow-y:hidden;
     overflow-x:clip;
     margin:0;
@@ -173,15 +183,15 @@ header h1 {
 }
 
 #wikibox {
-    max-height:600px;
     overflow-y: scroll;
     overflow-x:hidden;
 }
 
 
 #wikitext {
+  flex: 1 1 auto;
   width:300px;
-  max-height:200px;
+  /*max-height:200px;*/
   overflow:scroll;
   background:#eee;
   opacity:0.9;
@@ -190,14 +200,15 @@ header h1 {
 #wikitext h2 {
   font-size:20px;
 }
-#wikibox img,
 #wikitext {
     border:1px solid gray;
 }
 #wikitext h2 {
   font-family:lancelot;
-  
   font-weight:600;
+}
+#wikiimg {
+    flex: 1 2 auto;
 }
 
 #wikiimg a {
@@ -209,7 +220,7 @@ header h1 {
 #wikiimg img {
     object-fit:scale-down;
     max-width:300px;
-    max-height:300px;
+    /*max-height:300px;*/
     margin:0 auto;
     display:block;
     border:none;
