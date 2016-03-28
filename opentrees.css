@@ -89,9 +89,10 @@ header h1 {
 }
 
 
-@media screen and (max-width: 640px) {
+@media screen and (max-height: 700px) {
     #info {
         top: 0px;
+        max-height:100%;
     }
 }
 
@@ -144,7 +145,7 @@ header h1 {
 
 
 #infotable {
-    border-spacing:0.5em;
+    border-spacing:0.2em;
     margin:0;
     padding:0;
     width:100%;
@@ -158,6 +159,10 @@ header h1 {
     height:20px;
     padding:0;
 
+}
+
+#infotable td {
+    padding-left:0.5em;
 }
 
 #infotablebox {
@@ -209,4 +214,11 @@ header h1 {
     display:block;
     border:none;
     box-shadow:2px 2px 4px 0px grey;    
+}
+
+
+@media screen and (max-height: 800px) {
+    #wikiimg img {
+        max-height:150px;
+    }
 }
