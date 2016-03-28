@@ -1,0 +1,160 @@
+
+
+html,body { 
+    margin:0; padding:0; height: 100%;
+}
+#container {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+header {
+    flex: 0 1 auto;
+    /*background:green;*/
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNYfXr2bAAG4wKtJwTv8QAAAABJRU5ErkJggg==);
+        /*url('tree_bark/tree_bark.png'); /* http://px64.net/ */
+  /*background-color: green;*/
+  font-kerning: normal; /* Why isn't this on by default? The title "OpenTrees.org" looks pretty bad without it. */
+}
+
+#header {
+  /*height:160px;*/
+  font-family: lato, sans-serif;
+
+}
+header h1 {
+  font-family: lancelot, serif;
+  font-size:44px;
+  font-weight:600;
+  margin-top:12px;
+  margin-bottom:8px;
+  display:inline-block;
+  color:grey;
+}
+
+
+.header-title {
+  color:hsl(120,60%,20%);
+}
+
+#logo {
+  /* Icon by Charles Paulk, Code for Australia. charliepaulk@gmail.com */
+  background-image: url('cubetree-logo.png');
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:right;
+  width:50px;
+  height:60px;
+  float:left;
+  margin: 6px 16px;
+  border:none;
+}
+
+
+
+#map { 
+    /*position:absolute; top:0; bottom:0; width:100%; */
+    flex: 1 1 auto;
+}
+
+
+#info {
+    position:absolute;
+    left:0px;
+    top:135px;
+    width:300px;
+    background:white;
+    border:1px solid lightgray;
+    max-height: calc(100%-40px);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    color:#333;
+    transition: width 0.2s;
+    transition: left 0.2s;
+}
+
+#info.hidden {
+    left:-300px;
+    transition-delay:0.4s;
+}
+
+#info.pinned {
+    border: 2px solid gray;
+}
+
+#info >h3 {
+    background-color:hsl(100,30%,82%);/*#ddd;*/
+    padding:0.5em;
+    margin-top:0;
+    border-top:1px solid hsl(100,30%,30%);
+    border-bottom:1px solid hsl(100,30%,30%);
+    font-size:20px;
+}
+
+#infotable th {
+    text-align: right;
+    color: hsl(100,30%,30%);
+    width:90px;
+    height:20px;
+    padding:0;
+
+}
+
+#infotable {
+    border-spacing:0.5em;
+    margin:0;
+    padding:0;
+    width:100%;
+    border-bottom:1px solid hsl(100,30%,90%);
+}
+
+#infotablebox {
+    overflow-y:hidden;
+    overflow-x:clip;
+    margin:0;
+    padding:0;
+}
+
+#wikibox {
+    max-height:600px;
+    overflow-y: scroll;
+    overflow-x:clip;
+}
+
+
+#wikitext {
+  width:300px;
+  max-height:200px;
+  overflow:scroll;
+  background:#eee;
+  opacity:0.9;
+  font-size: 80%;
+}
+#wikitext h2 {
+  font-size:20px;
+}
+#wikibox img,
+#wikitext {
+    border:1px solid gray;
+}
+#wikitext h2 {
+  font-family:lancelot;
+  
+  font-weight:600;
+}
+
+#wikiimg a {
+    text-decoration:none;
+    color: hsl(100,30%,50%);
+    font-weight:bold;
+}
+
+#wikiimg img {
+    object-fit:scale-down;
+    max-width:300px;
+    max-height:300px;
+    margin:0 auto;
+    display:block;
+    border:none;
+    box-shadow:2px 2px 4px 0px grey;    
+}

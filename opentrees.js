@@ -1,0 +1,153 @@
+'use strict';
+/* global mapboxgl,$,console*/
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmFnZSIsImEiOiJGcW03aExzIn0.QUkUmTGIO3gGt83HiRIjQw';
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/stevage/cim5qned200k59jkpf1p6l243',
+    center: [145,-38], // starting position
+    zoom: 9 // starting zoom
+});
+
+map.addControl(new mapboxgl.Navigation());
+
+function toSpeciesCase(str) {
+  str = str.replace(/\s+Sp./i, '');
+  str = str.replace(/\s+Cultivar/i, '');
+  str = str.replace(/\s+'.*$/g, '');
+  return str.toLowerCase().replace(/^w\w/, function (txt) { return txt.toUpperCase(); });
+}
+
+
+function updateInfoTable(props) {
+    function val(text) {
+        return text ? text.trim() : '';
+    }
+    function addRow(header, value, required) {
+        if (value || required) {
+            $("#infotable").append('<tr><th>' + header + '</th><td>' + value + '</td></tr>');
+        }
+    }    
+    $("#treetitle").html(val(props.common) || (val(props.scientific) ? '<i>' + props.scientific + '</i>':'') || 'Tree #' + props.ref);
+    $("#infotable").html('');
+    addRow("Scientific name", (props.common && props.scientific)? '<i>' + props.scientific + '</i>':'');
+    addRow('Maturity',props.maturity);
+    addRow('Planted',props.planted);
+    addRow('Diameter (DBH)',props.dbh);
+    addRow('Height',props.height ? props.height : '');
+    addRow('Life expectancy', props.ule_min ? props.ule_min  : '');
+    addRow('ID', (props.source ? props.source + ': ' : '') + val(props.ref));
+
+}
+
+function lookupWikipedia(searchterm) {
+    var wikiapi = 'http://en.wikipedia.org/w/api.php?action=query&format=json';
+    var textapi = wikiapi + '&prop=extracts&redirects&titles=';
+    var imageapi = wikiapi + '&prop=pageimages&redirects&titles=';
+
+    console.log('Searching Wikipedia for: ' + searchterm);
+    $.ajax(imageapi + encodeURIComponent(searchterm), { 
+        dataType: 'jsonp', 
+        success: function(wikijson) {
+            var pages = wikijson.query.pages;
+            var page = pages[Object.keys(pages)[0]];
+            if (page && page.thumbnail && page.thumbnail.source) {
+                // TODO: if there is no high res image available, then the call to thumb/600px- fails. Not easy to handle
+                // without making the failing call and then trying again.
+                var thumb = page.thumbnail.source.replace(/\/\d\dpx-/, window.devicePixelRatio > 1 ? '/600px-' : '/300px-');
+                $("#wikiimg").html('<img src="' + thumb + '"/>');
+                $("#wikiimg").append('<p><small><a href="https://en.wikipedia.org/wiki/File:' +page.pageimage + '">Credit: Wikipedia.</a></small></p>');
+            }
+        }
+    });
+    $.ajax(textapi + encodeURIComponent(searchterm), {
+        dataType: 'jsonp', 
+        success: function(wikijson) {
+            var pages = wikijson.query.pages;
+            var page = pages[Object.keys(pages)[0]];
+            $('#wikibox').show();
+
+            if (page && page.extract) {
+                $("#wikitext").html(page.extract +
+                  '<p><small>Read more on <a href="http://en.wikipedia.org/wiki/' + encodeURIComponent(page.title) + '">Wikipedia</a></small></p>');
+                $("#wikitext").show();
+            } else {
+                // not found
+                $("#wikiimg").html('');
+                $("#wikitext").html('Nothing on Wikipedia.');
+            }
+        }
+    });
+
+}
+
+function toggleInfo(show) {
+    if (show) {
+        $('#info').removeClass('hidden');
+
+    } else {
+        $('#info').addClass('hidden');
+    }
+}
+
+function mousemove(e) {
+    if ($('#info').hasClass('pinned')) {
+        //toggleInfo(false);
+        return;
+    }
+    var features = map.queryRenderedFeatures(e.point, { layers: ['tree halo', 'tree greylo'] });
+    var scientific = features.length ? features[0].properties.scientific : '';
+    if (scientific) {
+        map.setFilter("route-hover", ["==", "scientific", scientific]);
+        //$('#info').text(features[0].properties.species_count + 'x ' + scientific);
+    } else {
+        map.setFilter("route-hover", ["==", "scientific", "$"]);
+        //$('#info').text('');
+    }
+    if (features.length) {
+        updateInfoTable(features[0].properties);
+        toggleInfo(true);
+        $('#wikibox').hide();
+    } else {
+        toggleInfo(false);
+    }
+}    
+
+map.on('style.load', function() {
+    map.addLayer({
+            "id": "route-hover",
+            "type": "circle",
+            "source": "mapbox://stevage.alltrees",
+            "source-layer": "alltreesgeojson",
+            "layout": {},
+            "paint": {
+                "circle-color": "hsl(20,90%,60%)",
+                "circle-opacity": 0.85
+            },
+            "filter": ["==", "scientific", "$"]
+        });
+
+    map.on("mousemove", mousemove);
+    map.on('click', function(e) {
+        if ($('#info').hasClass('pinned')) {
+            $('#info').removeClass('pinned');
+            mousemove(e);
+            return;
+        }
+        var features = map.queryRenderedFeatures(e.point, { layers: ['tree halo', 'tree greylo'] });
+        if (!features.length)
+            return;
+        var f = features[0].properties;
+        var searchterm;
+        if (f.genus) {
+            searchterm = toSpeciesCase(f.genus + (f.species ? " " + f.species : ""));
+        } else if (f.common) {
+            searchterm = f.common;
+        } else {
+            return;
+        }
+        $('#info').addClass('pinned');
+        lookupWikipedia(searchterm);
+    });
+
+});
