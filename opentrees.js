@@ -86,6 +86,7 @@ function toggleInfo(show) {
         $('#info').removeClass('hidden');
 
     } else {
+       $('#info').removeClass('pinned');
         $('#info').addClass('hidden');
     }
 }
@@ -150,4 +151,9 @@ map.on('style.load', function() {
         lookupWikipedia(searchterm);
     });
 
+});
+
+$('#info .closex').click( function(){
+    toggleInfo(false);
+    $('#map').focus();
 });

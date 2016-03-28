@@ -10,18 +10,16 @@ html,body {
 }
 header {
     flex: 0 1 auto;
-    /*background:green;*/
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNYfXr2bAAG4wKtJwTv8QAAAABJRU5ErkJggg==);
-        /*url('tree_bark/tree_bark.png'); /* http://px64.net/ */
-  /*background-color: green;*/
-  font-kerning: normal; /* Why isn't this on by default? The title "OpenTrees.org" looks pretty bad without it. */
+    font-kerning: normal; /* Why isn't this on by default? The title "OpenTrees.org" looks pretty bad without it. */
+    border-bottom: 1px solid hsl(100,30%,50%);
 }
 
 #header {
   /*height:160px;*/
   font-family: lato, sans-serif;
-
 }
+
 header h1 {
   font-family: lancelot, serif;
   font-size:44px;
@@ -30,11 +28,14 @@ header h1 {
   margin-bottom:8px;
   display:inline-block;
   color:grey;
+  float:left;
 }
+
 
 
 .header-title {
   color:hsl(120,60%,20%);
+  padding-top:1em;em;
 }
 
 #logo {
@@ -46,9 +47,23 @@ header h1 {
   width:50px;
   height:60px;
   float:left;
-  margin: 6px 16px;
+  margin: 0px 10px;
   border:none;
 }
+
+
+@media screen and (max-width: 640px) {
+    header h1 {
+        font-size:22px;
+        margin-top:6px;
+    }
+    #logo {
+        height: 40px;
+        width:30px;
+    }
+}
+
+
 
 
 
@@ -61,7 +76,7 @@ header h1 {
 #info {
     position:absolute;
     left:0px;
-    top:135px;
+    top:70px;
     width:300px;
     background:white;
     border:1px solid lightgray;
@@ -73,14 +88,49 @@ header h1 {
     transition: left 0.2s;
 }
 
+
+@media screen and (max-width: 640px) {
+    #info {
+        top: 0px;
+    }
+}
+
+
 #info.hidden {
     left:-300px;
     transition-delay:0.4s;
 }
 
+#info  {
+    opacity:0.8;
+}
 #info.pinned {
     border: 2px solid gray;
+    opacity:1;
+    transition: opacity 0.5s;
 }
+
+#info .closex {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size:20px;
+    color: hsl(100,30%,50%);
+    margin: 2px;
+    display: none; /* only shown if pinned */
+}
+
+#info .closex:hover {
+    color: *hsl(100,30%,70%);
+    cursor: pointer;
+    transform:rotate(-10deg);
+}
+
+#info.pinned .closex {
+    display: block;
+}
+
+
 
 #info >h3 {
     background-color:hsl(100,30%,82%);/*#ddd;*/
