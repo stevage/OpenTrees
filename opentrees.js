@@ -10,7 +10,7 @@ var map = new mapboxgl.Map({
 });
 
 map.addControl(new mapboxgl.Navigation());
-
+map.addControl(new mapboxgl.Geolocate({position: 'top-right'}));
 function toSpeciesCase(str) {
   str = str.replace(/\s+Sp./i, '');
   str = str.replace(/\s+Cultivar/i, '');
