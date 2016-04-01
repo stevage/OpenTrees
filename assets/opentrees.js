@@ -153,15 +153,17 @@ function addFilterLayer(name, color, filter) {
 function changeDimension(e) {
     clearLayers();
     if (e.target.id === 'byspecies') {
-        addFilterLayer('Gums', "hsl(60,60%,30%)", ['in','genus','Eucalyptus','Corymbia','Angophora']);
-        addFilterLayer('Planes', "hsl(60,90%,80%)", ["in", "genus", "Platanus"]);
-        addFilterLayer('Elms',"hsl(30,90%,60%)", ["in", "genus", "Ulmus"]);
-        addFilterLayer('Pines', "hsl(90,10%,60%)", ["in", "genus", "Pinus", "Araucaria"]);
-        addFilterLayer('Cedars', "hsl(190,80%,60%)",["in", "genus", "Cedrus"]);
-        addFilterLayer('Oaks', 'pink', ["in", "genus", "Quercus"]);
-        addFilterLayer('Melaleuca', 'black', ["any", ["==", "genus", "Melaleuca"]]);
+        addFilterLayer('Gums', "hsl(90,60%,30%)", ['in','genus','Eucalyptus','Corymbia','Angophora']);
+        addFilterLayer('Lophostemon (Brush box)', "hsl(115,30%,30%)", ['in','genus','Lophostemon']);
+        addFilterLayer('Grevilleas, proteas, callistemons and banksias', 'hsl(120,60%,50%)', ["in", "genus", "Grevillea", 'Banksia', 'Callistemon']);
+        addFilterLayer('Melaleuca', 'hsl(180, 60%,60%)', ["any", ["==", "genus", "Melaleuca"]]);
+        addFilterLayer('Planes', "hsl(0,86%,60%)", ["in", "genus", "Platanus"]);
+        addFilterLayer('Elms',"hsl(30,60%,60%)", ["in", "genus", "Ulmus"]);
+        addFilterLayer('Cedars', "hsl(50,80%,60%)",["in", "genus", "Cedrus"]);
+        addFilterLayer('Oaks', 'hsl(330, 60%,60%)', ["in", "genus", "Quercus"]);
+
+        addFilterLayer('Pines', "hsl(70,60%,60%)", ["in", "genus", "Pinus", "Araucaria"]);
         addFilterLayer('Pears and plums', 'red', ["any", ["==", "genus", "Pyrus"], ['==','genus','Prunus']]);
-        addFilterLayer('Grevilleas, proteas, callistemons and banksias', 'cyan', ["in", "genus", "Grevillea", 'Banksia', 'Callistemon']);
     } else if (e.target.id === 'byrarity') {
        
        addFilterLayer('Super common', 'hsl(210, 90%,60%)', ['>=', 'species_count', 10000]);
