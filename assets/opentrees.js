@@ -156,7 +156,8 @@ function changeDimension(e) {
         addFilterLayer('Gums', "hsl(90,60%,30%)", ['in','genus','Eucalyptus','Corymbia','Angophora']);
         addFilterLayer('Lophostemon (Brush box)', "hsl(115,30%,30%)", ['in','genus','Lophostemon']);
         addFilterLayer('Grevilleas, proteas, callistemons and banksias', 'hsl(120,60%,50%)', ["in", "genus", "Grevillea", 'Banksia', 'Callistemon']);
-        addFilterLayer('Melaleuca', 'hsl(180, 60%,60%)', ["any", ["==", "genus", "Melaleuca"]]);
+        addFilterLayer('Acacia', 'hsl(160, 90%,30%)', ["any", ["==", "genus", "Acacia"]]);
+        addFilterLayer('Melaleuca', 'hsl(200, 60%,60%)', ["any", ["==", "genus", "Melaleuca"]]);
         addFilterLayer('Planes', "hsl(0,86%,60%)", ["in", "genus", "Platanus"]);
         addFilterLayer('Elms',"hsl(30,60%,60%)", ["in", "genus", "Ulmus"]);
         addFilterLayer('Cedars', "hsl(50,80%,60%)",["in", "genus", "Cedrus"]);
