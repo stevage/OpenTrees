@@ -37,7 +37,7 @@ function updateInfoTable(props) {
     addRow('Diameter (DBH)',props.dbh);
     addRow('Height',props.height ? props.height : '');
     addRow('Life expectancy', props.ule_min ? props.ule_min  : '');
-    addRow('Count', props.species_count ? Number(props.species_count).toLocaleString():'');
+    addRow('Count', props.species_count ? Number(props.species_count).toLocaleString() + ' similar trees.':'');
     addRow('ID', (props.source ? props.source + ': ' : '') + val(props.ref));
 
 }
@@ -125,6 +125,64 @@ function mousemove(e) {
     }
 }    
 
+var layersAdded = [];
+function clearLayers() {
+    layersAdded.forEach(function(layer) {
+        map.removeLayer(layer);
+    });
+    layersAdded=[];
+    $("#legend").html("<ul></li>");
+}
+function addFilterLayer(name, color, filter) {
+    map.addLayer({
+            "id": name,
+            "type": "circle",
+            "source": "mapbox://stevage.alltrees",
+            "source-layer": "alltreesgeojson",
+            "layout": {},
+            "paint": {
+                "circle-color": color,
+                "circle-opacity": 0.35
+            },
+            "filter": filter
+        });
+    $("#legend ul").append($("<li><span style='background:" + color + "'></span>" + name + "</li>"));
+    layersAdded.push(name);
+}
+
+function changeDimension(e) {
+    clearLayers();
+    if (e.target.id === 'byspecies') {
+        addFilterLayer('Gums', "hsl(60,60%,30%)", ['in','genus','Eucalyptus','Corymbia','Angophora']);
+        addFilterLayer('Planes', "hsl(60,90%,80%)", ["in", "genus", "Platanus"]);
+        addFilterLayer('Elms',"hsl(30,90%,60%)", ["in", "genus", "Ulmus"]);
+        addFilterLayer('Pines', "hsl(90,10%,60%)", ["in", "genus", "Pinus", "Araucaria"]);
+        addFilterLayer('Cedars', "hsl(190,80%,60%)",["in", "genus", "Cedrus"]);
+        addFilterLayer('Oaks', 'pink', ["in", "genus", "Quercus"]);
+        addFilterLayer('Melaleuca', 'black', ["any", ["==", "genus", "Melaleuca"]]);
+        addFilterLayer('Pears and plums', 'red', ["any", ["==", "genus", "Pyrus"], ['==','genus','Prunus']]);
+        addFilterLayer('Grevilleas, proteas, callistemons and banksias', 'cyan', ["in", "genus", "Grevillea", 'Banksia', 'Callistemon']);
+    } else if (e.target.id === 'byrarity') {
+       
+       addFilterLayer('Super common', 'hsl(210, 90%,60%)', ['>=', 'species_count', 10000]);
+       addFilterLayer('Very common', 'hsl(120, 90%,60%)', ['all', ['>=', 'species_count', 1000], ['<', 'species_count', 10000]]);
+       addFilterLayer('Common', 'hsl(90, 60%,60%)', ['all', ['>=', 'species_count', 100], ['<', 'species_count', 1000]]);
+       addFilterLayer('Average', 'hsl(60, 60%,60%)', ['all', ['>=', 'species_count', 20], ['<', 'species_count', 100]]);
+       addFilterLayer('Rare', 'orange', ['all', ['>=', 'species_count', 5], ['<', 'species_count', 20]]);
+       addFilterLayer('Very rare', 'red', ['<', 'species_count', 5]);
+    } else if (e.target.id === 'bylocation') {
+        addFilterLayer('Street', "hsl(0,60%,30%)", ['in','tree_type','Street','T-Street Tree', 'Rural roadside']);
+        addFilterLayer('Park', "hsl(120,60%,30%)", ['in','tree_type','Park','T-Park Tree']);
+        addFilterLayer('Plantation', "hsl(180,60%,30%)", ['in','tree_type','Plantation','Plantation rural roadside']);
+        addFilterLayer('Council property', "hsl(240,60%,30%)", ['in','tree_type','Council property']);
+   
+    } else if (e.target.id==='bydbh') {
+       addFilterLayer('>100', 'hsl(0, 90%,60%)', ['>=', 'dbh', 100]);
+       addFilterLayer('10-100', 'hsl(60, 90%,60%)', ['all', ['<', 'dbh', 100], ['>', 'dbh', 10]]);
+       addFilterLayer('<10', 'hsl(120, 90%,60%)', ['<=', 'dbh', 10]);
+    }
+ }
+
 map.on('style.load', function() {
     map.addLayer({
             "id": "route-hover",
@@ -161,9 +219,11 @@ map.on('style.load', function() {
         $('#info').addClass('pinned');
         lookupWikipedia(searchterm);
     });
+    $('input').on('change', changeDimension);
 
 });
 $(function() {
     $('#info .closex').click(closeInfo);
     $('#info').on('swipeleft', closeInfo);
+    $("#explore .hamburger").click(function(){ $("#explore .collapsible").toggleClass("collapsed"); });
 });

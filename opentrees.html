@@ -4,23 +4,49 @@
     <meta charset='utf-8' />
     <title></title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='mapbox-gl-dev.js'></script>
-    <script src="jquery-2.2.2.min.js"></script>
-    <script src="jquery.mobile.custom/jquery.mobile.custom.min.js"></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='dist/mapbox-gl-dev.js'></script>
+    <script src="dist/jquery-2.2.2.min.js"></script>
+    <script src="dist/jquery.mobile.custom.min.js"></script>
+    <link href='dist/mapbox-gl.css' rel='stylesheet' />
     <link href='opentrees.css' rel='stylesheet' />
     <script src="http://use.edgefonts.net/lancelot;neuton;lato.js"></script>
 </head>
 <body>
 <div id="container">
-<header>
-    <div id="logo"></div>
-    <h1>
-      <span class="header-title">OpenTrees.org</span> &nbsp; <small>514,464 open data trees</small>
-    </h1>
-</header>
-<div id='map'></div>
-<div id='info' class="hidden">
+    <header>
+        <div id="mainheader">
+            <div id="logo"></div>
+            <h1>
+              <span class="header-title">OpenTrees.org</span> &nbsp; <small>514,464 open data trees</small>
+            </h1>
+            <p class="credit">By <a href="http://stevebennett.me">Steve Bennett</a></p>
+        </div>
+        <div id="about">
+            <p><a href="http://guru.cycletour.org/www/treesmap/index.html">Back to old site</a></p>
+        </div>
+    </header>
+    <div id='map'></div>
+    <footer>
+    <p>
+    <a href="https://github.com/stevage/opentrees">Source code on Github</a>.
+    </p>
+</div>
+<div id="explore" class="overbox collapsed">
+    <div class="hamburger">≡</div>
+    <div class="collapsible collapsed">
+    <h3>Color by:</h3>
+    <form>
+        <label><input type="radio" name="dimension" id="bynone" checked="true"/>None</input>
+        <label><input type="radio" name="dimension" id="byspecies"/>Species</input>
+        <!-- <label><input type="radio" name="dimension" id="byage"/>Age</label> -->
+        <!-- <label><input type="radio" name="dimension" id="bydbh"/>Diameter (DBH)</label> -->
+        <label><input type="radio" name="dimension" id="bylocation"/>Location</label>
+        <label><input type="radio" name="dimension" id="byrarity"/>Rarity</label>
+    </form>
+    <div id="legend"></div>
+</div>
+</div>
+<div id='info' class="hidden overbox">
     <h3 id="treetitle"></h3>
     <div id="infotablebox">
     <table id="infotable"></table>
@@ -30,8 +56,6 @@
         <div id="wikitext"></div>
     </div>
     <div class="closex">&#10006;</div>
-
-</div>
 </div>
 <script src="opentrees.js"></script>
 <script>

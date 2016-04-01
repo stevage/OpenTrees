@@ -13,12 +13,36 @@ header {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNYfXr2bAAG4wKtJwTv8QAAAABJRU5ErkJggg==);
     font-kerning: normal; /* Why isn't this on by default? The title "OpenTrees.org" looks pretty bad without it. */
     border-bottom: 1px solid hsl(100,30%,50%);
+    display:flex;
 }
 
-#header {
-  /*height:160px;*/
-  font-family: lato, sans-serif;
+footer {
+    flex: 0 1 auto;
+    height:20px;
+    border:1px solid gray;
 }
+
+p {
+    font-family:Arial, sans-serif;
+    font-size: 12px;
+}
+
+#mainheader {
+    flex: 1 1 auto;
+    width:500px;
+}
+#about {
+    flex: 0 1 auto;
+    width:50px;
+    /*border:1px solid green;*/
+}
+
+#about p {
+    text-align:right;
+    margin:0.5em 0.5em 0 0;
+    font-size:12px;
+}    
+
 
 header h1 {
   font-family: lancelot, serif;
@@ -26,12 +50,8 @@ header h1 {
   font-weight:600;
   margin-top:12px;
   margin-bottom:8px;
-  display:inline-block;
   color:grey;
-  float:left;
 }
-
-
 
 .header-title {
   color:hsl(120,60%,20%);
@@ -51,8 +71,25 @@ header h1 {
   border:none;
 }
 
+.credit {
+    margin:-16px 0 0 120px;
+    font-family:arial;
+    font-size:12px;
+    color:hsl(120,60%,30%);
+}
 
-@media screen and (max-width: 640px) {
+ 
+a {
+    text-decoration:none;
+    font-weight:bold;
+    color:green;
+} 
+
+a:hover {
+    color:hsl(120,60%,50%);
+}
+
+@media screen and (max-width: 685px) {
     header h1 {
         font-size:22px;
         margin-top:6px;
@@ -60,6 +97,10 @@ header h1 {
     #logo {
         height: 40px;
         width:30px;
+    }
+    .credit {
+        margin:-10px 0 0px 30px;
+        font-size:10px;
     }
 }
 
@@ -72,23 +113,92 @@ header h1 {
     flex: 1 1 auto;
 }
 
+footer p {
+    margin: 0.25em 0.5em;
+}
+
+.overbox {
+    position:absolute;
+    background:white;
+    border:1px solid lightgray;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    color:#333;
+}
+
 
 #info {
     display:flex;
     flex-flow:column;
-    position:absolute;
     left:0px;
     top:70px;
     width:300px;
-    background:white;
-    border:1px solid lightgray;
     max-height: calc(100% - 75px);
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size:13px;
-    color:#333;
     transition: width 0.2s;
     transition: left 0.2s;
     opacity:0.8;
+}
+
+#explore {
+    background:white;
+    position:absolute;
+    right:0px;
+    top:210px;
+    width:200px;
+    border: 1px solid lightgray;
+    transition: width 2s;
+}
+
+#explore.collapsed {
+    width: auto;
+
+}
+
+#explore .hamburger {
+    right:0;
+    font-size:20px;
+    margin:0.5em;
+    text-align:right;
+}
+
+#legend ul {
+    list-style-type:none;
+    padding-left:8px;
+}
+
+#legend li span {
+    width: 10px;
+    height:10px;
+    display:inline-block;
+    border:1px solid grey;
+    margin:1px 6px 8px;
+    vertical-align:top;
+}
+
+#explore input {
+    
+    margin:0.5em 1em;
+}
+
+#explore label {
+    display:block;
+}
+
+#explore {
+    overflow: hidden;
+}
+
+.collapsible {
+    max-height:350px;
+    max-width:200px;
+    /*transition: max-height 0.5s, max-width 0.5s;*/
+}
+
+.collapsible.collapsed {
+    /*display:none;*/
+    height:0;
+    width: 0;
+    /*transition: max-height 2s;*/
 }
 
 @media screen and (max-width: 640px) {
