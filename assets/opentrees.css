@@ -189,7 +189,7 @@ footer p {
 }
 
 .collapsible {
-    max-height:350px;
+    max-height:400px;
     max-width:200px;
     /*transition: max-height 0.5s, max-width 0.5s;*/
 }
