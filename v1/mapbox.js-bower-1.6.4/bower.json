@@ -1,0 +1,15 @@
+{
+  "name": "mapboxjs",
+  "version": "1.6.4",
+  "authors": [
+    "Mapbox"
+  ],
+  "description": "Mapbox Javascript API Builded",
+  "main": "mapbox.js",
+  "keywords": [
+    "mapbox"
+  ],
+  "license": "See https://raw2.github.com/mapbox/mapbox.js/master/LICENSE.md",
+  "homepage": "https://github.com/mapbox/mapbox.js",
+  "ignore": [  ]
+}

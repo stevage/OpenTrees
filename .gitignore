@@ -1,3 +1,15 @@
-
-# added by GitSavvy
-/jquery.mobile.custom.zip
+*.geojson
+*.csv
+*.kml
+*.kmz
+*.zip
+*.shp
+*.dbf
+*.shx
+*.sbn
+*.sbx
+*.prj
+*.CPG
+*.xml
+treesmap-test.html
+alltrees.tar.gz
