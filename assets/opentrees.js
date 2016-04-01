@@ -158,14 +158,15 @@ function changeDimension(e) {
         addFilterLayer('Grevilleas, proteas, callistemons and banksias', 'hsl(120,60%,50%)', ["in", "genus", "Grevillea", 'Banksia', 'Callistemon']);
         addFilterLayer('Acacia', 'hsl(160, 90%,30%)', ["any", ["==", "genus", "Acacia"]]);
         addFilterLayer('Melaleuca', 'hsl(200, 60%,60%)', ["any", ["==", "genus", "Melaleuca"]]);
-        addFilterLayer('Planes', "hsl(0,86%,60%)", ["in", "genus", "Platanus"]);
+        addFilterLayer('Planes', "hsl(0,86%,60%)", ["in", "genus", "Platanus", 'Plantanus']);
         addFilterLayer('Elms',"hsl(30,60%,60%)", ["in", "genus", "Ulmus"]);
         addFilterLayer('Cedars', "hsl(50,80%,60%)",["in", "genus", "Cedrus", "Melia"]);
         addFilterLayer('Oaks', 'hsl(330, 60%,60%)', ["in", "genus", "Quercus"]);
 
         addFilterLayer('Pines and cypresses', "hsl(60,60%,60%)", ["in", "genus", "Pinus", "Araucaria", "Cupressus"]);
-        addFilterLayer('Pears and plums', 'hsl(240,60%,60%)', ["any", ["==", "genus", "Pyrus"], ['==','genus','Prunus']]);
+        addFilterLayer('Pears, plums and apples', 'hsl(240,60%,60%)', ["in", "genus", "Pyrus", 'Prunus', 'Malus']);
         addFilterLayer('Figs', 'hsl(0,0%,40%)', ["in", "genus", "Ficus"]);
+        addFilterLayer('Ashes', 'hsl(0,0%,20%)', ["in", "genus", "Fraxinus"]);
     } else if (e.target.id === 'byrarity') {
        
        addFilterLayer('Super common', 'hsl(210, 90%,60%)', ['>=', 'species_count', 10000]);
