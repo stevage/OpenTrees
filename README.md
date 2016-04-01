@@ -1,6 +1,10 @@
 # opentrees.org
 
-This repository contains scripts to fetch trees datasets for various councils in Victoria and load it into a database. It also contains a simple static website with a map of all the trees. This requires TileMill running server-side.
+This repository contains:
+
+1. Scripts to fetch, load, merge and clean open tree data from various Australian local councils, into a PostGIS database.
+2. A static website for browsing that data using Mapbox-GL-JS, with the magic of vector tiles. (The scripts to convert the data to vector tiles are here: https://github.com/stevage/vector-tile-scripts)
+3. A previous version of the website, using raster tiles, generated using TileMill. (In the `/v1` directory)
 
 The source code for the webpage at http://opentrees.org is also here.
 
