@@ -162,8 +162,8 @@ function changeDimension(e) {
         addFilterLayer('Cedars', "hsl(50,80%,60%)",["in", "genus", "Cedrus"]);
         addFilterLayer('Oaks', 'hsl(330, 60%,60%)', ["in", "genus", "Quercus"]);
 
-        addFilterLayer('Pines', "hsl(70,60%,60%)", ["in", "genus", "Pinus", "Araucaria"]);
-        addFilterLayer('Pears and plums', 'red', ["any", ["==", "genus", "Pyrus"], ['==','genus','Prunus']]);
+        addFilterLayer('Pines', "hsl(60,60%,60%)", ["in", "genus", "Pinus", "Araucaria"]);
+        addFilterLayer('Pears and plums', 'hsl(240,60%,60%)', ["any", ["==", "genus", "Pyrus"], ['==','genus','Prunus']]);
     } else if (e.target.id === 'byrarity') {
        
        addFilterLayer('Super common', 'hsl(210, 90%,60%)', ['>=', 'species_count', 10000]);
