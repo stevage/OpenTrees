@@ -12,6 +12,4 @@
 *.CPG
 *.xml
 treesmap-test.html
-
-# added by GitSavvy
-/alltrees.tar.gz
+alltrees.tar.gz
