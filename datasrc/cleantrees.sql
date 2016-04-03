@@ -130,6 +130,10 @@ UPDATE alltrees
 SET genus='Melaleuca', scientific = concat('Melaleuca ', species)
 WHERE genus LIKE 'Melalauca%';
 
+\echo "Pyrus to genus"
+UPDATE alltrees
+SET species=genus, genus='Pyrus', scientific = concat('Pyrus ', lower(genus))
+WHERE species ILIKE 'Pyrus';
 
 \echo "Blank out non-assessed crown widths."
 UPDATE alltrees
