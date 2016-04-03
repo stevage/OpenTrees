@@ -149,8 +149,8 @@ function changeDimension(e) {
     } else if (e.target.id === 'byrarity') {
        
        addFilterLayer('Super common', 'hsl(210, 90%,60%)', ['>=', 'species_count', 10000]);
-       addFilterLayer('Very common', 'hsl(120, 90%,60%)', ['all', ['>=', 'species_count', 1000], ['<', 'species_count', 10000]]);
-       addFilterLayer('Common', 'hsl(90, 70%,60%)', ['all', ['>=', 'species_count', 100], ['<', 'species_count', 1000]]);
+       addFilterLayer('Very common', 'hsl(160, 90%,60%)', ['all', ['>=', 'species_count', 1000], ['<', 'species_count', 10000]]);
+       addFilterLayer('Common', 'hsl(120, 70%,60%)', ['all', ['>=', 'species_count', 100], ['<', 'species_count', 1000]]);
        addFilterLayer('Average', 'hsl(60, 70%,60%)', ['all', ['>=', 'species_count', 20], ['<', 'species_count', 100]]);
        addFilterLayer('Rare', 'hsl(30, 70%, 50%)', ['all', ['>=', 'species_count', 5], ['<', 'species_count', 20]]);
        addFilterLayer('Very rare', 'hsl(0, 100%, 40%)', ['<', 'species_count', 5]);
