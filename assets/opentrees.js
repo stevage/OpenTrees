@@ -103,28 +103,6 @@ function toggleInfo(show) {
     }
 }
 
-function mousemove(e) {
-    if ($('#info').hasClass('pinned')) {
-        //toggleInfo(false);
-        return;
-    }
-    var features = map.queryRenderedFeatures(e.point, { layers: ['tree halo', 'tree greylo'] });
-    var scientific = features.length ? features[0].properties.scientific : '';
-    if (scientific) {
-        map.setFilter("route-hover", ["==", "scientific", scientific]);
-        //$('#info').text(features[0].properties.species_count + 'x ' + scientific);
-    } else {
-        map.setFilter("route-hover", ["==", "scientific", "$"]);
-        //$('#info').text('');
-    }
-    if (features.length) {
-        updateInfoTable(features[0].properties);
-        toggleInfo(true);
-        $('#wikibox').hide();
-    } else {
-        toggleInfo(false);
-    }
-}    
 
 var layersAdded = [];
 function clearLayers() {
@@ -164,7 +142,7 @@ function changeDimension(e) {
         addFilterLayer('Cedars', "hsl(50,80%,60%)",["in", "genus", "Cedrus", "Melia"]);
         addFilterLayer('Oaks', 'hsl(330, 60%,60%)', ["in", "genus", "Quercus"]);
 
-        addFilterLayer('Pines and cypresses', "hsl(60,60%,60%)", ["in", "genus", "Pinus", "Araucaria", "Cupressus"]);
+        addFilterLayer('Pines and cypresses', "hsl(60,60%,60%)", ["in", "genus", "Pinus", "Araucaria", "Cupressus", 'Cupressocyparis']);
         addFilterLayer('Pears, plums and apples', 'hsl(240,60%,60%)', ["in", "genus", "Pyrus", 'Prunus', 'Malus']);
         addFilterLayer('Figs', 'hsl(0,0%,40%)', ["in", "genus", "Ficus"]);
         addFilterLayer('Ashes', 'hsl(0,0%,20%)', ["in", "genus", "Fraxinus"]);
@@ -189,9 +167,95 @@ function changeDimension(e) {
     }
  }
 
+function setWindowHash(props) {
+    window.location.hash = props.source + '-' + props.ref + '?' + 
+        'lat=' + props.lat + '&lon=' + props.lon;
+
+}
+var loadingSource, loadingRef;
+function parseWindowHash() {
+    var h = window.location.hash;
+    var lon = h.match(/lon=(-?[0-9.]+)/);
+    var lat = h.match(/lat=(-?[0-9.]+)/);
+    loadingSource = h.match(/^#([^-]+)/);
+    if (loadingSource)
+        loadingSource = loadingSource[1];
+    loadingRef = h.match(/^#[^-]+-(\d+)\?/);
+    if (loadingRef)
+        loadingRef = loadingRef[1];
+    if (lon && lat) {
+        var ll = new mapboxgl.LngLat(Number(lon[1]), Number(lat[1]));
+        map.flyTo({center: ll, zoom: 15});
+    }
+}
+
+function featureAtPixel(p) {
+    var features = map.queryRenderedFeatures(p, { layers: ['tree halo', 'tree greylo'] });
+    return features.length ? features[0].properties : undefined;
+}
+
+function featureBySourceAndRef(source, ref) {
+    var features = map.querySourceFeatures("mapbox://stevage.alltrees", { 
+        sourceLayer: 'alltreesgeojson', 
+        filter: [ 'all', [ '==', 'source', source], [ '==', 'ref', ref ] ]
+    });
+    return features.length ? features[0].properties : undefined;
+}
+
+function showSimilarTrees(e, source, ref) {
+    if ($('#info').hasClass('pinned')) {
+        return;
+    }
+    var f;
+    if (e && e.point) {
+        f = featureAtPixel(e.point);
+    } else if (source && ref) {
+        f = featureBySourceAndRef(source, ref);
+    }
+    
+    var scientific = (f && f.scientific) ? f.scientific : '$';
+    map.setFilter("similar-trees", ["==", "scientific", scientific]);
+    if (f) {
+        updateInfoTable(f);
+        toggleInfo(true);
+        $('#wikibox').hide();
+    } else {
+        toggleInfo(false);
+    }
+}    
+
+function showExtraTreeInfo(e, source, ref) {
+    if ($('#info').hasClass('pinned')) {
+        $('#info').removeClass('pinned');
+        showSimilarTrees(e);
+        map.setFilter("highlight-selected", ['all', ['==', 'source', '$'], ['==', 'ref', '$'] ]);
+        return;
+    }
+    var f;
+    if (e && e.point) {
+        f = featureAtPixel(e.point);
+    } else if (source && ref) {
+        f = featureBySourceAndRef(source, ref);
+    }
+    if (!f)
+        return;
+    var searchterm;
+    if (f.genus) {
+        searchterm = toSpeciesCase(f.genus + (f.species ? " " + f.species : ""));
+    } else if (f.common) {
+        searchterm = f.common;
+    } else {
+        return;
+    }
+    $('#info').addClass('pinned');
+    lookupWikipedia(searchterm);
+    map.setFilter("highlight-selected", ['all', ['==', 'source', f.source], ['==', 'ref', f.ref] ]);
+    setWindowHash(f);
+}
+
 map.on('style.load', function() {
     map.addLayer({
-            "id": "route-hover",
+            "id": "similar-trees",
             "type": "circle",
             "source": "mapbox://stevage.alltrees",
             "source-layer": "alltreesgeojson",
@@ -202,32 +266,40 @@ map.on('style.load', function() {
             },
             "filter": ["==", "scientific", "$"]
         });
+    map.addLayer({
+            "id": "highlight-selected",
+            "type": "circle",
+            "source": "mapbox://stevage.alltrees",
+            "source-layer": "alltreesgeojson",
+            "layout": {},
+            "paint": {
+                "circle-color": "hsl(60,90%,70%)",
+                "circle-opacity": 0.5,
+                "circle-radius": 15
+            },
+            "filter": ['all', ['==', 'source', '$'], ['==', 'ref', '$'] ]
+        }, 'tree core');
 
-    map.on("mousemove", mousemove);
-    map.on('click', function(e) {
-        if ($('#info').hasClass('pinned')) {
-            $('#info').removeClass('pinned');
-            mousemove(e);
-            return;
-        }
-        var features = map.queryRenderedFeatures(e.point, { layers: ['tree halo', 'tree greylo'] });
-        if (!features.length)
-            return;
-        var f = features[0].properties;
-        var searchterm;
-        if (f.genus) {
-            searchterm = toSpeciesCase(f.genus + (f.species ? " " + f.species : ""));
-        } else if (f.common) {
-            searchterm = f.common;
-        } else {
-            return;
-        }
-        $('#info').addClass('pinned');
-        lookupWikipedia(searchterm);
-    });
+    map.on("mousemove", showSimilarTrees);
+    map.on('click', showExtraTreeInfo);
     $('input').on('change', changeDimension);
-
 });
+
+map.on('load', function(e) {
+    parseWindowHash();
+});
+
+map.on('moveend', function(e) {
+    if (!e.originalEvent && loadingRef && loadingSource) {
+        // hopefully this means the event was caused by our original flyTo
+        showSimilarTrees(e, loadingSource, loadingRef);
+        showExtraTreeInfo(e, loadingSource, loadingRef);
+        loadingSource = undefined;
+        loadingRef = undefined;
+        console.log(e);
+    }
+});
+
 $(function() {
     $('#info .closex').click(closeInfo);
     $('#info').on('swipeleft', closeInfo);
