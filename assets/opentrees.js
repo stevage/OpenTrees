@@ -49,6 +49,9 @@ function lookupWikipedia(searchterm) {
     var imageapi = wikiapi + '&prop=pageimages&redirects&titles=';
 
     var wikiimg = $('<div id="wikiimg"></div>');
+    if (searchterm === 'acer') {
+        searchterm = 'Acer (plant)';
+    }
 
     console.log('Searching Wikipedia for: ' + searchterm);
     $.ajax(imageapi + encodeURIComponent(searchterm), { 
