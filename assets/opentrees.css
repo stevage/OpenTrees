@@ -175,6 +175,10 @@ footer p {
     background:hsl(99, 31%, 82%);
 }
 
+#genusfilter,#speciesfilter {
+    display:none;
+}
+
 #legend ul {
     list-style-type:none;
     padding-left:8px;

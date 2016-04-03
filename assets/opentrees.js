@@ -137,7 +137,13 @@ function changeDimension(e) {
         greyloOpacity = map.getPaintProperty('tree greylo', 'circle-opacity');
     }
     map.setPaintProperty('tree greylo', 'circle-opacity', 0.01);
-    if (e.target.id === 'byspecies') {
+    $('#genusfilter').hide();
+    $('#speciesfilter').hide();
+    map.setLayoutProperty('similar-trees', 'visibility', 'none');
+    if (e.target.id === 'bynone') {
+        map.setPaintProperty('tree greylo', 'circle-opacity', greyloOpacity);
+        map.setLayoutProperty('similar-trees', 'visibility', 'visible');
+    } else if (e.target.id === 'byspecies') {
         addFilterLayer('Eucalyptus', "hsl(90,90%,30%)", ['in','genus','Eucalyptus']);
         addFilterLayer('Corymbia', "hsl(90,30%,60%)", ['in','genus','Corymbia']);
         addFilterLayer('Angophora', "hsl(90,30%,30%)", ['in','genus','Angophora']);
@@ -151,7 +157,7 @@ function changeDimension(e) {
         addFilterLayer('Cedars', "hsl(50,80%,60%)",["in", "genus", "Cedrus", "Melia"]);
         addFilterLayer('Oaks', 'hsl(330, 60%,60%)', ["in", "genus", "Quercus"]);
         addFilterLayer('Maples', 'hsl(330, 30%,70%)', ["in", "genus", "Acer"]);
-        addFilterLayer('Pines and cypresses', "hsl(60,60%,60%)", ["in", "genus", "Pinus", "Araucaria", "Cupressus", 'Cupressocyparis']);
+        addFilterLayer('Pines and cypresses', "hsl(60,60%,60%)", ["in", "genus", "Pinus", "Araucaria", "Cupressus", 'Cupressocyparis', 'Podocarpus']);
         addFilterLayer('Pears, plums and apples', 'hsl(240,60%,60%)', ["in", "genus", "Pyrus", 'Prunus', 'Malus']);
         addFilterLayer('Figs', 'hsl(0,0%,40%)', ["in", "genus", "Ficus"]);
         addFilterLayer('Ashes', 'hsl(0,0%,20%)', ["in", "genus", "Fraxinus"]);
@@ -173,10 +179,37 @@ function changeDimension(e) {
        addFilterLayer('>100', 'hsl(0, 90%,60%)', ['>=', 'dbh', 100]);
        addFilterLayer('10-100', 'hsl(60, 90%,60%)', ['all', ['<', 'dbh', 100], ['>', 'dbh', 10]]);
        addFilterLayer('<10', 'hsl(120, 90%,60%)', ['<=', 'dbh', 10]);
-    } else {
-        map.setPaintProperty('tree greylo', 'circle-opacity', greyloOpacity);
+    } else if (e.target.id==='bygenusfilter' || e.target.id==='genusfilter') {
+       $('#genusfilter').show();
+       addFilterLayer('Selected genus', 'hsl(120, 90%,60%)', ['==', 'genus', '$']);
+       $('#genusfilter').on('input', updateGenusFilter);
+
+       updateGenusFilter();
+    } else if (e.target.id==='byspeciesfilter' || e.target.id==='speciesfilter') {
+       $('#speciesfilter').show();
+       addFilterLayer('Selected species', 'hsl(10, 95%,40%)', ['==', 'species', '$']);
+       $('#speciesfilter').on('input', updateSpeciesFilter);
+
+       updateSpeciesFilter();
     }
  }
+
+ function updateGenusFilter() {
+    var g = $("#genusfilter").val();
+    if (g) {
+       $('.legend-item').text(g);
+       g = g.replace(/^./, String(g[0]).toUpperCase());
+       map.setFilter('Selected genus', ['==', 'genus', g]); // Assume there is only one legend item
+    }
+}    
+
+function updateSpeciesFilter() {
+       var g = $("#speciesfilter").val();
+       if (g) {
+         map.setFilter('Selected species', ['==', 'species', g.toLowerCase()]); // Assume there is only one legend item
+         $('.legend-item').text(g);
+       }
+}    
 
 function setWindowHash(props) {
     window.location.hash = props.source + '-' + props.ref + '?' + 
@@ -225,7 +258,9 @@ function showSimilarTrees(e, source, ref) {
     }
     
     var scientific = (f && f.scientific) ? f.scientific : '$';
-    //map.setFilter("similar-trees", ["==", "scientific", scientific]);
+    if ($('#bynone').is(':checked')) {
+        map.setFilter("similar-trees", ["==", "scientific", scientific]);
+    }
     if (f) {
         updateInfoTable(f);
         toggleInfo(true);
@@ -273,7 +308,7 @@ map.on('style.load', function() {
             "layout": {},
             "paint": {
                 "circle-color": "hsl(20,90%,60%)",
-                "circle-opacity": 0.85
+                "circle-opacity": 0.45
             },
             "filter": ["==", "scientific", "$"]
         });
