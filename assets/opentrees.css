@@ -201,7 +201,7 @@ span.legend-item {
     max-width:165px;
 }
 .collapsible {
-    max-height:450px;
+    max-height:550px;
     max-width:200px;
     overflow:hidden;
     transition: max-height 0.3s, max-width 0.3s;
