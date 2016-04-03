@@ -15,7 +15,8 @@ function toSpeciesCase(str) {
   str = str.replace(/\s+Sp./i, '');
   str = str.replace(/\s+Cultivar/i, '');
   str = str.replace(/\s+'.*$/g, '');
-  return str.toLowerCase().replace(/^w\w/, function (txt) { return txt.toUpperCase(); });
+  return str.toLowerCase();
+  //return str.toLowerCase().replace(/^w\w/, function (txt) { return txt.toUpperCase(); });
 }
 
 
@@ -146,7 +147,7 @@ function addFilterLayer(name, color, filter) {
             },
             "filter": filter
         });
-    $("#legend ul").append($("<li><span style='background:" + color + "'></span>" + name + "</li>"));
+    $("#legend ul").append($("<li><span class='legend-color' style='background:" + color + "'></span><span class='legend-item'>" + name + "</span></li>"));
     layersAdded.push(name);
 }
 
@@ -159,7 +160,7 @@ function changeDimension(e) {
         addFilterLayer('Acacia', 'hsl(160, 90%,30%)', ["any", ["==", "genus", "Acacia"]]);
         addFilterLayer('Melaleuca', 'hsl(200, 60%,60%)', ["any", ["==", "genus", "Melaleuca"]]);
         addFilterLayer('Planes', "hsl(0,86%,60%)", ["in", "genus", "Platanus", 'Plantanus']);
-        addFilterLayer('Elms',"hsl(30,60%,60%)", ["in", "genus", "Ulmus"]);
+        addFilterLayer('Elms',"hsl(30,60%,60%)", ["in", "genus", "Ulmus", 'Celtis']);
         addFilterLayer('Cedars', "hsl(50,80%,60%)",["in", "genus", "Cedrus", "Melia"]);
         addFilterLayer('Oaks', 'hsl(330, 60%,60%)', ["in", "genus", "Quercus"]);
 
@@ -171,10 +172,10 @@ function changeDimension(e) {
        
        addFilterLayer('Super common', 'hsl(210, 90%,60%)', ['>=', 'species_count', 10000]);
        addFilterLayer('Very common', 'hsl(120, 90%,60%)', ['all', ['>=', 'species_count', 1000], ['<', 'species_count', 10000]]);
-       addFilterLayer('Common', 'hsl(90, 60%,60%)', ['all', ['>=', 'species_count', 100], ['<', 'species_count', 1000]]);
-       addFilterLayer('Average', 'hsl(60, 60%,60%)', ['all', ['>=', 'species_count', 20], ['<', 'species_count', 100]]);
-       addFilterLayer('Rare', 'orange', ['all', ['>=', 'species_count', 5], ['<', 'species_count', 20]]);
-       addFilterLayer('Very rare', 'red', ['<', 'species_count', 5]);
+       addFilterLayer('Common', 'hsl(90, 70%,60%)', ['all', ['>=', 'species_count', 100], ['<', 'species_count', 1000]]);
+       addFilterLayer('Average', 'hsl(60, 70%,60%)', ['all', ['>=', 'species_count', 20], ['<', 'species_count', 100]]);
+       addFilterLayer('Rare', 'hsl(30, 70%, 50%)', ['all', ['>=', 'species_count', 5], ['<', 'species_count', 20]]);
+       addFilterLayer('Very rare', 'hsl(0, 100%, 40%)', ['<', 'species_count', 5]);
     } else if (e.target.id === 'bylocation') {
         addFilterLayer('Street', "hsl(0,60%,30%)", ['in','tree_type','Street','T-Street Tree', 'Rural roadside']);
         addFilterLayer('Park', "hsl(120,60%,30%)", ['in','tree_type','Park','T-Park Tree']);

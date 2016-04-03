@@ -140,39 +140,12 @@ footer p {
 }
 
 #explore {
-    background:white;
     position:absolute;
     right:0px;
     top:210px;
-    width:200px;
+    /*width:200px;*/
     border: 1px solid lightgray;
     transition: width 2s;
-}
-
-#explore.collapsed {
-    width: auto;
-
-}
-
-#explore .hamburger {
-    right:0;
-    font-size:20px;
-    margin:0.5em;
-    text-align:right;
-}
-
-#legend ul {
-    list-style-type:none;
-    padding-left:8px;
-}
-
-#legend li span {
-    width: 10px;
-    height:10px;
-    display:inline-block;
-    border:1px solid grey;
-    margin:1px 6px 8px;
-    vertical-align:top;
 }
 
 #explore input {
@@ -188,16 +161,56 @@ footer p {
     overflow: hidden;
 }
 
+#explore h3 {
+    margin-top: 0;
+    background:hsl(99, 31%, 82%);
+}
+
+#explore .hamburger {
+    right:0;
+    font-size:20px;
+    padding:0.5em;
+    text-align:right;
+    cursor:pointer;
+    background:hsl(99, 31%, 82%);
+}
+
+#legend ul {
+    list-style-type:none;
+    padding-left:8px;
+}
+
+span.legend-color {
+    clear:left;
+    width: 10px;
+    height:10px;
+    display:block;
+    float:left;
+    border:1px solid grey;
+    margin:1px 6px 8px;
+    vertical-align:top;
+}
+
+.collapsed span.legend-color {
+    /*width: 0; height: 0;*/
+}
+
+span.legend-item {
+    display:block;
+    float:left;
+    max-width:165px;
+}
 .collapsible {
     max-height:450px;
     max-width:200px;
-    /*transition: max-height 0.5s, max-width 0.5s;*/
+    overflow:hidden;
+    transition: max-height 0.3s, max-width 0.3s;
 }
 
 .collapsible.collapsed {
     /*display:none;*/
-    height:0;
-    width: 0;
+    max-height:0;
+    max-width: 0;
     /*transition: max-height 2s;*/
 }
 
