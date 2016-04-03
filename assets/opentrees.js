@@ -121,27 +121,35 @@ function addFilterLayer(name, color, filter) {
             "layout": {},
             "paint": {
                 "circle-color": color,
-                "circle-opacity": 0.35
+                "circle-opacity": 0.35,
+                "circle-radius": { "stops": [[10, 3], [18, 10]], "base": 1.6 }
             },
             "filter": filter
         });
     $("#legend ul").append($("<li><span class='legend-color' style='background:" + color + "'></span><span class='legend-item'>" + name + "</span></li>"));
     layersAdded.push(name);
 }
-
+var greyloOpacity;
 function changeDimension(e) {
     clearLayers();
+    if (!greyloOpacity) {
+        // this is properly a function, want to use whatever it's set to in Studio
+        greyloOpacity = map.getPaintProperty('tree greylo', 'circle-opacity');
+    }
+    map.setPaintProperty('tree greylo', 'circle-opacity', 0.01);
     if (e.target.id === 'byspecies') {
-        addFilterLayer('Gums', "hsl(90,60%,30%)", ['in','genus','Eucalyptus','Corymbia','Angophora']);
-        addFilterLayer('Lophostemon (Brush box)', "hsl(115,30%,30%)", ['in','genus','Lophostemon']);
-        addFilterLayer('Grevilleas, proteas, callistemons and banksias', 'hsl(120,60%,50%)', ["in", "genus", "Grevillea", 'Banksia', 'Callistemon']);
+        addFilterLayer('Eucalyptus', "hsl(90,90%,30%)", ['in','genus','Eucalyptus']);
+        addFilterLayer('Corymbia', "hsl(90,30%,60%)", ['in','genus','Corymbia']);
+        addFilterLayer('Angophora', "hsl(90,30%,30%)", ['in','genus','Angophora']);
+        addFilterLayer('Lophostemon', "hsl(90,90%,60%)", ['in','genus','Lophostemon']);
+        addFilterLayer('Grevilleas, proteas, callistemons and banksias', 'hsl(120,60%,50%)', ["in", "genus", "Grevillea", 'Banksia', 'Callistemon', 'Stenocarpus']);
         addFilterLayer('Acacia', 'hsl(160, 90%,30%)', ["any", ["==", "genus", "Acacia"]]);
-        addFilterLayer('Melaleuca', 'hsl(200, 60%,60%)', ["any", ["==", "genus", "Melaleuca"]]);
+        addFilterLayer('Melaleuca', 'hsl(200, 60%,50%)', ["any", ["==", "genus", "Melaleuca"]]);
+        addFilterLayer('(Allo)Casuarinas', 'hsl(180, 90%,60%)', ["in", "genus", "Casuarina", 'Allocasuarina']);
         addFilterLayer('Planes', "hsl(0,86%,60%)", ["in", "genus", "Platanus", 'Plantanus']);
         addFilterLayer('Elms',"hsl(30,60%,60%)", ["in", "genus", "Ulmus", 'Celtis']);
         addFilterLayer('Cedars', "hsl(50,80%,60%)",["in", "genus", "Cedrus", "Melia"]);
         addFilterLayer('Oaks', 'hsl(330, 60%,60%)', ["in", "genus", "Quercus"]);
-
         addFilterLayer('Pines and cypresses', "hsl(60,60%,60%)", ["in", "genus", "Pinus", "Araucaria", "Cupressus", 'Cupressocyparis']);
         addFilterLayer('Pears, plums and apples', 'hsl(240,60%,60%)', ["in", "genus", "Pyrus", 'Prunus', 'Malus']);
         addFilterLayer('Figs', 'hsl(0,0%,40%)', ["in", "genus", "Ficus"]);
@@ -164,6 +172,8 @@ function changeDimension(e) {
        addFilterLayer('>100', 'hsl(0, 90%,60%)', ['>=', 'dbh', 100]);
        addFilterLayer('10-100', 'hsl(60, 90%,60%)', ['all', ['<', 'dbh', 100], ['>', 'dbh', 10]]);
        addFilterLayer('<10', 'hsl(120, 90%,60%)', ['<=', 'dbh', 10]);
+    } else {
+        map.setPaintProperty('tree greylo', 'circle-opacity', greyloOpacity);
     }
  }
 
