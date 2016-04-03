@@ -214,7 +214,7 @@ function showSimilarTrees(e, source, ref) {
     }
     
     var scientific = (f && f.scientific) ? f.scientific : '$';
-    map.setFilter("similar-trees", ["==", "scientific", scientific]);
+    //map.setFilter("similar-trees", ["==", "scientific", scientific]);
     if (f) {
         updateInfoTable(f);
         toggleInfo(true);
