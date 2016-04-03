@@ -8,6 +8,9 @@ showcount alltrees
 echo "Cleaning and processing merged trees."
 psql -d $DBNAME -f cleantrees.sql
 
+echo "Processing DBH columns."
+psql -d $DBNAME -f cleandbh.sql
+
 echo "Making species interestingness table."
 psql -d $DBNAME -f makespecies.sql
 
