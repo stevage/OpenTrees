@@ -119,6 +119,12 @@ UPDATE alltrees
 SET scientific=concat('Populus ', species),genus='Populus'
 WHERE genus LIKE 'Poplus';
 
+\echo "Sailx -> Salix"
+UPDATE alltrees
+SET scientific=concat('Salix ', species),genus='Salix'
+WHERE genus LIKE 'Sailx';
+
+
  --33 only
 \echo "Cordyline cordyline -> Cordyline"
 UPDATE alltrees
@@ -130,10 +136,14 @@ UPDATE alltrees
 SET genus='Melaleuca', scientific = concat('Melaleuca ', species)
 WHERE genus LIKE 'Melalauca%';
 
-\echo "Pyrus to genus"
 UPDATE alltrees
-SET species=genus, genus='Pyrus', scientific = concat('Pyrus ', lower(genus))
-WHERE species ILIKE 'Pyrus';
+SET species='columellaris', scientific = concat(genus, ' columellaris')
+WHERE species LIKE 'columerauis';
+
+\echo "Flip genus, species of Pyrus, Eucalyptus, Dodonaea, Metrosideros"
+UPDATE alltrees
+SET species=lower(genus), genus=initcap(species), scientific = concat(initcap(species), ' ', lower(genus))
+WHERE lower(species) in ('pyrus', 'eucalyptus', 'dodonaea', 'metrosideros', 'buxus');
 
 \echo "Blank out non-assessed crown widths."
 UPDATE alltrees
