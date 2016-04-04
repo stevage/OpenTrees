@@ -119,7 +119,7 @@ function addFilterLayer(name, color, filter) {
     map.addLayer({
             "id": name,
             "type": "circle",
-            "source": "mapbox://stevage.alltrees",
+            "source": "mapbox://stevage.trees",
             "source-layer": "alltreesgeojson",
             "layout": {},
             "paint": {
@@ -214,9 +214,9 @@ function updateSpeciesFilter() {
        }
 }    
 
-function setWindowHash(props) {
+function setWindowHash(props, lngLat) {
     window.location.hash = props.source + '-' + props.ref + '?' + 
-        'lat=' + props.lat + '&lon=' + props.lon;
+        'lat=' + Number(lngLat.lat).toFixed(4) + '&lon=' + Number(lngLat.lng).toFixed(4);
 
 }
 var loadingSource, loadingRef;
@@ -232,7 +232,7 @@ function parseWindowHash() {
         loadingRef = loadingRef[1];
     if (lon && lat) {
         var ll = new mapboxgl.LngLat(Number(lon[1]), Number(lat[1]));
-        map.flyTo({center: ll, zoom: 15});
+        map.flyTo({center: ll, zoom: 16});
     }
 }
 
@@ -242,7 +242,7 @@ function featureAtPixel(p) {
 }
 
 function featureBySourceAndRef(source, ref) {
-    var features = map.querySourceFeatures("mapbox://stevage.alltrees", { 
+    var features = map.querySourceFeatures("mapbox://stevage.trees", { 
         sourceLayer: 'alltreesgeojson', 
         filter: [ 'all', [ '==', 'source', source], [ '==', 'ref', ref ] ]
     });
@@ -299,14 +299,14 @@ function showExtraTreeInfo(e, source, ref) {
     $('#info').addClass('pinned');
     lookupWikipedia(searchterm);
     map.setFilter("highlight-selected", ['all', ['==', 'source', f.source], ['==', 'ref', f.ref] ]);
-    setWindowHash(f);
+    setWindowHash(f, e.lngLat);
 }
 
 map.on('style.load', function() {
     map.addLayer({
             "id": "similar-trees",
             "type": "circle",
-            "source": "mapbox://stevage.alltrees",
+            "source": "mapbox://stevage.trees",
             "source-layer": "alltreesgeojson",
             "layout": {},
             "paint": {
@@ -318,7 +318,7 @@ map.on('style.load', function() {
     map.addLayer({
             "id": "highlight-selected",
             "type": "circle",
-            "source": "mapbox://stevage.alltrees",
+            "source": "mapbox://stevage.trees",
             "source-layer": "alltreesgeojson",
             "layout": {},
             "paint": {
