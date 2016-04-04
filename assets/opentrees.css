@@ -271,12 +271,13 @@ span.legend-item {
     flex: 0 0 auto;
 
     background-color:hsl(100,30%,82%);/*#ddd;*/
-    padding:0.5em;
+    padding:0.25em 0.5em;
     margin-top:0;
     margin-bottom:0;
     border-top:1px solid hsl(100,30%,30%);
     border-bottom:1px solid hsl(100,30%,30%);
-    font-size:20px;
+    font-size:24px;
+    font-family: lancelot, sans-serif;
 }
 
 

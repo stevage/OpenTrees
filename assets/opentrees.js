@@ -29,7 +29,7 @@ function updateInfoTable(props) {
             $("#infotable").append('<tr><th>' + header + '</th><td>' + value + '</td></tr>');
         }
     }    
-    $("#treetitle").html(val(props.common) || (val(props.scientific) ? '<i>' + props.scientific + '</i>':'') || 'Tree #' + props.ref);
+    $("#treetitle").html(val(props.common) || (val(props.scientific) ? '<i>' + props.scientific + '</i>':'') || props.description || ('Tree #' + props.ref));
     $("#infotable").html('');
     var speciesCount = props.species_count ? '<small>' + props.species_count + '</small>' : '';
     addRow("Scientific name", (props.common && props.scientific)? '<i>' + props.scientific + '</i>':'');
