@@ -12,7 +12,7 @@ var map = new mapboxgl.Map({
 map.addControl(new mapboxgl.Navigation());
 map.addControl(new mapboxgl.Geolocate({position: 'top-right'}));
 function toSpeciesCase(str) {
-  str = str.replace(/\s+Sp./i, '');
+  str = str.replace(/\s+Sp[\.|p|p\.|ecies]/i, '');
   str = str.replace(/\s+Cultivar/i, '');
   str = str.replace(/\s+'.*$/g, '');
   return str.toLowerCase();
@@ -124,8 +124,8 @@ function addFilterLayer(name, color, filter) {
             "layout": {},
             "paint": {
                 "circle-color": color,
-                "circle-opacity": 0.35,
-                "circle-radius": { "stops": [[10, 3], [18, 10]], "base": 1.6 }
+                "circle-opacity": { 'stops': [[13, 0.35], [18, 0.9]], 'base': 1.5 },
+                "circle-radius": { "stops": [[10, 2], [18, 10]], "base": 1.6 }
             },
             "filter": filter
         });
@@ -148,22 +148,32 @@ function changeDimension(e) {
         map.setLayoutProperty('similar-trees', 'visibility', 'visible');
     } else if (e.target.id === 'byspecies') {
         addFilterLayer('Eucalyptus', "hsl(90,90%,30%)", ['in','genus','Eucalyptus']);
-        addFilterLayer('Corymbia', "hsl(90,30%,60%)", ['in','genus','Corymbia']);
-        addFilterLayer('Angophora', "hsl(90,30%,30%)", ['in','genus','Angophora']);
+        addFilterLayer('Corymbia,  Angophora', "hsl(90,30%,60%)", ['in','genus','Corymbia', 'Angophora']);
         addFilterLayer('Lophostemon', "hsl(90,90%,60%)", ['in','genus','Lophostemon']);
-        addFilterLayer('Grevilleas, proteas, callistemons and banksias', 'hsl(120,60%,50%)', ["in", "genus", "Grevillea", 'Banksia', 'Callistemon', 'Stenocarpus']);
-        addFilterLayer('Acacia', 'hsl(160, 90%,30%)', ["any", ["==", "genus", "Acacia"]]);
-        addFilterLayer('Melaleuca', 'hsl(200, 60%,50%)', ["any", ["==", "genus", "Melaleuca"]]);
+        addFilterLayer('Grevilleas, proteas, banksias', 'hsl(120,60%,50%)', ["in", "genus", "Grevillea", 'Grevillia', 'Banksia', 'Stenocarpus']);
+        addFilterLayer('Melaleucas and callistemons', 'hsl(200, 60%,50%)', ['in', 'genus', 'Melaleuca', 'Callistemon']);
         addFilterLayer('(Allo)Casuarinas', 'hsl(180, 90%,60%)', ["in", "genus", "Casuarina", 'Allocasuarina']);
+        addFilterLayer('Other natives', 'hsl(160, 90%, 30%)', ['any', 
+            ['in', 'genus', 'Hakea', 'Agonis', 'Tristaniopsis', 'Lagunaria', 'Acacia','Hymenosporum', 'Brachychiton', 'Leptospermum' /* some aren't endemic */, 'Waterhousea' /* a bit uncertain */, 
+            'Bursaria', 'Geijera'],
+            ['all', [ 'in', 'genus', 'Acmena', 'Syzygium' ], [ 'in', 'species', 'smithii'] ],
+            ['in', 'scientific', 'Pittosporum undulatum', 'Cupaniopsis anacardioides', 'Acmena smithii', 'Acmena smithii (Syzygium smithii)']]);
         addFilterLayer('Planes', "hsl(0,86%,60%)", ["in", "genus", "Platanus", 'Plantanus']);
         addFilterLayer('Elms',"hsl(30,60%,60%)", ["in", "genus", "Ulmus", 'Celtis']);
         addFilterLayer('Cedars', "hsl(50,80%,60%)",["in", "genus", "Cedrus", "Melia"]);
-        addFilterLayer('Oaks', 'hsl(330, 60%,60%)', ["in", "genus", "Quercus"]);
-        addFilterLayer('Maples', 'hsl(330, 30%,70%)', ["in", "genus", "Acer"]);
-        addFilterLayer('Pines and cypresses', "hsl(60,60%,60%)", ["in", "genus", "Pinus", "Araucaria", "Cupressus", 'Cupressocyparis', 'Podocarpus']);
+        addFilterLayer('Oaks & maples', 'hsl(330, 60%,60%)', ["in", "genus", "Quercus", 'Acer']);
+        addFilterLayer('Palms', 'hsl(40, 100%,70%)', ["in", "genus", "Phoenix", 'Washingtonia', 'Jubaea', 'Chamaerops','Syagrus','Livistona']);
+        addFilterLayer('Pines and cypresses', "hsl(60,60%,60%)", ["in", "genus", "Pinus", "Araucaria", "Cupressus", 'Cupressocyparis', 'Podocarpus', 'Platycladus', 'Thuja', 'Hesperocyparis']);
         addFilterLayer('Pears, plums and apples', 'hsl(240,60%,60%)', ["in", "genus", "Pyrus", 'Prunus', 'Malus']);
         addFilterLayer('Figs', 'hsl(0,0%,40%)', ["in", "genus", "Ficus"]);
         addFilterLayer('Ashes', 'hsl(0,0%,20%)', ["in", "genus", "Fraxinus"]);
+        addFilterLayer('Other exotics', 'hsl(310, 90%,60%)', ['any', 
+            ['in', 'genus','Betula', 'Liquidambar', 'Gleditsia', 'Robinia','Pseudotsuga','Alnus', 'Laburnum',
+            'Eriobotrya','Olea', 'Schinus', 'Photinia', 'Laurus', 'Populus', 'Ligustrum', 'Cotoneaster', 'Nerium', 'Pyracantha', 'Zelkova', 'Jacaranda', 'Metrosideros',
+            'Pistacia','Pistachia','Arbutus','Crataegus','Koelreuteria', 'Morus','Cinnamomum' /* a small number of natives */, 'Virgilia', 'Salix', 'Ceratonia', 
+            'Cercis','Tilia','Ginkgo','Magnolia'], 
+            ['in', 'species', 'indica', 'eugenioides', 'japonicus', 'japonica'],
+            ['in', 'scientific', 'Agathis robusta', 'Pittosporum tenuifolium', 'Agathis australis']]);
     } else if (e.target.id === 'byrarity') {
        
        addFilterLayer('Super common', 'hsl(210, 90%,60%)', ['>=', 'species_count', 10000]);
@@ -215,6 +225,7 @@ function updateSpeciesFilter() {
 }    
 
 function setWindowHash(props, lngLat) {
+    if (!props || !lngLat) return;
     window.location.hash = props.source + '-' + props.ref + '?' + 
         'lat=' + Number(lngLat.lat).toFixed(4) + '&lon=' + Number(lngLat.lng).toFixed(4);
 
