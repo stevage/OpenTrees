@@ -2,18 +2,25 @@ UPDATE alltrees
 SET scientific=trim(concat(genus, ' ', species))
 WHERE scientific IS NULL;
 
-\echo 'Remove "Vacant Planting", "Natives - mixed" etc'
+\echo 'Remove vacant plantings'
+DELETE FROM alltrees
+WHERE scientific='Vacant Planting' OR description='Vacant Planting';
+
+\echo 'Convert "Stump", "Natives - mixed" etc to descriptions'
 UPDATE alltrees
 SET scientific='', genus='', species='', description=scientific
-WHERE scientific='Vacant Planting' 
-  OR scientific ILIKE 'Native%'
+WHERE scientific ILIKE 'Native%'
   OR scientific ILIKE 'Ornamental%'
-  OR scientific ILIKE 'Rose %'
-  OR scientific ILIKE 'Fan Palm%'
   OR scientific ILIKE 'Unidentified%'
   OR scientific ILIKE 'Unknown%'
   OR scientific ILIKE 'Stump'
   OR scientific ilike 'Not listed';
+
+UPDATE alltrees
+SET scientific='', genus='', species='', common=scientific
+WHERE scientific ILIKE 'Rose %'
+  OR scientific ILIKE 'Fan Palm%';
+  
 
 \echo "Split variety from scientific name"
 UPDATE alltrees
@@ -135,6 +142,13 @@ WHERE scientific LIKE 'Cordyline cordyline';
 UPDATE alltrees
 SET genus='Melaleuca', scientific = concat('Melaleuca ', species)
 WHERE genus LIKE 'Melalauca%';
+
+
+\echo "Waterhousia -> Waterhousea"
+UPDATE alltrees
+SET genus='Waterhousea', scientific = concat('Waterhousea ', species)
+WHERE genus LIKE 'Waterhousia';
+
 
 UPDATE alltrees
 SET species='columellaris', scientific = concat(genus, ' columellaris')
