@@ -192,6 +192,11 @@ function changeDimension(e) {
        addFilterLayer('>100', 'hsl(0, 90%,60%)', ['>=', 'dbh', 100]);
        addFilterLayer('10-100', 'hsl(60, 90%,60%)', ['all', ['<', 'dbh', 100], ['>', 'dbh', 10]]);
        addFilterLayer('<10', 'hsl(120, 90%,60%)', ['<=', 'dbh', 10]);
+    } else if (e.target.id==='byevergreen') {
+       addFilterLayer('Deciduous', 'hsl(0, 90%,60%)', ['==', 'evergreen', 'D']);
+       addFilterLayer('Evergreen', 'hsl(110, 90%,60%)', ['==', 'evergreen', 'EV']);
+       //No D_EVs in our dataset, apparently.
+       //addFilterLayer('Either', 'hsl(220, 50%,60%)', ['==', 'evergreen', 'D_EV']);
     } else if (e.target.id==='bygenusfilter' || e.target.id==='genusfilter') {
        $('#genusfilter').show();
        addFilterLayer('Selected genus', 'hsl(120, 90%,60%)', ['==', 'genus', '$']);
