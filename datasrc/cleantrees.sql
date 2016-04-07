@@ -149,10 +149,22 @@ UPDATE alltrees
 SET genus='Waterhousea', scientific = concat('Waterhousea ', species)
 WHERE genus LIKE 'Waterhousia';
 
+UPDATE alltrees
+SET species='styphelioides', scientific = ''
+WHERE species='stypheliodes';
 
 UPDATE alltrees
-SET species='columellaris', scientific = concat(genus, ' columellaris')
+SET species='linariifolia', scientific = ''
+WHERE species='linarifolia';
+
+UPDATE alltrees
+SET species='columellaris', scientific = ''
 WHERE species LIKE 'columerauis';
+
+UPDATE alltrees
+SET scientific=concat(genus, ' ', species)
+WHERE scientific='' AND genus <> '' AND species <> '';
+
 
 \echo "Flip genus, species of Pyrus, Eucalyptus, Dodonaea, Metrosideros"
 UPDATE alltrees
