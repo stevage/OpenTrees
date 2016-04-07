@@ -85,7 +85,7 @@ function lookupWikipedia(searchterm) {
             } else {
                 // not found
                 $("#wikiimg").html('');
-                $("#wikitext").html('Nothing on Wikipedia.');
+                $("#wikitext").html('Nothing on <a target="_blank" href="https://en.wikipedia.org/wiki/Special:Search/' + encodeURIComponent(searchterm) + '">Wikipedia</a>.');
             }
         }
     });
