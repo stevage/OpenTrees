@@ -115,7 +115,7 @@ function clearLayers() {
     layersAdded=[];
     $("#legend").html("<ul></li>");
 }
-function addFilterLayer(name, color, filter) {
+function addFilterLayer(name, color, filter, paintProps) {
     map.addLayer({
             "id": name,
             "type": "circle",
@@ -124,27 +124,36 @@ function addFilterLayer(name, color, filter) {
             "layout": {},
             "paint": {
                 "circle-color": color,
-                "circle-opacity": { 'stops': [[13, 0.35], [18, 0.9]], 'base': 1.5 },
+                "circle-opacity": { 'stops': [[13, 0.35], [16, 0.9]], 'base': 1.5 },
                 "circle-radius": { "stops": [[10, 2], [18, 10]], "base": 1.6 }
             },
             "filter": filter
         });
+    if (paintProps) {
+        Object.keys(paintProps).forEach(function(p) {
+            map.setPaintProperty(name, p, paintProps[p]);
+        });
+    }
     $("#legend ul").append($("<li><span class='legend-color' style='background:" + color + "'></span><span class='legend-item'>" + name + "</span></li>"));
     layersAdded.push(name);
 }
-var greyloOpacity;
+var paintProperties;
 function changeDimension(e) {
     clearLayers();
-    if (!greyloOpacity) {
+    if (!paintProperties) {
         // this is properly a function, want to use whatever it's set to in Studio
-        greyloOpacity = map.getPaintProperty('tree greylo', 'circle-opacity');
+        paintProperties = {
+            greyloOpacity: map.getPaintProperty('tree greylo', 'circle-opacity'),
+            coreColor: map.getPaintProperty('tree core', 'circle-color')
+        };
     }
     map.setPaintProperty('tree greylo', 'circle-opacity', 0.01);
+    map.setPaintProperty('tree core', 'circle-color', paintProperties.coreColor);
     $('#genusfilter').hide();
     $('#speciesfilter').hide();
     map.setLayoutProperty('similar-trees', 'visibility', 'none');
     if (e.target.id === 'bynone') {
-        map.setPaintProperty('tree greylo', 'circle-opacity', greyloOpacity);
+        map.setPaintProperty('tree greylo', 'circle-opacity', paintProperties.greyloOpacity);
         map.setLayoutProperty('similar-trees', 'visibility', 'visible');
     } else if (e.target.id === 'byspecies') {
         addFilterLayer('Eucalyptus', "hsl(90,90%,30%)", ['in','genus','Eucalyptus']);
@@ -179,8 +188,8 @@ function changeDimension(e) {
        addFilterLayer('Super common', 'hsl(210, 90%,60%)', ['>=', 'species_count', 10000]);
        addFilterLayer('Very common', 'hsl(160, 90%,60%)', ['all', ['>=', 'species_count', 1000], ['<', 'species_count', 10000]]);
        addFilterLayer('Common', 'hsl(120, 70%,60%)', ['all', ['>=', 'species_count', 100], ['<', 'species_count', 1000]]);
-       addFilterLayer('Average', 'hsl(60, 70%,60%)', ['all', ['>=', 'species_count', 20], ['<', 'species_count', 100]]);
-       addFilterLayer('Rare', 'hsl(30, 70%, 50%)', ['all', ['>=', 'species_count', 5], ['<', 'species_count', 20]]);
+       addFilterLayer('Average', 'hsl(60, 70%,50%)', ['all', ['>=', 'species_count', 20], ['<', 'species_count', 100]]);
+       addFilterLayer('Rare', 'hsl(30, 70%, 40%)', ['all', ['>=', 'species_count', 5], ['<', 'species_count', 20]]);
        addFilterLayer('Very rare', 'hsl(0, 100%, 40%)', ['<', 'species_count', 5]);
     } else if (e.target.id === 'bylocation') {
         addFilterLayer('Street', "hsl(0,60%,30%)", ['in','tree_type','Street','T-Street Tree', 'Rural roadside']);
@@ -197,6 +206,19 @@ function changeDimension(e) {
        addFilterLayer('Evergreen', 'hsl(110, 90%,60%)', ['==', 'evergreen', 'EV']);
        //No D_EVs in our dataset, apparently.
        //addFilterLayer('Either', 'hsl(220, 50%,60%)', ['==', 'evergreen', 'D_EV']);
+    } else if (e.target.id==='bynoxious') {
+       map.setPaintProperty('tree core', 'circle-color', 'hsla(128,40%,80%, 0.5)');
+       var paint = { 'circle-opacity': 0.8};
+       addFilterLayer('Odour', 'hsl(240, 90%,60%)', ['==', 'scientific', 'Pyrus calleryana'], paint);
+       addFilterLayer('Allergy', 'hsl(10, 90%,60%)', ['==', 'scientific', 'Platanus x acerifolia'], paint);
+       addFilterLayer('Skin irritation', 'hsl(60, 90%,40%)', ['in', 'genus', 'Lagunaria'], paint);
+       addFilterLayer('Poisonous', 'hsl(300, 90%,50%)', ['in', 'genus', 'Nerium'], paint);
+       addFilterLayer('Poisonous for dogs', 'hsl(300, 30%,40%)', ['any',
+            ['in', 'scientific', 'Prunus serrulata', 'Cotoneaster glaucophylla'],
+            ['in', 'species','pseudoacacia'],
+            ['in', 'genus','Quercus']]
+            , paint);
+
     } else if (e.target.id==='bygenusfilter' || e.target.id==='genusfilter') {
        $('#genusfilter').show();
        addFilterLayer('Selected genus', 'hsl(120, 90%,60%)', ['==', 'genus', '$']);
