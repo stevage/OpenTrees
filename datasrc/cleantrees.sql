@@ -46,11 +46,12 @@ WHERE scientific LIKE'% %' and genus is null;
 -- 'Sp.' means non-identified species, 'Spp.' technically means a mix of several unidentified species.
 UPDATE alltrees
 SET species=''
-WHERE lower(trim(species)) LIKE 'sp.' 
-   OR lower(trim(species)) LIKE 'sp'
-   OR lower(trim(species)) LIKE 'spp'
-   OR lower(trim(species)) LIKE 'spp.'
-   OR lower(trim(species)) LIKE 'species';
+WHERE trim(species) ILIKE 'sp.' 
+   OR trim(species) ILIKE 'sp'
+   OR trim(species) ILIKE 'spp'
+   OR trim(species) ILIKE 'spp.'
+   OR trim(species) ILIKE 'species'
+   OR trim(species) ILIKE 'unknown';
 
 \echo "Handle 'cultivar'"
 UPDATE alltrees
@@ -160,6 +161,11 @@ WHERE species='linarifolia';
 UPDATE alltrees
 SET species='columellaris', scientific = ''
 WHERE species LIKE 'columerauis';
+
+UPDATE alltrees
+SET genus='Robinia', scientific = ''
+WHERE species='robina';
+
 
 UPDATE alltrees
 SET scientific=concat(genus, ' ', species)
