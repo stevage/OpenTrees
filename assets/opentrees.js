@@ -469,5 +469,6 @@ $(function() {
 
     $('#info .closex').click(closeInfo);
     $('#info').on('swipeleft', closeInfo);
-    $("#explore .hamburger").click(function(){ $("#explore .collapsible").toggleClass("collapsed"); });
+    // $("#explore .hamburger").click(function(){ $("#explore .collapsible").toggleClass("collapsed"); });
+    map.off('tile.error');
 });
