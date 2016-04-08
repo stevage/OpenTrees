@@ -14,7 +14,7 @@ WHERE scientific ILIKE 'Native%'
   OR scientific ILIKE 'Unidentified%'
   OR scientific ILIKE 'Unknown%'
   OR scientific ILIKE 'Stump'
-  OR scientific ilike 'Not listed';
+  OR scientific ilike 'Not %'; -- not applicable, not listed ...
 
 UPDATE alltrees
 SET scientific='', genus='', species='', common=scientific
@@ -92,84 +92,66 @@ UPDATE alltrees
 SET scientific='Eucalyptus leucoxylon',species='leucoxylon'
 WHERE scientific LIKE 'Eucalyptus leucoxylon euky dwar%';
 
-\echo "Angpohoras -> Angophora"
-UPDATE alltrees
-SET scientific='Angophora costata',genus='Angophora'
-WHERE scientific LIKE 'Angpohora costata';
-
-\echo "Qurecus -> Quercus"
-UPDATE alltrees
-SET genus='Quercus'
-WHERE genus='Qurecus';
-
-\echo "Bacculenta -> Bucculenta"
-UPDATE alltrees
-SET species='bucculenta', scientific='Hakea bucculenta'
-WHERE scientific='Hakea bacculenta';
-
-\echo "Leptosprmum -> Leptospermum"
-UPDATE alltrees
-SET scientific='Leptospermum laevigatum',genus='Leptospermum'
-WHERE scientific LIKE 'Leptosprmum laevigatum';
-
-\echo "Lophostermon -> Lophostemon"
-UPDATE alltrees
-SET scientific='Lophostemon confertus',genus='Lophostemon'
-WHERE scientific LIKE 'Lophostermon confertus';
-
-\echo "Photina, Photinea -> Photinia"
-UPDATE alltrees
-SET scientific=concat('Photinia ', species),genus='Photinia'
-WHERE genus LIKE 'Photinea' OR genus LIKE 'Photina';
-
-\echo "Poplus -> Populus"
-UPDATE alltrees
-SET scientific=concat('Populus ', species),genus='Populus'
-WHERE genus LIKE 'Poplus';
-
-\echo "Sailx -> Salix"
-UPDATE alltrees
-SET scientific=concat('Salix ', species),genus='Salix'
-WHERE genus LIKE 'Sailx';
-
-
  --33 only
 \echo "Cordyline cordyline -> Cordyline"
 UPDATE alltrees
 SET scientific='Cordyline',species=''
 WHERE scientific LIKE 'Cordyline cordyline';
 
-\echo "Melalauca -> Melaleuca"
-UPDATE alltrees
-SET genus='Melaleuca', scientific = concat('Melaleuca ', species)
-WHERE genus LIKE 'Melalauca%';
 
+drop table _speciesfix;
+create table _speciesfix ( speciesfrom varchar, speciesto varchar, genus varchar);
+insert into _speciesfix (speciesfrom, speciesto) values
+  ('desmithiana', 'desmetiana'),
+  ('linarifolia','linariifolia'),
+  ('columellaris','columerauis'),
+  ('bacculenta','bucculenta'),
+  ('stypheliodes', 'styphelioides'),
+  ('glaucophylla','glaucophyllus'),
+  ('chanticleer','calleryana'), -- tecnhically a cultivar of calleryana
+  ('capital','calleryana'), -- ditto
+  ('gonyocalyx','goniocalyx'),
+  ('nesophillia','nesophilia'),
+  ('jorulensis','jorullensis'),
+  ('blierana','x blireana');
 
-\echo "Waterhousia -> Waterhousea"
-UPDATE alltrees
-SET genus='Waterhousea', scientific = concat('Waterhousea ', species)
-WHERE genus LIKE 'Waterhousia';
-
-UPDATE alltrees
-SET species='styphelioides', scientific = ''
-WHERE species='stypheliodes';
-
-UPDATE alltrees
-SET species='linariifolia', scientific = ''
-WHERE species='linarifolia';
-
-UPDATE alltrees
-SET species='columellaris', scientific = ''
-WHERE species LIKE 'columerauis';
-
-UPDATE alltrees
-SET genus='Robinia', scientific = ''
-WHERE species='robina';
+insert into _speciesfix (speciesfrom, speciesto, genus) values
+  ('syriaca', 'syriacus', 'Hibiscus');
 
 
 UPDATE alltrees
-SET scientific=concat(genus, ' ', species)
-WHERE scientific='' AND genus <> '' AND species <> '';
+SET scientific = '', species=speciesto
+FROM _speciesfix
+WHERE species ILIKE speciesfrom AND alltrees.genus ILIKE coalesce(_speciesfix.genus, alltrees.genus);
+
+
+drop table _genusfix;
+create table _genusfix ( genusfrom varchar, genusto varchar);
+insert into _genusfix (genusfrom, genusto) values
+    ('Melalauca%', 'Melaleuca'),
+    ('Waterhousia','Waterhousea'),
+    ('Robina','Robinia'),
+    ('Sailx','Salix'),
+    ('Poplus','Populus'),
+    ('Photinea','Photinia'),
+    ('Photina','Photinia'),
+    ('Lophostermon','Lophostemon'),
+    ('Leptosprmum','Leptospermum'),
+    ('Qurecus','Quercus'),
+    ('Angpohora','Angophora'),
+    ('Pistachia','Pistacia')
+
+    ;
+
+UPDATE alltrees
+SET scientific = '', genus=genusto
+FROM _genusfix
+WHERE genus ILIKE genusfrom;
+
+
+UPDATE alltrees
+SET scientific=trim(concat(genus, coalesce(' ', species)))
+WHERE scientific='' AND genus <> '';
 
 
 \echo "Flip genus, species of Pyrus, Eucalyptus, Dodonaea, Metrosideros"
