@@ -127,46 +127,100 @@ footer p {
 }
 
 
-#info {
-    display:flex;
-    flex-flow:column;
-    left:0px;
-    top:70px;
-    width:300px;
-    max-height: calc(100% - 75px);
-    transition: width 0.2s;
-    transition: left 0.2s;
-    opacity:0.8;
+
+#mybtns {
+    background:hsl(100,30%,95%);
+    box-shadow:none;
 }
 
-#explore {
-    position:absolute;
+#mybtns button {
+    background-position-x: 4px;
+    background-position-y: 2px;
+    margin:4px;
+    background-repeat:no-repeat;
+    float:right;
+    background-color: hsl(100,30%,95%);
+}
+
+#direction-btn {
+    background-image:url(noun_182987_cc.svg);
+}
+
+#explore-btn {
+    background-image:url(noun_34652_cc.svg);
+}    
+
+.mapboxgl-ctrl-group > button {
+    margin-left: auto;
+}
+
+#mybtns {
+    max-width: 32px; /* to force my buttons to stack */
+    margin-left: auto;
+    float:right;
+}
+
+.mapboxgl-ctrl-group.expanded {
+    max-width:320px;
+    /*max-height:400px;*/
+    background:hsl(100,30%,95%);
+}
+
+#directions {
+    margin:0px;
+}
+
+#directions ul {
+    padding-left:0;
+}
+
+
+
+#directions li {
+    list-style-type: none;
+    display: inline-block;
+    background: hsl(100,30%,90%);
+    padding:0.5em;
+    margin:2px;
+    border-radius:2px;
+    font-family:'Lancelot',Arial;
+    font-size:16px;
+    font-weight:bolder;
+}
+#directions li:hover {
+    color: hsl(100,70%,40%);
+    cursor:pointer;
+}
+
+
+#explore2 {
+    /*position:absolute;
     right:0px;
-    top:210px;
+    top:250px;*/
     /*width:200px;*/
-    border: 1px solid lightgray;
+    /*border: 1px solid lightgray;*/
     transition: width 2s;
+    max-height:620px;
+    width:200px;
+
 }
 
-#explore input {
+#explore2 input {
     
     margin:0.5em 1em;
 }
 
-#explore label {
+#explore2 label {
     display:block;
 }
 
-#explore {
-    overflow: hidden;
-}
-
-#explore h3 {
+#explore2 h3 {
     margin-top: 0;
-    background:hsl(99, 31%, 82%);
+    margin-left:1em;
+    /*background:hsl(99, 31%, 82%);*/
 }
 
-#explore .hamburger {
+/*#explore .hamburger {
     right:0;
     font-size:20px;
     padding:0.5em;
@@ -174,6 +228,21 @@ footer p {
     cursor:pointer;
     background:hsl(99, 31%, 82%);
 }
+*/
+
+#explore2 form label {
+    padding:2px 2px 2px 1em;
+}
+
+input[type='radio'] {
+    display:none;
+}
+input[type='radio']:checked+label {
+    background:hsl(100,30%,80%);;
+    font-weight:bold;
+    /*border:1px solid gray;*/
+}
+
 
 #genusfilter,#speciesfilter {
     display:none;
@@ -202,10 +271,10 @@ span.legend-color {
 span.legend-item {
     display:block;
     float:left;
-    max-width:165px;
+    max-width:136px; /* This is closely tied to #explore2.width to prevent bad wrapping. */
 }
 .collapsible {
-    max-height:550px;
+    /*max-height:580px;*/
     max-width:200px;
     overflow:hidden;
     transition: max-height 0.3s, max-width 0.3s;
@@ -217,6 +286,22 @@ span.legend-item {
     max-width: 0;
     /*transition: max-height 2s;*/
 }
+
+
+/**************** Left side bar **********************/
+
+#info {
+    display:flex;
+    flex-flow:column;
+    left:0px;
+    top:70px;
+    width:300px;
+    max-height: calc(100% - 75px);
+    transition: width 0.2s;
+    transition: left 0.2s;
+    opacity:0.8;
+}
+
 
 @media screen and (max-width: 640px) {
     #info {

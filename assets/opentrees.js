@@ -2,15 +2,7 @@
 /* global mapboxgl,$,console,window*/
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmFnZSIsImEiOiJGcW03aExzIn0.QUkUmTGIO3gGt83HiRIjQw';
-var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/stevage/cim5qned200k59jkpf1p6l243',
-    center: [144.8,-37.8], // starting position
-    zoom: 9 // starting zoom
-});
 
-map.addControl(new mapboxgl.Navigation());
-map.addControl(new mapboxgl.Geolocate({position: 'top-right'}));
 function toSpeciesCase(str) {
   str = str.replace(/\s+Sp[\.|p|p\.|ecies]/i, '');
   str = str.replace(/\s+Cultivar/i, '');
@@ -164,25 +156,25 @@ function changeDimension(e) {
         addFilterLayer('(Allo)Casuarinas', 'hsl(180, 90%,60%)', ["in", "genus", "Casuarina", 'Allocasuarina']);
         addFilterLayer('Other natives', 'hsl(160, 90%, 30%)', ['any', 
             ['in', 'genus', 'Hakea', 'Agonis', 'Tristaniopsis', 'Lagunaria', 'Acacia','Hymenosporum', 'Brachychiton', 'Leptospermum' /* some aren't endemic */, 'Waterhousea' /* a bit uncertain */, 
-            'Bursaria', 'Geijera', 'Paraserianthes', 'Myoporum'],
+            'Bursaria', 'Geijera', 'Paraserianthes', 'Myoporum','Exocarpos','Exocarpus'],
             ['all', [ 'in', 'genus', 'Acmena', 'Syzygium' ], [ 'in', 'species', 'smithii'] ],
             ['in', 'scientific', 'Pittosporum undulatum', 'Cupaniopsis anacardioides', 'Acmena smithii', 'Acmena smithii (Syzygium smithii)']]);
         addFilterLayer('Planes', "hsl(0,86%,60%)", ["in", "genus", "Platanus", 'Plantanus']);
         addFilterLayer('Elms',"hsl(30,60%,60%)", ["in", "genus", "Ulmus", 'Celtis']);
         addFilterLayer('Oaks & maples', 'hsl(330, 60%,60%)', ["in", "genus", "Quercus", 'Acer']);
-        addFilterLayer('Palms', 'hsl(40, 100%,70%)', ["in", "genus", "Phoenix", 'Washingtonia', 'Jubaea', 'Chamaerops','Syagrus','Livistona']);
-        addFilterLayer('Conifers', "hsl(60,60%,60%)", ["in", "genus", "Pinus", "Araucaria", "Cupressus", 'Cupressocyparis', 'Podocarpus', 'Platycladus', 'Thuja', 'Hesperocyparis', 
-            'Callitris', 'Cedrus', 'Picea' /* spruce */]);
-        addFilterLayer('Pears, plums and apples', 'hsl(240,60%,60%)', ["in", "genus", "Pyrus", 'Prunus', 'Malus']);
+        addFilterLayer('Palms', 'hsl(40, 100%,70%)', ["in", "genus", "Phoenix", 'Washingtonia', 'Jubaea', 'Chamaerops','Syagrus','Livistona','Trachycarpus']);
+        addFilterLayer('Conifers', "hsl(60,90%,45%)", ["in", "genus", "Pinus", "Araucaria", "Cupressus", 'Cupressocyparis', 'Podocarpus', 'Platycladus', 'Thuja', 'Hesperocyparis', 
+            'Callitris', 'Cedrus', 'Picea' /* spruce */, 'Abies','Cunninghamia','Chamaecyparis','Sequoiadendron', 'Sequoia','Thujopsis']);
+        addFilterLayer('Pears, plums and apples', 'hsl(250,60%,60%)', ["in", "genus", "Pyrus", 'Prunus', 'Malus']);
         addFilterLayer('Figs', 'hsl(0,0%,40%)', ["in", "genus", "Ficus"]);
         addFilterLayer('Ashes', 'hsl(0,0%,20%)', ["in", "genus", "Fraxinus"]);
         addFilterLayer('Other exotics', 'hsl(310, 90%,60%)', ['any', 
             ['in', 'genus','Betula', 'Liquidambar', 'Gleditsia', 'Robinia','Pseudotsuga','Alnus', 'Laburnum',
             'Eriobotrya','Olea', 'Schinus', 'Photinia', 'Laurus', 'Populus', 'Ligustrum', 'Cotoneaster', 'Nerium', 'Pyracantha', 'Zelkova', 'Jacaranda', 'Metrosideros',
             'Pistacia','Pistachia','Arbutus','Crataegus','Koelreuteria', 'Morus','Cinnamomum' /* a small number of natives */, 'Virgilia', 'Salix', 'Ceratonia', 
-            'Cercis','Tilia','Ginkgo','Magnolia','Melia','Afrocarpus', 'Michelia','Sophora' /* maybe */], 
+            'Cercis','Tilia','Ginkgo','Magnolia','Melia','Afrocarpus', 'Michelia','Sophora' /* maybe */, 'Carpinus','Fagus','Sorbus','Liriodendron','Ilex','Aesculus'], 
             ['in', 'species', 'indica', 'eugenioides', 'japonicus', 'japonica'],
-            ['in', 'scientific', 'Agathis robusta', 'Pittosporum tenuifolium', 'Agathis australis']]);
+            ['in', 'scientific', 'Agathis robusta', 'Pittosporum tenuifolium', 'Agathis australis','Cordyline australis', 'Hibiscus syriacus']]);
     } else if (e.target.id === 'byrarity') {
        
        addFilterLayer('Super common', 'hsl(210, 90%,60%)', ['>=', 'species_count', 10000]);
@@ -342,6 +334,14 @@ function showExtraTreeInfo(e, source, ref) {
     setWindowHash(f, e.lngLat);
 }
 
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/stevage/cim5qned200k59jkpf1p6l243',
+    center: [144.8,-37.8], // starting position
+    zoom: 9 // starting zoom
+});
+
+
 map.on('style.load', function() {
     map.addLayer({
             "id": "similar-trees",
@@ -389,7 +389,84 @@ map.on('moveend', function(e) {
     }
 });
 
+var bookmarks={ 
+    "Adelaide": { x: 138.6217, y: -34.9491, z: 13 },
+    "Melbourne": { x: 144.95, y: -37.8, z: 11 },
+    "Manningham": { x: 145.15, y: -37.77, z: 13},
+    "Geelong": { x: 144.5, y: -38.15, z: 11},
+    "Ballarat": { x: 143.83, y: -37.56, z: 12},
+    "Colac-Otways": { x: 143.61, y: -38.4, z: 10},
+    "Corangamite": { x: 143.1, y: -38.3, z: 10},
+    "Waite": { x: 138.63, y: -34.97, z: 16 },
+    "Wyndham": { x: 144.62, y: -37.92, z: 12 },
+    "Burnside": { x: 138.65, y: -34.94, z: 13 },
+    "Launceston": { x: 147.1471, y: -41.4477, z: 13 },
+    "Hobsons Bay": { y: -37.8609, x: 144.8674, z: 12 },
+    "Glenelg": { z: 13, y: -38.3377, x: 141.5816 }
+};
+
+
 $(function() {
+
+    map.addControl(new mapboxgl.Navigation());
+    map.addControl(new mapboxgl.Geolocate({position: 'top-right'}));
+
+    $($('#map .mapboxgl-ctrl-top-right')[0].lastChild).append($(
+        '<div id="mybtns" class="mapboxgl-ctrl-group">' +
+        '<button class="mapbox-ctrl-icon" id="direction-btn"/>'+
+        '<button class="mapbox-ctrl-icon" id="explore-btn"/>' +
+        '</div>' +
+        '<div id="directions" style="display:none"><ul></ul></div>'+
+
+        '<div id="explore2" style="display:none">'+
+        //'    <div class="hamburger">≡</div>'+
+        '    <div class="collapsible">'+
+        '        <h3>Color by:</h3>'+
+        '        <form>'+
+        '            <input type="radio" name="dimension" id="bynone" checked="true"/><label for="bynone">None</label>'+
+        '            <input type="radio" name="dimension" id="byspecies"/><label for="byspecies">Species group</label>'+
+        '            <input type="radio" name="dimension" id="bylocation"/><label for="bylocation">Location</label>'+
+        '            <input type="radio" name="dimension" id="byrarity"/><label for="byrarity">Rarity</label>'+
+        '            <input type="radio" name="dimension" id="byevergreen"/><label for="byevergreen">Evergreen/deciduous</label>'+
+        '            <input type="radio" name="dimension" id="bynoxious"/><label for="bynoxious">Noxious</label>'+
+        '            <input type="radio" name="dimension" id="bygenusfilter"/><label for="bygenusfilter">Genus filter</label>'+
+        '            <input type="radio" name="dimension" id="byspeciesfilter"/><label for="byspeciesfilter">Species filter</label>'+
+        '        </form>'+
+        '        <input type="text" id="genusfilter"/>'+
+        '        <input type="text" id="speciesfilter"/>'+
+        '        <div id="legend"></div>'+
+        '    </div>'+
+        '</div>'+
+
+        ''));
+    Object.keys(bookmarks).forEach(function(bookmark) {
+        var bmid = bookmark.replace(/[ -]/g, '_');
+        $('#directions ul').append($('<li id="' + bmid + '">' + bookmark + '</li>'));
+        $('#' + bmid).click(function() {
+            var ll = new mapboxgl.LngLat(bookmarks[bookmark].x, bookmarks[bookmark].y);
+            map.flyTo({center: ll, zoom: bookmarks[bookmark].z});
+        });
+    });
+
+    $('#direction-btn,#explore-btn').click(function(e) {
+        var box = $($('#map .mapboxgl-ctrl-top-right')[0].lastChild);
+        if (e.target.id === 'direction-btn' && !$('#directions').is(':visible')) {
+            $('#explore2').hide();
+            $('#directions').show();
+            box.addClass('expanded');
+        } else if (e.target.id === 'explore-btn' && !$('#explore2').is(':visible')) {
+            $('#explore2').show();
+            $('#directions').hide();
+            box.addClass('expanded');
+        } else {
+            $('#explore2').hide();
+            $('#directions').hide();
+            box.removeClass('expanded');
+        }
+    });
+
+
+
     $('#info .closex').click(closeInfo);
     $('#info').on('swipeleft', closeInfo);
     $("#explore .hamburger").click(function(){ $("#explore .collapsible").toggleClass("collapsed"); });
