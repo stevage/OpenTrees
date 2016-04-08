@@ -185,7 +185,7 @@ footer p {
     border-radius:2px;
     font-family:'Lancelot',Arial;
     font-size:16px;
-    font-weight:bolder;
+    font-weight:bold;
 }
 #directions li:hover {
     color: hsl(100,70%,40%);
