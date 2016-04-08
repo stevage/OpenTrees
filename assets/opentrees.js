@@ -423,9 +423,9 @@ $(function() {
         '    <div class="collapsible">'+
         '        <h3>Color by:</h3>'+
         '        <form>'+
-        '            <input type="radio" name="dimension" id="bynone" checked="true"/><label for="bynone">None</label>'+
+        '            <input type="radio" name="dimension" id="bynone" checked="true"/><label for="bynone">(Nothing)</label>'+
         '            <input type="radio" name="dimension" id="byspecies"/><label for="byspecies">Species group</label>'+
-        '            <input type="radio" name="dimension" id="bylocation"/><label for="bylocation">Location</label>'+
+        // '            <input type="radio" name="dimension" id="bylocation"/><label for="bylocation">Location</label>'+
         '            <input type="radio" name="dimension" id="byrarity"/><label for="byrarity">Rarity</label>'+
         '            <input type="radio" name="dimension" id="byevergreen"/><label for="byevergreen">Evergreen/deciduous</label>'+
         '            <input type="radio" name="dimension" id="bynoxious"/><label for="bynoxious">Noxious</label>'+
@@ -444,7 +444,7 @@ $(function() {
         $('#directions ul').append($('<li id="' + bmid + '">' + bookmark + '</li>'));
         $('#' + bmid).click(function() {
             var ll = new mapboxgl.LngLat(bookmarks[bookmark].x, bookmarks[bookmark].y);
-            map.flyTo({center: ll, zoom: bookmarks[bookmark].z});
+            map.flyTo({center: ll, zoom: bookmarks[bookmark].z, pitch: 45});
         });
     });
 
