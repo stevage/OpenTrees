@@ -134,7 +134,7 @@ footer p {
 }
 
 #mybtns button {
-    background-position-x: 6px;
+    background-position: 6px 0px;
     margin:4px;
     background-repeat:no-repeat;
     float:right;
