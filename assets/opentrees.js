@@ -444,7 +444,7 @@ $(function() {
         $('#directions ul').append($('<li id="' + bmid + '">' + bookmark + '</li>'));
         $('#' + bmid).click(function() {
             var ll = new mapboxgl.LngLat(bookmarks[bookmark].x, bookmarks[bookmark].y);
-            map.flyTo({center: ll, zoom: bookmarks[bookmark].z, pitch: 45});
+            map.flyTo({center: ll, zoom: bookmarks[bookmark].z, pitch: 35});
         });
     });
 
