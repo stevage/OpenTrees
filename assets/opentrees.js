@@ -1,5 +1,5 @@
 'use strict';
-/* global mapboxgl,$,console,window*/
+/* global mapboxgl,$,console,window,navigator*/
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmFnZSIsImEiOiJGcW03aExzIn0.QUkUmTGIO3gGt83HiRIjQw';
 
@@ -341,6 +341,13 @@ var map = new mapboxgl.Map({
     zoom: 9 // starting zoom
 });
 
+var myPosition = new mapboxgl.GeoJSONSource({
+    data: {
+            type: 'FeatureCollection',
+            features: []
+        }
+});
+
 
 map.on('style.load', function() {
     map.addLayer({
@@ -368,6 +375,18 @@ map.on('style.load', function() {
             },
             "filter": ['all', ['==', 'source', '$'], ['==', 'ref', '$'] ]
         }, 'tree core');
+    
+    map.addSource('positiongj', myPosition);
+    map.addLayer({
+        id: 'position',
+        source: 'positiongj',
+        'type': 'circle',
+        'paint': {
+            'circle-color': 'hsla(240,95%,40%,0.5)',
+            'circle-radius': 5
+        }
+    });
+
 
     map.on("mousemove", showSimilarTrees);
     map.on('click', showExtraTreeInfo);
@@ -471,4 +490,18 @@ $(function() {
     $('#info').on('swipeleft', closeInfo);
     // $("#explore .hamburger").click(function(){ $("#explore .collapsible").toggleClass("collapsed"); });
     map.off('tile.error');
+
+    navigator.geolocation.watchPosition(function(pos) {
+        var posGeoJson = {
+                type: 'FeatureCollection',
+                features: [{
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [pos.coords.longitude, pos.coords.latitude]
+                    }
+                }]
+            };
+        myPosition.setData(posGeoJson);
+    });
 });
