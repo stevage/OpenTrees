@@ -179,9 +179,9 @@ function changeDimension(e) {
        
        addFilterLayer('Super common', 'hsl(210, 90%,60%)', ['>=', 'species_count', 10000]);
        addFilterLayer('Very common', 'hsl(160, 90%,60%)', ['all', ['>=', 'species_count', 1000], ['<', 'species_count', 10000]]);
-       addFilterLayer('Common', 'hsl(120, 70%,60%)', ['all', ['>=', 'species_count', 100], ['<', 'species_count', 1000]]);
-       addFilterLayer('Average', 'hsl(60, 70%,50%)', ['all', ['>=', 'species_count', 20], ['<', 'species_count', 100]]);
-       addFilterLayer('Rare', 'hsl(30, 70%, 40%)', ['all', ['>=', 'species_count', 5], ['<', 'species_count', 20]]);
+       addFilterLayer('Common', 'hsl(120, 80%,60%)', ['all', ['>=', 'species_count', 100], ['<', 'species_count', 1000]]);
+       addFilterLayer('Average', 'hsl(60, 80%,50%)', ['all', ['>=', 'species_count', 20], ['<', 'species_count', 100]]);
+       addFilterLayer('Rare', 'hsl(30, 80%, 50%)', ['all', ['>=', 'species_count', 5], ['<', 'species_count', 20]]);
        addFilterLayer('Very rare', 'hsl(0, 100%, 40%)', ['<', 'species_count', 5]);
     } else if (e.target.id === 'bylocation') {
         addFilterLayer('Street', "hsl(0,60%,30%)", ['in','tree_type','Street','T-Street Tree', 'Rural roadside']);
@@ -390,8 +390,10 @@ map.on('style.load', function() {
 
     map.on("mousemove", showSimilarTrees);
     map.on('click', showExtraTreeInfo);
-    $('input').on('change', changeDimension);
 });
+
+
+
 
 map.on('load', function(e) {
     parseWindowHash();
@@ -488,6 +490,10 @@ $(function() {
 
     $('#info .closex').click(closeInfo);
     $('#info').on('swipeleft', closeInfo);
+    $('#directions').on('swiperight', function() { $('#directions').hide(); });
+    $('#explore2,#legend').on('swiperight', function() { $('#explore2').hide(); });
+    $('input:radio').on('change', changeDimension);
+
     // $("#explore .hamburger").click(function(){ $("#explore .collapsible").toggleClass("collapsed"); });
     map.off('tile.error');
 
