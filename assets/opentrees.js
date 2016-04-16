@@ -156,23 +156,25 @@ function changeDimension(e) {
         addFilterLayer('(Allo)Casuarinas', 'hsl(180, 90%,60%)', ["in", "genus", "Casuarina", 'Allocasuarina']);
         addFilterLayer('Other natives', 'hsl(160, 90%, 30%)', ['any', 
             ['in', 'genus', 'Hakea', 'Agonis', 'Tristaniopsis', 'Lagunaria', 'Acacia','Hymenosporum', 'Brachychiton', 'Leptospermum' /* some aren't endemic */, 'Waterhousea' /* a bit uncertain */, 
-            'Bursaria', 'Geijera', 'Paraserianthes', 'Myoporum','Exocarpos','Exocarpus'],
+            'Bursaria', 'Geijera', 'Paraserianthes', 'Myoporum','Exocarpos','Exocarpus', 'Jacksonia'],
             ['all', [ 'in', 'genus', 'Acmena', 'Syzygium' ], [ 'in', 'species', 'smithii'] ],
-            ['in', 'scientific', 'Pittosporum undulatum', 'Cupaniopsis anacardioides', 'Acmena smithii', 'Acmena smithii (Syzygium smithii)']]);
+            ['in', 'scientific', 'Pittosporum undulatum', 'Cupaniopsis anacardioides', 'Acmena smithii', 'Acmena smithii (Syzygium smithii)',
+            'Syzygium australe']]);
         addFilterLayer('Planes', "hsl(0,86%,60%)", ["in", "genus", "Platanus", 'Plantanus']);
         addFilterLayer('Elms',"hsl(30,60%,60%)", ["in", "genus", "Ulmus", 'Celtis']);
         addFilterLayer('Oaks & maples', 'hsl(330, 60%,60%)', ["in", "genus", "Quercus", 'Acer']);
         addFilterLayer('Palms', 'hsl(40, 100%,70%)', ["in", "genus", "Phoenix", 'Washingtonia', 'Jubaea', 'Chamaerops','Syagrus','Livistona','Trachycarpus']);
         addFilterLayer('Conifers', "hsl(60,90%,45%)", ["in", "genus", "Pinus", "Araucaria", "Cupressus", 'Cupressocyparis', 'Podocarpus', 'Platycladus', 'Thuja', 'Hesperocyparis', 
             'Callitris', 'Cedrus', 'Picea' /* spruce */, 'Abies','Cunninghamia','Chamaecyparis','Sequoiadendron', 'Sequoia','Thujopsis']);
-        addFilterLayer('Pears, plums and apples', 'hsl(250,60%,60%)', ["in", "genus", "Pyrus", 'Prunus', 'Malus']);
+        addFilterLayer('Pears, plums and other fruits', 'hsl(250,60%,60%)', ["in", "genus", "Pyrus", 'Prunus', 'Malus', 'Citrus']);
         addFilterLayer('Figs', 'hsl(0,0%,40%)', ["in", "genus", "Ficus"]);
         addFilterLayer('Ashes', 'hsl(0,0%,20%)', ["in", "genus", "Fraxinus"]);
         addFilterLayer('Other exotics', 'hsl(310, 90%,60%)', ['any', 
             ['in', 'genus','Betula', 'Liquidambar', 'Gleditsia', 'Robinia','Pseudotsuga','Alnus', 'Laburnum',
             'Eriobotrya','Olea', 'Schinus', 'Photinia', 'Laurus', 'Populus', 'Ligustrum', 'Cotoneaster', 'Nerium', 'Pyracantha', 'Zelkova', 'Jacaranda', 'Metrosideros',
             'Pistacia','Pistachia','Arbutus','Crataegus','Koelreuteria', 'Morus','Cinnamomum' /* a small number of natives */, 'Virgilia', 'Salix', 'Ceratonia', 
-            'Cercis','Tilia','Ginkgo','Magnolia','Melia','Afrocarpus', 'Michelia','Sophora' /* maybe */, 'Carpinus','Fagus','Sorbus','Liriodendron','Ilex','Aesculus'], 
+            'Cercis','Tilia','Ginkgo','Magnolia','Melia','Afrocarpus', 'Michelia','Sophora' /* maybe */, 'Carpinus','Fagus','Sorbus','Liriodendron','Ilex','Aesculus',
+            'Viburnum', 'Genista'], 
             ['in', 'species', 'indica', 'eugenioides', 'japonicus', 'japonica'],
             ['in', 'scientific', 'Agathis robusta', 'Pittosporum tenuifolium', 'Agathis australis','Cordyline australis', 'Hibiscus syriacus']]);
     } else if (e.target.id === 'byrarity') {

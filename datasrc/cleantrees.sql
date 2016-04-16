@@ -113,7 +113,8 @@ insert into _speciesfix (speciesfrom, speciesto) values
   ('gonyocalyx','goniocalyx'),
   ('nesophillia','nesophilia'),
   ('jorulensis','jorullensis'),
-  ('blierana','x blireana');
+  ('blierana','x blireana'),
+  ('monsplessulana', 'monspessulana');
 
 insert into _speciesfix (speciesfrom, speciesto, genus) values
   ('syriaca', 'syriacus', 'Hibiscus');
