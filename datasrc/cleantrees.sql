@@ -92,11 +92,17 @@ UPDATE alltrees
 SET scientific='Eucalyptus leucoxylon',species='leucoxylon'
 WHERE scientific LIKE 'Eucalyptus leucoxylon euky dwar%';
 
- --33 only
-\echo "Cordyline cordyline -> Cordyline"
+create table _scientificfix (scientificfrom varchar, scientificto varchar, speciesto varchar, genusto varchar, commonto varchar);
+insert into _scientificfix (scientificfrom, scientificto, speciesto, genusto) values
+    ('Cordyline cordyline', 'Cordyline', 'Cordyline', ''),
+    ('Eucalyptus leucoxylon euky dwar%', 'Eucalyptus leucoxylon', 'Eucalyptus', 'leucoxylon',
+
 UPDATE alltrees
-SET scientific='Cordyline',species=''
-WHERE scientific LIKE 'Cordyline cordyline';
+SET scientific = scientificto, species=coalesce(speciesto, species), genus=coalesce(genusto, genus)
+FROM _scientificfix
+WHERE scientific ILIKE scientificfrom;
+
+
 
 
 drop table _speciesfix;
