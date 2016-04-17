@@ -18,8 +18,9 @@
     },
     {
         "id": "ballarat",
-        "download": "http://data.gov.au/geoserver/ballarattrees/wfs?request=GetFeature&typeName=eabaee3f_a563_449b_a04a_1ec847566ea1&outputFormat=json",
-        "format": "geojson"
+        "download": "http://data.gov.au/dataset/eabaee3f-a563-449b-a04a-1ec847566ea1/resource/2f5eb80f-55fa-418c-915c-0b6de7653719/download/BallaratTrees.csv",
+        "format": "csv",
+        "filename": "ballarat.vrt"
     },
     {
         "id": "manningham",
@@ -33,7 +34,7 @@
     },
     {
         "id": "melbourne",
-        "download": "https://data.melbourne.vic.gov.au/api/views/8reg-ju2w/rows.csv?accessType=DOWNLOAD",
+        "download": "https://data.melbourne.vic.gov.au/api/views/fp38-wiyy/rows.csv?accessType=DOWNLOAD",
         "format": "csv",
         "filename": "melbourne.vrt"
     },
