@@ -74,24 +74,21 @@ dbh AS dbh,
 FROM manningham;
 
 \echo "Ballarat"
-INSERT INTO alltrees (the_geom, scientific, crown, ref, source)
-select the_geom, 
-case when tspecies like 'Not Assessed' then '' else tspecies end AS scientific,
-tspread AS crown, -- not machine readable
-central_as AS ref,
-'ballarat' AS source
-from ballarat;
+INSERT INTO alltrees (the_geom, source, scientific, crown, ref, common, location, maturity, health, structure, variety, description, ule_min, ule_max)--, captured)
+SELECT                the_geom, 'ballarat',species, crown, ref, common, location, maturity, health, structure, variety, description, ule_min, ule_max--, updated
+FROM ballarat;
 
 \echo "Melbourne"
-INSERT INTO alltrees (the_geom, ref, common, scientific, dbh, planted, maturity, ule_min, source)
+INSERT INTO alltrees (the_geom, ref, common, scientific, dbh, planted, maturity, ule_min, location, source)
 SELECT the_geom,
 "com id" AS ref,
 "common name" AS common,
 "scientific name" AS scientific,
-"dbh (cm)" AS dbh,
+"diameter breast height" AS dbh,
 to_date("date planted", 'DD/MM/YYYY') AS planted,
 "age description" AS maturity,
-"useful life expectency" AS ule_min,
+"useful life expectency" AS ule_min, -- there's also a "useful life expectency value" numeric field
+"located in",
 'melbourne' AS source
 FROM melbourne;
 
