@@ -1,6 +1,6 @@
-# Rules for DBH
+-- Rules for DBH
 
-# Convert to dbh_cm_min and dbh_cm_max
+-- Convert to dbh_cm_min and dbh_cm_max
 -- 1.4 -> 140, 140
 
 -- 100-150 -> 100, 150
