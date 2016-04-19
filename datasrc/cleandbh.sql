@@ -48,7 +48,9 @@ update alltrees set dbh_cm_min = cast(substring(dbh from '^\d+') as integer) / 1
 where dbh ~ '^\d+$' and source in ('Colac-Otways','Launceston');
 
 -- hobsons_bay (mm)
-update alltrees set dbh_cm_min = cast(substring(dbh from '^\d+') as integer)/10, dbh_cm_max = cast(substring(dbh from '\d+$') as integer)*10 
+update alltrees set 
+    dbh_cm_min = cast(substring(dbh from '^\d+') as integer)/10, 
+    dbh_cm_max = cast(substring(dbh from '\d+$') as integer)/10 
 where dbh ~ '^\d+-\d+$' and source in ('Hobsons Bay');
 
 -- Glenelg (m)
