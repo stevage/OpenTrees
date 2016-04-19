@@ -16,9 +16,10 @@ function updateInfoTable(props) {
     function val(text) {
         return text ? text.trim() : '';
     }
-    function addRow(header, value, required) {
+    function addRow(header, value, required, units) {
+        units = units ? units : '';
         if (value || required) {
-            $("#infotable").append('<tr><th>' + header + '</th><td>' + value + '</td></tr>');
+            $("#infotable").append('<tr><th>' + header + '</th><td>' + value + units + '</td></tr>');
         }
     }    
     $("#treetitle").html(val(props.common) || (val(props.scientific) ? '<i>' + props.scientific + '</i>':'') || props.description || ('Tree #' + props.ref));
@@ -27,7 +28,7 @@ function updateInfoTable(props) {
     addRow("Scientific name", (props.common && props.scientific)? '<i>' + props.scientific + '</i>':'');
     addRow('Maturity',props.maturity);
     addRow('Planted',props.planted);
-    addRow('Diameter (DBH)',props.dbh);
+    addRow('Diameter min (DBH)',props.dbh_cm, false, ' cm');
     addRow('Height',props.height ? props.height : '');
     addRow('Life expectancy', props.ule_min ? props.ule_min  : '');
     addRow('Count', props.species_count ? Number(props.species_count).toLocaleString() + ' similar trees.':'');
@@ -129,6 +130,37 @@ function addFilterLayer(name, color, filter, paintProps) {
     $("#legend ul").append($("<li><span class='legend-color' style='background:" + color + "'></span><span class='legend-item'>" + name + "</span></li>"));
     layersAdded.push(name);
 }
+
+function addTrunkLayers() {
+    var ranges = [
+        {min: 0, max: 24, radius: 2},
+        {min: 25, max: 49, radius: 3},
+        {min: 50, max: 99, radius: 4},
+        {min: 100, max: 199, radius: 5},
+        {min: 200, max: 299, radius: 6}//,
+        //{min: 300, max: 9999, radius: 30}
+    ];
+    map.setPaintProperty('tree core', 'circle-opacity', 0);
+    ranges.forEach(function(r) {
+        map.addLayer({
+            id: 'core-' + r.min,
+            type: 'circle',
+            'source': 'mapbox://stevage.trees',
+            'source-layer': 'alltreesgeojson',
+            //'layout': {},
+            'paint': {
+                'circle-color': 'hsl(50, 50%, 20%)',
+                'circle-opacity': 1,
+                'circle-radius': { stops: [[13, r.radius*0.5], [16, r.radius*2]], base: 1.6 }
+            },
+            'filter': 
+                [ 'all', [ '>=', 'dbh_cm', r.min], [ '<=', 'dbh_cm', r.max] ]
+            
+        },'tree greylo');
+    });
+
+}
+
 var paintProperties;
 function changeDimension(e) {
     clearLayers();
@@ -408,7 +440,6 @@ map.on('moveend', function(e) {
         showExtraTreeInfo(e, loadingSource, loadingRef);
         loadingSource = undefined;
         loadingRef = undefined;
-        console.log(e);
     }
 });
 

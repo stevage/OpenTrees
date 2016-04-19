@@ -47,7 +47,7 @@ canopy_wid AS crown,
 diam_breas AS dbh,
 CASE WHEN length(year_plant::varchar) = 4 THEN to_date(year_plant::varchar, 'YYYY') END AS planted,
 life_stage AS maturity,
-'colac_otways' AS source
+'Colac-Otways' AS source
 FROM colac_otways;
 
 \echo "Corangamite"
@@ -59,7 +59,7 @@ width AS crown,
 species AS scientific,
 name AS common,
 CASE when tree_type like 'STREET TREE' THEN 'street' when tree_type like 'PARK TREE' then 'park' else '' end AS location,
-'corangamite' AS source
+'Corangamite' AS source
 FROM corangamite;
 
 \echo "Manningham"
@@ -70,12 +70,12 @@ tree_no AS ref,
 species AS scientific,
 height AS height,
 dbh AS dbh,
-'manningham' AS source 
+'Manningham' AS source 
 FROM manningham;
 
 \echo "Ballarat"
 INSERT INTO alltrees (the_geom, source, scientific, crown, ref, common, location, maturity, health, structure, variety, description, ule_min, ule_max)--, captured)
-SELECT                the_geom, 'ballarat',species, crown, ref, common, location, maturity, health, structure, variety, description, ule_min, ule_max--, updated
+SELECT                the_geom, 'Ballarat',species, crown, ref, common, location, maturity, health, structure, variety, description, ule_min, ule_max--, updated
 FROM ballarat;
 
 \echo "Melbourne"
@@ -89,7 +89,7 @@ to_date("date planted", 'DD/MM/YYYY') AS planted,
 "age description" AS maturity,
 "useful life expectency" AS ule_min, -- there's also a "useful life expectency value" numeric field
 "located in",
-'melbourne' AS source
+'Melbourne' AS source
 FROM melbourne;
 
 \echo "Geelong"

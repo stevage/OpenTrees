@@ -173,7 +173,7 @@ WHERE crown ilike 'Not Assessed';
 
 -- TODO: handle all the dbh's that are ranges in mm.
 
-\echo Create indexes
+\echo "Create indexes"
 CREATE INDEX alltrees_species ON alltrees (genus,species);
 CREATE INDEX alltrees_source ON alltrees (source);
 VACUUM ANALYZE alltrees;

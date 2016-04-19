@@ -38,6 +38,19 @@
  update alltrees set dbh_cm_min = 100, dbh_cm_max=200 where dbh='1m - 2m';
  update alltrees set dbh_cm_min = 200, dbh_cm_max=300 where dbh='2m - 3m';
  
-update alltrees set dbh_cm_min = cast(substring(dbh from '^\d+') as integer) where dbh ~ '^\d+$';
-update alltrees set dbh_cm_min = cast(substring(dbh from '^\d+') as integer), dbh_cm_max = cast(substring(dbh from '\d+$') as integer) where dbh ~ '^\d+-\d+$';
-update alltrees set dbh_cm_min = (cast(substring(dbh from '^\d+.^d+') as float) * 100)  where dbh ~ '^\d+\.\d+$';
+
+-- cm: geelong, glenelg, melbourne
+update alltrees set dbh_cm_min = cast(substring(dbh from '^\d+') as integer) 
+where dbh ~ '^\d+$' and source not in ('Colac-Otways','Launceston');
+
+-- mm: colac_otways, launceston
+update alltrees set dbh_cm_min = cast(substring(dbh from '^\d+') as integer) / 10 
+where dbh ~ '^\d+$' and source in ('Colac-Otways','Launceston');
+
+-- hobsons_bay (mm)
+update alltrees set dbh_cm_min = cast(substring(dbh from '^\d+') as integer)/10, dbh_cm_max = cast(substring(dbh from '\d+$') as integer)*10 
+where dbh ~ '^\d+-\d+$' and source in ('Hobsons Bay');
+
+-- Glenelg (m)
+update alltrees set dbh_cm_min = (cast(substring(dbh from '^\d+.^d+') as float) * 100)  
+where dbh ~ '^\d+\.\d+$';
