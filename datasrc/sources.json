@@ -73,5 +73,38 @@
         "download": "http://data.gov.au/dataset/3721ad67-7b5b-4815-96b1-9d8b1a89dbd7/resource/b9ff3d44-17b4-4f87-8a28-2d540fa37d8f/download/Glenelg-Street-and-Park-Trees.csv",
         "format": "csv",
         "filename": "glenelg.vrt"
-    }    
+    },
+    {
+        "id": "ryde",
+        "download": [ 
+            "http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/47843888-f9b6-4ae3-ba80-9318ff60a120/download/Public-Trees-2013.dbf",
+            "http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/1372b28f-4201-46ab-9099-be0458a317bb/download/Public-Trees-2013.prj",
+            "http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/00e339ad-e411-48b2-8cfa-ed3dfa8209ca/download/Public-Trees-2013.shp",
+            "http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/3f4f3346-52d5-4084-94fc-877bf70c0a76/download/Public-Trees-2013.shx"
+        ],
+        "format": "shp",
+        "keepExtension": true
+
+    },
+    {
+        "id": "southern_grampians",
+        "download": "http://data.gov.au/geoserver/southern-grampians-street-and-park-trees/wfs?request=GetFeature&typeName=ckan_4a2843f5_8c01_438b_95f3_01ef0a518441&outputFormat=json",
+        "format": "geojson"
+    },
+    {
+        "id": "prospect1",
+        "download": "https://data.sa.gov.au/data/dataset/5d86d41e-b6c6-47d5-9b88-4d95916c5e76/resource/d1e30913-6e91-4a1f-b576-64120cc4b242/download/city-of-prospect-tree-species-in-reserves-2016.csv",
+        "format": "csv"
+    },
+    {
+        "id": "prospect2",
+        "download": "https://data.sa.gov.au/data/dataset/7bf2e4a4-40cc-40fd-83a9-fabb6d854039/resource/3f6be219-d66f-4b40-bfc7-16214fbc0989/download/city-of-prospect-street-trees-2016.csv",
+        "format": "csv"
+    },
+    {
+        "id": "perth",
+        "download": "http://catalogue.beta.data.wa.gov.au/dataset/80ad058b-9089-4915-bea5-f7ce8eab7a3f/resource/a5867408-d9d0-4cb3-a640-24b458a5b3df/download/trees.zip",
+        "format": "zip",
+        "filename": "Trees/Trees_CoP_MGA50_20160725.shp"
+    }
 ]

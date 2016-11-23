@@ -1,0 +1,18 @@
+{
+  "name": "opentrees-data",
+  "version": "0.0.1",
+  "description": "Getting and processing data for opentrees.org",
+  "main": "1-gettrees.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steve Bennett <me@stevebennett.me> (http://stevebennett.me)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "download": "^5.0.2",
+    "exeq": "^3.0.0",
+    "ogr2ogr": "^0.5.1",
+    "request": "^2.74.0"
+  }
+}

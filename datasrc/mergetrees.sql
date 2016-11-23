@@ -1,5 +1,5 @@
-﻿DROP VIEW "1".trees;
-DROP VIEW "1".specieslatlon;
+﻿--DROP VIEW "1".trees;
+--DROP VIEW "1".specieslatlon;
 DROP TABLE alltrees;
 CREATE TABLE alltrees
 (
@@ -33,6 +33,18 @@ CREATE TABLE alltrees
   CONSTRAINT alltrees_pkey PRIMARY KEY (gid)
 )
 ;
+
+\echo "Ryde"
+INSERT INTO alltrees (the_geom, height, source)
+SELECT                the_geom, height, 'Ryde'
+FROM ryde;
+
+\echo "Southern Grampians"
+INSERT INTO alltrees (the_geom, ref, scientific, common, location, height, crown, maturity, source)
+SELECT                the_geom, ref, species   , common, location, height, crown, maturity, 'Southern Grampians'
+FROM southern_grampians;
+
+
 \echo "Colac Otways"
 INSERT INTO alltrees (the_geom, ref, genus, species, scientific, common, location, height, crown, dbh, planted, maturity, source)
 SELECT the_geom,
