@@ -1,6 +1,6 @@
 <OGRVRTDataSource>
-    <OGRVRTLayer name="prospect1">
-        <SrcDataSource>prospect1.csv</SrcDataSource>
+    <OGRVRTLayer name="prospect2">
+        <SrcDataSource>prospect2.csv</SrcDataSource>
         <GeometryType>wkbPoint</GeometryType>
         <LayerSRS>EPSG:4326</LayerSRS>
         <GeometryField encoding="PointFromColumns" x="Longitude" y="Latitude"/>

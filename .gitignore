@@ -13,3 +13,17 @@
 *.xml
 treesmap-test.html
 alltrees.tar.gz
+
+/datasrc/node_modules/
+
+/datasrc/prospect1.vrt
+
+/datasrc/prospect2.vrt
+
+/datasrc/tmp/
+
+/datasrc/out.mbtiles
+
+/datasrc/obsolete/
+
+/datasrc/data/unzip/
