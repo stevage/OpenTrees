@@ -1,8 +1,0 @@
-<OGRVRTDataSource>
-    <OGRVRTLayer name="hobsons_bay">
-        <SrcDataSource>hobsons_bay.csv</SrcDataSource>
-        <GeometryType>wkbPoint</GeometryType>
-        <LayerSRS>EPSG:28355</LayerSRS>
-        <GeometryField encoding="PointFromColumns" x="Easting" y="Northing"/>
-    </OGRVRTLayer>
-</OGRVRTDataSource>

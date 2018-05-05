@@ -1,8 +1,0 @@
-<OGRVRTDataSource>
-    <OGRVRTLayer name="ballarat">
-        <SrcDataSource>ballarat.csv</SrcDataSource>
-        <GeometryType>wkbPoint</GeometryType>
-        <LayerSRS>EPSG:4326</LayerSRS>
-        <GeometryField encoding="PointFromColumns" x="lon" y="lat"/>
-    </OGRVRTLayer>
-</OGRVRTDataSource>
