@@ -494,7 +494,7 @@ $(function() {
         '            <input type="radio" name="dimension" id="byspecies"/><label for="byspecies">Species group</label>'+
         // '            <input type="radio" name="dimension" id="bylocation"/><label for="bylocation">Location</label>'+
         '            <input type="radio" name="dimension" id="byrarity"/><label for="byrarity">Rarity</label>'+
-        '            <input type="radio" name="dimension" id="byevergreen"/><label for="byevergreen">Evergreen/deciduous</label>'+
+        // '            <input type="radio" name="dimension" id="byevergreen"/><label for="byevergreen">Evergreen/deciduous</label>'+
         '            <input type="radio" name="dimension" id="bynoxious"/><label for="bynoxious">Noxious</label>'+
         '            <input type="radio" name="dimension" id="bygenusfilter"/><label for="bygenusfilter">Genus filter</label>'+
         '            <input type="radio" name="dimension" id="byspeciesfilter"/><label for="byspeciesfilter">Species filter</label>'+
