@@ -5,14 +5,17 @@
     <title>OpenTrees.org</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <!-- <script src='dist/mapbox-gl-dev.js'></script>-->
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script> 
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script> 
     <script src="dist/jquery-2.2.2.min.js"></script>
     <script src="dist/jquery.mobile.custom.min.js"></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
     <!-- <link href='dist/mapbox-gl.css' rel='stylesheet' /> -->
     <link href='assets/opentrees.css' rel='stylesheet' />
     <script src="http://use.edgefonts.net/lancelot;neuton;lato.js"></script>
     <link rel="shortcut icon" href="h1/cubetree-favicon.png"/>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
 
 </head>
 <body>
@@ -21,7 +24,7 @@
         <div id="mainheader">
             <div id="logo"></div>
             <h1>
-              <span class="header-title">OpenTrees.org</span> &nbsp; <small>518,994 open data trees</small>
+              <span class="header-title">OpenTrees.org</span> &nbsp; <small>736,935 open data trees</small>
             </h1>
             <p class="credit">By <a href="http://stevebennett.me">Steve Bennett</a></p>
         </div>
@@ -34,28 +37,7 @@
     <a href="https://github.com/stevage/opentrees">Source code</a>. <a href="datasrc/alltrees.tar.gz">Download data</a>.<a href="v1/index.html">Back to old site</a>.
     </p>
 </div>
-<!-- <div id="explore" class="overbox">
-    <div class="hamburger">≡</div>
-    <div class="collapsible">
-        <h3>Color by:</h3>
-        <form>
-            <label><input type="radio" name="dimension" id="bynone" checked="true"/>None</label>
-            <label><input type="radio" name="dimension" id="byspecies"/>Species group</label>
-            <label><input type="radio" name="dimension" id="byage"/>Age</label>
-            <label><input type="radio" name="dimension" id="bydbh"/>Diameter (DBH)</label>
-            <label><input type="radio" name="dimension" id="bylocation"/>Location</label>
-            <label><input type="radio" name="dimension" id="byrarity"/>Rarity</label>
-            <label><input type="radio" name="dimension" id="byevergreen"/>Evergreen/deciduous</label>
-            <label><input type="radio" name="dimension" id="bynoxious"/>Noxious</label>
-            <label><input type="radio" name="dimension" id="bygenusfilter"/>Genus filter</label>
-            <label><input type="radio" name="dimension" id="byspeciesfilter"/>Species filter</label>
-        </form>
-        <input type="text" id="genusfilter"/>
-        <input type="text" id="speciesfilter"/>
-        <div id="legend"></div>
-    </div>
-</div>
- --><div id='info' class="hidden overbox">
+<div id='info' class="hidden overbox">
     <h3 id="treetitle"></h3>
     <div id="infotablebox">
     <table id="infotable"></table>

@@ -3,6 +3,9 @@
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmFnZSIsImEiOiJGcW03aExzIn0.QUkUmTGIO3gGt83HiRIjQw';
 
+var treesSource = "mapbox://stevage.9slh6b3l"; //"mapbox://stevage.trees";
+var treesSourceLayer = "trees"; //"alltreesgeojson";
+
 function toSpeciesCase(str) {
   str = str.replace(/\s+Sp[\.|p|p\.|ecies]/i, '');
   str = str.replace(/\s+Cultivar/i, '');
@@ -14,7 +17,7 @@ function toSpeciesCase(str) {
 
 function updateInfoTable(props) {
     function val(text) {
-        return text ? text.trim() : '';
+        return text ? String(text).trim() : '';
     }
     function addRow(header, value, required, units) {
         units = units ? units : '';
@@ -112,8 +115,8 @@ function addFilterLayer(name, color, filter, paintProps) {
     map.addLayer({
             "id": name,
             "type": "circle",
-            "source": "mapbox://stevage.trees",
-            "source-layer": "alltreesgeojson",
+            "source": treesSource,
+            "source-layer": treesSourceLayer,
             "layout": {},
             "paint": {
                 "circle-color": color,
@@ -145,8 +148,8 @@ function addTrunkLayers() {
         map.addLayer({
             id: 'core-' + r.min,
             type: 'circle',
-            'source': 'mapbox://stevage.trees',
-            'source-layer': 'alltreesgeojson',
+            'source': treesSource,
+            'source-layer': treesSourceLayer,
             //'layout': {},
             'paint': {
                 'circle-color': 'hsl(50, 50%, 20%)',
@@ -308,7 +311,7 @@ function featureAtPixel(p) {
 }
 
 function featureBySourceAndRef(source, ref) {
-    var features = map.querySourceFeatures("mapbox://stevage.trees", { 
+    var features = map.querySourceFeatures(treesSource, { 
         sourceLayer: 'alltreesgeojson', 
         filter: [ 'all', [ '==', 'source', source], [ '==', 'ref', ref ] ]
     });
@@ -370,25 +373,27 @@ function showExtraTreeInfo(e, source, ref) {
 
 var map = new mapboxgl.Map({
     container: 'map', // container id
-    style: 'mapbox://styles/stevage/cim5qned200k59jkpf1p6l243',
+    // style: 'mapbox://styles/stevage/cim5qned200k59jkpf1p6l243',
+    style: 'mapbox://styles/stevage/cjgtec1vh000a2ro4ix1hoenu',
     center: [144.8,-37.8], // starting position
     zoom: 9 // starting zoom
 });
 
-var myPosition = new mapboxgl.GeoJSONSource({
+var myPosition = {
+    type: 'geojson',
     data: {
-            type: 'FeatureCollection',
-            features: []
-        }
-});
+        type: 'FeatureCollection',
+        features: []
+    }
+};
 
 
 map.on('style.load', function() {
     map.addLayer({
             "id": "similar-trees",
             "type": "circle",
-            "source": "mapbox://stevage.trees",
-            "source-layer": "alltreesgeojson",
+            "source": treesSource,
+            "source-layer": treesSourceLayer,
             "layout": {},
             "paint": {
                 "circle-color": "hsl(20,90%,60%)",
@@ -399,8 +404,8 @@ map.on('style.load', function() {
     map.addLayer({
             "id": "highlight-selected",
             "type": "circle",
-            "source": "mapbox://stevage.trees",
-            "source-layer": "alltreesgeojson",
+            "source": treesSource,
+            "source-layer": treesSourceLayer,
             "layout": {},
             "paint": {
                 "circle-color": "hsl(60,90%,70%)",
@@ -456,14 +461,22 @@ var bookmarks={
     "Burnside": { x: 138.65, y: -34.94, z: 13 },
     "Launceston": { x: 147.1471, y: -41.4477, z: 13 },
     "Hobsons Bay": { y: -37.8609, x: 144.8674, z: 12 },
-    "Glenelg": { z: 13, y: -38.3377, x: 141.5816 }
+    "Glenelg": { z: 13, y: -38.3377, x: 141.5816 },
+    'Shepparton': { z: 10, y: -36.388, x: 145.407 },
+    'Bendigo': { z: 12, y: -36.761, x: 144.2781 },
+    'Brimbank': { z: 12, y: -37.745, x: 144.803 },
+    'Perth': { z: 13, y: -31.9525, x: 115.8582 }
+    // 'Prospect': { z: 13, y: -31.9525
 };
 
 
 $(function() {
 
-    map.addControl(new mapboxgl.Navigation());
-    map.addControl(new mapboxgl.Geolocate({position: 'top-right'}));
+    map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.GeolocateControl(), 'bottom-right');
+    map.addControl(new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken
+    }), 'bottom-right');
 
     $($('#map .mapboxgl-ctrl-top-right')[0].lastChild).append($(
         '<div id="mybtns" class="mapboxgl-ctrl-group">' +
@@ -498,7 +511,7 @@ $(function() {
         $('#directions ul').append($('<li id="' + bmid + '">' + bookmark + '</li>'));
         $('#' + bmid).click(function() {
             var ll = new mapboxgl.LngLat(bookmarks[bookmark].x, bookmarks[bookmark].y);
-            map.flyTo({center: ll, zoom: bookmarks[bookmark].z, pitch: 35});
+            map.flyTo({center: ll, zoom: bookmarks[bookmark].z});
         });
     });
 
@@ -541,6 +554,6 @@ $(function() {
                     }
                 }]
             };
-        myPosition.setData(posGeoJson);
+        map.getSource('positiongj').setData(posGeoJson);
     });
 });
