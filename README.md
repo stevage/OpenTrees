@@ -4,8 +4,6 @@ A static website for browsing that data using Mapbox-GL-JS, with the magic of ve
 
 (There is a previous version of the website, using raster tiles, generated using TileMill, in the `/v1` directory)
 
-The source code for the webpage at http://opentrees.org is also here.
-
 ## Author
 All code (so far) written by Steve Bennett (stevage@gmail.com, stevebennett.me, @stevage1)
 
