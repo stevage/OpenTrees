@@ -1,4 +1,4 @@
-# opentrees.org
+# [opentrees.org](https://opentrees.org)
 
 A static website for browsing that data using Mapbox-GL-JS, with the magic of vector tiles. (The scripts to download and process the data into vector tiles are here: https://github.com/stevage/opentrees-data)
 
