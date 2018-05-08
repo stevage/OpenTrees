@@ -449,23 +449,27 @@ map.on('moveend', function(e) {
 });
 
 var bookmarks={ 
-    "Adelaide": { x: 138.6217, y: -34.9491, z: 13 },
-    "Melbourne": { x: 144.95, y: -37.8, z: 11 },
-    "Manningham": { x: 145.15, y: -37.77, z: 13},
-    "Geelong": { x: 144.5, y: -38.15, z: 11},
-    "Ballarat": { x: 143.83, y: -37.56, z: 12},
-    "Colac-Otways": { x: 143.61, y: -38.4, z: 10},
-    "Corangamite": { x: 143.1, y: -38.3, z: 10},
-    "Waite": { x: 138.63, y: -34.97, z: 16 },
-    "Wyndham": { x: 144.62, y: -37.92, z: 12 },
-    "Burnside": { x: 138.65, y: -34.94, z: 13 },
-    "Launceston": { x: 147.1471, y: -41.4477, z: 13 },
-    "Hobsons Bay": { y: -37.8609, x: 144.8674, z: 12 },
-    "Glenelg": { z: 13, y: -38.3377, x: 141.5816 },
-    'Shepparton': { z: 10, y: -36.388, x: 145.407 },
-    'Bendigo': { z: 12, y: -36.761, x: 144.2781 },
-    'Brimbank': { z: 12, y: -37.745, x: 144.803 },
-    'Perth': { z: 13, y: -31.9525, x: 115.8582 }
+    Adelaide: { x: 138.6217, y: -34.9491, z: 13 },
+    Prospect: { z: 14, y: -34.8851, lng: 138.6016 },
+    Burnside: { x: 138.65, y: -34.94, z: 13 },
+    Waite: { x: 138.63, y: -34.97, z: 16 },
+    Melbourne: { x: 144.95, y: -37.8, z: 11 },
+    'Hobsons Bay': { y: -37.8609, x: 144.8674, z: 12 },
+    Manningham: { x: 145.15, y: -37.77, z: 13},
+    Brimbank: { z: 12, y: -37.745, x: 144.803 },
+    'Port Phillip': { z: 12.5, y: -37.85495, x: 144.96038 },
+    Geelong: { x: 144.5, y: -38.15, z: 11},
+    Wyndham: { x: 144.62, y: -37.92, z: 12 },
+    Ballarat: { x: 143.83, y: -37.56, z: 12},
+    'Colac-Otways': { x: 143.61, y: -38.4, z: 10},
+    Corangamite: { x: 143.1, y: -38.3, z: 10},
+    Glenelg: { z: 13, y: -38.3377, x: 141.5816 },
+    Shepparton: { z: 10, y: -36.388, x: 145.407 },
+    Bendigo: { z: 12, y: -36.761, x: 144.2781 },
+    Perth: { z: 13, y: -31.9525, x: 115.8582 },
+    Ryde: { z: 13, y: -33.80575, x: 151.103836 },
+    Launceston: { x: 147.1471, y: -41.4477, z: 13 },
+    
     // 'Prospect': { z: 13, y: -31.9525
 };
 
