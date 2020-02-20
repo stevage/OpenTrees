@@ -2,7 +2,7 @@
 div
     div(v-if="feature")
         //- img.image(v-if="imageUrl" :src="imageUrl")
-        h2.i.lancelot.f3.bg-green.pa2.mt0 {{ p.common || p.scientific }}
+        h2.i.lancelot.f3.bg-green.pa2.mv0 {{ p.common || p.scientific }}
         table#FeatureInfo(v-if="feature").bg-white.helvetica.ma1
             tr(v-if="p.scientific")
                 th Scientific name
@@ -15,10 +15,12 @@ div
                 td {{ p.variety }}
             tr(v-if="p.dbh")
                 th Diameter
-                td {{ p.dbh }}
+                td {{ p.dbh }} 
+                    span.detail cm.
             tr(v-if="p.height")
                 th Height
-                td {{ p.height }}
+                td {{ p.height }} 
+                    span.detail m.
             tr(v-if="p.planted")
                 th Planted
                 td {{ p.planted }}
@@ -30,7 +32,8 @@ div
             //-     td {{ p }}
             tr(v-if="p.species_count")
                 th Count
-                td {{ p.species_count.toLocaleString() }} similar trees
+                td {{ p.species_count.toLocaleString() }} 
+                    span.detail similar trees
             tr(v-if="p.ref")
                 th ID
                 td {{ `#${p.ref}` }}
@@ -93,5 +96,10 @@ th {
 }
 td {
     padding-left:8px;
+}
+.detail {
+    /* color:#444; */
+    font-weight:200;
+    font-size:75%;
 }
 </style>

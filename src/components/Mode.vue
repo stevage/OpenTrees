@@ -12,6 +12,9 @@
     div.pa0
         input.ma1.dib#noxious(type="radio" value="noxious" v-model="mode")
         label.pa1.dib(for="noxious") Harm
+    div.pa0
+        input.ma1.dib#local(type="radio" value="local" v-model="mode")
+        label.pa1.dib(for="local") Local variety
 
 </template>
 

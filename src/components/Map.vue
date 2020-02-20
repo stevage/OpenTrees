@@ -10,6 +10,9 @@ import { EventBus } from '../EventBus';
 const flatten = pairs => pairs.reduce(((arr, [a, b]) => [...arr, a, b]), []);
 
 export default {
+    data: () => ({
+        mode: undefined
+    }),
     async mounted() {
         mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmFnZSIsImEiOiJjazZzd3V2dXEwNGZlM2xtZzFnOXdkOTFtIn0.pKVxwqE61gNc7PKK5u1j6g';
         const map = new mapboxgl.Map({
@@ -28,18 +31,33 @@ export default {
 
 
             map.U.addVector('trees', 'mapbox://stevage.9slh6b3l');
-            map.U.addCircle('trees-vis-none', 'trees', {
-                sourceLayer: 'trees',
-                circleColor: 'hsla(80,50%,70%,0.5)',
-                circleRadius: { stops: [[10,4], [12, 6]] },
-                circleOpacity:0.5
+            map.U.addGeoJSON('selected-tree');
+            map.U.addCircle('trees-selected', 'selected-tree', {
+                circleColor: 'transparent',
+                // circleStrokeColor: ['case', ['to-boolean', ['feature-state', 'selected']], 'red', 'transparent'],
+                circleStrokeColor: 'hsla(100,60%,40%,0.8)',
+                circleStrokeWidth: 3,
+                circleRadius: { stops: [[10,8], [12, 16]] },
+                
+                
             });
             map.U.addCircle('trees-inner', 'trees', {
                 sourceLayer: 'trees',
                 circleColor: 'hsl(100,70%,20%)',
                 circleRadius: { stops: [[10,1], [12, 2]] }
             });
-
+            map.U.addCircle('trees-similar', 'trees', {
+                sourceLayer: 'trees',
+                circleColor: 'hsla(100,90%,60%,0.4)',
+                circleRadius: { stops: [[12, 6], [17, 10]] },
+                filter:false
+            });
+            map.U.addCircle('trees-vis-none', 'trees', {
+                sourceLayer: 'trees',
+                circleColor: 'hsla(80,50%,70%,0.5)',
+                circleRadius: { stops: [[10,4], [12, 6]] },
+                circleOpacity:0.5
+            });
             map.U.addCircle('trees-vis-species', 'trees', {
                 sourceLayer: 'trees',
                 circleColor: ['case', ...flatten(visGroups.species.map(([name, color, filter]) => [filter, color])), 'black'],
@@ -59,23 +77,67 @@ export default {
                 circleColor: ['case', ...flatten(visGroups.noxious.map(([name, color, filter]) => [filter, color])), 'transparent'],
                 // circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
+            map.U.addCircle('trees-vis-local', 'trees', {
+                sourceLayer: 'trees',
+                circleColor: 'hsla(80,50%,70%,0.5)',
+                circleRadius: { stops: [[10,4], [12, 6]] },
+                circleOpacity:0.5
+            });
             this.switchMode('none');
                 
         });
         
         map.U.hoverPointer(['trees-inner', ...visLayers]);
+        // let selectedId;
         map.U.clickLayer(['trees-inner', ...visLayers], e => {
             console.log(e);
+            // if (selectedId) {
+            //     map.setFeatureState({ source: 'trees', sourceLayer: 'trees', id: selectedId }, { selected: false });
+            // }
             window.app.FeatureInfo.feature = e.features[0];
+            map.U.setData('selected-tree', e.features[0]);
+            map.U.setFilter('trees-similar', ['==', ['get', 'scientific'], e.features[0].properties.scientific]);
+            // selectedId = e.features[0].id;
+            // map.setFeatureState({ source: 'trees', sourceLayer: 'trees', id: selectedId }, { selected: true });
+
         });
-        EventBus.$on('vis-mode', this.switchMode)
+        EventBus.$on('vis-mode', mode => this.mode = mode)
+        map.on('moveend', () => {
+            if (this.mode === 'local') {
+                this.updateLocal();
+            }
+        });
+    },
+    watch: {
+        mode() {
+            this.switchMode(this.mode);
+        }
     },
     methods: {
         switchMode(mode) {
             this.map.U.hide(visLayers);
             this.map.U.show(`trees-vis-${mode}`);
             console.log(mode);
+            if (mode === 'local') {
+                this.updateLocal();
+                return; // it also does the legend update
+            }
             EventBus.$emit('update-legend', visGroups[mode]);
+        },
+        updateLocal() {
+            const colors = ['#a6cee3', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c', '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a', '#ffff99', '#b15928'];            
+            const localTrees = this.map.queryRenderedFeatures({ layers: ['trees-inner'] });
+            const counts = {};
+            for (const tree of localTrees) {
+                let [count, common] = (counts[tree.properties.scientific] || [0, ''])
+                counts[tree.properties.scientific] = [count ++, common || tree.properties.common]
+            }
+            console.log(counts)
+            const topVals = Object.keys(counts).sort((a, b) => counts[b][0] - counts[a][0]).slice(0,12);
+            visGroups.local = topVals.map((scientific, i) => [`${scientific}${counts[scientific][1] ? `<br/> (${counts[scientific][1]})` : ''}`, colors[i], ['==', ['get', 'scientific'], scientific]]);
+            console.log(visGroups.local);
+            this.map.U.setCircleColor('trees-vis-local', ['case', ...flatten(visGroups.local.map(([name, color, filter]) => [filter, color])), 'gray']);
+            EventBus.$emit('update-legend', [...visGroups.local, ['Other', 'gray']]);
         }
     }
 }
@@ -140,7 +202,8 @@ const visGroups = {
             ['in', ['get', 'species'], ['literal', 'pseudoacacia']]],
             ['in', ['get', 'genus'], ['literal', ['Quercus']]]
         ],
-    ]
+    ],
+    local: [] // populated dynamically
 }
 const visLayers = Object.keys(visGroups).map(k => `trees-vis-${k}`);
 import 'mapbox-gl/dist/mapbox-gl.css';
