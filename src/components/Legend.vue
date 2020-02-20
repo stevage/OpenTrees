@@ -1,5 +1,7 @@
 <template lang="pug">
 #Legend.bg-white.pa2(v-if="vals.length")
+    div(v-if="mode === 'local'")
+        .f7.i.mt0.mb2 The 12 most common species in the current map view
     div.mb2(v-for="([title, color]) in vals")
         .pill.br4.b--gray.dib.ba.w1.h1.mr2.v-mid(:style="{ background: color}")
         span.f6.pl3.dib(v-html="title")
@@ -12,6 +14,12 @@ export default {
     data: () => ({
         vals: []
     }),
+    computed: {
+        mode() {
+            return app.Map.mode; 
+        }
+    },
+    
     created() {
         window.Legend = this;
         EventBus.$on('update-legend', vals => {

@@ -3,7 +3,7 @@
         #top.bb.b--gray.bg-green
             img.w2.dib.fl.ma2(src="cubetree-logo.png")
             h1.f1.ma2.lancelot.dark-green.dib.fl OpenTrees.org
-            h2.f2.lancelot.ml4.mb0.mt3.fl.gray 893,493 open data trees
+            h2.f2.lancelot.ml4.mb0.mt3.fl.gray 929,055 open data trees.
         #middle.flex.flex-auto
             #sidebar.br.b--gray.overflow-auto(style="width:300px")
                 FeatureInfo

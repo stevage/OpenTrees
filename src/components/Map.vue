@@ -30,7 +30,7 @@ export default {
         map.U.onLoad(() => {
 
 
-            map.U.addVector('trees', 'mapbox://stevage.9slh6b3l');
+            map.U.addVector('trees', window.location.hostname === 'localhost' ? 'http://localhost:4011/index.json' : 'mapbox://stevage.9slh6b3l');
             map.U.addGeoJSON('selected-tree');
             map.U.addCircle('trees-selected', 'selected-tree', {
                 circleColor: 'transparent',
@@ -41,11 +41,6 @@ export default {
                 
                 
             });
-            map.U.addCircle('trees-inner', 'trees', {
-                sourceLayer: 'trees',
-                circleColor: 'hsl(100,70%,20%)',
-                circleRadius: { stops: [[10,1], [12, 2]] }
-            });
             map.U.addCircle('trees-similar', 'trees', {
                 sourceLayer: 'trees',
                 circleColor: 'hsla(100,90%,60%,0.4)',
@@ -54,13 +49,13 @@ export default {
             });
             map.U.addCircle('trees-vis-none', 'trees', {
                 sourceLayer: 'trees',
-                circleColor: 'hsla(80,50%,70%,0.5)',
+                circleColor: 'hsla(80,50%,60%,0.6)',
                 circleRadius: { stops: [[10,4], [12, 6]] },
                 circleOpacity:0.5
             });
             map.U.addCircle('trees-vis-species', 'trees', {
                 sourceLayer: 'trees',
-                circleColor: ['case', ...flatten(visGroups.species.map(([name, color, filter]) => [filter, color])), 'black'],
+                circleColor: ['case', ...flatten(visGroups.species.map(([name, color, filter]) => [filter, color])), 'hsla(0,0%,0%,0.3)'],
                 circleRadius: { stops: [[12, 2], [17, 6]] },
                 circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
@@ -83,13 +78,31 @@ export default {
                 circleRadius: { stops: [[10,4], [12, 6]] },
                 circleOpacity:0.5
             });
+            map.U.addCircle('trees-vis-trunk', 'trees', {
+                sourceLayer: 'trees',
+                circleColor: 'hsla(40,90%,20%,0.8)',
+                circleRadius: ['interpolate', ['exponential', 1], ['to-number', ['get', 'dbh'], 0],
+                    0, 0,
+                    1, 1,
+                    50, 10,
+                    250, 20
+                ],
+                circleOpacity:0.5
+            });
+            map.U.addCircle('trees-inner', 'trees', {
+                sourceLayer: 'trees',
+                circleColor: 'hsla(80,50%,20%,0.9)',
+                circleRadius: { stops: [[12,1], [14, 2]] },
+
+                    
+            });
             this.switchMode('none');
                 
         });
         
         map.U.hoverPointer(['trees-inner', ...visLayers]);
         // let selectedId;
-        map.U.clickLayer(['trees-inner', ...visLayers], e => {
+        map.U.clickOneLayer(['trees-inner', ...visLayers], e => {
             console.log(e);
             // if (selectedId) {
             //     map.setFeatureState({ source: 'trees', sourceLayer: 'trees', id: selectedId }, { selected: false });
@@ -100,6 +113,9 @@ export default {
             // selectedId = e.features[0].id;
             // map.setFeatureState({ source: 'trees', sourceLayer: 'trees', id: selectedId }, { selected: true });
 
+        }, () => {
+            map.U.setData('selected-tree', {type:'FeatureCollection',features:[]})
+            map.U.setFilter('trees-similar', false);
         });
         EventBus.$on('vis-mode', mode => this.mode = mode)
         map.on('moveend', () => {
@@ -181,12 +197,13 @@ const visGroups = {
     ],
 
     rarity: [
-        ['Super common', 'hsl(210, 90%,60%)', ['>=', ['get', 'species_count'], 10000]],
-        ['Very common', 'hsl(160, 90%,60%)', ['all', ['>=', ['get', 'species_count'], 1000], ['<', ['get', 'species_count'], 10000]]],
-        ['Common', 'hsl(120, 80%,60%)', ['all', ['>=', ['get', 'species_count'], 100], ['<', ['get', 'species_count'], 1000]]],
-        ['Average', 'hsl(60, 80%,50%)', ['all', ['>=', ['get', 'species_count'], 20], ['<', ['get', 'species_count'], 100]]],
-        ['Rare', 'hsl(30, 80%, 50%)', ['all', ['>=', ['get', 'species_count'], 5], ['<', ['get', 'species_count'], 20]]],
-        ['Very rare', 'hsl(0, 100%, 40%)', ['<', ['get', 'species_count'], 5]],
+        ['Unknown', 'hsla(0, 0%, 0%, 0.3)', ['==', ['to-number', ['get', 'species_count'], 0], 0]],
+    ['Super common', 'hsl(210, 90%,60%)', ['>=', ['get', 'species_count'], 10000]],
+    ['Very common', 'hsl(160, 90%,60%)', ['all', ['>=', ['get', 'species_count'], 1000], ['<', ['get', 'species_count'], 10000]]],
+    ['Common', 'hsl(120, 80%,60%)', ['all', ['>=', ['get', 'species_count'], 100], ['<', ['get', 'species_count'], 1000]]],
+    ['Average', 'hsl(60, 80%,50%)', ['all', ['>=', ['get', 'species_count'], 20], ['<', ['get', 'species_count'], 100]]],
+    ['Rare', 'hsl(30, 80%, 50%)', ['all', ['>=', ['get', 'species_count'], 5], ['<', ['get', 'species_count'], 20]]],
+    ['Very rare', 'hsl(0, 100%, 40%)', ['<', ['get', 'species_count'], 5]],
     ],
     noxious: [
 
@@ -203,6 +220,7 @@ const visGroups = {
             ['in', ['get', 'genus'], ['literal', ['Quercus']]]
         ],
     ],
+    trunk: [],
     local: [] // populated dynamically
 }
 const visLayers = Object.keys(visGroups).map(k => `trees-vis-${k}`);

@@ -3,6 +3,13 @@ div
     div(v-if="feature")
         //- img.image(v-if="imageUrl" :src="imageUrl")
         h2.i.lancelot.f3.bg-green.pa2.mv0 {{ p.common || p.scientific }}
+        div(v-if="p.class").f7.pa2.i
+            | {{ p.class }} 
+            span.light-green > 
+            | {{ p.subclass }} 
+            span.light-green > 
+            | {{ p.family }}
+            
         table#FeatureInfo(v-if="feature").bg-white.helvetica.ma1
             tr(v-if="p.scientific")
                 th Scientific name
@@ -43,6 +50,7 @@ div
             //-     template(v-if="ignoreProps.indexOf(prop) === -1")
             //-         th.f6.dark-green {{ prop }}
             //-         td.f6 {{ value }}
+        p.f7.tr.gray.mh2.i Source: {{ p.source }}
         Wikipedia(:searchTerm="p.scientific")
     div(v-else) Click on a tree for information!
 </template>
@@ -86,6 +94,10 @@ export default {
 
 .dark-green {
     color: hsl(100, 29.4%, 30%) !important;
+}
+
+.light-green {
+    color: hsl(100, 29.4%, 50%) !important;
 }
 
 .lancelot {

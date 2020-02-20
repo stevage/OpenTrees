@@ -15,6 +15,9 @@
     div.pa0
         input.ma1.dib#local(type="radio" value="local" v-model="mode")
         label.pa1.dib(for="local") Local variety
+    div.pa0
+        input.ma1.dib#trunk(type="radio" value="trunk" v-model="mode")
+        label.pa1.dib(for="trunk") Trunk size
 
 </template>
 

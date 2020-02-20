@@ -5,6 +5,9 @@ module.exports = {
         historyApiFallback: false
     }, 
     configureWebpack: {
+        // entry: [
+        //     // 'webpack-dev-server/client?http://localhost:9090/',
+        // ],
         plugins: [
             new CopyWebpackPlugin([
                 {
