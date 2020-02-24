@@ -8,6 +8,9 @@ import U from 'mapbox-gl-utils';
 import { EventBus } from '../EventBus';
 
 const flatten = pairs => pairs.reduce(((arr, [a, b]) => [...arr, a, b]), []);
+import * as d3Color from 'd3-color';
+const hues = [0, 30, 60, 90, 150, 180, 210, 250, 280, 320]
+const colors = [...hues.map(h => d3Color.hcl(h,100,60).formatHex()), ...hues.map(h => d3Color.hcl(h,40,40).formatHex())];
 
 export default {
     data: () => ({
@@ -20,8 +23,15 @@ export default {
             center: [144.96, -37.81],
             zoom: 14,
             style: 'mapbox://styles/stevage/ck6sws4g704uu1iqtvn25gj6v',
-            hash: true,
+            // style: 'mapbox://stevage/cjxeaxkqi0i2v1cqq1qrnws8c', // satellite
+            hash: 'pos',
+            bearingSnap: 360,
+            // dragRotate: false,
+            minPitch: 0,
+            maxPitch: 0,
+
         });
+        map.touchZoomRotate.disableRotation();
         map.addControl(new mapboxgl.NavigationControl());
         U.init(map, mapboxgl);
         window.map = map;
@@ -59,6 +69,12 @@ export default {
                 circleRadius: { stops: [[12, 2], [17, 6]] },
                 circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
+            map.U.addCircle('trees-vis-family', 'trees', {
+                sourceLayer: 'trees',
+                circleColor: ['case', ...flatten(visGroups.family.map(([name, color, filter]) => [filter, color])), 'hsla(0,0%,0%,0.3)'],
+                circleRadius: { stops: [[12, 2], [17, 6]] },
+                circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
+            });
 
             map.U.addCircle('trees-vis-rarity', 'trees', {
                 sourceLayer: 'trees',
@@ -66,17 +82,17 @@ export default {
                 circleColor: ['case', ...flatten(visGroups.rarity.map(([name, color, filter]) => [filter, color])), '#ddd'],
                 circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
-            map.U.addCircle('trees-vis-noxious', 'trees', {
+            map.U.addCircle('trees-vis-harm', 'trees', {
                 sourceLayer: 'trees',
                 circleRadius: { stops: [[12, 2], [17, 6]] },
-                circleColor: ['case', ...flatten(visGroups.noxious.map(([name, color, filter]) => [filter, color])), 'transparent'],
+                circleColor: ['case', ...flatten(visGroups.harm.map(([name, color, filter]) => [filter, color])), 'transparent'],
                 // circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
             map.U.addCircle('trees-vis-local', 'trees', {
                 sourceLayer: 'trees',
-                circleColor: 'hsla(80,50%,70%,0.5)',
+                circleColor: 'hsla(80,50%,70%,0.9)',
                 circleRadius: { stops: [[10,4], [12, 6]] },
-                circleOpacity:0.5
+                circleOpacity:0.9
             });
             map.U.addCircle('trees-vis-trunk', 'trees', {
                 sourceLayer: 'trees',
@@ -92,9 +108,20 @@ export default {
             map.U.addCircle('trees-inner', 'trees', {
                 sourceLayer: 'trees',
                 circleColor: 'hsla(80,50%,20%,0.9)',
-                circleRadius: { stops: [[12,1], [14, 2]] },
+                circleRadius: { stops: [[10,0.5],[12,1], [14, 2]] },
 
                     
+            });
+            map.U.addSymbol('trees-vis-label', 'trees', {
+                sourceLayer: 'trees',
+                textField: ['coalesce', ['get', 'common'], ['get', 'scientific'], ''],
+                minzoom: 16,
+                textMaxWidth: 3,
+                textSize: ['interpolate',['exponential', 1.5], ['zoom'],15, 8,19,10],
+                textJustify: 'auto',
+                textRadialOffset:0.25,
+                textColor:'hsl(110,50%,15%)',
+                textVariableAnchor:['left','right','bottom-left','top-left','top-right','bottom-right','bottom','top']
             });
             this.switchMode('none');
                 
@@ -117,7 +144,8 @@ export default {
             map.U.setData('selected-tree', {type:'FeatureCollection',features:[]})
             map.U.setFilter('trees-similar', false);
         });
-        EventBus.$on('vis-mode', mode => this.mode = mode)
+        EventBus.$on('vis-mode', mode => this.$nextTick(() => this.mode = mode))
+        EventBus.$on('resize', () => this.$nextTick(() => this.map.resize()));
         map.on('moveend', () => {
             if (this.mode === 'local') {
                 this.updateLocal();
@@ -134,6 +162,15 @@ export default {
             this.map.U.hide(visLayers);
             this.map.U.show(`trees-vis-${mode}`);
             console.log(mode);
+            if (['none','label'].indexOf(mode) >= 0) {
+                this.map.U.setCircleOpacity('trees-inner', 1);
+            } else {
+                this.map.U.setCircleOpacity('trees-inner', { stops: [[14, 0], [15, 1]] });
+            }
+            if (mode === 'label') {
+                this.map.U.show('trees-vis-none');
+            }
+
             if (mode === 'local') {
                 this.updateLocal();
                 return; // it also does the legend update
@@ -141,19 +178,28 @@ export default {
             EventBus.$emit('update-legend', visGroups[mode]);
         },
         updateLocal() {
-            const colors = ['#a6cee3', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c', '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a', '#ffff99', '#b15928'];            
+            // const colors = ['#a6cee3', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c', '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a', '#ffff99', '#b15928'];            
+            // const hues = [0, 30, 60, 90, 150, 180, 210, 250, 280, 320]
+            // const colors = [...hues.map(h => d3Color.hcl(h,100,60).formatHsl()), ...hues.map(h => d3Color.hcl(h,40,40).formatHsl())];
             const localTrees = this.map.queryRenderedFeatures({ layers: ['trees-inner'] });
             const counts = {};
+            const percent = x => Math.round(x * 100) / 1 + '%';
             for (const tree of localTrees) {
-                let [count, common] = (counts[tree.properties.scientific] || [0, ''])
-                counts[tree.properties.scientific] = [count ++, common || tree.properties.common]
+                if (tree.properties.scientific) {
+                    let [count, common] = (counts[tree.properties.scientific] || [0, ''])
+                    counts[tree.properties.scientific] = [count + 1, common || tree.properties.common]
+                }
             }
             console.log(counts)
-            const topVals = Object.keys(counts).sort((a, b) => counts[b][0] - counts[a][0]).slice(0,12);
-            visGroups.local = topVals.map((scientific, i) => [`${scientific}${counts[scientific][1] ? `<br/> (${counts[scientific][1]})` : ''}`, colors[i], ['==', ['get', 'scientific'], scientific]]);
+            const topVals = Object.keys(counts).sort((a, b) => counts[b][0] - counts[a][0]).slice(0,colors.length);
+            visGroups.local = topVals.map((scientific, i) => [
+                `${percent(counts[scientific][0] / localTrees.length)}: ${scientific}${counts[scientific][1] ? `<br/> <span class="f7">${counts[scientific][1]}</>` : ''}`, 
+                colors[i], ['==', ['get', 'scientific'], 
+                scientific
+            ]]);
             console.log(visGroups.local);
-            this.map.U.setCircleColor('trees-vis-local', ['case', ...flatten(visGroups.local.map(([name, color, filter]) => [filter, color])), 'gray']);
-            EventBus.$emit('update-legend', [...visGroups.local, ['Other', 'gray']]);
+            this.map.U.setCircleColor('trees-vis-local', ['case', ...flatten(visGroups.local.map(([name, color, filter]) => [filter, color])), 'transparent']);
+            EventBus.$emit('update-legend', [...visGroups.local, ['Other', 'transparent']]);
         }
     }
 }
@@ -195,6 +241,29 @@ const visGroups = {
             ['in', ['get', 'species'], ['literal', ['indica', 'eugenioides', 'japonicus', 'japonica']]],
             ['in', ['get', 'scientific'], ['literal', ['Agathis robusta', 'Pittosporum tenuifolium', 'Agathis australis','Cordyline australis', 'Hibiscus syriacus']]]]], 
     ],
+    family: [
+        ['Unknown', 'hsla(0, 0%, 0%, 0.3)', ['==', ['coalesce', ['get', 'family'], ''], '']],
+        ['Myrtaceae', colors[0], ['==', ['get','family'], 'Myrtaceae']],
+        ['Fabaceae', colors[1], ['==', ['get','family'], 'Fabaceae']],
+        ['Rosaceae', colors[2], ['==', ['get','family'], 'Rosaceae']],
+        ['Casuarinaceae', colors[3], ['==', ['get','family'], 'Casuarinaceae']],
+        ['Ulmaceae', colors[4], ['==', ['get','family'], 'Ulmaceae']],
+        ['Proteaceae', colors[5], ['==', ['get','family'], 'Proteaceae']],
+        ['Oleaceae', colors[6], ['==', ['get','family'], 'Oleaceae']],
+        ['Fagaceae', colors[7], ['==', ['get','family'], 'Fagaceae']],
+        ['Meliaceae', colors[8], ['==', ['get','family'], 'Meliaceae']],
+        ['Pittosporaceae', colors[9], ['==', ['get','family'], 'Pittosporaceae']],
+        ['Bignoniaceae', colors[10], ['==', ['get','family'], 'Bignoniaceae']],
+        ['Pinaceae', colors[11], ['==', ['get','family'], 'Pinaceae']],
+        ['Malvaceae', colors[12], ['==', ['get','family'], 'Malvaceae']],
+        ['Anacardiaceae', colors[13], ['==', ['get','family'], 'Anacardiaceae']],
+        ['Arecaceae', colors[14], ['==', ['get','family'], 'Arecaceae']],
+        ['Lythraceae', colors[15], ['==', ['get','family'], 'Lythraceae']],
+        ['Sapindaceae', colors[16], ['==', ['get','family'], 'Sapindaceae']],
+        ['Betulaceae', colors[17], ['==', ['get','family'], 'Betulaceae']],
+        ['Cupressaceae', colors[18], ['==', ['get','family'], 'Cupressaceae']],
+        ['Araucariaceae', colors[19], ['==', ['get','family'], 'Araucariaceae']],
+    ],
 
     rarity: [
         ['Unknown', 'hsla(0, 0%, 0%, 0.3)', ['==', ['to-number', ['get', 'species_count'], 0], 0]],
@@ -205,7 +274,7 @@ const visGroups = {
     ['Rare', 'hsl(30, 80%, 50%)', ['all', ['>=', ['get', 'species_count'], 5], ['<', ['get', 'species_count'], 20]]],
     ['Very rare', 'hsl(0, 100%, 40%)', ['<', ['get', 'species_count'], 5]],
     ],
-    noxious: [
+    harm: [
 
         ['Odour', 'hsl(240, 90%,60%)', ['in', ['get', 'scientific'], ['literal', ['Pyrus calleryana']]]],
         ['Allergy', 'hsl(10, 90%,60%)', ['in', ['get', 'scientific'], ['literal', ['Platanus x acerifolia', 'Platanus acerifolia']]]],
@@ -221,6 +290,7 @@ const visGroups = {
         ],
     ],
     trunk: [],
+    label: [],
     local: [] // populated dynamically
 }
 const visLayers = Object.keys(visGroups).map(k => `trees-vis-${k}`);

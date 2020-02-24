@@ -1,9 +1,11 @@
 <template lang="pug">
 div
-    div(v-if="feature")
+    div(v-if="feature" style="width:300px; position:relative;")
         //- img.image(v-if="imageUrl" :src="imageUrl")
-        h2.i.lancelot.f3.bg-green.pa2.mv0 {{ p.common || p.scientific }}
-        div(v-if="p.class").f7.pa2.i
+        div.bg-green
+            h2.i.lancelot.f3.pa2.mv0.bg-green {{ p.common || p.scientific }}
+            .close-btn.pa3.pointer.fw6(@click="feature=null" style="position:absolute;right:0;top:0; cursor:pointer;") X
+        div.cl(v-if="p.class").f7.pa2.i
             | {{ p.class }} 
             span.light-green > 
             | {{ p.subclass }} 
@@ -14,9 +16,19 @@ div
             tr(v-if="p.scientific")
                 th Scientific name
                 td {{ p.scientific }}
+            template(v-if="showExtra")
+                tr(v-if="p.genus")
+                    th Genus/species
+                    td {{ p.genus }} {{ p.species }}
+                //- tr(v-if="p.species")
+                //-     th Species
+                //-     td {{ p.species }}
             tr(v-if="p.common")
                 th Common name
                 td {{ p.common }}
+            tr(v-if="p.description")
+                th Description
+                td {{ p.description }}
             tr(v-if="p.variety")
                 th Variety
                 td {{ p.variety }}
@@ -50,13 +62,17 @@ div
             //-     template(v-if="ignoreProps.indexOf(prop) === -1")
             //-         th.f6.dark-green {{ prop }}
             //-         td.f6 {{ value }}
-        p.f7.tr.gray.mh2.i Source: {{ p.source }}
-        Wikipedia(:searchTerm="p.scientific")
-    div(v-else) Click on a tree for information!
+        p.f7.gray.mh2.i Source: 
+            a(:href="sourceUrl(p.source)" target="_blank") {{ sourceName(p.source) }}
+        Wikipedia(:searchTerm="p.genus + (p.species ? ' ' + p.species : '')")
+    .not-mobile(v-else) Click on a tree for information!
 </template>
 
 <script>
 import Wikipedia from './Wikipedia';
+// import sources from '../sources';
+import sources from '../sources-out.json';
+import { EventBus } from '../EventBus';
 export default {
     name: "FeatureInfo",
     data: () => ({
@@ -71,10 +87,30 @@ export default {
         imageUrl() {
             return this.p && this.p.image_url
         },
+        showExtra() {
+            return window.location.hash.match(/debug/);
+        }
     },
     created() {
         window.app.FeatureInfo = this;
-    }
+    },
+    watch: {
+        feature(newValue, oldValue) {
+            EventBus.$emit('resize');
+            
+        }
+    },
+    methods: {
+        sourceUrl(source) {
+            console.log(sources);
+            console.log(source);
+            return sources.find(s => s.id === source).download;
+            
+        },
+        sourceName(source) {
+            return sources.find(s => s.id === source).long;
+        }
+    },
 }
 </script>
 
@@ -88,21 +124,6 @@ export default {
 }
 </style>
 <style>
-.bg-green {
-    background: hsl(98.6, 30.4%, 82%) !important;
-}
-
-.dark-green {
-    color: hsl(100, 29.4%, 30%) !important;
-}
-
-.light-green {
-    color: hsl(100, 29.4%, 50%) !important;
-}
-
-.lancelot {
-    font-family:lancelot,sans-serif;
-}
 th {
     color: hsl(100, 29.4%, 30%)
 }

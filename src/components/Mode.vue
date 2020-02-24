@@ -1,23 +1,12 @@
 <template lang="pug">
 #Mode.bg-white.pa1
-    div.pa0
-        input.ma1.dib#none(type="radio" value="none" v-model="mode") 
-        label.pa1.dib(for="none") No vis.
-    div.pa0
-        input.ma1.dib#species(type="radio" value="species" v-model="mode")
-        label.pa1.dib(for="species") Species
-    div.pa0
-        input.ma1.dib#rarity(type="radio" value="rarity" v-model="mode")
-        label.pa1.dib(for="rarity") Rarity
-    div.pa0
-        input.ma1.dib#noxious(type="radio" value="noxious" v-model="mode")
-        label.pa1.dib(for="noxious") Harm
-    div.pa0
-        input.ma1.dib#local(type="radio" value="local" v-model="mode")
-        label.pa1.dib(for="local") Local variety
-    div.pa0
-        input.ma1.dib#trunk(type="radio" value="trunk" v-model="mode")
-        label.pa1.dib(for="trunk") Trunk size
+    #dropdown.only-mobile.pa1.pr3.ba.b--light-gray(@click="open = !open") {{ selectedModeCaption }}
+        //- i.ml2.fas.fa-caret-down
+        i.absolute.right-0.mr1.fas.fa-caret-down
+    #options(:class="{ 'not-mobile': !open}")
+        div(v-for="([mode, caption]) in modes" @click="open = false")
+            input.ma1.dib#none(:id="mode" type="radio" :value="mode" v-model="selectedMode") 
+            label.pa1-ns.dib(:for="mode") {{ caption }}
 
 </template>
 
@@ -26,14 +15,35 @@ import { EventBus } from '../EventBus'
 export default {
     name: "Mode",
     data: () => ({
-        mode: 'none'
+        selectedMode: 'none',
+        
+        open: false,
+        modes: [
+                ['none', 'No vis.'],
+                ['species', 'Species'],
+                ['family', 'Family'],
+                ['rarity', 'Rarity'],
+                ['harm', 'Harm'],
+                ['local', 'Local variety'],
+                ['trunk', 'Trunk size'],
+                ['label', 'Label']
+
+        ]
     }),
     created() {
         window.Mode = this;
     },
+    mounted () {
+        // EventBus.$emit('vis-mode', this.selectedMode);
+    },
+    computed: {
+        selectedModeCaption() {
+            return this.modes.find(([mode, caption]) => mode === this.selectedMode)[1];
+        }
+    },
     watch: {
-        mode() {
-            EventBus.$emit('vis-mode', this.mode);
+        selectedMode() {
+            EventBus.$emit('vis-mode', this.selectedMode);
         }
     }
 }
