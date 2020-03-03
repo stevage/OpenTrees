@@ -78,13 +78,13 @@ export default {
             map.U.addCircle('trees-vis-none', 'trees', {
                 sourceLayer: 'trees',
                 circleColor: 'hsla(80,50%,60%,0.6)',
-                circleRadius: { stops: [[10,4], [12, 6]] },
+                circleRadius: { stops: [[10,4], [12, 6], [16, 8], [20, 18]] },
                 circleOpacity:0.5
             });
             map.U.addCircle('trees-vis-species', 'trees', {
                 sourceLayer: 'trees',
                 circleColor: ['case', ...stops('species'), 'hsla(0,0%,0%,0.3)'],
-                circleRadius: { stops: [[10, 1], [12, 2], [17, 6]] },
+                circleRadius: { stops: [[10, 1], [12, 2], [17, 6], [ 20, 18], ] },
                 circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
             map.U.addCircle('trees-vis-family', 'trees', {
@@ -96,7 +96,7 @@ export default {
 
             map.U.addCircle('trees-vis-rarity', 'trees', {
                 sourceLayer: 'trees',
-                circleRadius: { stops: [[12, 2], [17, 6]] },
+                circleRadius: { stops: [[12, 2], [17, 6], [20, 18]] },
                 // circleColor: ['case', ...flatten(visGroups.rarity.map(([name, color, filter]) => [filter, color])), '#ddd'],
                 circleColor: ['interpolate', ['linear'], ['to-number', ['get', 'species_count']], 
                     ...flatten(visGroups.rarity.reverse().map(([name, color, number]) => [number, color])),
@@ -106,20 +106,20 @@ export default {
             });
             map.U.addCircle('trees-vis-health', 'trees', {
                 sourceLayer: 'trees',
-                circleRadius: { stops: [[10, 1], [12, 2], [17, 6]] },
+                circleRadius: { stops: [[10, 1], [12, 2], [17, 6], [20, 18]] },
                 circleColor: ['match', ['get', 'health'], ...stops('health'), 'hsla(260,80%,50%,0.7)'],
                 // circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
             map.U.addCircle('trees-vis-harm', 'trees', {
                 sourceLayer: 'trees',
-                circleRadius: { stops: [[12, 2], [17, 6]] },
+                circleRadius: { stops: [[12, 2], [17, 6],[20, 18]] },
                 circleColor: ['case', ...stops('harm'), 'transparent'],
                 // circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
             map.U.addCircle('trees-vis-local', 'trees', {
                 sourceLayer: 'trees',
                 circleColor: 'hsla(80,50%,70%,0.9)',
-                circleRadius: { stops: [[10,2], [12, 3]] },
+                circleRadius: { stops: [[10,2], [12, 3],[16,5], [20, 14]] },
                 circleOpacity:0.9
             });
             map.U.addCircle('trees-vis-trunk', 'trees', {
