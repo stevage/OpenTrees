@@ -152,7 +152,7 @@ export default {
                 textVariableAnchor:['left','right','bottom-left','top-left','top-right','bottom-right','bottom','top']
             });
 
-            map.U.addSymbol('sources-circles', 'sources', {
+            map.U.addSymbol('sources-icons', 'sources', {
                 iconImage: 'tree',
                 iconSize:0.3,
                 iconAllowOverlap: true,
@@ -171,7 +171,14 @@ export default {
             //     circleOpacity: ['interpolate',['linear'],['zoom'],5,1,7,0],
             //     maxzoom: 8
             // });
-
+            map.U.clickLayer('sources-icons', ({ features }) => {
+                console.log(features[0].geometry)
+                map.flyTo({
+                    center: features[0].geometry.coordinates,
+                    zoom: 11
+                });
+                
+            });
             map.U.addSymbol('sources-labels', 'sources', {
                 textField: ['coalesce', ['get','short'], ['get','id']],
                 textHaloColor: 'hsla(100,30%,95%,0.9)',
@@ -191,6 +198,9 @@ export default {
         map.U.hoverPointer(['trees-inner', ...visLayers]);
         // let selectedId;
         map.U.clickOneLayer(['trees-inner', ...visLayers], e => {
+            if (map.getZoom() < 7) {
+                return;
+            }
             console.log(e);
             // if (selectedId) {
             //     map.setFeatureState({ source: 'trees', sourceLayer: 'trees', id: selectedId }, { selected: false });

@@ -147,7 +147,7 @@ export default {
         sourceUrl() {
             console.log(sources);
             const s = sources.find(s => s.id === this.p.source);
-            return s ? s.download : '#';
+            return s ? s.info || s.download : '#';
             
         },
         sourceName() {
