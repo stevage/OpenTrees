@@ -74,6 +74,7 @@ div
     //- .panel.pa3(v-if="!feature && (firstTime)") 
     //-     b.dark-green(v-if="firstTime") Click on a tree for information!
     .panel.pa2(v-if="!feature && about")
+        i.close-btn.pa2.mt1.dark-green.pointer.fw6.fas.fa-times(@click="close" style="position:absolute;right:0;top:0; cursor:pointer;")
         h3 About 
             span.lancelot.dark-green.f3 OpenTrees.org
         p 
@@ -88,10 +89,16 @@ div
             li To manage pruning, watering and inspection schedules.
             li To plan ahead, so lots of old trees don't die at the same time.
         h4 There's a tree missing!
-        p Every tree database is incomplete and out of date. Some databases only cover "significant trees". Most only cover trees managed directly by the government body, so trees in front gardens, 
-            | schools, universities, company premises etc are missing. Some databases cover only trees in parks, or in streets.
+        p Every tree database is incomplete and out of date. A source might be missing a tree because:
+            ul
+                li It only covers "significant trees".
+                li It only includes trees directly managed by the government body, not private properties, schools etc.
+                li It only covers parks, or streets.
+                li The tree was surveyed once, a long time ago, and the data isn't maintained.
         h4 Why are all the trees showing as grey in some areas?
         p Some of the data sources don't include species information. This can happen when either it isn't collected or isn't included in the data export for some reason.
+        h4 Family information is incomplete
+        p The source I'm using only covers Australian species. I'll need to do something about that.
         h4 How do I get my city on 
             span.lancelot.dark-green.f4 OpenTrees.org
             | ?
@@ -108,6 +115,9 @@ div
         p Now I need to write the next one!
         h4 Where is the source code?
         p On <a href="https://github.com/stevage/opentrees">Github</a>.
+        h4 Who made this?
+        p Me, Steve Bennett, a freelance web developer, data visualisation and Mapbox expert based in Melbourne, Australia. 
+         | You can see the rest of my portfolio at <a href="https://hire.stevebennett.me">hire.stevebennett.me</a>.
 </template>
 
 <script>

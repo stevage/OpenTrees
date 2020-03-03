@@ -1,1 +1,1519 @@
-[{"id":"corangamite","download":"https://data.gov.au/geoserver/corangamite-shire-trees/wfs?request=GetFeature&typeName=ckan_d9677ebb_f3db_45f3_88eb_04089debb9e0&outputFormat=json","format":"geojson","gdal_options":"-s_srs EPSG:4326","short":"Corangamite","long":"Corangamite Shire","country":"Australia","crosswalk":{"ref":"id","height":"height","crown":"width","scientific":"species","common":"name"},"bounds":[142.9000713,-38.700145,143.4882962,-37.6811869]},{"id":"colac_otways","download":"http://data.gov.au/geoserver/colac-otway-shire-trees/wfs?request=GetFeature&typeName=ckan_3ce1805b_cb81_4683_8f46_e7bd2d2a3b7c&outputFormat=json","format":"geojson","short":"Colac-Otways","long":"Colac-Otways Shire","country":"Australia","crosswalk":{"ref":"tree_id","genus":"genus_desc","species":"spec_desc","common":"common_nam","height":"height_m","crown":"canopy_wid","dbh":"diam_breas","maturity":"life_stage"},"bounds":[143.56408,-38.780105,143.790448,-38.027444]},{"id":"ballarat","download":"https://data.gov.au/geoserver/ballarattrees/wfs?request=GetFeature&typeName=ckan_eabaee3f_a563_449b_a04a_1ec847566ea1&outputFormat=json","format":"geojson","short":"Ballarat","long":"City of Ballarat","country":"Australia","crosswalk":{"scientific":"species","common":"common","species":"species","variety":"variety","description":"description","dbh":"dbh","crown":"crown","height":"height","maturity":"maturity","health":"health","structure":"structure","location":"location","ref":"ref","planted":"planted","updated":"updated","ule":"ule","ule_min":"ule_min","ule_max":"ule_max"},"bounds":[143.640375,-37.715408,143.947377,-37.3477605]},{"id":"manningham","download":"https://data.gov.au/geoserver/manningham-streettrees/wfs?request=GetFeature&typeName=ckan_1aef5123_24ff_4084_a0f1_a52ca71e9e99&outputFormat=json","format":"geojson","short":"Manningham","long":"City of Manningham","country":"Australia","crosswalk":{"captured":"date1","ref":"tree_no","scientific":"species","height":"height","dbh":"dbh"},"bounds":[145.0784535,-37.8095233,145.2904602,-37.7208447]},{"id":"geelong","download":"https://data.gov.au/geoserver/geelong-trees/wfs?request=GetFeature&typeName=ckan_13b1196c_7fb7_436a_86bc_ab24c16526de&outputFormat=json","format":"geojson","short":"Geelong","long":"City of Greater Geelong","country":"Australia","crosswalk":{"common":"common","species":"species","genus":"genus","variety":"variety","description":"description","dbh":"dbh","crown":"crown","height":"height","maturity":"maturity","health":"health","structure":"structure","location":"location","ref":"ref","planted":"planted","updated":"updated","ule":"ule","ule_min":"ule_min","ule_max":"ule_max"},"bounds":[144.2047354,-38.2938362,144.7188983,-37.8197544]},{"id":"melbourne","download":"https://data.melbourne.vic.gov.au/api/views/fp38-wiyy/rows.csv?accessType=DOWNLOAD","format":"csv","filename":"melbourne.vrt","short":"Melbourne","long":"City of Melbourne","country":"Australia","crosswalk":{"ref":"com_id","common":"Common Name","scientific":"Scientific Name","dbh":"Diameter Breast Height","planted":"Date Planted","maturity":"Age Description","ule_min":"Useful Life Expectency","location":"Located In"},"bounds":[144.9004448,-37.8505317,144.9910558,-37.7755114]},{"id":"adelaide","download":"http://opendata.adelaidecitycouncil.com/street_trees/street_trees.csv","format":"vrt","filename":"adelaide.vrt","gdal_options":"-skipfailures","short":"Adelaide","long":"City of Adelaide","centre":[138.59979,-34.91802],"country":"Australia","crosswalk":{"ref":"Asset Id (identifier)","health":"Vigour (Inspection)","height":"Height (Inspection)","structure":"Structure (Inspection)","maturity":"Age (Inspection)","scientific":"Species Name (Inspection)","common":"Common Name (Inspection)"},"bounds":[50.7670382,-85.5261156,138.6177352,-34.9021934]},{"id":"waite","download":"http://data.sa.gov.au/storage/f/2014-06-23T06%3A12%3A22.180Z/waitetreeid-2014-app-joined-19062014.zip","format":"zip","filename":"WaiteTreeID_2014_App_Joined_19062014.shp","short":"Waite Arboretum","long":"Waite Arboretum (Adelaide)","country":"Australia","crosswalk":{"ref":"tree_id","scientific":"scientific","common":"commonname"}},{"id":"burnside","download":"https://data.sa.gov.au/data/dataset/b7e1c8f6-169c-41bd-b5d7-140395a41c38/resource/6d1912aa-4775-4f5e-b00d-18456ad872a5/download/burnsidetrees.geojson","format":"geojson","short":"Burnside","long":"City of Burnside","country":"Australia","crosswalk":{"ref":"TreeID","common":"CommonName","height":"TreeHeight","scientific":"BotanicalN","dbh":"Circumfere"},"bounds":[138.6164334,-34.9681325,138.6973777,-34.9127876]},{"id":"launceston","download":"http://lcc.launceston.opendata.arcgis.com/datasets/63b09a3688804a17b0edc4b3b072a0d7_1.zip","format":"zip","filename":"Trees.shp","short":"Launceston","long":"City of Launceston","country":"Australia","crosswalk":{"ref":"objectid","common":"name","scientific":"genusspeci","maturity":"age","dbh":"diametr_c","height":"height_m","crown":"horizontal","health":"vitality","captured":"auditdate"},"bounds":[147.0229283,-41.4971228,147.5054215,-41.1759411]},{"id":"hobsons_bay","download":"https://data.gov.au/dataset/80051ffe-04d5-4602-b15b-60e0d0e3d153/resource/ea1ec6fc-02bd-4e36-8e43-c990b6a9268d/download/hbcc_street_and_park_trees.json","format":"geojson","short":"Hobson's Bay","long":"City of Hobson's Bay","country":"Australia","crosswalk":{"genus":"Genus","species":"Species","dbh":"DBH","tree_type":"Type"},"centre":[144.833,-37.85],"bounds":[144.612042,-44.349585,144.912963,-37.814274]},{"id":"glenelg","download":"http://data.gov.au/dataset/3721ad67-7b5b-4815-96b1-9d8b1a89dbd7/resource/b9ff3d44-17b4-4f87-8a28-2d540fa37d8f/download/Glenelg-Street-and-Park-Trees.csv","format":"csv","latitudeField":"lat","longitudeField":"lon","short":"Glenelg","long":"Glenelg Shire","country":"Australia","crosswalk":{"scientific":"scientific","common":"common","species":"species","genus":"genus","variety":"variety","description":"description","dbh":"dbh","crown":"crown","height":"height","maturity":"maturity","health":"health","structure":"structure","location":"location","ref":"ref","planted":"planted","updated":"updated","ule":"ule","ule_min":"ule_min","ule_max":"ule_max"},"bounds":[141.552398,-38.372273,141.632322,-38.291877]},{"id":"ryde","download":["http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/47843888-f9b6-4ae3-ba80-9318ff60a120/download/Public-Trees-2013.dbf","http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/1372b28f-4201-46ab-9099-be0458a317bb/download/Public-Trees-2013.prj","http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/00e339ad-e411-48b2-8cfa-ed3dfa8209ca/download/Public-Trees-2013.shp","http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/3f4f3346-52d5-4084-94fc-877bf70c0a76/download/Public-Trees-2013.shx"],"format":"shp","keepExtension":true,"short":"Ryde","long":"City of Ryde","country":"Australia","crosswalk":{"height":"Height"},"bounds":[151.065034,-33.8415981,151.158048,-33.7612768]},{"id":"southern_grampians","download":"http://data.gov.au/geoserver/southern-grampians-street-and-park-trees/wfs?request=GetFeature&typeName=ckan_4a2843f5_8c01_438b_95f3_01ef0a518441&outputFormat=json","format":"geojson","short":"Southern Grampians","long":"City of Southern Grampians","country":"Australia","crosswalk":{"ref":"ref","scientific":"species","common":"common","location":"location","height":"height","crown":"crown","maturity":"maturity"},"bounds":[141.682659,-37.877904,142.295264,-37.596919]},{"id":"prospect1","download":"https://data.sa.gov.au/data/dataset/5d86d41e-b6c6-47d5-9b88-4d95916c5e76/resource/d1e30913-6e91-4a1f-b576-64120cc4b242/download/city-of-prospect-tree-species-in-reserves-2016.csv","format":"csv","short":"Prospect","long":"City of Prospect","country":"Australia","centre":[138.6,-34.88],"crosswalk":{"common":"Species Name"},"bounds":[138.5840723,-34.8970313,138.6179861,-34.8713809]},{"id":"prospect2","download":"https://data.sa.gov.au/data/dataset/7bf2e4a4-40cc-40fd-83a9-fabb6d854039/resource/3f6be219-d66f-4b40-bfc7-16214fbc0989/download/city-of-prospect-street-trees-2016.csv","format":"csv","short":"Prospect","long":"City of Prospect","country":"Australia","centre":[138.6,-34.88],"crosswalk":{"species":"Tree Species","maturity":"Tree Age","health":"Tree Health","structure":"Tree Structure","height":"Tree Height"},"bounds":[-0.000841,-34.899019,138.619667,0.000371]},{"id":"perth","download":"https://opendata.arcgis.com/datasets/c5ce51d9789a4e9a8510acb8c8f3ecf4_0.zip","format":"zip","filename":"PKS_AST_TREESMASTER_PV.shp","short":"Perth","long":"City of Perth","country":"Australia","crosswalk":{"scientific":"BOTANICAL_","common":"COMMON_NAM","family":"FAMILY","height":"TREE_HEIGH","plant":"DATE_PLANT","ref":"TREE_ID"},"bounds":[115.8108834,-31.9900383,115.8877841,-31.9422428]},{"id":"brimbank","download":"https://data.gov.au/geoserver/brimbank-open-space-trees/wfs?request=GetFeature&typeName=ckan_7a57b5a1_2ca3_4171_be91_0d371cefd250&outputFormat=json","format":"geojson","short":"Brimbank","long":"City of Brimbank","country":"Australia","crosswalk":{"ref":"central_as","location":"location","genus":"genus","species":"species","common":"common_nam","maturity":"age","height":"height","crown":"spread"},"bounds":[144.7533565,-37.8204167,144.8643531,-37.6695297]},{"id":"bendigo","download":"https://data.gov.au/geoserver/city-of-greater-bendigo-environment-trees/wfs?request=GetFeature&typeName=ckan_d17c9e50_fab1_40e6_b91d_6e665faf2656&outputFormat=json","format":"geojson","short":"Bendigo","long":"City of Greater Bendigo","country":"Australia","crosswalk":{"ref":"assetid","description":"desc"},"centre":[144.298,-36.755],"bounds":[144.1285372,-37.0154137,144.7321866,-36.4867586]},{"id":"shepparton","download":"https://data.gov.au/dataset/e794491f-2eb7-4035-8b0c-f7248c28feda/resource/a1148573-68b9-4bd8-bda4-f08030d38c9d/download/greatersheppartoncitycouncilstreetandparktrees.zip","format":"zip","filename":"Greater_Shepparton_City_Council_Street_and_Park_Trees.shp","short":"Shepparton","long":"City of Shepparton","country":"Australia","crosswalk":{"scientific":"scientific","common":"common","species":"species","genus":"genus","variety":"variety","description":"description","dbh":"dbh","crown":"crown","height":"height","maturity":"maturity","health":"health","structure":"structure","location":"location","ref":"ref","planted":"planted","updated":"updated","ule":"ule","ule_min":"ule_min","ule_max":"ule_max"},"bounds":[145.1253597,-36.6272858,145.6889959,-36.2182449]},{"id":"wyndham","download":"https://data.gov.au/dataset/0254dee0-5b26-484f-a5ae-5ca3cab46601/resource/fb06e7c8-d037-489b-a963-b747271f2e54/download/trees.json","download_old2":"https://data.gov.au/dataset/0254dee0-5b26-484f-a5ae-5ca3cab46601/resource/4ab38849-d1de-4444-aeca-08719138d24f/download/trees.zip","gdal_options":"-s_srs unzip/OpenData_TI_Trees_LatestInspection.prj","format":"zip","filename":"OpenData_TI_Trees_LatestInspection.shp","short":"Wyndham","long":"City of Wyndham","country":"Australia","crosswalk":{"ref":"tree_id","common":"tree_commo","height":"height","crown":"canopy_wid","dbh":"diameter_breast_height","maturity":"tree_age","health":"health","ule":"useful_life_expectancy","structure":"structure"},"bounds":[144.496617,-37.978275,144.818193,-37.816515]},{"id":"port_phillip","download":"https://data.gov.au/dataset/6b72d22b-d824-4281-bd08-ab62e3c38415/resource/9b0d7d55-5267-464b-85d7-3d141d779bab/download/city-of-port-phillip-trees.geojson","format":"geojson","short":"Port Phillip","long":"City of Port Phillip","country":"Australia","crosswalk":{"scientific":"species","common":"common","species":"species","genus":"genus","variety":"variety","description":"description","dbh":"dbh","crown":"crown","height":"height","maturity":"maturity","health":"health","structure":"structure","location":"location","ref":"ref","planted":"planted","updated":"updated","ule":"ule","ule_min":"ule_min","ule_max":"ule_max"},"bounds":[144.9134235,-37.8916685,145.0103299,-37.8259275]},{"id":"boroondara","download":"https://data.gov.au/geoserver/significant-tree/wfs?request=GetFeature&typeName=ckan_14e2b87e_c733_4071_b604_c0cb33d14a42&outputFormat=json","format":"geojson","short":"Boroondara","long":"City of Boroondara","country":"Australia","crosswalk":{"species":"botanicaln","common":"commonname","height":"height","crown":"canopyspre","health":"health","description":"significan","location":"locality"}},{"id":"yarra","download":"https://data.gov.au/data/dataset/f3c88ce7-504b-4ef7-907f-686037f7420c/resource/6e4186b0-3e00-48f9-a09c-cb60d1d0d49f/download/yarra-street-and-park-trees.geojson","format":"geojson","short":"Yarra","long":"City of Yarra","country":"Australia","crosswalk":{"scientific":"scientific","common":"common","genus":"genus","variety":"variety","description":"description","dbh":"dbh","crown":"crown","height":"height","maturity":"maturity","health":"health","structure":"structure","location":"location","ref":"ref","planted":"planted","updated":"updated","ule":"ule","ule_min":"ule_min","ule_max":"ule_max"},"bounds":[144.9605867,-37.8339506,145.037318,-37.7752565]},{"id":"glen_eira","download":"https://data.gov.au/geoserver/street-and-park-trees/wfs?request=GetFeature&typeName=ckan_0553b144_9145_4458_922f_5c6175d2e100&outputFormat=json","format":"geojson","short":"Glen Eira","long":"City of Glen Eira","country":"Australia","crosswalk":{"dbh":"dbh","common":"common_nam","scientific":"botanical","height":"height","crown":"spread","location":"locationty"},"bounds":[144.9969733,-37.9384067,145.0849115,-37.8605068]},{"id":"wodonga","download":"https://data.gov.au/data/dataset/e7d6ebd3-04a8-4d73-b8ba-a9b82aa79b16/resource/180ba7ad-7bd7-490b-81f8-79c74ec0a915/download/tree.csv","format":"csv","filename":"wodonga.vrt","short":"Wodonga","long":"City of Wodonga","country":"Australia","crosswalk":{"ref":"field_1","scientific":"field_2","common":"field_3"},"centre":[146.86,-36.125],"bounds":[0,-36.223328,147.0359569,0]},{"id":"hobart","download":"http://data-1-hobartcc.opendata.arcgis.com/datasets/d50fa3c9875d43fbb7e462248160e1ee_0.geojson","format":"geojson","short":"Hobart","long":"City of Hobart","country":"Australia","bounds":[147.2418544,-42.9375349,147.3612128,-42.8461359]},{"id":"sherwood_arboretum","download":"http://www.spatial-data.brisbane.qld.gov.au/datasets/613169f42b43494499c83640392c43e5_0.geojson","format":"geojson","short":"Sherwood Arboretum","long":"Sherwood Arboretum (Brisbane)","country":"Australia","crosswalk":{"common":"Common_Name","scientific":"Scientific_Name","family":"Family","height":"Height","crown":"Crown_width","id":"ObjectId"},"bounds":[152.9714694,-27.5332332,152.9776716,-27.5290642]},{"id":"sydney","download":"https://emscycletours.site44.com/opentrees-data/sydney-tree-data.csv","format":"csv","filename":"sydney.vrt","short":"Sydney","long":"City of Sydney","centre":[151.2,-33.892],"country":"Australia","crosswalk":{"scientific":"species"},"bounds":[62.7670382,-85.5261156,159.8415426,-33.7367834]},{"id":"pdx-street","download":"https://opendata.arcgis.com/datasets/eb67a0ad684d4bb6afda51dc065d1664_25.zip","format":"zip","filename":"Street_Trees.shp","short":"Portland, Oregon","long":"Portland, Oregon","country":"USA","crosswalk":{"scientific":"Scientific","genus":"Genus","family":"Family","common":"Common","health":"Condition","note":"Notes"},"bounds":[-122.8330591,45.4334979,-122.4730015,45.6391985]},{"id":"pdx-park","download":"https://opendata.arcgis.com/datasets/83a7e3f6a1d94db09f24849ee90f4be2_220.zip?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D&session=undefined","format":"zip","filename":"Parks_Tree_Inventory.shp","short":"Portland, Oregon","long":"Portland, Oregon","country":"USA","crosswalk":{"health":"Condition","crown":"CrownWidth","family":"Family","genus":"Genus","scientific":"Genus_spec","common":"Common_nam","description":"Species_fa"},"bounds":[-122.7768247,45.4468721,-122.4853347,45.6503033]},{"id":"nyc","download":"https://data.cityofnewyork.us/api/views/uvpi-gqnh/rows.csv?accessType=DOWNLOAD","format":"csv","filename":"nyc.vrt","short":"New York","long":"New York City","country":"USA","crosswalk":{"ref":"tree_id","scientific":"spc_latin","common":"spc_common","health":"health"},"bounds":[-74.2549647,40.4984661,-73.7004882,40.9129183]},{"id":"washington-dc","download":"https://opendata.arcgis.com/datasets/f6c3c04113944f23a7993f2e603abaf2_23.zip","format":"zip","filename":"Urban_Forestry_Street_Trees.shp","short":"Washington DC","long":"Washington DC","country":"USA","centre":[77,38.92],"crosswalk":{"common":"COMMON.NAME","scientific":"SCI_NM","planted":"DATE_PLANT","family":"FAM_NAME","note":"TREE_NOTES","health":"CONDITION"},"bounds":[-81.5202497,37.5832789,-76.9092347,38.9959293]},{"id":"buffalo-ny","download":"https://data.buffalony.gov/api/views/n4ni-uuec/rows.csv?accessType=DOWNLOAD","format":"csv","short":"Buffalo, NY","long":"City of Buffalo, NY","country":"USA","crosswalk":{"scientific":"Botanical Name","common":"Common Name","id":"Site ID"},"bounds":[-78.9119068,42.8261159,-78.7965543,42.9655515]},{"id":"san_francisco","download":"https://data.sfgov.org/api/views/337t-q2b4/rows.csv?accessType=DOWNLOAD","format":"csv","short":"San Francisco","long":"City of San Francisco","country":"USA","crosswalk":{"id":"TreeID","description":"qSiteInfo","planted":"PlantDate"},"centre":[-122.435,37.77],"bounds":[-138.2838607,37.509004,-122.366622,47.2702188]},{"id":"philadelphia","download":"http://data.phl.opendata.arcgis.com/datasets/957f032f9c874327a1ad800abd887d17_0.csv","format":"csv","short":"Philadelphia","long":"City of Philadelphia","country":"USA","crosswalk":{},"bounds":[-75.2974933,39.8769773,-74.9587776,40.1374509]},{"id":"denver","download":"https://data.colorado.gov/api/views/wz8h-dap6/rows.csv?accessType=DOWNLOAD","format":"csv","short":"Denver","country":"USA","crosswalk":{"ref":"SITE_ID","scientific":"SPECIES_BO","common":"SPECIES_CO","dbh":"DIAMETER","location":"LOCATION_NAME"},"centre":[-104.9454,39.7273],"bounds":[-105.6061572,39.4722505,0,39.9140172]},{"id":"boulder","country":"USA","download":"https://opendata.arcgis.com/datasets/dbbae8bdb0a44d17934243b88e85ef2b_0.zip","info":"https://data-boulder.opendata.arcgis.com/datasets/dbbae8bdb0a44d17934243b88e85ef2b_0","format":"zip","short":"Boulder, CO","long":"City of Boulder, Colorado","filename":"Tree_Inventory.shp","crosswalk":{"scientific":"LATINNAME","common":"COMMONNAME","variety":"CULTIVAR","location":"LOCTYPE"},"bounds":[-105.3009972,39.9646221,-105.1787327,40.0889026]},{"id":"cambridge","country":"USA","download":"https://data.cambridgema.gov/api/views/q83f-7quz/rows.csv?accessType=DOWNLOAD","info":"https://data.cambridgema.gov/Public-Works/Street-Trees/ni4i-5bnn","format":"csv","crosswalk":{"common":"CommonName","scientific":"Scientific","ref":"TreeID","dbh":"diameter","updated":"last_edite","planted":"PlantDate","health":"TreeCondit"},"short":"Cambridge, MA","bounds":[-71.159506,42.3535082,-71.0689625,42.4035111]},{"id":"berkeley","country":"USA","download":"https://data.cityofberkeley.info/api/views/x39z-ushg/rows.csv?accessType=DOWNLOAD","info":"https://data.cityofberkeley.info/Natural-Resources/City-Trees/9t35-jmin","format":"csv","crosswalk":{"scientific":"SPECIES","common":"Common_Nam","health":"CONDITION","note":"note"},"short":"Berkeley","bounds":[-122.3214883,37.8459911,-122.2345414,37.9045336]},{"id":"barcelona","download":"https://opendata-ajuntament.barcelona.cat/data/dataset/27b3f8a7-e536-4eea-b025-ce094817b2bd/resource/28034af4-b636-48e7-b3df-fa1c422e6287/download","format":"csv","short":"Barcelona","long":"City of Barcelona","latitudeField":"LATITUD_WGS84","longitudeField":"LONGITUD_WGS84","country":"Spain","crosswalk":{"description":"NOM_CASTELLA","scientific":"NOM_CIENTIFIC","planted":"DATA_PLANTACIO","ref":"CODI","dbh":"MIDA_ESCOCELL"},"bounds":[2.0888374,41.3447969,2.2212758,41.466312]},{"id":"london","download":"https://data.london.gov.uk/download/local-authority-maintained-trees/c52e733d-bf7e-44b8-9c97-827cb2bc53be/london_street_trees_gla_20180214.csv","format":"csv","short":"London","long":"Greater London Authority","country":"UK","centre":[-0.1051,51.5164],"crosswalk":{"ref":"gla_id","scientific":"species_name","common":"common_name","description":"display_name"},"bounds":[-105.3324482,0,42.9257152,20180214]},{"id":"bristol","country":"UK","download":"https://opendata.bristol.gov.uk/explore/dataset/trees/download/?format=geojson&timezone=Australia/Sydney&lang=en","info":"https://opendata.bristol.gov.uk/explore/dataset/trees/export/","format":"geojson","crosswalk":{"dbh":"dbh","height":"crown_height","common":"full_common_name","scientific":"latin_name"},"short":"Bristol","bounds":[-2.7026684,51.4013482,-2.1296535,51.7687848]},{"id":"paris","download":"https://www.data.gouv.fr/en/datasets/r/c558ddb2-cc46-4e26-b96a-bd2735a8f343","format":"geojson","short":"Paris","country":"France","crosswalk":{"ref":"idemplacement","common":"libellefrancais","genus":"genre","species":"espece","variety":"varieteoucultivar","maturity":"stadedeveloppement"},"bounds":[2.2102412,48.7422903,2.4697595,48.9114848]},{"id":"lyon","download":"https://download.data.grandlyon.com/ws/grandlyon/abr_arbres_alignement.abrarbre.shp?srsname=EPSG:4326","format":"zip","filename":"abr_arbres_alignement.abrarbre.shp","crosswalk":{"scientific":"essence","variety":"variete","genus":"genre","species":"espece","location":"localisati","planted":"anneeplant","ref":"identifian","common":"essencefra"},"short":"Lyon","country":"France","bounds":[4.6971297,45.5677257,5.0597516,45.9383383]},{"id":"bordeaux","info":"https://opendata.bordeaux-metropole.fr/explore/dataset/bor_arbres/information/","download":"https://opendata.bordeaux-metropole.fr/explore/dataset/bor_arbres/download/?format=geojson&lang=en","format":"geojson","crosswalk":{"scientific":"nom","updated":"mdate","dbh":"diametre","height":"hauteur","family":"famille","location":"typo_espace","health":"statut","planted":"tranche_age"},"short":"Bordeaux","country":"France","bounds":[-1.1941728,44.6432245,-0.5374091,44.9073986]},{"id":"nice","download":"http://opendata.nicecotedazur.org/data/storage/f/2019-07-22T07%3A41%3A29.958Z/ev-arbre-opendata-2019.geojson","info":"https://trouver.datasud.fr/dataset/sync149f50a-cartographie-des-arbres-communaux","format":"geojson","crosswalk":{"ref":"idENT"},"short":"Nice","country":"France","bounds":[7.1840691,43.6651675,7.3085976,43.8472489]},{"id":"grenoble","download":"http://entrepot.metropolegrenoble.fr/opendata/38185-GRE/EspacePublic/json/ARBRES_TERRITOIRE_VDG_EPSG4326.json","info":"http://data.metropolegrenoble.fr/ckan/dataset/les-arbres-de-grenoble","format":"geojson","crosswalk":{"ref":"BIEN_REFERENCE","genus":"GENRE_BOTA","species":"ESPECE","variety":"VARIETE","maturity":"STADEDEDEVELOPPEMENT","description":"REMARQUES","planted":"ANNEDEPLANTATION"},"short":"Grenoble","country":"France","bounds":[5.697915,45.1515723,5.7987039,45.2248253]},{"id":"montpellier","country":"France","download":"https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MTP_ArbresAlign.zip","info":"https://data.montpellier3m.fr/dataset/arbres-dalignement-de-montpellier","format":"zip","filename":"MMM_MTP_ArbresAlign.shp","crosswalk":{"ref":"idarbre","scientific":"nom_latin","common":"nom_commun","planted":"plantation","updated":"releva","crown":"couronnem","height":"hauteurm"},"short":"Montpellier","bounds":[3.8087133,43.5716477,3.9372838,43.650211]},{"id":"grand_paris_seine_ouest","country":"France","info":"https://www.data.gouv.fr/fr/datasets/arbres-2/","download":"https://www.data.gouv.fr/fr/datasets/r/a10c7776-afa5-4b8a-8050-081788818b55","format":"zip","filename":"arbres-v2.shp","short":"Grand Paris Seine Ouest","crosswalk":{"scientific":"genespvar","height":"hauteur","planted":"an_plant","ref":"id_plant"},"bounds":[2.1741783,48.7954961,2.3002071,48.8527048]},{"id":"agen","country":"France","download":"https://www.data.gouv.fr/fr/datasets/r/fededc1c-6e42-4a6d-9469-849fd956fbfe","format":"zip","filename":"Arbres.shp","crosswalk":{"ref":"id_ponctue","common":"espece_arb"},"short":"Agen","bounds":[0.5238616,44.1159691,0.6567164,44.2186183]},{"id":"saint_quentinois","country":"France","download":"https://www.data.gouv.fr/fr/datasets/r/c6000378-1f3c-4c0c-8f62-9a5b72dc7a85","format":"zip","filename":"ARBRES.shp","info":"","short":"Saint Quentinois","long":"Agglomération du Saint Quentinois","crosswalk":{"scientific":"nomlatin","common":"nomfrancai","updated":"EditDate","maturity":"fk_stadede","dbh":"tronc_diam","height":"haut_tot","ref":"id_arbre"},"bounds":[3.2372823,49.8121376,3.3265999,49.8879827]},{"id":"metz","country":"France","download":"https://www.data.gouv.fr/fr/datasets/r/3aa28eaa-9ee4-49ff-bb73-74c21d14268d","format":"zip","filename":"vrd_esv_arb.shp","info":"","short":"Metz","crosswalk":{"dbh":"diametre","scientific":"nom_espece","note":"observatio"},"bounds":[6.1417264,49.0685099,6.2514101,49.144763]},{"id":"seine_saint_denis","country":"France","download":"https://www.data.gouv.fr/fr/datasets/r/c631e78d-4d15-44eb-a40d-cd593f0e1bed","format":"zip","filename":"fr-dpt93-1646.shp","info":"","short":"Seine-Saint-Denis","crosswalk":{"height":"hauteur","scientific":"essence","maturity":"stade_dvlp"},"bounds":[2.288679,48.82909,2.59772,48.98414]},{"id":"versailles","country":"France","download":"https://www.data.gouv.fr/fr/datasets/r/4b9d9fe4-f8da-4db1-8057-9e83b2abf5d2","format":"geojson","info":"","short":"Versailles","crosswalk":{"scientiifc":"ESPECE","common":"FRANCAIS"},"bounds":[2.0916908,48.7841331,2.1603032,48.8256705]},{"id":"nevers","country":"France","download":"https://www.data.gouv.fr/fr/datasets/r/dbdc2068-ee22-474d-8a42-261554482a4f","format":"zip","filename":"ARBRE_ALIGNEMENT.shp","info":"","short":"Nevers","long":"Ville de Nevers","crosswalk":{"scientific":"espece"},"bounds":[3.1230194,46.9745203,3.2002178,47.0069782]},{"id":"montreal","info":"http://donnees.ville.montreal.qc.ca/dataset/arbres","download":"http://donnees.ville.montreal.qc.ca/dataset/3e3efad6-9f2f-4cc0-8f1b-92de1ccdb282/resource/c6c5afe8-10be-4539-8eae-93918ea9866e/download/arbres-publics.csv","format":"csv","crosswalk":{"scientific":"Essence_latin","common":"ESSENCE_ANG","dhb":"DHP","updated":"Date_releve","planted":"Date_plantation","ref":"EMP_NO"},"short":"Montreal","country":"Canada","centre":[-73.56,45.56],"bounds":[-77.018082,0.04566,-26.742133,72.351564]},{"id":"quebec","download":"https://www.donneesquebec.ca/recherche/fr/dataset/34103a43-3712-4a29-92e1-039e9188e915/resource/de031174-cbdf-4d69-869c-21cca8036279/download/vdq-arbrerepertorie.geojson","info":"https://www.donneesquebec.ca/recherche/fr/dataset/vque_26","format":"csv","crosswalk":{"scientific":"NOM_LATIN","common":"NOM_FRANCAIS","dbh":"DIAMETRE","planted":"DATE_PLANTE","location":"NOM_TOPOGRAPHIE"},"short":"Quebec City","country":"Canada","bounds":[-71.5365777,46.7236562,-71.1488832,46.9580237]},{"id":"longueuil","info":"https://www.longueuil.quebec/fr/donnees-ouvertes/arbres","download":"https://www.longueuil.quebec/sites/longueuil/files/donnees_ouvertes/arbres.zip","format":"zip","filename":"Arbres.shp","short":"Longueuil (Quebec)","long":"Ville de Longueuil (Quebec)","country":"Canada","crosswalk":{"dbh":"DiamTronc"},"bounds":[-73.5259222,45.4451095,-73.3476641,45.5820398]},{"id":"calgary","download":"https://data.calgary.ca/api/views/tfs4-3wwa/rows.csv?accessType=DOWNLOAD","format":"csv","short":"Calgary","long":"City of Calgary","country":"Canada","crosswalk":{"common":"COMMON_NAME","genus":"GENUS","species":"SPECIES","variety":"CULTIVAR","dbh":"DBH_CM","ref":"WAM_ID"},"bounds":[-114.2698861,50.8551473,-113.9024926,51.1907328]},{"id":"edmonton","download":"https://data.edmonton.ca/api/views/eecg-fc54/rows.csv?accessType=DOWNLOAD","format":"csv","short":"Edmonton","long":"City of Edmonton","country":"Canada","crosswalk":{"dbh":"DIAMETER_BREAST_HEIGHT","scientific":"SPECIES_BOTANICAL","common":"SPECIES_COMMON","planted":"PLANTED_DATE","location":"LOCATION_TYPE","ref":"id"},"bounds":[-113.713067,53.3959973,-113.2958185,53.7116595]},{"id":"ottawa","info":"https://ouverte.ottawa.ca/datasets/inventaire-des-arbres","download":"https://opendata.arcgis.com/datasets/451e904e2753453eb699b2e853ab5857_1.csv","format":"csv","crosswalk":{"scientific":"SPECIES","ref":"SAP_ID"},"short":"Ottawa","country":"Canada","bounds":[-76.3403103,44.9671914,-75.2598895,45.5224763]},{"id":"moncton","info":"http://ouvert.moncton.ca/datasets/arbres","download":"https://opendata.arcgis.com/datasets/60d5b564e732444b81a650c7c4aa548a_0.csv?outSR=%7B%22latestWkid%22%3A2953%2C%22wkid%22%3A2036%7D","format":"csv","country":"Canada","crosswalk":{"common":"BOTNAME","dbh":"DIAM","height":"HT","updated":"edited_date"},"short":"Moncton","bounds":[2623633.1245,7451921.3139,2637865.9302,7463827.561]},{"id":"winnipeg","country":"Canada","download":"https://data.winnipeg.ca/api/views/h923-dxid/rows.csv?accessType=DOWNLOAD","info":"https://data.winnipeg.ca/Parks/Tree-Inventory-Map/xyma-gm38","format":"csv","crosswalk":{"ref":"tree_id","scientific":"botanical","common":"common","dbh":"dbh"},"bounds":[-97.3386721,49.715141,-96.9605433,49.9766644]},{"id":"vancouver","download":"https://opendata.vancouver.ca/explore/dataset/street-trees/download/?format=geojson&lang=en","format":"geojson","short":"Vancouver","country":"Canada","crosswalk":{"ref":"tree_id","genus":"genus_name","species":"species_name","variety":"cultivar_name","common":"common_name","height":"height_range_id","dbh":null,"planted":"date_planted"},"bounds":[-123.22387,49.200732,-123.017052,49.294033]},{"id":"lisbon","country":"Portugal","download":"https://opendata.arcgis.com/datasets/202d0f1a7f234e449761af8af14436d6_0.zip","info":"http://geodados.cm-lisboa.pt/datasets/arvoredo?geometry=-9.312%2C38.745%2C-9.148%2C38.768","format":"zip","filename":"Arvoredo.shp","crosswalk":{"scientific":"ESPECIE_VA","location":"LOCAL"},"short":"Lisbon","bounds":[-9.2267949,38.6918611,-9.0910328,38.7964718]}]
+[
+    {
+        "id": "corangamite",
+        "download": "https://data.gov.au/geoserver/corangamite-shire-trees/wfs?request=GetFeature&typeName=ckan_d9677ebb_f3db_45f3_88eb_04089debb9e0&outputFormat=json",
+        "format": "geojson",
+        "gdal_options": "-s_srs EPSG:4326",
+        "short": "Corangamite",
+        "long": "Corangamite Shire",
+        "country": "Australia",
+        "crosswalk": {
+            "ref": "id",
+            "height": "height",
+            "crown": "width",
+            "scientific": "species",
+            "common": "name"
+        },
+        "bounds": [
+            142.9000713,
+            -38.700145,
+            143.4882962,
+            -37.6811869
+        ]
+    },
+    {
+        "id": "colac_otways",
+        "download": "http://data.gov.au/geoserver/colac-otway-shire-trees/wfs?request=GetFeature&typeName=ckan_3ce1805b_cb81_4683_8f46_e7bd2d2a3b7c&outputFormat=json",
+        "format": "geojson",
+        "short": "Colac-Otways",
+        "long": "Colac-Otways Shire",
+        "country": "Australia",
+        "crosswalk": {
+            "ref": "tree_id",
+            "genus": "genus_desc",
+            "species": "spec_desc",
+            "common": "common_nam",
+            "height": "height_m",
+            "crown": "canopy_wid",
+            "dbh": "diam_breas",
+            "maturity": "life_stage"
+        },
+        "bounds": [
+            143.56408,
+            -38.780105,
+            143.790448,
+            -38.027444
+        ]
+    },
+    {
+        "id": "ballarat",
+        "download": "https://data.gov.au/geoserver/ballarattrees/wfs?request=GetFeature&typeName=ckan_eabaee3f_a563_449b_a04a_1ec847566ea1&outputFormat=json",
+        "format": "geojson",
+        "short": "Ballarat",
+        "long": "City of Ballarat",
+        "country": "Australia",
+        "crosswalk": {
+            "scientific": "species",
+            "common": "common",
+            "species": "species",
+            "variety": "variety",
+            "description": "description",
+            "dbh": "dbh",
+            "crown": "crown",
+            "height": "height",
+            "maturity": "maturity",
+            "health": "health",
+            "structure": "structure",
+            "location": "location",
+            "ref": "ref",
+            "planted": "planted",
+            "updated": "updated",
+            "ule": "ule",
+            "ule_min": "ule_min",
+            "ule_max": "ule_max"
+        },
+        "bounds": [
+            143.640375,
+            -37.715408,
+            143.947377,
+            -37.3477605
+        ]
+    },
+    {
+        "id": "manningham",
+        "download": "https://data.gov.au/geoserver/manningham-streettrees/wfs?request=GetFeature&typeName=ckan_1aef5123_24ff_4084_a0f1_a52ca71e9e99&outputFormat=json",
+        "format": "geojson",
+        "short": "Manningham",
+        "long": "City of Manningham",
+        "country": "Australia",
+        "crosswalk": {
+            "captured": "date1",
+            "ref": "tree_no",
+            "scientific": "species",
+            "height": "height",
+            "dbh": "dbh"
+        },
+        "bounds": [
+            145.0784535,
+            -37.8095233,
+            145.2904602,
+            -37.7208447
+        ]
+    },
+    {
+        "id": "geelong",
+        "download": "https://data.gov.au/geoserver/geelong-trees/wfs?request=GetFeature&typeName=ckan_13b1196c_7fb7_436a_86bc_ab24c16526de&outputFormat=json",
+        "format": "geojson",
+        "short": "Geelong",
+        "long": "City of Greater Geelong",
+        "country": "Australia",
+        "crosswalk": {
+            "common": "common",
+            "species": "species",
+            "genus": "genus",
+            "variety": "variety",
+            "description": "description",
+            "dbh": "dbh",
+            "crown": "crown",
+            "height": "height",
+            "maturity": "maturity",
+            "health": "health",
+            "structure": "structure",
+            "location": "location",
+            "ref": "ref",
+            "planted": "planted",
+            "updated": "updated",
+            "ule": "ule",
+            "ule_min": "ule_min",
+            "ule_max": "ule_max"
+        },
+        "bounds": [
+            144.2047354,
+            -38.2938362,
+            144.7188983,
+            -37.8197544
+        ]
+    },
+    {
+        "id": "melbourne",
+        "download": "https://data.melbourne.vic.gov.au/api/views/fp38-wiyy/rows.csv?accessType=DOWNLOAD",
+        "format": "csv",
+        "filename": "melbourne.vrt",
+        "short": "Melbourne",
+        "long": "City of Melbourne",
+        "country": "Australia",
+        "crosswalk": {
+            "ref": "com_id",
+            "common": "Common Name",
+            "scientific": "Scientific Name",
+            "dbh": "Diameter Breast Height",
+            "planted": "Date Planted",
+            "maturity": "Age Description",
+            "ule_min": "Useful Life Expectency",
+            "location": "Located In"
+        },
+        "bounds": [
+            144.9004448,
+            -37.8505317,
+            144.9910558,
+            -37.7755114
+        ]
+    },
+    {
+        "id": "adelaide",
+        "download": "http://opendata.adelaidecitycouncil.com/street_trees/street_trees.csv",
+        "format": "vrt",
+        "filename": "adelaide.vrt",
+        "gdal_options": "-skipfailures",
+        "short": "Adelaide",
+        "long": "City of Adelaide",
+        "centre": [
+            138.59979,
+            -34.91802
+        ],
+        "country": "Australia",
+        "crosswalk": {
+            "ref": "Asset Id (identifier)",
+            "health": "Vigour (Inspection)",
+            "height": "Height (Inspection)",
+            "structure": "Structure (Inspection)",
+            "maturity": "Age (Inspection)",
+            "scientific": "Species Name (Inspection)",
+            "common": "Common Name (Inspection)"
+        },
+        "bounds": [
+            50.7670382,
+            -85.5261156,
+            138.6177352,
+            -34.9021934
+        ]
+    },
+    {
+        "id": "waite",
+        "download": "http://data.sa.gov.au/storage/f/2014-06-23T06%3A12%3A22.180Z/waitetreeid-2014-app-joined-19062014.zip",
+        "format": "zip",
+        "filename": "WaiteTreeID_2014_App_Joined_19062014.shp",
+        "short": "Waite Arboretum",
+        "long": "Waite Arboretum (Adelaide)",
+        "country": "Australia",
+        "crosswalk": {
+            "ref": "tree_id",
+            "scientific": "scientific",
+            "common": "commonname"
+        }
+    },
+    {
+        "id": "burnside",
+        "download": "https://data.sa.gov.au/data/dataset/b7e1c8f6-169c-41bd-b5d7-140395a41c38/resource/6d1912aa-4775-4f5e-b00d-18456ad872a5/download/burnsidetrees.geojson",
+        "format": "geojson",
+        "short": "Burnside",
+        "long": "City of Burnside",
+        "country": "Australia",
+        "crosswalk": {
+            "ref": "TreeID",
+            "common": "CommonName",
+            "height": "TreeHeight",
+            "scientific": "BotanicalN",
+            "dbh": "Circumfere"
+        },
+        "bounds": [
+            138.6164334,
+            -34.9681325,
+            138.6973777,
+            -34.9127876
+        ]
+    },
+    {
+        "id": "launceston",
+        "download": "http://lcc.launceston.opendata.arcgis.com/datasets/63b09a3688804a17b0edc4b3b072a0d7_1.zip",
+        "format": "zip",
+        "filename": "Trees.shp",
+        "short": "Launceston",
+        "long": "City of Launceston",
+        "country": "Australia",
+        "crosswalk": {
+            "ref": "objectid",
+            "common": "name",
+            "scientific": "genusspeci",
+            "maturity": "age",
+            "dbh": "diametr_c",
+            "height": "height_m",
+            "crown": "horizontal",
+            "health": "vitality",
+            "captured": "auditdate"
+        },
+        "bounds": [
+            147.0229283,
+            -41.4971228,
+            147.5054215,
+            -41.1759411
+        ]
+    },
+    {
+        "id": "hobsons_bay",
+        "download": "https://data.gov.au/dataset/80051ffe-04d5-4602-b15b-60e0d0e3d153/resource/ea1ec6fc-02bd-4e36-8e43-c990b6a9268d/download/hbcc_street_and_park_trees.json",
+        "format": "geojson",
+        "short": "Hobson's Bay",
+        "long": "City of Hobson's Bay",
+        "country": "Australia",
+        "crosswalk": {
+            "genus": "Genus",
+            "species": "Species",
+            "dbh": "DBH",
+            "tree_type": "Type"
+        },
+        "centre": [
+            144.833,
+            -37.85
+        ],
+        "bounds": [
+            144.612042,
+            -44.349585,
+            144.912963,
+            -37.814274
+        ]
+    },
+    {
+        "id": "glenelg",
+        "download": "http://data.gov.au/dataset/3721ad67-7b5b-4815-96b1-9d8b1a89dbd7/resource/b9ff3d44-17b4-4f87-8a28-2d540fa37d8f/download/Glenelg-Street-and-Park-Trees.csv",
+        "format": "csv",
+        "latitudeField": "lat",
+        "longitudeField": "lon",
+        "short": "Glenelg",
+        "long": "Glenelg Shire",
+        "country": "Australia",
+        "crosswalk": {
+            "scientific": "scientific",
+            "common": "common",
+            "species": "species",
+            "genus": "genus",
+            "variety": "variety",
+            "description": "description",
+            "dbh": "dbh",
+            "crown": "crown",
+            "height": "height",
+            "maturity": "maturity",
+            "health": "health",
+            "structure": "structure",
+            "location": "location",
+            "ref": "ref",
+            "planted": "planted",
+            "updated": "updated",
+            "ule": "ule",
+            "ule_min": "ule_min",
+            "ule_max": "ule_max"
+        },
+        "bounds": [
+            141.552398,
+            -38.372273,
+            141.632322,
+            -38.291877
+        ]
+    },
+    {
+        "id": "ryde",
+        "download": [
+            "http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/47843888-f9b6-4ae3-ba80-9318ff60a120/download/Public-Trees-2013.dbf",
+            "http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/1372b28f-4201-46ab-9099-be0458a317bb/download/Public-Trees-2013.prj",
+            "http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/00e339ad-e411-48b2-8cfa-ed3dfa8209ca/download/Public-Trees-2013.shp",
+            "http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/3f4f3346-52d5-4084-94fc-877bf70c0a76/download/Public-Trees-2013.shx"
+        ],
+        "format": "shp",
+        "keepExtension": true,
+        "short": "Ryde",
+        "long": "City of Ryde",
+        "country": "Australia",
+        "crosswalk": {
+            "height": "Height"
+        },
+        "bounds": [
+            151.065034,
+            -33.8415981,
+            151.158048,
+            -33.7612768
+        ]
+    },
+    {
+        "id": "southern_grampians",
+        "download": "http://data.gov.au/geoserver/southern-grampians-street-and-park-trees/wfs?request=GetFeature&typeName=ckan_4a2843f5_8c01_438b_95f3_01ef0a518441&outputFormat=json",
+        "format": "geojson",
+        "short": "Southern Grampians",
+        "long": "City of Southern Grampians",
+        "country": "Australia",
+        "crosswalk": {
+            "ref": "ref",
+            "scientific": "species",
+            "common": "common",
+            "location": "location",
+            "height": "height",
+            "crown": "crown",
+            "maturity": "maturity"
+        },
+        "bounds": [
+            141.682659,
+            -37.877904,
+            142.295264,
+            -37.596919
+        ]
+    },
+    {
+        "id": "prospect1",
+        "download": "https://data.sa.gov.au/data/dataset/5d86d41e-b6c6-47d5-9b88-4d95916c5e76/resource/d1e30913-6e91-4a1f-b576-64120cc4b242/download/city-of-prospect-tree-species-in-reserves-2016.csv",
+        "format": "csv",
+        "short": "Prospect",
+        "long": "City of Prospect",
+        "country": "Australia",
+        "centre": [
+            138.6,
+            -34.88
+        ],
+        "crosswalk": {
+            "common": "Species Name"
+        },
+        "bounds": [
+            138.5840723,
+            -34.8970313,
+            138.6179861,
+            -34.8713809
+        ]
+    },
+    {
+        "id": "prospect2",
+        "download": "https://data.sa.gov.au/data/dataset/7bf2e4a4-40cc-40fd-83a9-fabb6d854039/resource/3f6be219-d66f-4b40-bfc7-16214fbc0989/download/city-of-prospect-street-trees-2016.csv",
+        "format": "csv",
+        "short": "Prospect",
+        "long": "City of Prospect",
+        "country": "Australia",
+        "centre": [
+            138.6,
+            -34.88
+        ],
+        "crosswalk": {
+            "species": "Tree Species",
+            "maturity": "Tree Age",
+            "health": "Tree Health",
+            "structure": "Tree Structure",
+            "height": "Tree Height"
+        },
+        "bounds": [
+            -0.000841,
+            -34.899019,
+            138.619667,
+            0.000371
+        ]
+    },
+    {
+        "id": "perth",
+        "download": "https://opendata.arcgis.com/datasets/c5ce51d9789a4e9a8510acb8c8f3ecf4_0.zip",
+        "format": "zip",
+        "filename": "PKS_AST_TREESMASTER_PV.shp",
+        "short": "Perth",
+        "long": "City of Perth",
+        "country": "Australia",
+        "crosswalk": {
+            "scientific": "BOTANICAL_",
+            "common": "COMMON_NAM",
+            "family": "FAMILY",
+            "height": "TREE_HEIGH",
+            "plant": "DATE_PLANT",
+            "ref": "TREE_ID"
+        },
+        "bounds": [
+            115.8108834,
+            -31.9900383,
+            115.8877841,
+            -31.9422428
+        ]
+    },
+    {
+        "id": "brimbank",
+        "download": "https://data.gov.au/geoserver/brimbank-open-space-trees/wfs?request=GetFeature&typeName=ckan_7a57b5a1_2ca3_4171_be91_0d371cefd250&outputFormat=json",
+        "format": "geojson",
+        "short": "Brimbank",
+        "long": "City of Brimbank",
+        "country": "Australia",
+        "crosswalk": {
+            "ref": "central_as",
+            "location": "location",
+            "genus": "genus",
+            "species": "species",
+            "common": "common_nam",
+            "maturity": "age",
+            "height": "height",
+            "crown": "spread"
+        },
+        "bounds": [
+            144.7533565,
+            -37.8204167,
+            144.8643531,
+            -37.6695297
+        ]
+    },
+    {
+        "id": "bendigo",
+        "download": "https://data.gov.au/geoserver/city-of-greater-bendigo-environment-trees/wfs?request=GetFeature&typeName=ckan_d17c9e50_fab1_40e6_b91d_6e665faf2656&outputFormat=json",
+        "format": "geojson",
+        "short": "Bendigo",
+        "long": "City of Greater Bendigo",
+        "country": "Australia",
+        "crosswalk": {
+            "ref": "assetid",
+            "description": "desc"
+        },
+        "centre": [
+            144.298,
+            -36.755
+        ],
+        "bounds": [
+            144.1285372,
+            -37.0154137,
+            144.7321866,
+            -36.4867586
+        ]
+    },
+    {
+        "id": "shepparton",
+        "download": "https://data.gov.au/dataset/e794491f-2eb7-4035-8b0c-f7248c28feda/resource/a1148573-68b9-4bd8-bda4-f08030d38c9d/download/greatersheppartoncitycouncilstreetandparktrees.zip",
+        "format": "zip",
+        "filename": "Greater_Shepparton_City_Council_Street_and_Park_Trees.shp",
+        "short": "Shepparton",
+        "long": "City of Shepparton",
+        "country": "Australia",
+        "crosswalk": {
+            "scientific": "scientific",
+            "common": "common",
+            "species": "species",
+            "genus": "genus",
+            "variety": "variety",
+            "description": "description",
+            "dbh": "dbh",
+            "crown": "crown",
+            "height": "height",
+            "maturity": "maturity",
+            "health": "health",
+            "structure": "structure",
+            "location": "location",
+            "ref": "ref",
+            "planted": "planted",
+            "updated": "updated",
+            "ule": "ule",
+            "ule_min": "ule_min",
+            "ule_max": "ule_max"
+        },
+        "bounds": [
+            145.1253597,
+            -36.6272858,
+            145.6889959,
+            -36.2182449
+        ]
+    },
+    {
+        "id": "wyndham",
+        "download": "https://data.gov.au/dataset/0254dee0-5b26-484f-a5ae-5ca3cab46601/resource/fb06e7c8-d037-489b-a963-b747271f2e54/download/trees.json",
+        "download_old2": "https://data.gov.au/dataset/0254dee0-5b26-484f-a5ae-5ca3cab46601/resource/4ab38849-d1de-4444-aeca-08719138d24f/download/trees.zip",
+        "gdal_options": "-s_srs unzip/OpenData_TI_Trees_LatestInspection.prj",
+        "format": "zip",
+        "filename": "OpenData_TI_Trees_LatestInspection.shp",
+        "short": "Wyndham",
+        "long": "City of Wyndham",
+        "country": "Australia",
+        "crosswalk": {
+            "ref": "tree_id",
+            "common": "tree_commo",
+            "height": "height",
+            "crown": "canopy_wid",
+            "dbh": "diameter_breast_height",
+            "maturity": "tree_age",
+            "health": "health",
+            "ule": "useful_life_expectancy",
+            "structure": "structure"
+        },
+        "bounds": [
+            144.496617,
+            -37.978275,
+            144.818193,
+            -37.816515
+        ]
+    },
+    {
+        "id": "port_phillip",
+        "download": "https://data.gov.au/dataset/6b72d22b-d824-4281-bd08-ab62e3c38415/resource/9b0d7d55-5267-464b-85d7-3d141d779bab/download/city-of-port-phillip-trees.geojson",
+        "format": "geojson",
+        "short": "Port Phillip",
+        "long": "City of Port Phillip",
+        "country": "Australia",
+        "crosswalk": {
+            "scientific": "species",
+            "common": "common",
+            "species": "species",
+            "genus": "genus",
+            "variety": "variety",
+            "description": "description",
+            "dbh": "dbh",
+            "crown": "crown",
+            "height": "height",
+            "maturity": "maturity",
+            "health": "health",
+            "structure": "structure",
+            "location": "location",
+            "ref": "ref",
+            "planted": "planted",
+            "updated": "updated",
+            "ule": "ule",
+            "ule_min": "ule_min",
+            "ule_max": "ule_max"
+        },
+        "bounds": [
+            144.9134235,
+            -37.8916685,
+            145.0103299,
+            -37.8259275
+        ]
+    },
+    {
+        "id": "boroondara",
+        "download": "https://data.gov.au/geoserver/significant-tree/wfs?request=GetFeature&typeName=ckan_14e2b87e_c733_4071_b604_c0cb33d14a42&outputFormat=json",
+        "format": "geojson",
+        "short": "Boroondara",
+        "long": "City of Boroondara",
+        "country": "Australia",
+        "crosswalk": {
+            "species": "botanicaln",
+            "common": "commonname",
+            "height": "height",
+            "crown": "canopyspre",
+            "health": "health",
+            "description": "significan",
+            "location": "locality"
+        }
+    },
+    {
+        "id": "yarra",
+        "download": "https://data.gov.au/data/dataset/f3c88ce7-504b-4ef7-907f-686037f7420c/resource/6e4186b0-3e00-48f9-a09c-cb60d1d0d49f/download/yarra-street-and-park-trees.geojson",
+        "format": "geojson",
+        "short": "Yarra",
+        "long": "City of Yarra",
+        "country": "Australia",
+        "crosswalk": {
+            "scientific": "scientific",
+            "common": "common",
+            "genus": "genus",
+            "variety": "variety",
+            "description": "description",
+            "dbh": "dbh",
+            "crown": "crown",
+            "height": "height",
+            "maturity": "maturity",
+            "health": "health",
+            "structure": "structure",
+            "location": "location",
+            "ref": "ref",
+            "planted": "planted",
+            "updated": "updated",
+            "ule": "ule",
+            "ule_min": "ule_min",
+            "ule_max": "ule_max"
+        },
+        "bounds": [
+            144.9605867,
+            -37.8339506,
+            145.037318,
+            -37.7752565
+        ]
+    },
+    {
+        "id": "glen_eira",
+        "download": "https://data.gov.au/geoserver/street-and-park-trees/wfs?request=GetFeature&typeName=ckan_0553b144_9145_4458_922f_5c6175d2e100&outputFormat=json",
+        "format": "geojson",
+        "short": "Glen Eira",
+        "long": "City of Glen Eira",
+        "country": "Australia",
+        "crosswalk": {
+            "dbh": "dbh",
+            "common": "common_nam",
+            "scientific": "botanical",
+            "height": "height",
+            "crown": "spread",
+            "location": "locationty"
+        },
+        "bounds": [
+            144.9969733,
+            -37.9384067,
+            145.0849115,
+            -37.8605068
+        ]
+    },
+    {
+        "id": "wodonga",
+        "download": "https://data.gov.au/data/dataset/e7d6ebd3-04a8-4d73-b8ba-a9b82aa79b16/resource/180ba7ad-7bd7-490b-81f8-79c74ec0a915/download/tree.csv",
+        "format": "csv",
+        "filename": "wodonga.vrt",
+        "short": "Wodonga",
+        "long": "City of Wodonga",
+        "country": "Australia",
+        "crosswalk": {
+            "ref": "field_1",
+            "scientific": "field_2",
+            "common": "field_3"
+        },
+        "centre": [
+            146.86,
+            -36.125
+        ],
+        "bounds": [
+            0,
+            -36.223328,
+            147.0359569,
+            0
+        ]
+    },
+    {
+        "id": "hobart",
+        "download": "http://data-1-hobartcc.opendata.arcgis.com/datasets/d50fa3c9875d43fbb7e462248160e1ee_0.geojson",
+        "format": "geojson",
+        "short": "Hobart",
+        "long": "City of Hobart",
+        "country": "Australia",
+        "bounds": [
+            147.2418544,
+            -42.9375349,
+            147.3612128,
+            -42.8461359
+        ]
+    },
+    {
+        "id": "sherwood_arboretum",
+        "download": "http://www.spatial-data.brisbane.qld.gov.au/datasets/613169f42b43494499c83640392c43e5_0.geojson",
+        "format": "geojson",
+        "short": "Sherwood Arboretum",
+        "long": "Sherwood Arboretum (Brisbane)",
+        "country": "Australia",
+        "crosswalk": {
+            "common": "Common_Name",
+            "scientific": "Scientific_Name",
+            "family": "Family",
+            "height": "Height",
+            "crown": "Crown_width",
+            "id": "ObjectId"
+        },
+        "bounds": [
+            152.9714694,
+            -27.5332332,
+            152.9776716,
+            -27.5290642
+        ]
+    },
+    {
+        "id": "sydney",
+        "download": "https://emscycletours.site44.com/opentrees-data/sydney-tree-data.csv",
+        "format": "csv",
+        "filename": "sydney.vrt",
+        "short": "Sydney",
+        "long": "City of Sydney",
+        "centre": [
+            151.2,
+            -33.892
+        ],
+        "country": "Australia",
+        "crosswalk": {
+            "scientific": "species"
+        },
+        "bounds": [
+            62.7670382,
+            -85.5261156,
+            159.8415426,
+            -33.7367834
+        ]
+    },
+    {
+        "id": "pdx-street",
+        "download": "https://opendata.arcgis.com/datasets/eb67a0ad684d4bb6afda51dc065d1664_25.zip",
+        "format": "zip",
+        "filename": "Street_Trees.shp",
+        "short": "Portland, Oregon",
+        "long": "Portland, Oregon",
+        "country": "USA",
+        "crosswalk": {
+            "scientific": "Scientific",
+            "genus": "Genus",
+            "family": "Family",
+            "common": "Common",
+            "health": "Condition",
+            "note": "Notes"
+        },
+        "bounds": [
+            -122.8330591,
+            45.4334979,
+            -122.4730015,
+            45.6391985
+        ]
+    },
+    {
+        "id": "pdx-park",
+        "download": "https://opendata.arcgis.com/datasets/83a7e3f6a1d94db09f24849ee90f4be2_220.zip?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D&session=undefined",
+        "format": "zip",
+        "filename": "Parks_Tree_Inventory.shp",
+        "short": "Portland, Oregon",
+        "long": "Portland, Oregon",
+        "country": "USA",
+        "crosswalk": {
+            "health": "Condition",
+            "crown": "CrownWidth",
+            "family": "Family",
+            "genus": "Genus",
+            "scientific": "Genus_spec",
+            "common": "Common_nam",
+            "description": "Species_fa"
+        },
+        "bounds": [
+            -122.7768247,
+            45.4468721,
+            -122.4853347,
+            45.6503033
+        ]
+    },
+    {
+        "id": "nyc",
+        "download": "https://data.cityofnewyork.us/api/views/uvpi-gqnh/rows.csv?accessType=DOWNLOAD",
+        "format": "csv",
+        "filename": "nyc.vrt",
+        "short": "New York",
+        "long": "New York City",
+        "country": "USA",
+        "crosswalk": {
+            "ref": "tree_id",
+            "scientific": "spc_latin",
+            "common": "spc_common",
+            "health": "health"
+        },
+        "bounds": [
+            -74.2549647,
+            40.4984661,
+            -73.7004882,
+            40.9129183
+        ]
+    },
+    {
+        "id": "washington-dc",
+        "download": "https://opendata.arcgis.com/datasets/f6c3c04113944f23a7993f2e603abaf2_23.zip",
+        "format": "zip",
+        "filename": "Urban_Forestry_Street_Trees.shp",
+        "short": "Washington DC",
+        "long": "Washington DC",
+        "country": "USA",
+        "centre": [
+            -77,
+            38.92
+        ],
+        "crosswalk": {
+            "common": "COMMON.NAME",
+            "scientific": "SCI_NM",
+            "planted": "DATE_PLANT",
+            "family": "FAM_NAME",
+            "note": "TREE_NOTES",
+            "health": "CONDITION"
+        },
+        "bounds": [
+            -81.5202497,
+            37.5832789,
+            -76.9092347,
+            38.9959293
+        ]
+    },
+    {
+        "id": "buffalo-ny",
+        "download": "https://data.buffalony.gov/api/views/n4ni-uuec/rows.csv?accessType=DOWNLOAD",
+        "format": "csv",
+        "short": "Buffalo, NY",
+        "long": "City of Buffalo, NY",
+        "country": "USA",
+        "crosswalk": {
+            "scientific": "Botanical Name",
+            "common": "Common Name",
+            "id": "Site ID"
+        },
+        "bounds": [
+            -78.9119068,
+            42.8261159,
+            -78.7965543,
+            42.9655515
+        ]
+    },
+    {
+        "id": "san_francisco",
+        "download": "https://data.sfgov.org/api/views/337t-q2b4/rows.csv?accessType=DOWNLOAD",
+        "format": "csv",
+        "short": "San Francisco",
+        "long": "City of San Francisco",
+        "country": "USA",
+        "crosswalk": {
+            "id": "TreeID",
+            "description": "qSiteInfo",
+            "planted": "PlantDate"
+        },
+        "centre": [
+            -122.435,
+            37.77
+        ],
+        "bounds": [
+            -138.2838607,
+            37.509004,
+            -122.366622,
+            47.2702188
+        ]
+    },
+    {
+        "id": "philadelphia",
+        "download": "http://data.phl.opendata.arcgis.com/datasets/957f032f9c874327a1ad800abd887d17_0.csv",
+        "format": "csv",
+        "short": "Philadelphia",
+        "long": "City of Philadelphia",
+        "country": "USA",
+        "crosswalk": {},
+        "bounds": [
+            -75.2974933,
+            39.8769773,
+            -74.9587776,
+            40.1374509
+        ]
+    },
+    {
+        "id": "denver",
+        "download": "https://data.colorado.gov/api/views/wz8h-dap6/rows.csv?accessType=DOWNLOAD",
+        "format": "csv",
+        "short": "Denver",
+        "country": "USA",
+        "crosswalk": {
+            "ref": "SITE_ID",
+            "scientific": "SPECIES_BO",
+            "common": "SPECIES_CO",
+            "dbh": "DIAMETER",
+            "location": "LOCATION_NAME"
+        },
+        "centre": [
+            -104.9454,
+            39.7273
+        ],
+        "bounds": [
+            -105.6061572,
+            39.4722505,
+            0,
+            39.9140172
+        ]
+    },
+    {
+        "id": "boulder",
+        "country": "USA",
+        "download": "https://opendata.arcgis.com/datasets/dbbae8bdb0a44d17934243b88e85ef2b_0.zip",
+        "info": "https://data-boulder.opendata.arcgis.com/datasets/dbbae8bdb0a44d17934243b88e85ef2b_0",
+        "format": "zip",
+        "short": "Boulder, CO",
+        "long": "City of Boulder, Colorado",
+        "filename": "Tree_Inventory.shp",
+        "crosswalk": {
+            "scientific": "LATINNAME",
+            "common": "COMMONNAME",
+            "variety": "CULTIVAR",
+            "location": "LOCTYPE"
+        },
+        "bounds": [
+            -105.3009972,
+            39.9646221,
+            -105.1787327,
+            40.0889026
+        ]
+    },
+    {
+        "id": "cambridge",
+        "country": "USA",
+        "download": "https://data.cambridgema.gov/api/views/q83f-7quz/rows.csv?accessType=DOWNLOAD",
+        "info": "https://data.cambridgema.gov/Public-Works/Street-Trees/ni4i-5bnn",
+        "format": "csv",
+        "crosswalk": {
+            "common": "CommonName",
+            "scientific": "Scientific",
+            "ref": "TreeID",
+            "dbh": "diameter",
+            "updated": "last_edite",
+            "planted": "PlantDate",
+            "health": "TreeCondit"
+        },
+        "short": "Cambridge, MA",
+        "bounds": [
+            -71.159506,
+            42.3535082,
+            -71.0689625,
+            42.4035111
+        ]
+    },
+    {
+        "id": "berkeley",
+        "country": "USA",
+        "download": "https://data.cityofberkeley.info/api/views/x39z-ushg/rows.csv?accessType=DOWNLOAD",
+        "info": "https://data.cityofberkeley.info/Natural-Resources/City-Trees/9t35-jmin",
+        "format": "csv",
+        "crosswalk": {
+            "scientific": "SPECIES",
+            "common": "Common_Nam",
+            "health": "CONDITION",
+            "note": "note"
+        },
+        "short": "Berkeley",
+        "bounds": [
+            -122.3214883,
+            37.8459911,
+            -122.2345414,
+            37.9045336
+        ]
+    },
+    {
+        "id": "barcelona",
+        "download": "https://opendata-ajuntament.barcelona.cat/data/dataset/27b3f8a7-e536-4eea-b025-ce094817b2bd/resource/28034af4-b636-48e7-b3df-fa1c422e6287/download",
+        "format": "csv",
+        "short": "Barcelona",
+        "long": "City of Barcelona",
+        "latitudeField": "LATITUD_WGS84",
+        "longitudeField": "LONGITUD_WGS84",
+        "country": "Spain",
+        "crosswalk": {
+            "description": "NOM_CASTELLA",
+            "scientific": "NOM_CIENTIFIC",
+            "planted": "DATA_PLANTACIO",
+            "ref": "CODI",
+            "dbh": "MIDA_ESCOCELL"
+        },
+        "bounds": [
+            2.0888374,
+            41.3447969,
+            2.2212758,
+            41.466312
+        ]
+    },
+    {
+        "id": "london",
+        "download": "https://data.london.gov.uk/download/local-authority-maintained-trees/c52e733d-bf7e-44b8-9c97-827cb2bc53be/london_street_trees_gla_20180214.csv",
+        "format": "csv",
+        "short": "London",
+        "long": "Greater London Authority",
+        "country": "UK",
+        "centre": [
+            -0.1051,
+            51.5164
+        ],
+        "crosswalk": {
+            "ref": "gla_id",
+            "scientific": "species_name",
+            "common": "common_name",
+            "description": "display_name"
+        },
+        "bounds": [
+            -105.3324482,
+            0,
+            42.9257152,
+            20180214
+        ]
+    },
+    {
+        "id": "bristol",
+        "country": "UK",
+        "download": "https://opendata.bristol.gov.uk/explore/dataset/trees/download/?format=geojson&timezone=Australia/Sydney&lang=en",
+        "info": "https://opendata.bristol.gov.uk/explore/dataset/trees/export/",
+        "format": "geojson",
+        "crosswalk": {
+            "dbh": "dbh",
+            "height": "crown_height",
+            "common": "full_common_name",
+            "scientific": "latin_name"
+        },
+        "short": "Bristol",
+        "bounds": [
+            -2.7026684,
+            51.4013482,
+            -2.1296535,
+            51.7687848
+        ]
+    },
+    {
+        "id": "paris",
+        "download": "https://www.data.gouv.fr/en/datasets/r/c558ddb2-cc46-4e26-b96a-bd2735a8f343",
+        "format": "geojson",
+        "short": "Paris",
+        "country": "France",
+        "crosswalk": {
+            "ref": "idemplacement",
+            "common": "libellefrancais",
+            "genus": "genre",
+            "species": "espece",
+            "variety": "varieteoucultivar",
+            "maturity": "stadedeveloppement"
+        },
+        "bounds": [
+            2.2102412,
+            48.7422903,
+            2.4697595,
+            48.9114848
+        ]
+    },
+    {
+        "id": "lyon",
+        "download": "https://download.data.grandlyon.com/ws/grandlyon/abr_arbres_alignement.abrarbre.shp?srsname=EPSG:4326",
+        "format": "zip",
+        "filename": "abr_arbres_alignement.abrarbre.shp",
+        "crosswalk": {
+            "scientific": "essence",
+            "variety": "variete",
+            "genus": "genre",
+            "species": "espece",
+            "location": "localisati",
+            "planted": "anneeplant",
+            "ref": "identifian",
+            "common": "essencefra"
+        },
+        "short": "Lyon",
+        "country": "France",
+        "bounds": [
+            4.6971297,
+            45.5677257,
+            5.0597516,
+            45.9383383
+        ]
+    },
+    {
+        "id": "bordeaux",
+        "info": "https://opendata.bordeaux-metropole.fr/explore/dataset/bor_arbres/information/",
+        "download": "https://opendata.bordeaux-metropole.fr/explore/dataset/bor_arbres/download/?format=geojson&lang=en",
+        "format": "geojson",
+        "crosswalk": {
+            "scientific": "nom",
+            "updated": "mdate",
+            "dbh": "diametre",
+            "height": "hauteur",
+            "family": "famille",
+            "location": "typo_espace",
+            "health": "statut",
+            "planted": "tranche_age"
+        },
+        "short": "Bordeaux",
+        "country": "France",
+        "bounds": [
+            -1.1941728,
+            44.6432245,
+            -0.5374091,
+            44.9073986
+        ]
+    },
+    {
+        "id": "nice",
+        "download": "http://opendata.nicecotedazur.org/data/storage/f/2019-07-22T07%3A41%3A29.958Z/ev-arbre-opendata-2019.geojson",
+        "info": "https://trouver.datasud.fr/dataset/sync149f50a-cartographie-des-arbres-communaux",
+        "format": "geojson",
+        "crosswalk": {
+            "ref": "idENT"
+        },
+        "short": "Nice",
+        "country": "France",
+        "bounds": [
+            7.1840691,
+            43.6651675,
+            7.3085976,
+            43.8472489
+        ]
+    },
+    {
+        "id": "grenoble",
+        "download": "http://entrepot.metropolegrenoble.fr/opendata/38185-GRE/EspacePublic/json/ARBRES_TERRITOIRE_VDG_EPSG4326.json",
+        "info": "http://data.metropolegrenoble.fr/ckan/dataset/les-arbres-de-grenoble",
+        "format": "geojson",
+        "crosswalk": {
+            "ref": "BIEN_REFERENCE",
+            "genus": "GENRE_BOTA",
+            "species": "ESPECE",
+            "variety": "VARIETE",
+            "maturity": "STADEDEDEVELOPPEMENT",
+            "description": "REMARQUES",
+            "planted": "ANNEDEPLANTATION"
+        },
+        "short": "Grenoble",
+        "country": "France",
+        "bounds": [
+            5.697915,
+            45.1515723,
+            5.7987039,
+            45.2248253
+        ]
+    },
+    {
+        "id": "montpellier",
+        "country": "France",
+        "download": "https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MTP_ArbresAlign.zip",
+        "info": "https://data.montpellier3m.fr/dataset/arbres-dalignement-de-montpellier",
+        "format": "zip",
+        "filename": "MMM_MTP_ArbresAlign.shp",
+        "crosswalk": {
+            "ref": "idarbre",
+            "scientific": "nom_latin",
+            "common": "nom_commun",
+            "planted": "plantation",
+            "updated": "releva",
+            "crown": "couronnem",
+            "height": "hauteurm"
+        },
+        "short": "Montpellier",
+        "bounds": [
+            3.8087133,
+            43.5716477,
+            3.9372838,
+            43.650211
+        ]
+    },
+    {
+        "id": "grand_paris_seine_ouest",
+        "country": "France",
+        "info": "https://www.data.gouv.fr/fr/datasets/arbres-2/",
+        "download": "https://www.data.gouv.fr/fr/datasets/r/a10c7776-afa5-4b8a-8050-081788818b55",
+        "format": "zip",
+        "filename": "arbres-v2.shp",
+        "short": "Grand Paris Seine Ouest",
+        "crosswalk": {
+            "scientific": "genespvar",
+            "height": "hauteur",
+            "planted": "an_plant",
+            "ref": "id_plant"
+        },
+        "bounds": [
+            2.1741783,
+            48.7954961,
+            2.3002071,
+            48.8527048
+        ]
+    },
+    {
+        "id": "agen",
+        "country": "France",
+        "download": "https://www.data.gouv.fr/fr/datasets/r/fededc1c-6e42-4a6d-9469-849fd956fbfe",
+        "format": "zip",
+        "filename": "Arbres.shp",
+        "crosswalk": {
+            "ref": "id_ponctue",
+            "common": "espece_arb"
+        },
+        "short": "Agen",
+        "bounds": [
+            0.5238616,
+            44.1159691,
+            0.6567164,
+            44.2186183
+        ]
+    },
+    {
+        "id": "saint_quentinois",
+        "country": "France",
+        "download": "https://www.data.gouv.fr/fr/datasets/r/c6000378-1f3c-4c0c-8f62-9a5b72dc7a85",
+        "format": "zip",
+        "filename": "ARBRES.shp",
+        "info": "",
+        "short": "Saint Quentinois",
+        "long": "Agglomération du Saint Quentinois",
+        "crosswalk": {
+            "scientific": "nomlatin",
+            "common": "nomfrancai",
+            "updated": "EditDate",
+            "maturity": "fk_stadede",
+            "dbh": "tronc_diam",
+            "height": "haut_tot",
+            "ref": "id_arbre"
+        },
+        "bounds": [
+            3.2372823,
+            49.8121376,
+            3.3265999,
+            49.8879827
+        ]
+    },
+    {
+        "id": "metz",
+        "country": "France",
+        "download": "https://www.data.gouv.fr/fr/datasets/r/3aa28eaa-9ee4-49ff-bb73-74c21d14268d",
+        "format": "zip",
+        "filename": "vrd_esv_arb.shp",
+        "info": "",
+        "short": "Metz",
+        "crosswalk": {
+            "dbh": "diametre",
+            "scientific": "nom_espece",
+            "note": "observatio"
+        },
+        "bounds": [
+            6.1417264,
+            49.0685099,
+            6.2514101,
+            49.144763
+        ]
+    },
+    {
+        "id": "seine_saint_denis",
+        "country": "France",
+        "download": "https://www.data.gouv.fr/fr/datasets/r/c631e78d-4d15-44eb-a40d-cd593f0e1bed",
+        "format": "zip",
+        "filename": "fr-dpt93-1646.shp",
+        "info": "",
+        "short": "Seine-Saint-Denis",
+        "crosswalk": {
+            "height": "hauteur",
+            "scientific": "essence",
+            "maturity": "stade_dvlp"
+        },
+        "bounds": [
+            2.288679,
+            48.82909,
+            2.59772,
+            48.98414
+        ]
+    },
+    {
+        "id": "versailles",
+        "country": "France",
+        "download": "https://www.data.gouv.fr/fr/datasets/r/4b9d9fe4-f8da-4db1-8057-9e83b2abf5d2",
+        "format": "geojson",
+        "info": "",
+        "short": "Versailles",
+        "crosswalk": {
+            "scientiifc": "ESPECE",
+            "common": "FRANCAIS"
+        },
+        "bounds": [
+            2.0916908,
+            48.7841331,
+            2.1603032,
+            48.8256705
+        ]
+    },
+    {
+        "id": "nevers",
+        "country": "France",
+        "download": "https://www.data.gouv.fr/fr/datasets/r/dbdc2068-ee22-474d-8a42-261554482a4f",
+        "format": "zip",
+        "filename": "ARBRE_ALIGNEMENT.shp",
+        "info": "",
+        "short": "Nevers",
+        "long": "Ville de Nevers",
+        "crosswalk": {
+            "scientific": "espece"
+        },
+        "bounds": [
+            3.1230194,
+            46.9745203,
+            3.2002178,
+            47.0069782
+        ]
+    },
+    {
+        "id": "montreal",
+        "info": "http://donnees.ville.montreal.qc.ca/dataset/arbres",
+        "download": "http://donnees.ville.montreal.qc.ca/dataset/3e3efad6-9f2f-4cc0-8f1b-92de1ccdb282/resource/c6c5afe8-10be-4539-8eae-93918ea9866e/download/arbres-publics.csv",
+        "format": "csv",
+        "crosswalk": {
+            "scientific": "Essence_latin",
+            "common": "ESSENCE_ANG",
+            "dhb": "DHP",
+            "updated": "Date_releve",
+            "planted": "Date_plantation",
+            "ref": "EMP_NO"
+        },
+        "short": "Montreal",
+        "country": "Canada",
+        "centre": [
+            -73.56,
+            45.56
+        ],
+        "bounds": [
+            -77.018082,
+            0.04566,
+            -26.742133,
+            72.351564
+        ]
+    },
+    {
+        "id": "quebec",
+        "download": "https://www.donneesquebec.ca/recherche/fr/dataset/34103a43-3712-4a29-92e1-039e9188e915/resource/de031174-cbdf-4d69-869c-21cca8036279/download/vdq-arbrerepertorie.geojson",
+        "info": "https://www.donneesquebec.ca/recherche/fr/dataset/vque_26",
+        "format": "csv",
+        "crosswalk": {
+            "scientific": "NOM_LATIN",
+            "common": "NOM_FRANCAIS",
+            "dbh": "DIAMETRE",
+            "planted": "DATE_PLANTE",
+            "location": "NOM_TOPOGRAPHIE"
+        },
+        "short": "Quebec City",
+        "country": "Canada",
+        "bounds": [
+            -71.5365777,
+            46.7236562,
+            -71.1488832,
+            46.9580237
+        ]
+    },
+    {
+        "id": "longueuil",
+        "info": "https://www.longueuil.quebec/fr/donnees-ouvertes/arbres",
+        "download": "https://www.longueuil.quebec/sites/longueuil/files/donnees_ouvertes/arbres.zip",
+        "format": "zip",
+        "filename": "Arbres.shp",
+        "short": "Longueuil (Quebec)",
+        "long": "Ville de Longueuil (Quebec)",
+        "country": "Canada",
+        "crosswalk": {
+            "dbh": "DiamTronc"
+        },
+        "bounds": [
+            -73.5259222,
+            45.4451095,
+            -73.3476641,
+            45.5820398
+        ]
+    },
+    {
+        "id": "calgary",
+        "download": "https://data.calgary.ca/api/views/tfs4-3wwa/rows.csv?accessType=DOWNLOAD",
+        "format": "csv",
+        "short": "Calgary",
+        "long": "City of Calgary",
+        "country": "Canada",
+        "crosswalk": {
+            "common": "COMMON_NAME",
+            "genus": "GENUS",
+            "species": "SPECIES",
+            "variety": "CULTIVAR",
+            "dbh": "DBH_CM",
+            "ref": "WAM_ID"
+        },
+        "bounds": [
+            -114.2698861,
+            50.8551473,
+            -113.9024926,
+            51.1907328
+        ]
+    },
+    {
+        "id": "edmonton",
+        "download": "https://data.edmonton.ca/api/views/eecg-fc54/rows.csv?accessType=DOWNLOAD",
+        "format": "csv",
+        "short": "Edmonton",
+        "long": "City of Edmonton",
+        "country": "Canada",
+        "crosswalk": {
+            "dbh": "DIAMETER_BREAST_HEIGHT",
+            "scientific": "SPECIES_BOTANICAL",
+            "common": "SPECIES_COMMON",
+            "planted": "PLANTED_DATE",
+            "location": "LOCATION_TYPE",
+            "ref": "id"
+        },
+        "bounds": [
+            -113.713067,
+            53.3959973,
+            -113.2958185,
+            53.7116595
+        ]
+    },
+    {
+        "id": "ottawa",
+        "info": "https://ouverte.ottawa.ca/datasets/inventaire-des-arbres",
+        "download": "https://opendata.arcgis.com/datasets/451e904e2753453eb699b2e853ab5857_1.csv",
+        "format": "csv",
+        "crosswalk": {
+            "scientific": "SPECIES",
+            "ref": "SAP_ID"
+        },
+        "short": "Ottawa",
+        "country": "Canada",
+        "bounds": [
+            -76.3403103,
+            44.9671914,
+            -75.2598895,
+            45.5224763
+        ]
+    },
+    {
+        "id": "moncton",
+        "info": "http://ouvert.moncton.ca/datasets/arbres",
+        "download": "https://opendata.arcgis.com/datasets/60d5b564e732444b81a650c7c4aa548a_0.csv?outSR=%7B%22latestWkid%22%3A2953%2C%22wkid%22%3A2036%7D",
+        "format": "csv",
+        "country": "Canada",
+        "crosswalk": {
+            "common": "BOTNAME",
+            "dbh": "DIAM",
+            "height": "HT",
+            "updated": "edited_date"
+        },
+        "short": "Moncton",
+        "bounds": [
+            2623633.1245,
+            7451921.3139,
+            2637865.9302,
+            7463827.561
+        ]
+    },
+    {
+        "id": "winnipeg",
+        "country": "Canada",
+        "download": "https://data.winnipeg.ca/api/views/h923-dxid/rows.csv?accessType=DOWNLOAD",
+        "info": "https://data.winnipeg.ca/Parks/Tree-Inventory-Map/xyma-gm38",
+        "format": "csv",
+        "crosswalk": {
+            "ref": "tree_id",
+            "scientific": "botanical",
+            "common": "common",
+            "dbh": "dbh"
+        },
+        "bounds": [
+            -97.3386721,
+            49.715141,
+            -96.9605433,
+            49.9766644
+        ]
+    },
+    {
+        "id": "vancouver",
+        "download": "https://opendata.vancouver.ca/explore/dataset/street-trees/download/?format=geojson&lang=en",
+        "format": "geojson",
+        "short": "Vancouver",
+        "country": "Canada",
+        "crosswalk": {
+            "ref": "tree_id",
+            "genus": "genus_name",
+            "species": "species_name",
+            "variety": "cultivar_name",
+            "common": "common_name",
+            "height": "height_range_id",
+            "dbh": null,
+            "planted": "date_planted"
+        },
+        "bounds": [
+            -123.22387,
+            49.200732,
+            -123.017052,
+            49.294033
+        ]
+    },
+    {
+        "id": "lisbon",
+        "country": "Portugal",
+        "download": "https://opendata.arcgis.com/datasets/202d0f1a7f234e449761af8af14436d6_0.zip",
+        "info": "http://geodados.cm-lisboa.pt/datasets/arvoredo?geometry=-9.312%2C38.745%2C-9.148%2C38.768",
+        "format": "zip",
+        "filename": "Arvoredo.shp",
+        "crosswalk": {
+            "scientific": "ESPECIE_VA",
+            "location": "LOCAL"
+        },
+        "short": "Lisbon",
+        "bounds": [
+            -9.2267949,
+            38.6918611,
+            -9.0910328,
+            38.7964718
+        ]
+    }
+]
