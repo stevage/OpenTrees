@@ -3,16 +3,21 @@
     div(v-if="text")
         img(:src="imageUrl")
         p(v-html="text")
-        p <small>Read more on <a :href="`http://en.wikipedia.org/wiki/${encodeURIComponent(title)}`"">Wikipedia</a></small>
+        p <small>Read more on <a target="_blank" :href="wikiLink"">Wikipedia</a></small>
     div(v-else-if="loading")
         p.i Looking up Wikipedia...
     div(v-else)
         //- | Nothing on <a target="_blank" href="https://en.wikipedia.org/wiki/Special:Search/' + encodeURIComponent(this.searchTerm) + '">Wikipedia</a>.';
-        p Nothing found on Wikipedia.
+        p Nothing found on <a target="_blank" :href="wikiSearchLink">Wikipedia</a>.
 </template>
 
 <script>
 import axios from 'axios';
+const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+const wikiapi = corsAnywhere + 'http://en.wikipedia.org/w/api.php?action=query&format=json';
+const textapi = wikiapi + '&prop=extracts&redirects&titles=';
+const imageapi = wikiapi + '&prop=pageimages&redirects&titles=';
+
 export default {
     name: "Wikipedia",
     data: () => ({
@@ -25,22 +30,33 @@ export default {
     created() {
         window.Wikipedia = this;
     },
-    watch: {
-        searchTerm() {
+    mounted () {
+        this.doSearch();
+    },
+    computed: {
+        wikiLink() {
+            return `http://en.wikipedia.org/wiki/${encodeURIComponent(this.title)}`;
+        },
+        wikiSearchLink() {
+            return `https://en.wikipedia.org/w/index.php?search=${this.searchTerm}`;
+            // return `http://en.wikipedia.org/wiki/${encodeURIComponent(this.searchTerm)}`;
+            
+        }
+    },
+    methods: {
+        doSearch() {
             this.text = undefined;
             this.title = undefined;
             this.imageUrl = undefined;
             this.loading = true;
-            const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
-            var wikiapi = corsAnywhere + 'http://en.wikipedia.org/w/api.php?action=query&format=json';
-            var textapi = wikiapi + '&prop=extracts&redirects&titles=';
-            var imageapi = wikiapi + '&prop=pageimages&redirects&titles=';
 
             // Bring this back - concerned about reactive cascades
             // if (this.searchTerm === 'acer') {
             //     this.searchTerm = 'Acer (plant)';
             // }
-
+            if (!this.searchTerm) {
+                return;
+            }
             console.log('Searching Wikipedia for: ' + this.searchTerm);
             
             axios.get(imageapi + encodeURIComponent(this.searchTerm)).then(response => {
@@ -51,7 +67,6 @@ export default {
                     // without making the failing call and then trying again.
                     const thumb = page.thumbnail.source.replace(/\/\d\dpx-/, window.devicePixelRatio > 1 ? '/600px-' : '/300px-');
                     this.imageUrl = thumb;
-                    //##RESTORE THIS$("#wikiimg").append('<p><small><a href="https://en.wikipedia.org/wiki/File:' +page.pageimage + '">Credit: Wikipedia.</a></small></p>');
                 }
             });
             
@@ -68,8 +83,13 @@ export default {
                     this.text = undefined;
                 }
             });
-
         }
+    },
+    watch: {
+        searchTerm() {
+            this.doSearch();
+        }
+            
     }
 }
 

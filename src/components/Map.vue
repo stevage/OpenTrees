@@ -6,6 +6,8 @@
 import mapboxgl from 'mapbox-gl';
 import U from 'mapbox-gl-utils';
 import { EventBus } from '../EventBus';
+import sources from '../sources-out.json';
+console.log(sources);
 
 const flatten = pairs => pairs.reduce(((arr, [a, b]) => [...arr, a, b]), []);
 import * as d3Color from 'd3-color';
@@ -17,6 +19,9 @@ export default {
         mode: undefined
     }),
     async mounted() {
+        if (window.location.hostname === 'localhost' || window.location.hash.match(/clear/)) {
+            mapboxgl.clearStorage();
+        }
         mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmFnZSIsImEiOiJjazZzd3V2dXEwNGZlM2xtZzFnOXdkOTFtIn0.pKVxwqE61gNc7PKK5u1j6g';
         const map = new mapboxgl.Map({
             container: 'map',
@@ -37,8 +42,21 @@ export default {
         window.map = map;
         window.app.Map = this;
         this.map = map;
+        map.U.loadImage('tree', 'cubetree-favicon.png');
         map.U.onLoad(() => {
-
+            map.U.addGeoJSON('sources', {
+                type: 'FeatureCollection',
+                features: sources
+                .filter(source => source.bounds)
+                .map(source => ({
+                    type: 'Feature',
+                    properties: source,
+                    geometry: {
+                        type: 'Point',
+                        coordinates: source.centre || [(source.bounds[0] + source.bounds[2]) / 2, (source.bounds[1] + source.bounds[3]) / 2]
+                    }
+                }))
+            });
 
             map.U.addVector('trees', window.location.hostname === 'localhost' ? 'http://localhost:4011/index.json' : 'mapbox://stevage.9slh6b3l');
             map.U.addGeoJSON('selected-tree');
@@ -65,13 +83,13 @@ export default {
             });
             map.U.addCircle('trees-vis-species', 'trees', {
                 sourceLayer: 'trees',
-                circleColor: ['case', ...flatten(visGroups.species.map(([name, color, filter]) => [filter, color])), 'hsla(0,0%,0%,0.3)'],
-                circleRadius: { stops: [[12, 2], [17, 6]] },
+                circleColor: ['case', ...stops('species'), 'hsla(0,0%,0%,0.3)'],
+                circleRadius: { stops: [[10, 1], [12, 2], [17, 6]] },
                 circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
             map.U.addCircle('trees-vis-family', 'trees', {
                 sourceLayer: 'trees',
-                circleColor: ['case', ...flatten(visGroups.family.map(([name, color, filter]) => [filter, color])), 'hsla(0,0%,0%,0.3)'],
+                circleColor: ['case', ...stops('family'), 'hsla(0,0%,0%,0.3)'],
                 circleRadius: { stops: [[12, 2], [17, 6]] },
                 circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
@@ -79,19 +97,29 @@ export default {
             map.U.addCircle('trees-vis-rarity', 'trees', {
                 sourceLayer: 'trees',
                 circleRadius: { stops: [[12, 2], [17, 6]] },
-                circleColor: ['case', ...flatten(visGroups.rarity.map(([name, color, filter]) => [filter, color])), '#ddd'],
-                circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
+                // circleColor: ['case', ...flatten(visGroups.rarity.map(([name, color, filter]) => [filter, color])), '#ddd'],
+                circleColor: ['interpolate', ['linear'], ['to-number', ['get', 'species_count']], 
+                    ...flatten(visGroups.rarity.reverse().map(([name, color, number]) => [number, color])),
+                     ],
+                // circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1],
+                circleSortKey: ['-', ['get', 'species_count']]
+            });
+            map.U.addCircle('trees-vis-health', 'trees', {
+                sourceLayer: 'trees',
+                circleRadius: { stops: [[10, 1], [12, 2], [17, 6]] },
+                circleColor: ['match', ['get', 'health'], ...stops('health'), 'hsla(260,80%,50%,0.7)'],
+                // circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
             map.U.addCircle('trees-vis-harm', 'trees', {
                 sourceLayer: 'trees',
                 circleRadius: { stops: [[12, 2], [17, 6]] },
-                circleColor: ['case', ...flatten(visGroups.harm.map(([name, color, filter]) => [filter, color])), 'transparent'],
+                circleColor: ['case', ...stops('harm'), 'transparent'],
                 // circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
             map.U.addCircle('trees-vis-local', 'trees', {
                 sourceLayer: 'trees',
                 circleColor: 'hsla(80,50%,70%,0.9)',
-                circleRadius: { stops: [[10,4], [12, 6]] },
+                circleRadius: { stops: [[10,2], [12, 3]] },
                 circleOpacity:0.9
             });
             map.U.addCircle('trees-vis-trunk', 'trees', {
@@ -108,7 +136,7 @@ export default {
             map.U.addCircle('trees-inner', 'trees', {
                 sourceLayer: 'trees',
                 circleColor: 'hsla(80,50%,20%,0.9)',
-                circleRadius: { stops: [[10,0.5],[12,1], [14, 2]] },
+                circleRadius: { stops: [[9,0.5],[11,1], [14, 2]] },
 
                     
             });
@@ -123,7 +151,40 @@ export default {
                 textColor:'hsl(110,50%,15%)',
                 textVariableAnchor:['left','right','bottom-left','top-left','top-right','bottom-right','bottom','top']
             });
+
+            map.U.addSymbol('sources-circles', 'sources', {
+                iconImage: 'tree',
+                iconSize:0.3,
+                iconAllowOverlap: true,
+                // circleColor:'hsl(100,30%,30%)',
+                // circleRadius:['interpolate', ['linear'], ['zoom'], 3, 5, 5, 10],
+                // circleStrokeWidth:3,
+                // circleStrokeColor:'hsl(100,30%,50%)',
+                // circleOpacity: ['interpolate',['linear'],['zoom'],5,1,7,0],
+                maxzoom: 8
+            });
+            // map.U.addCircle('sources-circles', 'sources', {e
+            //     circleColor:'hsl(100,30%,30%)',
+            //     circleRadius:['interpolate', ['linear'], ['zoom'], 3, 5, 5, 10],
+            //     circleStrokeWidth:3,
+            //     circleStrokeColor:'hsl(100,30%,50%)',
+            //     circleOpacity: ['interpolate',['linear'],['zoom'],5,1,7,0],
+            //     maxzoom: 8
+            // });
+
+            map.U.addSymbol('sources-labels', 'sources', {
+                textField: ['coalesce', ['get','short'], ['get','id']],
+                textHaloColor: 'hsla(100,30%,95%,0.9)',
+                textColor:'hsl(100,30%,20%)',
+                textHaloWidth: 2,
+                textFont: ['Lancelot Regular','Arial Unicode MS Regular'],
+                textAllowOverlap: true,
+                maxzoom:9,  
+                minzoom: 5
+            });
+
             this.switchMode('none');
+            map.on('zoom', () => EventBus.$emit('zoom-change', map.getZoom()));
                 
         });
         
@@ -134,15 +195,17 @@ export default {
             // if (selectedId) {
             //     map.setFeatureState({ source: 'trees', sourceLayer: 'trees', id: selectedId }, { selected: false });
             // }
-            window.app.FeatureInfo.feature = e.features[0];
-            map.U.setData('selected-tree', e.features[0]);
-            map.U.setFilter('trees-similar', ['==', ['get', 'scientific'], e.features[0].properties.scientific]);
+            const f = e.features[0];
+            window.app.FeatureInfo.feature = f;
+            map.U.setData('selected-tree', f);
+            map.U.setFilter('trees-similar', f.properties.scientific ? ['==', ['get', 'scientific'], f.properties.scientific] : false);
             // selectedId = e.features[0].id;
             // map.setFeatureState({ source: 'trees', sourceLayer: 'trees', id: selectedId }, { selected: true });
 
         }, () => {
             map.U.setData('selected-tree', {type:'FeatureCollection',features:[]})
             map.U.setFilter('trees-similar', false);
+            EventBus.$emit('unselect-tree');
         });
         EventBus.$on('vis-mode', mode => this.$nextTick(() => this.mode = mode))
         EventBus.$on('resize', () => this.$nextTick(() => this.map.resize()));
@@ -164,8 +227,12 @@ export default {
             console.log(mode);
             if (['none','label'].indexOf(mode) >= 0) {
                 this.map.U.setCircleOpacity('trees-inner', 1);
+                this.map.U.setCircleRadius('trees-inner', { stops: [[9,1],[14, 2]] });
+
             } else {
                 this.map.U.setCircleOpacity('trees-inner', { stops: [[14, 0], [15, 1]] });
+                this.map.U.setCircleRadius('trees-inner', { stops: [[9,0.5],[11,1], [14, 2]] });
+
             }
             if (mode === 'label') {
                 this.map.U.show('trees-vis-none');
@@ -181,6 +248,11 @@ export default {
             // const colors = ['#a6cee3', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c', '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a', '#ffff99', '#b15928'];            
             // const hues = [0, 30, 60, 90, 150, 180, 210, 250, 280, 320]
             // const colors = [...hues.map(h => d3Color.hcl(h,100,60).formatHsl()), ...hues.map(h => d3Color.hcl(h,40,40).formatHsl())];
+            if (this.map.getZoom() < 12) {
+                this.map.U.setCircleColor('trees-vis-local', 'green');
+                return;
+            }
+
             const localTrees = this.map.queryRenderedFeatures({ layers: ['trees-inner'] });
             const counts = {};
             const percent = x => Math.round(x * 100) / 1 + '%';
@@ -198,11 +270,12 @@ export default {
                 scientific
             ]]);
             console.log(visGroups.local);
-            this.map.U.setCircleColor('trees-vis-local', ['case', ...flatten(visGroups.local.map(([name, color, filter]) => [filter, color])), 'transparent']);
+            this.map.U.setCircleColor('trees-vis-local', visGroups.local.length ? ['case', ...stops('local'), 'transparent'] : 'transparent');
             EventBus.$emit('update-legend', [...visGroups.local, ['Other', 'transparent']]);
         }
     }
 }
+const stops = visType => flatten(visGroups[visType].map(([name, color, stop]) => [stop, color]));
 
 const visGroups = {
     none: [],
@@ -217,20 +290,26 @@ const visGroups = {
             ['any', 
                 ['in', ['get', 'genus'], ['literal', 
                     ['Hakea', 'Agonis', 'Tristaniopsis', 'Lagunaria', 'Acacia','Hymenosporum', 'Brachychiton', 'Leptospermum' /* some aren't endemic */, 'Waterhousea' /* a bit uncertain */, 
-                        'Bursaria', 'Geijera', 'Paraserianthes', 'Myoporum','Exocarpos','Exocarpus', 'Jacksonia']]],
+                        'Bursaria', 'Geijera', 'Paraserianthes', 'Myoporum','Exocarpos','Exocarpus', 'Jacksonia',
+                        'Agathis' /* well only Robusta, atropurpurea, microstachya */]]],
                 ['all', 
                     ['in', ['get', 'genus'], ['literal', ['Acmena', 'Syzygium']]], 
                     ['in', ['get', 'species'], ['literal', ['smithii']]]],
-                ['in', ['get', 'scientific'], ['literal', ['Pittosporum undulatum', 'Cupaniopsis anacardioides', 'Acmena smithii', 'Acmena smithii (Syzygium smithii)',
-                'Syzygium australe']]]]], 
+                ['in', ['get', 'scientific'], ['literal', [
+                    'Pittosporum undulatum', 
+                    'Cupaniopsis anacardioides', 
+                    'Acmena smithii', 
+                    'Acmena smithii (Syzygium smithii)',
+                    'Melia azedarach',
+                    'Syzygium australe']]]]], 
         ['Planes', 'hsl(0,86%,60%)', ['in', ['get', 'genus'], ['literal', ['Platanus', 'Plantanus']]]], 
         ['Elms','hsl(30,60%,60%)', ['in', ['get', 'genus'], ['literal', ['Ulmus', 'Celtis']]]], 
-        ['Oaks & maples', 'hsl(330, 60%,60%)', ['in', ['get', 'genus'], ['literal', ['Quercus', 'Acer']]]], 
+        ['Oaks & maples', 'hsl(345, 60%,30%)', ['in', ['get', 'genus'], ['literal', ['Quercus', 'Acer']]]], 
         ['Palms', 'hsl(40, 100%,70%)', ['in', ['get', 'genus'], ['literal', ['Phoenix', 'Washingtonia', 'Jubaea', 'Chamaerops','Syagrus','Livistona','Trachycarpus']]]], 
         ['Conifers', 'hsl(60,90%,45%)', ['in', ['get', 'genus'], ['literal', ['Pinus', 'Araucaria', 'Cupressus', 'Cupressocyparis', 'Podocarpus', 'Platycladus', 'Thuja', 'Hesperocyparis', 
                 'Callitris', 'Cedrus', 'Picea' /* spruce */, 'Abies','Cunninghamia','Chamaecyparis','Sequoiadendron', 'Sequoia','Thujopsis']]]], 
-        ['Pears, plums and other fruits', 'hsl(250,60%,60%)', ['in', ['get', 'genus'], ['literal', ['Pyrus', 'Prunus', 'Malus', 'Citrus']]]], 
-        ['Figs', 'hsl(0,0%,40%)', ['in', ['get', 'genus'], ['literal', ['Ficus']]]], 
+        ['Pears, plums and other fruits', 'hsl(250,60%,60%)', ['in', ['get', 'genus'], ['literal', ['Pyrus', 'Prunus', 'Malus', 'Citrus', 'Mangifera']]]], 
+        ['Figs, olives', 'hsl(0,0%,40%)', ['in', ['get', 'genus'], ['literal', ['Ficus', 'Olea']]]], 
         ['Ashes', 'hsl(0,0%,20%)', ['in', ['get', 'genus'], ['literal', ['Fraxinus']]]], 
         ['Other exotics', 'hsl(310, 90%,60%)', ['any', 
             ['in', ['get', 'genus'], ['literal', ['Betula', 'Liquidambar', 'Gleditsia', 'Robinia','Pseudotsuga','Alnus', 'Laburnum',
@@ -266,13 +345,22 @@ const visGroups = {
     ],
 
     rarity: [
-        ['Unknown', 'hsla(0, 0%, 0%, 0.3)', ['==', ['to-number', ['get', 'species_count'], 0], 0]],
-    ['Super common', 'hsl(210, 90%,60%)', ['>=', ['get', 'species_count'], 10000]],
-    ['Very common', 'hsl(160, 90%,60%)', ['all', ['>=', ['get', 'species_count'], 1000], ['<', ['get', 'species_count'], 10000]]],
-    ['Common', 'hsl(120, 80%,60%)', ['all', ['>=', ['get', 'species_count'], 100], ['<', ['get', 'species_count'], 1000]]],
-    ['Average', 'hsl(60, 80%,50%)', ['all', ['>=', ['get', 'species_count'], 20], ['<', ['get', 'species_count'], 100]]],
-    ['Rare', 'hsl(30, 80%, 50%)', ['all', ['>=', ['get', 'species_count'], 5], ['<', ['get', 'species_count'], 20]]],
-    ['Very rare', 'hsl(0, 100%, 40%)', ['<', ['get', 'species_count'], 5]],
+        ['Super common', 'hsla(210, 90%,60%, 0.5)', 10000],
+        ['Very common', 'hsla(160, 90%,60%, 0.6)', 1000],
+        ['Common', 'hsla(120, 80%,60%, 0.7)', 100],
+        ['Average', 'hsla(60, 80%,50%, 0.8)', 20],
+        ['Rare', 'hsla(30, 80%, 50%, 0.9)', 5],
+        ['Very rare', 'hsla(0, 100%, 40%, 1)', 1],
+        ['Unknown', 'hsla(0, 0%, 0%, 0.3)', 0],
+
+    ],
+    health: [
+
+        ['Good', 'hsla(120, 80%,50%, 0.8)', ['Good', 'Excellent', 'good', 'excellent']],
+        ['Fair', 'hsla(50, 100%, 50%, 0.9)', ['Fair','fair']],
+        ['Poor', 'hsla(20, 100%, 40%, 1)', ['Poor','poor', 'Dying','dying']],
+        ['Dead', 'hsla(330, 30%,20%, 0.8)', ['Dead','dead','Stump','stump']],
+        ['Unknown', 'hsla(260,80%,50%,0.7)', ['Unknown']],
     ],
     harm: [
 

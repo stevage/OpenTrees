@@ -1,23 +1,23 @@
 <template lang="pug">
     #app.flex.flex-column.vh-100.avenir
-        #top.bb.b--gray.bg-green
-            img.w2-ns.w1.dib.fl.ma2(src="cubetree-logo.png")
-            h1.f1-ns.f5.ma2-ns.lancelot.dark-green.dib.fl OpenTrees.org
-            h2.f2-ns.f6.lancelot.ml4-ns.ml2.mb0.mt3-ns.fl.dark-gray 929,055 open data trees from 28 sources.
+        #top.bb.b--gray.bg-green.haoeu3-ns
+            h1.f1-ns.f5.ma2-ns.lancelot.dib.fl 
+                img.w2-ns.w1.dib.fl.ma2(src="cubetree-logo.png")
+                span.dark-green OpenTrees.org
+                span.dark-gray.ml4.f3 {{ stats.openTrees.toLocaleString()}} open data trees from {{ stats.sources }} sources in {{ stats.countries.length }} countries.
         #middle.flex.flex-auto
-            #sidebar.br.b--gray.overflow-auto
+            #sidebar.br.b--gray.overflow-y-scroll.overflow-x-hidden
                 FeatureInfo
             #map-container.relative.flex-auto
                 Map
-                #overlay.absolute.ba.b--gray.shadow-3.ml2-ns.mt2-ns.mw5.mw-none-ns.overflow-scroll
+                #overlay.absolute.ba.b--gray.shadow-3.ml2-ns.mt2-ns.mw5.mw-none-ns.overflow-y-scroll
                     Mode
                     Legend
                     
         #bottom.bt.b--light-gray.flex-none.pa1.shadow-3
             | Created by <a href="https://twitter.com/stevage1/">Steve Bennett</a>. 
-            | Source code on <a href="https://github.com/stevage/OpenTrees">Github</a>.
-            | <a href="https://stevebennett.me/2015/04/07/opentrees-org-how-to-aggregate-373000-trees-from-9-open-data-sources/">Blog post #1</a> (2015). 
-            | <a href="https://stevebennett.me/2018/05/15/you-might-not-need-postgis-streamlined-vector-tile-processing-for-big-map-visualisations/">Blog post #2</a> (2018).
+            a(href="#" @click="about") About OpenTrees.org
+            | .
 
 </template>
 
@@ -27,10 +27,15 @@ import FeatureInfo from './components/FeatureInfo.vue'
 import Mode from './components/Mode.vue';
 import Legend from './components/Legend.vue';
 import { EventBus } from './EventBus';
-
+import stats from './stats.json';
 window.app = { }
 export default {
     name: 'app',
+    data() {
+        return {
+            stats
+        }
+    },
     components: {
       Map,
       FeatureInfo,
@@ -39,7 +44,13 @@ export default {
     },
     created() {
         window.app.App = this;
-    }
+    },
+    methods: {
+        about() {
+            EventBus.$emit('about');
+            
+        }
+    },
 }
 
 require('tachyons/css/tachyons.min.css');
@@ -66,6 +77,9 @@ html, body {
 @media screen and (min-width:768px) {
     .only-mobile {
         display: none;
+    }
+    #overlay {
+        max-height: calc(100vh - 8rem - 20px)
     }
 }
 

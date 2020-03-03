@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy": "npm run build; ./deploy.sh",
+    "deploy": "npm run build || yarn run build; ./deploy.sh",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "cheap-ruler": "^2.5.1",
     "d3-color": "^1.4.0",
     "d3-fetch": "^1.1.2",
+    "deploy": "^1.0.3",
     "geojson-bounds": "^1.0.2",
     "mapbox-gl": "^1.6.1",
     "mapbox-gl-utils": "^0.30.0",

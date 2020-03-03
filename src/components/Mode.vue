@@ -20,12 +20,13 @@ export default {
         open: false,
         modes: [
                 ['none', 'No vis.'],
-                ['species', 'Species'],
+                ['species', 'Botanical group'],
                 ['family', 'Family'],
                 ['rarity', 'Rarity'],
                 ['harm', 'Harm'],
-                ['local', 'Local variety'],
+                ['local', 'Species in view'],
                 ['trunk', 'Trunk size'],
+                ['health', 'Health'],
                 ['label', 'Label']
 
         ]

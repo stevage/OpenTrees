@@ -17,10 +17,11 @@ module.exports = [
     {
         // BAD 404
         "id": "ballarat",
-        "download": "http://data.gov.au/dataset/eabaee3f-a563-449b-a04a-1ec847566ea1/resource/2f5eb80f-55fa-418c-915c-0b6de7653719/download/BallaratTrees.csv",
-        "format": "csv",
-        "filename": "ballarat.vrt",
-        "gdal_options": "-skipfailures",
+        download: 'https://data.gov.au/geoserver/ballarattrees/wfs?request=GetFeature&typeName=ckan_eabaee3f_a563_449b_a04a_1ec847566ea1&outputFormat=json',
+        // "download": "http://data.gov.au/dataset/eabaee3f-a563-449b-a04a-1ec847566ea1/resource/2f5eb80f-55fa-418c-915c-0b6de7653719/download/BallaratTrees.csv",
+        "format": "geojson",
+        // "filename": "ballarat.vrt",
+        // "gdal_options": "-skipfailures",
         short: 'Ballarat',
         long: 'City of Ballarat',
     },
@@ -50,9 +51,10 @@ module.exports = [
     {
         "id": "adelaide",
         "download": "http://opendata.adelaidecitycouncil.com/street_trees/street_trees.csv",
-        "format": "csv",
+        "format": "vrt",
         "filename": "adelaide.vrt",
         "gdal_options": "-skipfailures",
+        // srs: 'EPSG:28354',
         short: 'Adelaide',
         long: 'City of Adelaide',
     },
@@ -91,7 +93,8 @@ module.exports = [
         "id": "glenelg",
         "download": "http://data.gov.au/dataset/3721ad67-7b5b-4815-96b1-9d8b1a89dbd7/resource/b9ff3d44-17b4-4f87-8a28-2d540fa37d8f/download/Glenelg-Street-and-Park-Trees.csv",
         "format": "csv",
-        "filename": "glenelg.vrt",
+        latitudeField: 'lat',
+        longitudeField: 'lon',
         short: 'Glenelg',
         long: 'Glenelg Shire',
     },
@@ -131,12 +134,10 @@ module.exports = [
         long: 'City of Prospect',
     },
     {
-        // BAD 404
         "id": "perth",
-        "download": "http://catalogue.beta.data.wa.gov.au/dataset/80ad058b-9089-4915-bea5-f7ce8eab7a3f/resource/a5867408-d9d0-4cb3-a640-24b458a5b3df/download/trees.zip",
+        download: 'https://opendata.arcgis.com/datasets/c5ce51d9789a4e9a8510acb8c8f3ecf4_0.zip',
         "format": "zip",
-        "filename": "TreesCOP_009.shp",
-        "comment": "Automatic download doesn't work: needs Google sign in. https://search.data.gov.au/dataset/ds-wa-154bd398-f536-4a78-b747-c5275461e181/details?q=trees%20perth",
+        "filename": "PKS_AST_TREESMASTER_PV.shp",
         short: 'Perth',
         long: 'City of Perth',
     },
@@ -224,6 +225,94 @@ module.exports = [
         format: 'geojson',
         short: 'Sherwood Arboretum',
         long: 'Sherwood Arboretum (Brisbane)'
+    },
+    {
+        id: 'sydney',
+        // not open data. see https://www.righttoknow.org.au/request/tree_data
+        download: 'https://emscycletours.site44.com/opentrees-data/sydney-tree-data.csv',
+        format: 'csv',
+        filename: 'sydney.vrt',
+        short: 'Sydney',
+        long: 'City of Sydney'
+    },
+    {
+        id: 'pdx-street',
+        download: 'https://opendata.arcgis.com/datasets/eb67a0ad684d4bb6afda51dc065d1664_25.zip',
+        format: 'zip',
+        filename: 'Street_Trees.shp',
+        short: 'Portland, Oregon',
+        long: 'Portland, Oregon, USA',
+    },
+    {
+        id: 'pdx-park',
+        download: 'https://opendata.arcgis.com/datasets/83a7e3f6a1d94db09f24849ee90f4be2_220.zip?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D&session=undefined',
+        format: 'zip',
+        filename: 'Parks_Tree_Inventory.shp',
+        short: 'Portland, Oregon',
+        long: 'Portland, Oregon, USA',
+    },
+    {
+        id: 'nyc',
+        download: 'https://data.cityofnewyork.us/api/views/uvpi-gqnh/rows.csv?accessType=DOWNLOAD',
+        format: 'csv',
+        filename: 'nyc.vrt',
+        short: 'New York',
+        long: 'New York City',
+    },
+    {
+        id: 'washington-dc',
+        download: 'https://opendata.arcgis.com/datasets/f6c3c04113944f23a7993f2e603abaf2_23.zip',
+        format: 'zip',
+        filename: 'Urban_Forestry_Street_Trees.shp',
+        short: 'Washington DC',
+        long: 'Washington DC',
+    },
+    {
+        id: 'barcelona',
+        download: 'https://opendata-ajuntament.barcelona.cat/data/dataset/27b3f8a7-e536-4eea-b025-ce094817b2bd/resource/28034af4-b636-48e7-b3df-fa1c422e6287/download',
+        format: 'csv',
+        short: 'Barcelona',
+        long: 'City of Barcelona',
+        latitudeField: 'LATITUD_WGS84',
+        longitudeField: 'LONGITUD_WGS84'
+    },
+    {
+        id: 'london',
+        download: 'https://data.london.gov.uk/download/local-authority-maintained-trees/c52e733d-bf7e-44b8-9c97-827cb2bc53be/london_street_trees_gla_20180214.csv',
+        format: 'csv',
+        short: 'London',
+        long: 'Greater London Authority',
+    },
+    {
+        id: 'buffalo-ny',
+        download: 'https://data.buffalony.gov/api/views/n4ni-uuec/rows.csv?accessType=DOWNLOAD',
+        format: 'csv',
+        short: 'Buffalo, NY',
+        long: 'City of Buffalo, NY',
+        latitudeField: 'Latitude',
+        longitudeField: 'Longitude',
+    },
+    {
+        id: 'camden-uk',
+        download: 'https://opendata.camden.gov.uk/api/views/csqp-kdss/rows.csv?accessType=DOWNLOAD',
+        format: 'csv',
+        short: 'Camden',
+        long: 'Camden Council, UK'
+
+    },
+    {
+        id: 'san_francisco',
+        download: 'https://data.sfgov.org/api/geospatial/tkzw-k3nq?method=export&format=GeoJSON',
+        format:'geojson',
+        short: 'San Francisco',
+        long: 'City of San Francisco'
+
+    }, {
+        id: 'philadelphia',
+        download: 'http://data.phl.opendata.arcgis.com/datasets/957f032f9c874327a1ad800abd887d17_0.csv',
+        format: 'csv',
+        short: 'Philapdelphia',
+        long: 'City of Philadelphia'
     }
 
     // hobart:
