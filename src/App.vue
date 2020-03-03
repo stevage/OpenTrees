@@ -4,7 +4,7 @@
             h1.f1-ns.f5.ma2-ns.lancelot.dib.fl 
                 img.w2-ns.w1.dib.fl.ma2(src="cubetree-logo.png")
                 span.dark-green OpenTrees.org
-                span.dark-gray.ml4.f3 {{ stats.openTrees.toLocaleString()}} open data trees from {{ stats.sources }} sources in {{ stats.countries.length }} countries.
+                span.dark-gray.ml2.ml4-ns.f3-ns {{ stats.openTrees.toLocaleString()}} open data trees from {{ stats.sources }} sources in {{ stats.countries.length }} countries.
         #middle.flex.flex-auto
             #sidebar.br.b--gray.overflow-y-scroll.overflow-x-hidden
                 FeatureInfo
