@@ -6,7 +6,7 @@
 import mapboxgl from 'mapbox-gl';
 import U from 'mapbox-gl-utils';
 import { EventBus } from '../EventBus';
-import sources from '../sources-out.json';
+import sources from '../sources';
 console.log(sources);
 
 const flatten = pairs => pairs.reduce(((arr, [a, b]) => [...arr, a, b]), []);
@@ -27,7 +27,11 @@ export default {
             container: 'map',
             center: [144.96, -37.81],
             zoom: 1,
-            style: 'mapbox://styles/stevage/ck6sws4g704uu1iqtvn25gj6v',
+
+            style: !window.location.hash.match(/nomap/) ? 'mapbox://styles/stevage/ck6sws4g704uu1iqtvn25gj6v'
+                : { version: 8, sources: {}, layers: [], 
+                    glyphs: `${window.location.origin}/font-glyphs/{fontstack}/{range}.pbf`
+                },
             // style: 'mapbox://stevage/cjxeaxkqi0i2v1cqq1qrnws8c', // satellite
             hash: 'pos',
             bearingSnap: 360,
@@ -44,13 +48,17 @@ export default {
         this.map = map;
         map.U.loadImage('tree', 'cubetree-favicon.png');
         map.U.onLoad(() => {
+            console.log('this one', sources[0]);
             map.U.addGeoJSON('sources', {
                 type: 'FeatureCollection',
                 features: sources
-                .filter(source => source.bounds && !source.primary)
+                .filter(source => (source.centre || source.bounds) && !source.primary)
                 .map(source => ({
                     type: 'Feature',
-                    properties: source,
+                    properties: {
+                        ...source,
+                        topTree: (source.speciesCounts.length ? source.speciesCounts[0][0] : '')
+                    },
                     geometry: {
                         type: 'Point',
                         coordinates: source.centre || [(source.bounds[0] + source.bounds[2]) / 2, (source.bounds[1] + source.bounds[3]) / 2]
@@ -189,30 +197,33 @@ export default {
                 });
                 
             });
-            map.U.addSymbol('sources-labels', 'sources', {
-                textField: ['coalesce', ['get','short'], ['get','id']],
+            const sourceLabelProps = {
+                // textField: ['coalesce', ['get','short'], ['get','id']],
+                textField: ['coalesce', ['get','topTree'],''],
+                textMaxWidth: 5,
+                textLineHeight:1,
+
                 textHaloColor: 'hsla(100,30%,95%,0.9)',
                 textColor:'hsl(100,30%,10%)',
                 textHaloWidth: 2,
                 textFont: ['Lancelot Regular','Arial Unicode MS Regular'],
+                visibility: window.location.hash.match('noicons') ? 'none' : 'visible'
+            };
+
+            map.U.addSymbol('sources-labels', 'sources', {
+                ...sourceLabelProps,
                 textAllowOverlap: true,
                 maxzoom:10,  
                 minzoom: 8,
-                visibility: window.location.hash.match('noicons') ? 'none' : 'visible'
             });
 
             map.U.addSymbol('sources-labels-low', 'sources', {
-                textField: ['coalesce', ['get','short'], ['get','id']],
-                textHaloColor: 'hsla(100,30%,95%,0.9)',
-                textColor:'hsl(100,30%,10%)',
-                textHaloWidth: 2,
-                textFont: ['Lancelot Regular','Arial Unicode MS Regular'],
+                ...sourceLabelProps,
                 textVariableAnchor:['center','bottom','left','bottom-left','top-left','right','top-right','bottom-right',],
                 textRadialOffset: 1,
                 textAllowOverlap: false,
                 maxzoom:8,  
                 minzoom: 4,
-                visibility: window.location.hash.match('noicons') ? 'none' : 'visible'
             });
 
             this.switchMode('none');

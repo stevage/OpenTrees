@@ -14,13 +14,7 @@
       "scientific": "species",
       "common": "name",
       "location": "x => ({ 'STREET TREE': 'street', 'PARK TREE': 'park' }[x.tree_type] || '')"
-    },
-    "bounds": [
-      142.9000713,
-      -38.700145,
-      143.4882962,
-      -37.6811869
-    ]
+    }
   },
   {
     "id": "colac_otways",
@@ -40,13 +34,7 @@
       "maturity": "life_stage",
       "scientific": "x => `${x.genus_desc} ${x.spec_desc}`.trim()",
       "location": "x => x.location_t.split(' ')[1]"
-    },
-    "bounds": [
-      143.56408,
-      -38.780105,
-      143.790448,
-      -38.027444
-    ]
+    }
   },
   {
     "id": "ballarat",
@@ -75,13 +63,7 @@
       "ule_min": "ule_min",
       "ule_max": "ule_max",
       "genus": "() => undefined"
-    },
-    "bounds": [
-      143.640375,
-      -37.715408,
-      143.947377,
-      -37.3477605
-    ]
+    }
   },
   {
     "id": "manningham",
@@ -96,13 +78,7 @@
       "scientific": "species",
       "height": "height",
       "dbh": "dbh"
-    },
-    "bounds": [
-      145.0784535,
-      -37.8095233,
-      145.2904602,
-      -37.7208447
-    ]
+    }
   },
   {
     "id": "geelong",
@@ -131,13 +107,7 @@
       "ule_min": "ule_min",
       "ule_max": "ule_max",
       "scientific": "x => x.genus + ' ' + (x.species || '').toLowerCase()"
-    },
-    "bounds": [
-      144.2047354,
-      -38.2938362,
-      144.7188983,
-      -37.8197544
-    ]
+    }
   },
   {
     "id": "melbourne",
@@ -156,13 +126,7 @@
       "maturity": "Age Description",
       "ule_min": "Useful Life Expectency",
       "location": "Located In"
-    },
-    "bounds": [
-      144.9004448,
-      -37.8505317,
-      144.9910558,
-      -37.7755114
-    ]
+    }
   },
   {
     "id": "adelaide",
@@ -186,13 +150,7 @@
       "common": "Common Name (Inspection)",
       "dbh": "x => x['Circum (Inspection)'] + ' circumference'",
       "health": "x => 'Vigour (Inspection)'"
-    },
-    "bounds": [
-      50.7670382,
-      -85.5261156,
-      138.6177352,
-      -34.9021934
-    ]
+    }
   },
   {
     "id": "waite",
@@ -221,13 +179,7 @@
       "height": "TreeHeight",
       "scientific": "BotanicalN",
       "dbh": "Circumfere"
-    },
-    "bounds": [
-      138.6164334,
-      -34.9681325,
-      138.6973777,
-      -34.9127876
-    ]
+    }
   },
   {
     "id": "launceston",
@@ -246,13 +198,7 @@
       "height": "height_m",
       "crown": "horizontal",
       "captured": "auditdate"
-    },
-    "bounds": [
-      147.0229283,
-      -41.4971228,
-      147.5054215,
-      -41.1759411
-    ]
+    }
   },
   {
     "id": "hobsons_bay",
@@ -270,12 +216,6 @@
     "centre": [
       144.833,
       -37.85
-    ],
-    "bounds": [
-      144.612042,
-      -44.349585,
-      144.912963,
-      -37.814274
     ]
   },
   {
@@ -307,13 +247,7 @@
       "ule": "ule",
       "ule_min": "ule_min",
       "ule_max": "ule_max"
-    },
-    "bounds": [
-      141.552398,
-      -38.372273,
-      141.632322,
-      -38.291877
-    ]
+    }
   },
   {
     "id": "ryde",
@@ -330,13 +264,7 @@
     "country": "Australia",
     "crosswalk": {
       "height": "Height"
-    },
-    "bounds": [
-      151.065034,
-      -33.8415981,
-      151.158048,
-      -33.7612768
-    ]
+    }
   },
   {
     "id": "southern_grampians",
@@ -353,13 +281,7 @@
       "height": "height",
       "crown": "crown",
       "maturity": "maturity"
-    },
-    "bounds": [
-      141.682659,
-      -37.877904,
-      142.295264,
-      -37.596919
-    ]
+    }
   },
   {
     "id": "prospect1",
@@ -379,13 +301,7 @@
       "structure": "Tree Structure",
       "height": "Tree Height",
       "dbh": "x => x['Tree Circumference'] + ' circumference'"
-    },
-    "bounds": [
-      138.5840723,
-      -34.8970313,
-      138.6179861,
-      -34.8713809
-    ]
+    }
   },
   {
     "id": "prospect2",
@@ -401,13 +317,7 @@
     "crosswalk": {
       "common": "Species Name"
     },
-    "primary": "prospect1",
-    "bounds": [
-      -0.000841,
-      -34.899019,
-      138.619667,
-      0.000371
-    ]
+    "primary": "prospect1"
   },
   {
     "id": "perth",
@@ -424,13 +334,7 @@
       "height": "TREE_HEIGH",
       "plant": "DATE_PLANT",
       "ref": "TREE_ID"
-    },
-    "bounds": [
-      115.8108834,
-      -31.9900383,
-      115.8877841,
-      -31.9422428
-    ]
+    }
   },
   {
     "id": "brimbank",
@@ -448,13 +352,7 @@
       "maturity": "age",
       "height": "height",
       "crown": "spread"
-    },
-    "bounds": [
-      144.7533565,
-      -37.8204167,
-      144.8643531,
-      -37.6695297
-    ]
+    }
   },
   {
     "id": "bendigo",
@@ -473,12 +371,6 @@
     "centre": [
       144.298,
       -36.755
-    ],
-    "bounds": [
-      144.1285372,
-      -37.0154137,
-      144.7321866,
-      -36.4867586
     ]
   },
   {
@@ -509,13 +401,7 @@
       "ule": "ule",
       "ule_min": "ule_min",
       "ule_max": "ule_max"
-    },
-    "bounds": [
-      145.1253597,
-      -36.6272858,
-      145.6889959,
-      -36.2182449
-    ]
+    }
   },
   {
     "id": "wyndham",
@@ -537,13 +423,7 @@
       "health": "health",
       "ule": "useful_life_expectancy",
       "structure": "structure"
-    },
-    "bounds": [
-      144.496617,
-      -37.978275,
-      144.818193,
-      -37.816515
-    ]
+    }
   },
   {
     "id": "port_phillip",
@@ -572,13 +452,7 @@
       "ule": "ule",
       "ule_min": "ule_min",
       "ule_max": "ule_max"
-    },
-    "bounds": [
-      144.9134235,
-      -37.8916685,
-      145.0103299,
-      -37.8259275
-    ]
+    }
   },
   {
     "id": "boroondara",
@@ -625,13 +499,7 @@
       "ule_min": "ule_min",
       "ule_max": "ule_max",
       "species": "s => (s.species || '').replace(/^[A-Z]\\. /, '')"
-    },
-    "bounds": [
-      144.9605867,
-      -37.8339506,
-      145.037318,
-      -37.7752565
-    ]
+    }
   },
   {
     "id": "glen_eira",
@@ -647,13 +515,7 @@
       "height": "height",
       "crown": "spread",
       "location": "locationty"
-    },
-    "bounds": [
-      144.9969733,
-      -37.9384067,
-      145.0849115,
-      -37.8605068
-    ]
+    }
   },
   {
     "id": "wodonga",
@@ -671,12 +533,6 @@
     "centre": [
       146.86,
       -36.125
-    ],
-    "bounds": [
-      0,
-      -36.223328,
-      147.0359569,
-      0
     ]
   },
   {
@@ -685,13 +541,7 @@
     "format": "geojson",
     "short": "Hobart",
     "long": "City of Hobart",
-    "country": "Australia",
-    "bounds": [
-      147.2418544,
-      -42.9375349,
-      147.3612128,
-      -42.8461359
-    ]
+    "country": "Australia"
   },
   {
     "id": "sherwood_arboretum",
@@ -708,13 +558,7 @@
       "crown": "Crown_width",
       "id": "ObjectId",
       "dbh": "x => x.DBH / 10 || undefined"
-    },
-    "bounds": [
-      152.9714694,
-      -27.5332332,
-      152.9776716,
-      -27.5290642
-    ]
+    }
   },
   {
     "id": "sydney",
@@ -730,38 +574,26 @@
     "country": "Australia",
     "crosswalk": {
       "scientific": "species"
-    },
-    "bounds": [
-      62.7670382,
-      -85.5261156,
-      159.8415426,
-      -33.7367834
-    ]
+    }
   },
   {
     "id": "madison",
     "download": "https://opendata.arcgis.com/datasets/b700541a20e446839b18d62426c266a3_0.zip",
     "format": "zip",
-    "short": "Madison, WI",
+    "short": "Madison",
     "country": "USA",
     "filename": "Street_Trees.shp",
     "crosswalk": {
       "common": "SPECIES",
       "dbh": "x => Number(x.DIAMETER) * INCHES"
-    },
-    "bounds": [
-      -89.5622084,
-      43.0012546,
-      -89.2526961,
-      43.1686525
-    ]
+    }
   },
   {
     "id": "pdx-street",
     "download": "https://opendata.arcgis.com/datasets/eb67a0ad684d4bb6afda51dc065d1664_25.zip",
     "format": "zip",
     "filename": "Street_Trees.shp",
-    "short": "Portland, Oregon",
+    "short": "Portland",
     "long": "Portland, Oregon",
     "country": "USA",
     "crosswalk": {
@@ -772,13 +604,7 @@
       "health": "Condition",
       "note": "Notes",
       "dbh": "x => Math.round(x.DBH * 2.54 * 10) / 10"
-    },
-    "bounds": [
-      -122.8330591,
-      45.4334979,
-      -122.4730015,
-      45.6391985
-    ]
+    }
   },
   {
     "id": "pdx-park",
@@ -799,13 +625,7 @@
       "dbh": "x => Math.round(x.DBH * 2.54 * 10) / 10",
       "height": "x => Math.round(x.HEIGHT / 3.280084 * 10) / 10"
     },
-    "primary": "pdx-street",
-    "bounds": [
-      -122.7768247,
-      45.4468721,
-      -122.4853347,
-      45.6503033
-    ]
+    "primary": "pdx-street"
   },
   {
     "id": "nyc",
@@ -821,13 +641,7 @@
       "common": "spc_common",
       "health": "health",
       "dbh": "x => x.tree_dbh * 2.54"
-    },
-    "bounds": [
-      -74.2549647,
-      40.4984661,
-      -73.7004882,
-      40.9129183
-    ]
+    }
   },
   {
     "id": "washington-dc",
@@ -849,19 +663,13 @@
       "note": "TREE_NOTES",
       "health": "CONDITION",
       "dbh": "x => x.DBH * 2.54"
-    },
-    "bounds": [
-      -81.5202497,
-      37.5832789,
-      -76.9092347,
-      38.9959293
-    ]
+    }
   },
   {
     "id": "buffalo-ny",
     "download": "https://data.buffalony.gov/api/views/n4ni-uuec/rows.csv?accessType=DOWNLOAD",
     "format": "csv",
-    "short": "Buffalo, NY",
+    "short": "Buffalo",
     "long": "City of Buffalo, NY",
     "country": "USA",
     "crosswalk": {
@@ -869,13 +677,7 @@
       "common": "Common Name",
       "id": "Site ID",
       "dbh": "x => Number(x.DBH) * 2.54"
-    },
-    "bounds": [
-      -78.9119068,
-      42.8261159,
-      -78.7965543,
-      42.9655515
-    ]
+    }
   },
   {
     "id": "san_francisco",
@@ -895,12 +697,6 @@
     "centre": [
       -122.435,
       37.77
-    ],
-    "bounds": [
-      -138.2838607,
-      37.509004,
-      -122.366622,
-      47.2702188
     ]
   },
   {
@@ -910,13 +706,7 @@
     "short": "Philadelphia",
     "long": "City of Philadelphia",
     "country": "USA",
-    "crosswalk": {},
-    "bounds": [
-      -75.2974933,
-      39.8769773,
-      -74.9587776,
-      40.1374509
-    ]
+    "crosswalk": {}
   },
   {
     "id": "denver",
@@ -934,12 +724,6 @@
     "centre": [
       -104.9454,
       39.7273
-    ],
-    "bounds": [
-      -105.6061572,
-      39.4722505,
-      0,
-      39.9140172
     ]
   },
   {
@@ -948,7 +732,7 @@
     "download": "https://opendata.arcgis.com/datasets/dbbae8bdb0a44d17934243b88e85ef2b_0.zip",
     "info": "https://data-boulder.opendata.arcgis.com/datasets/dbbae8bdb0a44d17934243b88e85ef2b_0",
     "format": "zip",
-    "short": "Boulder, CO",
+    "short": "Boulder",
     "long": "City of Boulder, Colorado",
     "filename": "Tree_Inventory.shp",
     "crosswalk": {
@@ -957,13 +741,7 @@
       "variety": "CULTIVAR",
       "location": "LOCTYPE",
       "dbh": "x => 'DBHINT' * 2.54"
-    },
-    "bounds": [
-      -105.3009972,
-      39.9646221,
-      -105.1787327,
-      40.0889026
-    ]
+    }
   },
   {
     "id": "cambridge",
@@ -980,13 +758,7 @@
       "planted": "PlantDate",
       "health": "x => String(x.TreeCondit).replace(/ \\(.*/, '')"
     },
-    "short": "Cambridge, MA",
-    "bounds": [
-      -71.159506,
-      42.3535082,
-      -71.0689625,
-      42.4035111
-    ]
+    "short": "Cambridge"
   },
   {
     "id": "berkeley",
@@ -1002,13 +774,7 @@
       "height": "x => Number(x.HEIGHT_FT) / FEET",
       "dbh": "x => Number(x.DBH_IN) * INCHES"
     },
-    "short": "Berkeley",
-    "bounds": [
-      -122.3214883,
-      37.8459911,
-      -122.2345414,
-      37.9045336
-    ]
+    "short": "Berkeley"
   },
   {
     "id": "pittsburgh",
@@ -1020,19 +786,14 @@
       -80,
       40.436
     ],
+    "short": "Pittsburgh",
     "crosswalk": {
       "common": "common_name",
       "ref": "id",
       "scientific": "scientific_name",
       "height": "height",
       "health": "condition"
-    },
-    "bounds": [
-      -80.0869499,
-      0,
-      0,
-      40.4989518
-    ]
+    }
   },
   {
     "id": "colombus",
@@ -1041,6 +802,7 @@
     "info": "http://opendata.columbus.gov/datasets/public-owned-trees",
     "format": "zip",
     "filename": "Public_Owned_Trees.shp",
+    "short": "Colombus",
     "crosswalk": {
       "ref": "OBJECTID",
       "updated": "INSPECTION",
@@ -1049,13 +811,7 @@
       "common": "SP_CODE",
       "description": "STR_NAME",
       "dbh": "x => Number('DIAM_BREAS') * INCHES"
-    },
-    "bounds": [
-      -83.1830354,
-      39.8144638,
-      -82.7627858,
-      40.2157825
-    ]
+    }
   },
   {
     "id": "barcelona",
@@ -1072,13 +828,7 @@
       "planted": "DATA_PLANTACIO",
       "ref": "CODI",
       "crown": "x => ({ PETITA: 'small', MITJANA: 'average', GRAN: 'large' }[x.ALCADA] || x.ALCADA)"
-    },
-    "bounds": [
-      2.0888374,
-      41.3447969,
-      2.2212758,
-      41.466312
-    ]
+    }
   },
   {
     "id": "london",
@@ -1096,13 +846,7 @@
       "scientific": "species_name",
       "common": "common_name",
       "description": "display_name"
-    },
-    "bounds": [
-      -105.3324482,
-      0,
-      42.9257152,
-      20180214
-    ]
+    }
   },
   {
     "id": "birmingham",
@@ -1115,13 +859,7 @@
       "maturity": "age",
       "height": "height",
       "location": "site_name"
-    },
-    "bounds": [
-      -2.0319,
-      52.384316,
-      -1.751907,
-      53.530412
-    ]
+    }
   },
   {
     "id": "bristol",
@@ -1136,13 +874,7 @@
       "scientific": "latin_name",
       "crown": "x => x['crown_width']"
     },
-    "short": "Bristol",
-    "bounds": [
-      -2.7026684,
-      51.4013482,
-      -2.1296535,
-      51.7687848
-    ]
+    "short": "Bristol"
   },
   {
     "id": "paris",
@@ -1158,13 +890,7 @@
       "variety": "varieteoucultivar",
       "maturity": "stadedeveloppement",
       "dbh": "x => Number(x['circonferenceencm']) / 3.14159 * 2"
-    },
-    "bounds": [
-      2.2102412,
-      48.7422903,
-      2.4697595,
-      48.9114848
-    ]
+    }
   },
   {
     "id": "lyon",
@@ -1182,13 +908,7 @@
       "common": "essencefra"
     },
     "short": "Lyon",
-    "country": "France",
-    "bounds": [
-      4.6971297,
-      45.5677257,
-      5.0597516,
-      45.9383383
-    ]
+    "country": "France"
   },
   {
     "id": "bordeaux",
@@ -1207,13 +927,7 @@
       "planted": "tranche_age"
     },
     "short": "Bordeaux",
-    "country": "France",
-    "bounds": [
-      -1.1941728,
-      44.6432245,
-      -0.5374091,
-      44.9073986
-    ]
+    "country": "France"
   },
   {
     "id": "nice",
@@ -1224,13 +938,7 @@
       "ref": "idENT"
     },
     "short": "Nice",
-    "country": "France",
-    "bounds": [
-      7.1840691,
-      43.6651675,
-      7.3085976,
-      43.8472489
-    ]
+    "country": "France"
   },
   {
     "id": "grenoble",
@@ -1247,13 +955,7 @@
       "planted": "ANNEDEPLANTATION"
     },
     "short": "Grenoble",
-    "country": "France",
-    "bounds": [
-      5.697915,
-      45.1515723,
-      5.7987039,
-      45.2248253
-    ]
+    "country": "France"
   },
   {
     "id": "montpellier",
@@ -1271,13 +973,7 @@
       "crown": "couronnem",
       "height": "hauteurm"
     },
-    "short": "Montpellier",
-    "bounds": [
-      3.8087133,
-      43.5716477,
-      3.9372838,
-      43.650211
-    ]
+    "short": "Montpellier"
   },
   {
     "id": "grand_paris_seine_ouest",
@@ -1292,13 +988,7 @@
       "height": "hauteur",
       "planted": "an_plant",
       "ref": "id_plant"
-    },
-    "bounds": [
-      2.1741783,
-      48.7954961,
-      2.3002071,
-      48.8527048
-    ]
+    }
   },
   {
     "id": "agen",
@@ -1311,13 +1001,7 @@
       "common": "espece_arb",
       "scientific": "nom_latin"
     },
-    "short": "Agen",
-    "bounds": [
-      0.5238616,
-      44.1159691,
-      0.6567164,
-      44.2186183
-    ]
+    "short": "Agen"
   },
   {
     "id": "saint_quentinois",
@@ -1336,13 +1020,7 @@
       "dbh": "tronc_diam",
       "height": "haut_tot",
       "ref": "id_arbre"
-    },
-    "bounds": [
-      3.2372823,
-      49.8121376,
-      3.3265999,
-      49.8879827
-    ]
+    }
   },
   {
     "id": "metz",
@@ -1356,13 +1034,7 @@
       "dbh": "diametre",
       "scientific": "nom_espece",
       "note": "observatio"
-    },
-    "bounds": [
-      6.1417264,
-      49.0685099,
-      6.2514101,
-      49.144763
-    ]
+    }
   },
   {
     "id": "seine_saint_denis",
@@ -1377,13 +1049,7 @@
       "scientific": "essence",
       "maturity": "stade_dvlp",
       "dbh": "x  => `Circumference: ${x.circonfere}`"
-    },
-    "bounds": [
-      2.288679,
-      48.82909,
-      2.59772,
-      48.98414
-    ]
+    }
   },
   {
     "id": "versailles",
@@ -1395,13 +1061,7 @@
     "crosswalk": {
       "scientiifc": "ESPECE",
       "common": "FRANCAIS"
-    },
-    "bounds": [
-      2.0916908,
-      48.7841331,
-      2.1603032,
-      48.8256705
-    ]
+    }
   },
   {
     "id": "nevers",
@@ -1414,13 +1074,7 @@
     "long": "Ville de Nevers",
     "crosswalk": {
       "scientific": "espece"
-    },
-    "bounds": [
-      3.1230194,
-      46.9745203,
-      3.2002178,
-      47.0069782
-    ]
+    }
   },
   {
     "id": "toulouse",
@@ -1453,13 +1107,7 @@
       "planted": "date_plant",
       "genus": "x => String(x.genre).replace(/ \\?/, '')",
       "species": "x => String(x.species).replace(/ \\?/, '')"
-    },
-    "bounds": [
-      1.8637302,
-      47.8132149,
-      1.9465398,
-      47.9413704
-    ]
+    }
   },
   {
     "id": "saint_egreve",
@@ -1474,13 +1122,7 @@
       "species": "espece",
       "planted": "anne_plan",
       "common": "essence"
-    },
-    "bounds": [
-      5.6607711,
-      45.2157959,
-      5.6943028,
-      45.2465032
-    ]
+    }
   },
   {
     "id": "bayonne",
@@ -1500,13 +1142,7 @@
       "scientific": "gev",
       "circumference": "circonf",
       "age": "agechrono"
-    },
-    "bounds": [
-      -1.5023321,
-      43.4601138,
-      -1.4295551,
-      43.5135102
-    ]
+    }
   },
   {
     "id": "issy",
@@ -1524,13 +1160,7 @@
       "maturity": "classe_age",
       "health": "statut_emp",
       "updated": "date_maj"
-    },
-    "bounds": [
-      2.2444893,
-      48.8142881,
-      2.2836075,
-      48.8342491
-    ]
+    }
   },
   {
     "id": "rennes1",
@@ -1546,13 +1176,7 @@
       "planted": "date_plant",
       "variety": "variete",
       "circumference": "circonfere"
-    },
-    "bounds": [
-      -1.7470184,
-      48.0769329,
-      -1.6292064,
-      48.1497162
-    ]
+    }
   },
   {
     "id": "rennes2",
@@ -1572,13 +1196,7 @@
       "variety": "variete",
       "circumference": "circonfere",
       "height": "hauteur"
-    },
-    "bounds": [
-      -1.7466466,
-      48.0772007,
-      -1.6255448,
-      48.1413268
-    ]
+    }
   },
   {
     "id": "mulhouse",
@@ -1593,13 +1211,7 @@
       "planted": "date_plant",
       "common": "com_nom",
       "ref": "obj_ident"
-    },
-    "bounds": [
-      7.2852135,
-      47.7220879,
-      7.3874568,
-      47.8236235
-    ]
+    }
   },
   {
     "id": "montreal",
@@ -1619,12 +1231,6 @@
     "centre": [
       -73.56,
       45.56
-    ],
-    "bounds": [
-      -77.018082,
-      0.04566,
-      -26.742133,
-      72.351564
     ]
   },
   {
@@ -1640,13 +1246,7 @@
       "location": "NOM_TOPOGRAPHIE"
     },
     "short": "Quebec City",
-    "country": "Canada",
-    "bounds": [
-      -71.5365777,
-      46.7236562,
-      -71.1488832,
-      46.9580237
-    ]
+    "country": "Canada"
   },
   {
     "id": "longueuil",
@@ -1661,13 +1261,7 @@
       "dbh": "DiamTronc",
       "scientific": "x => String(x.Espece).split(' - ')[0]",
       "common": "x => String(x.Espece).split(' - ')[1]"
-    },
-    "bounds": [
-      -73.5259222,
-      45.4451095,
-      -73.3476641,
-      45.5820398
-    ]
+    }
   },
   {
     "id": "calgary",
@@ -1684,13 +1278,7 @@
       "dbh": "DBH_CM",
       "ref": "WAM_ID",
       "health": "x => {\n                if (x.TREE_CONDITION_RATING_PERC >= 70)\n                    return 'Good';\n                else if (x.TREE_CONDITION_RATING_PERC >= 50)\n                    return 'Fair';\n                else\n                    return 'Poor';\n                // I have no idea\n            }"
-    },
-    "bounds": [
-      -114.2698861,
-      50.8551473,
-      -113.9024926,
-      51.1907328
-    ]
+    }
   },
   {
     "id": "edmonton",
@@ -1707,13 +1295,7 @@
       "planted": "PLANTED_DATE",
       "location": "LOCATION_TYPE",
       "ref": "id"
-    },
-    "bounds": [
-      -113.713067,
-      53.3959973,
-      -113.2958185,
-      53.7116595
-    ]
+    }
   },
   {
     "id": "ottawa",
@@ -1725,13 +1307,7 @@
       "ref": "SAP_ID"
     },
     "short": "Ottawa",
-    "country": "Canada",
-    "bounds": [
-      -76.3403103,
-      44.9671914,
-      -75.2598895,
-      45.5224763
-    ]
+    "country": "Canada"
   },
   {
     "id": "moncton",
@@ -1745,13 +1321,7 @@
       "height": "HT",
       "updated": "edited_date"
     },
-    "short": "Moncton",
-    "bounds": [
-      2623633.1245,
-      7451921.3139,
-      2637865.9302,
-      7463827.561
-    ]
+    "short": "Moncton"
   },
   {
     "id": "waterloo",
@@ -1766,13 +1336,7 @@
       "location": "TREE_TYPE",
       "dbh": "DBH_CM",
       "ref": "OBJECTID"
-    },
-    "bounds": [
-      -80.6217256,
-      43.4378577,
-      -80.4763933,
-      43.5304372
-    ]
+    }
   },
   {
     "id": "winnipeg",
@@ -1786,13 +1350,7 @@
       "scientific": "botanical",
       "common": "common",
       "dbh": "dbh"
-    },
-    "bounds": [
-      -97.3386721,
-      49.715141,
-      -96.9605433,
-      49.9766644
-    ]
+    }
   },
   {
     "id": "vancouver",
@@ -1809,13 +1367,7 @@
       "height": "height_range_id",
       "dbh": "NaN",
       "planted": "date_planted"
-    },
-    "bounds": [
-      -123.22387,
-      49.200732,
-      -123.017052,
-      49.294033
-    ]
+    }
   },
   {
     "id": "surrey",
@@ -1830,13 +1382,7 @@
       "species": "TREE_SPECIES",
       "variety": "TREE_VARIETY",
       "ule": "YRS_LIFE_EXPECTANCY"
-    },
-    "bounds": [
-      -122.911058,
-      49.002182,
-      -122.67967,
-      49.212629
-    ]
+    }
   },
   {
     "id": "toronto",
@@ -1851,13 +1397,7 @@
       "dbh": "DBH_TRUNK",
       "common": "COMMON_NAM",
       "scientific": "BOTANICAL_"
-    },
-    "bounds": [
-      -79.6378504,
-      43.5864319,
-      -79.121604,
-      43.8462515
-    ]
+    }
   },
   {
     "id": "lisbon",
@@ -1870,13 +1410,7 @@
       "scientific": "ESPECIE_VA",
       "location": "LOCAL"
     },
-    "short": "Lisbon",
-    "bounds": [
-      -9.2267949,
-      38.6918611,
-      -9.0910328,
-      38.7964718
-    ]
+    "short": "Lisbon"
   },
   {
     "id": "vienna",
@@ -1891,13 +1425,7 @@
       "scientific": "GATTUNG_ART",
       "crown": "KRONENDURCHMESSER",
       "dbh": "x => x.STAMMUNGFANG / 3.14159 * 2"
-    },
-    "bounds": [
-      16.1912779,
-      48.1228491,
-      16.5474871,
-      48.3197964
-    ]
+    }
   },
   {
     "id": "belfast",
@@ -1915,13 +1443,7 @@
       "dbh": "DIAMETERinCENTIMETRES",
       "spread": "SPREADRADIUSinMETRES",
       "height": "TREEHEIGHTinMETRES"
-    },
-    "bounds": [
-      -5.997425,
-      54.535148,
-      -5.817332,
-      54.663002
-    ]
+    }
   },
   {
     "id": "copenhagen",
@@ -1935,18 +1457,12 @@
       "planted": "planteaar",
       "health": "sundhed"
     },
-    "short": "Copenhagen",
-    "bounds": [
-      12.453131,
-      55.61704,
-      12.6486841,
-      55.7299657
-    ]
+    "short": "Copenhagen"
   },
   {
     "id": "buenos_aires",
     "country": "Argentina",
-    "short": "Buenos AIres",
+    "short": "Buenos Aires",
     "download": "http://cdn.buenosaires.gob.ar/datosabiertos/datasets/arbolado-en-espacios-verdes/arbolado-en-espacios-verdes.csv",
     "info": "https://data.buenosaires.gob.ar/dataset/arbolado-espacios-verdes",
     "format": "csv",
@@ -1956,15 +1472,8 @@
       "dbh": "diametre",
       "common": "nombre_com",
       "scientific": "nombre_cie",
-      "family": "nombre_fam",
-      "genus": "nombre_gen"
-    },
-    "bounds": [
-      -58.5297433,
-      -34.6977163,
-      -58.3537458,
-      -34.527167
-    ]
+      "family": "nombre_fam"
+    }
   },
   {
     "id": "buenos_aires2",
@@ -1979,12 +1488,6 @@
       "dbh": "diametro_altura_pecho",
       "height": "altura_arbol"
     },
-    "primary": "buenos_aires",
-    "bounds": [
-      -58.5304578,
-      -34.6973334,
-      -58.3540027,
-      -34.5359723
-    ]
+    "primary": "buenos_aires"
   }
 ]

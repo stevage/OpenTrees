@@ -129,7 +129,7 @@ div
 <script>
 import Wikipedia from './Wikipedia';
 // import sources from '../sources';
-import sources from '../sources-out.json';
+import sources from '../sources';
 import { EventBus } from '../EventBus';
 export default {
     name: "FeatureInfo",

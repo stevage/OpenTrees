@@ -11,8 +11,15 @@
 
             p
                 a(:href="p.download" target="_blank") Download the raw data.
+            div(v-if="p.speciesCounts && p.speciesCounts.length > 0")
+                h3 Top species
+                table
+                    tr(v-for="([species, count]) of p.speciesCounts || []")
+                        th.tl {{ species }}
+                        td {{ count.toLocaleString() }}
+                        td.light-green {{ Math.round(100 * count / p.keepCount) }}%
             h3 Fields included:
-            table
+            table.fields
                 tr
                     td.f4.pv2.pr4.tc.bg-light-green(colspan="2") Taxonomy
                 tr
@@ -82,7 +89,7 @@
 </template>
 
 <script>
-import sources from '../sources-out.json';
+import sources from '../sources';
 import { EventBus } from '../EventBus';
 export default {
     name: "SourceInfo",
@@ -115,7 +122,7 @@ export default {
 .panel {
     width:300px;
 }
-th {
+.fields th {
     text-align: right;
 }
 
