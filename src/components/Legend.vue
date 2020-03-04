@@ -26,7 +26,8 @@ export default {
                 local: 12,
                 trunk: 13,
                 label: 16,
-                health:10
+                health:10,
+                edible: 10
             }
 
             if (this.zoom <= (minZooms[this.mode] || 1)) {

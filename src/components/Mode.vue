@@ -23,11 +23,12 @@ export default {
                 ['species', 'Botanical group'],
                 ['family', 'Family'],
                 ['rarity', 'Rarity'],
-                ['harm', 'Harm'],
                 ['local', 'Species in view'],
                 ['trunk', 'Trunk size'],
                 ['health', 'Health'],
-                ['label', 'Label']
+                ['edible','Edible'],
+                ['label', 'Label'],
+                ['harm', 'Harm'],
 
         ]
     }),

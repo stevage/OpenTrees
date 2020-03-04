@@ -26,7 +26,7 @@ export default {
         const map = new mapboxgl.Map({
             container: 'map',
             center: [144.96, -37.81],
-            zoom: 14,
+            zoom: 1,
             style: 'mapbox://styles/stevage/ck6sws4g704uu1iqtvn25gj6v',
             // style: 'mapbox://stevage/cjxeaxkqi0i2v1cqq1qrnws8c', // satellite
             hash: 'pos',
@@ -47,7 +47,7 @@ export default {
             map.U.addGeoJSON('sources', {
                 type: 'FeatureCollection',
                 features: sources
-                .filter(source => source.bounds)
+                .filter(source => source.bounds && !source.primary)
                 .map(source => ({
                     type: 'Feature',
                     properties: source,
@@ -71,7 +71,9 @@ export default {
             });
             map.U.addCircle('trees-similar', 'trees', {
                 sourceLayer: 'trees',
-                circleColor: 'hsla(100,90%,60%,0.4)',
+                circleColor:'transparent',
+                circleStrokeWidth:1,
+                circleStrokeColor: 'hsla(100,50%,60%,0.8)',
                 circleRadius: { stops: [[12, 6], [17, 10]] },
                 filter:false
             });
@@ -107,7 +109,13 @@ export default {
             map.U.addCircle('trees-vis-health', 'trees', {
                 sourceLayer: 'trees',
                 circleRadius: { stops: [[10, 1], [12, 2], [17, 6], [20, 18]] },
-                circleColor: ['match', ['get', 'health'], ...stops('health'), 'hsla(260,80%,50%,0.7)'],
+                circleColor: ['match', ['coalesce', ['get', 'health'], ''], ...stops('health'), 'hsla(260,80%,50%,0.7)'],
+                // circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
+            });
+            map.U.addCircle('trees-vis-edible', 'trees', {
+                sourceLayer: 'trees',
+                circleRadius: { stops: [[10, 1], [12, 2], [17, 6], [20, 18]] },
+                circleColor: ['case', ...stops('edible'), 'transparent',/*'hsla(100,80%,20%,0.02)'*/],
                 // circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
             map.U.addCircle('trees-vis-harm', 'trees', {
@@ -147,21 +155,22 @@ export default {
                 textMaxWidth: 3,
                 textSize: ['interpolate',['exponential', 1.5], ['zoom'],15, 8,19,10],
                 textJustify: 'auto',
-                textRadialOffset:0.25,
+                textRadialOffset:0.2,
                 textColor:'hsl(110,50%,15%)',
                 textVariableAnchor:['left','right','bottom-left','top-left','top-right','bottom-right','bottom','top']
             });
 
             map.U.addSymbol('sources-icons', 'sources', {
                 iconImage: 'tree',
-                iconSize:0.3,
+                iconSize:['interpolate',['linear'],['zoom'], 1,0.1, 5, 0.3],
                 iconAllowOverlap: true,
                 // circleColor:'hsl(100,30%,30%)',
                 // circleRadius:['interpolate', ['linear'], ['zoom'], 3, 5, 5, 10],
                 // circleStrokeWidth:3,
                 // circleStrokeColor:'hsl(100,30%,50%)',
                 // circleOpacity: ['interpolate',['linear'],['zoom'],5,1,7,0],
-                maxzoom: 8
+                maxzoom: 10,
+                visibility: window.location.hash.match('noicons') ? 'none' : 'visible'
             });
             // map.U.addCircle('sources-circles', 'sources', {e
             //     circleColor:'hsl(100,30%,30%)',
@@ -172,6 +181,7 @@ export default {
             //     maxzoom: 8
             // });
             map.U.clickLayer('sources-icons', ({ features }) => {
+                EventBus.$emit('source-select', features[0].properties.id);
                 console.log(features[0].geometry)
                 map.flyTo({
                     center: features[0].geometry.coordinates,
@@ -182,12 +192,27 @@ export default {
             map.U.addSymbol('sources-labels', 'sources', {
                 textField: ['coalesce', ['get','short'], ['get','id']],
                 textHaloColor: 'hsla(100,30%,95%,0.9)',
-                textColor:'hsl(100,30%,20%)',
+                textColor:'hsl(100,30%,10%)',
                 textHaloWidth: 2,
                 textFont: ['Lancelot Regular','Arial Unicode MS Regular'],
                 textAllowOverlap: true,
-                maxzoom:9,  
-                minzoom: 5
+                maxzoom:10,  
+                minzoom: 8,
+                visibility: window.location.hash.match('noicons') ? 'none' : 'visible'
+            });
+
+            map.U.addSymbol('sources-labels-low', 'sources', {
+                textField: ['coalesce', ['get','short'], ['get','id']],
+                textHaloColor: 'hsla(100,30%,95%,0.9)',
+                textColor:'hsl(100,30%,10%)',
+                textHaloWidth: 2,
+                textFont: ['Lancelot Regular','Arial Unicode MS Regular'],
+                textVariableAnchor:['center','bottom','left','bottom-left','top-left','right','top-right','bottom-right',],
+                textRadialOffset: 1,
+                textAllowOverlap: false,
+                maxzoom:8,  
+                minzoom: 4,
+                visibility: window.location.hash.match('noicons') ? 'none' : 'visible'
             });
 
             this.switchMode('none');
@@ -206,7 +231,7 @@ export default {
             //     map.setFeatureState({ source: 'trees', sourceLayer: 'trees', id: selectedId }, { selected: false });
             // }
             const f = e.features[0];
-            window.app.FeatureInfo.feature = f;
+            EventBus.$emit('tree-select', f);
             map.U.setData('selected-tree', f);
             map.U.setFilter('trees-similar', f.properties.scientific ? ['==', ['get', 'scientific'], f.properties.scientific] : false);
             // selectedId = e.features[0].id;
@@ -317,7 +342,7 @@ const visGroups = {
         ['Oaks & maples', 'hsl(345, 60%,30%)', ['in', ['get', 'genus'], ['literal', ['Quercus', 'Acer']]]], 
         ['Palms', 'hsl(40, 100%,70%)', ['in', ['get', 'genus'], ['literal', ['Phoenix', 'Washingtonia', 'Jubaea', 'Chamaerops','Syagrus','Livistona','Trachycarpus']]]], 
         ['Conifers', 'hsl(60,90%,45%)', ['in', ['get', 'genus'], ['literal', ['Pinus', 'Araucaria', 'Cupressus', 'Cupressocyparis', 'Podocarpus', 'Platycladus', 'Thuja', 'Hesperocyparis', 
-                'Callitris', 'Cedrus', 'Picea' /* spruce */, 'Abies','Cunninghamia','Chamaecyparis','Sequoiadendron', 'Sequoia','Thujopsis']]]], 
+                'Callitris', 'Cedrus', 'Picea' /* spruce */, 'Abies','Cunninghamia','Chamaecyparis','Sequoiadendron', 'Sequoia','Thujopsis','Taxus', 'Lepidopthamnus',]]]], 
         ['Pears, plums and other fruits', 'hsl(250,60%,60%)', ['in', ['get', 'genus'], ['literal', ['Pyrus', 'Prunus', 'Malus', 'Citrus', 'Mangifera']]]], 
         ['Figs, olives', 'hsl(0,0%,40%)', ['in', ['get', 'genus'], ['literal', ['Ficus', 'Olea']]]], 
         ['Ashes', 'hsl(0,0%,20%)', ['in', ['get', 'genus'], ['literal', ['Fraxinus']]]], 
@@ -366,11 +391,13 @@ const visGroups = {
     ],
     health: [
 
-        ['Good', 'hsla(120, 80%,50%, 0.8)', ['Good', 'Excellent', 'good', 'excellent']],
-        ['Fair', 'hsla(50, 100%, 50%, 0.9)', ['Fair','fair']],
-        ['Poor', 'hsla(20, 100%, 40%, 1)', ['Poor','poor', 'Dying','dying']],
-        ['Dead', 'hsla(330, 30%,20%, 0.8)', ['Dead','dead','Stump','stump']],
-        ['Unknown', 'hsla(260,80%,50%,0.7)', ['Unknown']],
+        ['Good', 'hsla(130, 80%,50%, 0.8)', ['Good', 'Excellent', 'good', 'excellent', 'Very Good', 'High vigour', '80','90','100', 'VIVANT']],
+        ['Fair', 'hsla(70, 100%, 50%, 0.9)', ['Fair','fair', 'Medium vigour','60','70',]],
+        ['Poor', 'hsla(30, 80%, 50%, 1)', ['Poor','poor', 'Low vigour', 'Dead wood', '40', '50',]],
+        ['Very poor', 'hsla(0, 100%, 30%, 1)', ['Very Poor', 'Dying','dying', 'Dying tree',  '20', '30',  'Critical']],
+        ['Dead', 'hsla(330, 30%,10%, 0.9)', ['Dead','dead','Stump','stump', '0', '10', 'SOUCHE' /* stump*/]],
+        ['N/A', 'hsla(0,0%,50%,0.5)', ['','N/A']],
+        ['Other', 'hsla(260,80%,50%,0.7)', ['Other']],
     ],
     harm: [
 
@@ -386,6 +413,21 @@ const visGroups = {
             ['in', ['get', 'species'], ['literal', 'pseudoacacia']]],
             ['in', ['get', 'genus'], ['literal', ['Quercus']]]
         ],
+    ],
+    edible: [
+        ['Apple/crabapple', 'hsl(0,80%,30%)', ['==', ['get', 'genus'], 'Malus']],
+        ['Cherry plum', 'hsl(280,80%,30%)', ['all', ['==', ['get', 'genus'], 'Prunus'], ['==', ['get', 'species'], 'cerasifera']]],
+        ['Peach', 'hsl(30,100%,60%)', ['all', ['==', ['get', 'genus'], 'Prunus'], ['==', ['get', 'species'], 'persica']]],
+        ['Cherry', 'hsl(330,80%,30%)', ['all', ['==', ['get', 'genus'], 'Prunus'], ['==', ['get', 'species'], 'avium']]], // cerasus...
+        // ['Stone fruit', 'blue', ['==', ['get', 'genus'], 'Prunus']],
+        ['Citrus', 'yellow', ['==',['get', 'genus'], 'Citrus']],
+        ['Mango','hsl(50,80%,40%)', ['==',['get','genus'], 'Mangifera']],
+        ['Fig', 'hsl(100,90%,40%)', ['all', ['==', ['get', 'genus'], 'Ficus'], ['==', ['get', 'species'], 'carica']]], // maybe others too
+        ['Quandong', 'hsl(340,95%,46%)', ['all', ['==', ['get', 'genus'], 'Santalum'], ['==', ['get', 'species'], 'acuminatum']]], 
+        ['Loquat', 'hsl(150,95%,46%)', ['all', ['==', ['get', 'genus'], 'Eriobotrya'], ['==', ['get', 'species'], 'japonica']]], 
+
+        
+
     ],
     trunk: [],
     label: [],

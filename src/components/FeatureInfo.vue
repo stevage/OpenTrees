@@ -41,8 +41,14 @@ div
                     span.detail cm.
             tr(v-if="p.height")
                 th Height
-                td {{ p.height }} 
+                td {{ Number.isFinite(Number(p.height)) ? Math.round(Number(p.height)) : p.height }} 
                     span.detail m.
+            tr(v-if="p.health")
+                th Health
+                td {{ p.health }}
+            tr(v-if="p.structure")
+                th Structure
+                td {{ p.structure }}
             tr(v-if="p.planted")
                 th Planted
                 td {{ p.planted }}
@@ -66,7 +72,7 @@ div
                         th.f6.dark-green {{ prop }}
                         td.f6 {{ value }}
         p.f7.gray.mh2.i.mv0 Source: 
-            a(:href="sourceUrl" target="_blank") {{ sourceName }}
+            a(href="#" @click="clickSource") {{ sourceName }}
         p.f7.mh2.gray.i.mv0 See on 
             a(:href="`https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${feature.geometry.coordinates.slice().reverse()}`" target="_blank") StreetView
             | .
@@ -108,11 +114,11 @@ div
             li <a href="https://github.com/stevage/opentrees/issues">Raise an issue</a> to include it 
         h4 Is there a way for me to help maintain the tree data in my area?
         p A couple of the tree databases appear to be crowdsourced, such as <a href="https://www.portlandoregon.gov/parks/53181">Portland, Oregon</a>. Most are maintained either directly by government employees, 
-        | or outsourced to a specialist arborist company. However it would be possible to start a project on <a href="https://www.inaturalist.org/">inaturalist.org</a> and import that data, for instance.
+            | or outsourced to a specialist arborist company. However it would be possible to start a project on <a href="https://www.inaturalist.org/">inaturalist.org</a> and import that data, for instance.
         h4 How did you build it?
-        p <a href="https://stevebennett.me/2015/04/07/opentrees-org-how-to-aggregate-373000-trees-from-9-open-data-sources/">This old blog post (2015)</a> tells the original story. 
-        p <a href="https://stevebennett.me/2018/05/15/you-might-not-need-postgis-streamlined-vector-tile-processing-for-big-map-visualisations/">This one (2018)</a> covers an update and technology change. 
-        p Now I need to write the next one!
+        p <a href="https://stevebennett.me/2015/04/07/opentrees-org-how-to-aggregate-373000-trees-from-9-open-data-sources/">In 2015</a>, it used Postgres and TileMill.
+        p <a href="https://stevebennett.me/2018/05/15/you-might-not-need-postgis-streamlined-vector-tile-processing-for-big-map-visualisations/">In 2018</a>, I rewrote it using Mapbox-GL-JS and no database. 
+        p In 2020, I rewrote it again using VueJS. (No blog post yet!)
         h4 Where is the source code?
         p On <a href="https://github.com/stevage/opentrees">Github</a>.
         h4 Who made this?
@@ -144,12 +150,12 @@ export default {
         showExtra() {
             return window.location.hash.match(/debug/);
         },
-        sourceUrl() {
-            console.log(sources);
-            const s = sources.find(s => s.id === this.p.source);
-            return s ? s.info || s.download : '#';
+        // sourceUrl() {
+        //     console.log(sources);
+        //     const s = sources.find(s => s.id === this.p.source);
+        //     return s ? s.info || s.download : '#';
             
-        },
+        // },
         sourceName() {
             console.log(sources);
             const s = sources.find(s => s.id === this.p.source);
@@ -159,11 +165,16 @@ export default {
     },
     created() {
         window.app.FeatureInfo = this;
+        EventBus.$on('tree-select', tree => this.feature = tree);
         EventBus.$on('about', () => {
             this.feature = null;
             this.about = true;
         });
         EventBus.$on('unselect-tree', () => {
+            this.feature = null;
+            this.about = false;
+        });
+        EventBus.$on('source-select', () => {
             this.feature = null;
             this.about = false;
         });
@@ -182,6 +193,9 @@ export default {
         close() {
             this.feature=null;
             this.about = false;
+        },
+        clickSource() {
+            EventBus.$emit('source-select', this.feature.properties.source);
         }
     },
 }

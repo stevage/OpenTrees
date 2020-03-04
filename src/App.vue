@@ -4,10 +4,11 @@
             h1.f1-ns.f5.ma2-ns.lancelot.dib.fl 
                 img.w2-ns.w1.dib.fl.ma2(src="cubetree-logo.png")
                 span.dark-green OpenTrees.org
-                span.dark-gray.ml2.ml4-ns.f3-ns {{ stats.openTrees.toLocaleString()}} open data trees from {{ stats.sources }} sources in {{ stats.countries.length }} countries.
+                span.dark-gray.ml2.ml4-ns.f3-ns {{ stats.openTrees.toLocaleString()}} open data trees from {{ stats.sources }} sources in {{ stats.countries.length}} countries.
         #middle.flex.flex-auto
             #sidebar.br.b--gray.overflow-y-scroll.overflow-x-hidden
                 FeatureInfo
+                SourceInfo
             #map-container.relative.flex-auto
                 Map
                 #overlay.absolute.ba.b--gray.shadow-3.ml2-ns.mt2-ns.mw5.mw-none-ns.overflow-y-scroll
@@ -24,6 +25,7 @@
 <script>
 import Map from './components/Map.vue'
 import FeatureInfo from './components/FeatureInfo.vue'
+import SourceInfo from './components/SourceInfo.vue'
 import Mode from './components/Mode.vue';
 import Legend from './components/Legend.vue';
 import { EventBus } from './EventBus';
@@ -39,6 +41,7 @@ export default {
     components: {
       Map,
       FeatureInfo,
+      SourceInfo,
       Mode,
       Legend,
     },
@@ -103,6 +106,12 @@ html, body {
     font-family:lancelot,sans-serif;
 }
 
+a {
+    color: hsl(100, 30%, 30%);
+}
+a:hover {
+    color: hsl(100,30%,60%);
+}
     
 
 </style>
