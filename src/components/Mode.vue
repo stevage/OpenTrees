@@ -26,6 +26,7 @@ export default {
                 ['local', 'Species in view'],
                 ['trunk', 'Trunk size'],
                 ['health', 'Health'],
+                ['maturity', 'Maturity'],
                 ['edible','Edible'],
                 ['label', 'Label'],
                 ['harm', 'Harm'],

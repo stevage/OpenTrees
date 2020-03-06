@@ -50,7 +50,7 @@ div
                 th Structure
                 td {{ p.structure }}
             tr(v-if="p.planted")
-                th Planted
+                th Planted date
                 td {{ p.planted }}
             tr(v-if="p.maturity")
                 th Maturity
@@ -73,6 +73,8 @@ div
                         td.f6 {{ value }}
         p.f7.gray.mh2.i.mv0 Source: 
             a(href="#" @click="clickSource") {{ sourceName }}
+            span(v-if="p.updated")  ({{ p.updated }})
+            
         p.f7.mh2.gray.i.mv0 See on 
             a(:href="`https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${feature.geometry.coordinates.slice().reverse()}`" target="_blank") StreetView
             | .

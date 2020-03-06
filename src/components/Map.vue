@@ -120,6 +120,12 @@ export default {
                 circleColor: ['match', ['coalesce', ['get', 'health'], ''], ...stops('health'), 'hsla(260,80%,50%,0.7)'],
                 // circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
             });
+            map.U.addCircle('trees-vis-maturity', 'trees', {
+                sourceLayer: 'trees',
+                circleRadius: { stops: [[10, 1], [12, 2], [17, 6], [20, 18]] },
+                circleColor: ['match', ['coalesce', ['get', 'maturity'], ''], ...stops('maturity'), 'hsla(260,80%,50%,0.7)'],
+                // circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
+            });
             map.U.addCircle('trees-vis-edible', 'trees', {
                 sourceLayer: 'trees',
                 circleRadius: { stops: [[10, 1], [12, 2], [17, 6], [20, 18]] },
@@ -198,8 +204,8 @@ export default {
                 
             });
             const sourceLabelProps = {
-                // textField: ['coalesce', ['get','short'], ['get','id']],
-                textField: ['coalesce', ['get','topTree'],''],
+                textField: ['coalesce', ['get','short'], ['get','id']],
+                // textField: ['coalesce', ['get','topTree'],''],
                 textMaxWidth: 5,
                 textLineHeight:1,
 
@@ -322,10 +328,10 @@ export default {
     }
 }
 const stops = visType => flatten(visGroups[visType].map(([name, color, stop]) => [stop, color]));
-
+const COMMONSCALE = 10;
 const visGroups = {
     none: [],
-    species: [
+    speciesSouth: [
         ['Eucalyptus', "hsl(90,90%,30%)", ['in', ['get', 'genus'], ['literal', ['Eucalyptus']]]], 
         ['Corymbia,  Angophora', "hsl(90,30%,60%)", ['in', ['get', 'genus'], ['literal', ['Corymbia', 'Angophora']]]], 
         ['Lophostemon', "hsl(90,90%,60%)", ['in', ['get', 'genus'], ['literal', ['Lophostemon']]]], 
@@ -366,6 +372,26 @@ const visGroups = {
             ['in', ['get', 'species'], ['literal', ['indica', 'eugenioides', 'japonicus', 'japonica']]],
             ['in', ['get', 'scientific'], ['literal', ['Agathis robusta', 'Pittosporum tenuifolium', 'Agathis australis','Cordyline australis', 'Hibiscus syriacus']]]]], 
     ],
+    species: [
+        ['Gum', "hsl(90,90%,30%)", ['in', ['get', 'genus'], ['literal', ['Eucalyptus', 'Corymbia', 'Angophora', 'Lophostemon']]]], 
+        ['Maple', "hsl(40,90%,30%)", ['in', ['get', 'genus'], ['literal', ['Acer']]]], 
+        ['Oak', "hsl(60,70%,40%)", ['in', ['get', 'genus'], ['literal', ['Quercus']]]], 
+        ['Plane', "hsl(0,90%,60%)", ['in', ['get', 'genus'], ['literal', ['Platanus']]]], 
+        ['Locust', "hsl(30,100%,60%)", ['in', ['get', 'genus'], ['literal', ['Gleditsia']]]], 
+        ['Linden', "hsl(120,80%,60%)", ['in', ['get', 'genus'], ['literal', ['Tilia']]]], 
+        ['Ash', "hsl(140,70%,60%)", ['in', ['get', 'genus'], ['literal', ['Fraxinus']]]], 
+        ['Conifer', "hsl(210,70%,60%)", ['in', ['get', 'genus'], ['literal', ['Pinus', 'Araucaria', 'Cupressus', 'Cupressocyparis', 'Podocarpus', 'Platycladus', 'Thuja', 'Hesperocyparis', 
+                'Callitris', 'Cedrus', 'Picea' /* spruce */, 'Abies','Cunninghamia','Chamaecyparis','Sequoiadendron', 'Sequoia','Thujopsis','Taxus', 'Lepidopthamnus',]]]],
+        ['Palms', 'hsl(240, 50%,40%)', ['in', ['get', 'genus'], ['literal', ['Phoenix', 'Washingtonia', 'Jubaea', 'Chamaerops','Syagrus','Livistona','Trachycarpus']]]], 
+        ['Chestnut', "hsl(240,30%,60%)", ['in', ['get', 'genus'], ['literal', ['Aesculus']]]], 
+        ['Elm', "hsl(0,30%,60%)", ['in', ['get', 'genus'], ['literal', ['Ulmus']]]], 
+        ['Plums', "hsl(260,70%,60%)", ['in', ['get', 'genus'], ['literal', ['Prunus']]]], 
+        // ['', "hsl(90,30%,60%)", ['in', ['get', 'genus'], ['literal', ['']]]], 
+        // ['', "hsl(90,30%,60%)", ['in', ['get', 'genus'], ['literal', ['']]]], 
+        ['East Asian exotics', "hsl(310,80%,30%)", ['in', ['get', 'genus'], ['literal', ['Ginkgo','Koelreuteria','Zelkova','Styphnolobium','Cercidiphyllum']]]], 
+        ['', "hsl(90,30%,60%)", ['in', ['get', 'genus'], ['literal', ['']]]], 
+    ],
+
     family: [
         ['Unknown', 'hsla(0, 0%, 0%, 0.3)', ['==', ['coalesce', ['get', 'family'], ''], '']],
         ['Myrtaceae', colors[0], ['==', ['get','family'], 'Myrtaceae']],
@@ -391,11 +417,12 @@ const visGroups = {
     ],
 
     rarity: [
-        ['Super common', 'hsla(210, 90%,60%, 0.5)', 10000],
-        ['Very common', 'hsla(160, 90%,60%, 0.6)', 1000],
-        ['Common', 'hsla(120, 80%,60%, 0.7)', 100],
-        ['Average', 'hsla(60, 80%,50%, 0.8)', 20],
-        ['Rare', 'hsla(30, 80%, 50%, 0.9)', 5],
+        // these were: 1, 5, 20, 100, 1000, 10000
+        ['Super common', 'hsla(210, 90%,60%, 0.5)', 100e3],
+        ['Very common', 'hsla(160, 90%,60%, 0.6)', 5000],
+        ['Common', 'hsla(120, 80%,60%, 0.7)', 500],
+        ['Average', 'hsla(60, 80%,50%, 0.8)', 100],
+        ['Rare', 'hsla(30, 80%, 50%, 0.9)', 12],
         ['Very rare', 'hsla(0, 100%, 40%, 1)', 1],
         ['Unknown', 'hsla(0, 0%, 0%, 0.3)', 0],
 
@@ -408,6 +435,20 @@ const visGroups = {
         ['Very poor', 'hsla(0, 100%, 30%, 1)', ['Very Poor', 'Dying','dying', 'Dying tree',  '20', '30',  'Critical']],
         ['Dead', 'hsla(330, 30%,10%, 0.9)', ['Dead','dead','Stump','stump', '0', '10', 'SOUCHE' /* stump*/]],
         ['N/A', 'hsla(0,0%,50%,0.5)', ['','N/A']],
+        ['Other', 'hsla(260,80%,50%,0.7)', ['Other']],
+    ],
+    maturity: [
+
+        // no idea about Paris' single letter codes really
+        ['Over-mature', 'hsla(0, 80%,50%, 0.8)', ['Over-mature','Over-Mature','Over Mature','On Maintenance', 'Senescent','Scenescent','Decline','M','Arbre vieillissant','sénescent','vieux','Veteran']],
+        ['Mature', 'hsla(40, 100%, 50%, 0.9)', ['Mature','A','Arbre adulte','adulte','Adulte','Fully Mature']],
+        ['Semi-mature', 'hsla(100, 50%, 50%, 0.9)', ['Semi-mature','Semi-Mature','Semi mature','Early-Mature','JA','Young Mature','Middle Aged']],
+        // where does "Vigorous" go?
+        ['Young', 'hsla(160, 90%, 50%, 1)', ['Young','Juvenile','J','Arbre jeune','jeune','Jeune','Immature']],
+        ['New', 'hsla(220, 100%, 50%, 1)', ['New','New Planting','Newly Planted']],
+        // ['Very poor', 'hsla(0, 100%, 30%, 1)', ['Very Poor', 'Dying','dying', 'Dying tree',  '20', '30',  'Critical']],
+        // ['Dead', 'hsla(330, 30%,10%, 0.9)', ['Dead','dead','Stump','stump', '0', '10', 'SOUCHE' /* stump*/]],
+        ['N/A', 'hsla(0,0%,50%,0.5)', ['','N/A','Not Specified']],
         ['Other', 'hsla(260,80%,50%,0.7)', ['Other']],
     ],
     harm: [
@@ -443,6 +484,7 @@ const visGroups = {
     trunk: [],
     label: [],
     local: [] // populated dynamically
+
 }
 const visLayers = Object.keys(visGroups).map(k => `trees-vis-${k}`);
 import 'mapbox-gl/dist/mapbox-gl.css';

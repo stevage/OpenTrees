@@ -64,5 +64,7 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "license": "CC-BY-NC 4.0",
+
 }

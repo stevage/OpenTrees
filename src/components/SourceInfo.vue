@@ -4,6 +4,8 @@
         div.bg-green.pa2
             h2.lancelot.f3.mv0.bg-green {{ p.long || p.short || p.id }}
             .dark-gray.f6 {{ p.country }}
+            i.close-btn.pa2.mt1.dark-green.pointer.fw6.fas.fa-times(@click="close" style="position:absolute;right:0;top:0; cursor:pointer;")
+
         .ma2
             h3 Accessing data:
             p(v-if="p.info") 
@@ -85,6 +87,17 @@
                 tr
                     th Reference ID
                     td {{ hasField('ref') }}
+            h3 Import
+            table
+                tr  
+                    th Rows imported
+                    td {{ p.keepCount.toLocaleString() }}
+                tr
+                    th Rows rejected as "vacant"
+                    td {{ p.delCount.toLocaleString() }}
+                tr
+                    th Rows missing geometry
+                    td {{ p.noGeomCount.toLocaleString() }}
 
 </template>
 
@@ -113,7 +126,10 @@ export default {
         hasField(fieldName) {
             return this.source.crosswalk[fieldName.toLowerCase()] ? 'Yes' : '-'
             
-        }
+        },
+        close() {
+            this.about = false;
+        },
     },
 }
 </script>
