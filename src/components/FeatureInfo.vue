@@ -144,7 +144,11 @@ export default {
     components: { Wikipedia },
     computed: {
         p() {
-            return this.feature && this.feature.properties || {};
+            const r = this.feature && this.feature.properties || {};
+            if (!r.scientific && r.genus) {
+                r.scientific = r.genus + (r.species ? ` ${r.species}`:'');
+            }
+            return r;
         },
         imageUrl() {
             return this.p && this.p.image_url

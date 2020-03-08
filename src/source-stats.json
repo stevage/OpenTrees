@@ -102,7 +102,8 @@
         "Pinus radiata",
         158
       ]
-    ]
+    ],
+    "differentSpecies": 336
   },
   "colac_otways": {
     "bounds": [
@@ -199,7 +200,8 @@
         "Eucalyptus cladocalyx",
         36
       ]
-    ]
+    ],
+    "differentSpecies": 137
   },
   "ballarat": {
     "bounds": [
@@ -232,7 +234,8 @@
         "Ulmus parvifolia",
         745
       ]
-    ]
+    ],
+    "differentSpecies": 259
   },
   "manningham": {
     "bounds": [
@@ -325,7 +328,8 @@
         "Prunus serrulata",
         626
       ]
-    ]
+    ],
+    "differentSpecies": 460
   },
   "geelong": {
     "bounds": [
@@ -426,7 +430,8 @@
         "Pittosporum undulatum",
         1257
       ]
-    ]
+    ],
+    "differentSpecies": 297
   },
   "melbourne": {
     "bounds": [
@@ -515,7 +520,8 @@
         "Quercus palustris",
         729
       ]
-    ]
+    ],
+    "differentSpecies": 470
   },
   "adelaide": {
     "bounds": [
@@ -588,13 +594,15 @@
         "Platanus occidentalis",
         62
       ]
-    ]
+    ],
+    "differentSpecies": 62
   },
   "waite": {
     "keepCount": 2020,
     "delCount": 0,
     "noGeomCount": 5,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "burnside": {
     "bounds": [
@@ -703,7 +711,8 @@
         "Olea europaea",
         399
       ]
-    ]
+    ],
+    "differentSpecies": 353
   },
   "launceston": {
     "bounds": [
@@ -780,7 +789,8 @@
         "Pinus radiata",
         281
       ]
-    ]
+    ],
+    "differentSpecies": 308
   },
   "hobsons_bay": {
     "bounds": [
@@ -885,7 +895,8 @@
         "Casuarina glauca",
         853
       ]
-    ]
+    ],
+    "differentSpecies": 438
   },
   "glenelg": {
     "bounds": [
@@ -954,7 +965,8 @@
         "Pyrus calleryana",
         61
       ]
-    ]
+    ],
+    "differentSpecies": 39
   },
   "ryde": {
     "bounds": [
@@ -966,7 +978,8 @@
     "keepCount": 24100,
     "delCount": 0,
     "noGeomCount": 0,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "southern_grampians": {
     "bounds": [
@@ -1019,7 +1032,8 @@
         "Feijoa sellowiana",
         60
       ]
-    ]
+    ],
+    "differentSpecies": 103
   },
   "prospect1": {
     "bounds": [
@@ -1031,7 +1045,8 @@
     "keepCount": 886,
     "delCount": 0,
     "noGeomCount": 0,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "prospect2": {
     "bounds": [
@@ -1043,7 +1058,8 @@
     "keepCount": 12486,
     "delCount": 0,
     "noGeomCount": 0,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "perth": {
     "bounds": [
@@ -1148,7 +1164,8 @@
         "Angophora costata",
         161
       ]
-    ]
+    ],
+    "differentSpecies": 266
   },
   "brimbank": {
     "bounds": [
@@ -1213,7 +1230,8 @@
         "Acacia implexa",
         781
       ]
-    ]
+    ],
+    "differentSpecies": 371
   },
   "bendigo": {
     "bounds": [
@@ -1310,7 +1328,8 @@
         "Melaleuca styphelioides",
         887
       ]
-    ]
+    ],
+    "differentSpecies": 433
   },
   "shepparton": {
     "bounds": [
@@ -1431,7 +1450,8 @@
         "Hymenosporum flavum",
         424
       ]
-    ]
+    ],
+    "differentSpecies": 414
   },
   "wyndham": {
     "bounds": [
@@ -1443,7 +1463,8 @@
     "keepCount": 44832,
     "delCount": 21,
     "noGeomCount": 6,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "port_phillip": {
     "bounds": [
@@ -1548,13 +1569,15 @@
         "Agonis flexuosa",
         471
       ]
-    ]
+    ],
+    "differentSpecies": 366
   },
   "boroondara": {
     "keepCount": 314,
     "delCount": 0,
     "noGeomCount": 0,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "yarra": {
     "bounds": [
@@ -1655,7 +1678,8 @@
         "Angophora costata",
         208
       ]
-    ]
+    ],
+    "differentSpecies": 292
   },
   "glen_eira": {
     "bounds": [
@@ -1736,7 +1760,8 @@
         "Melaleuca salicina",
         658
       ]
-    ]
+    ],
+    "differentSpecies": 331
   },
   "wodonga": {
     "bounds": [
@@ -1813,7 +1838,8 @@
         "Casuarina cunninghamiana",
         152
       ]
-    ]
+    ],
+    "differentSpecies": 176
   },
   "hobart": {
     "bounds": [
@@ -1825,7 +1851,8 @@
     "keepCount": 19355,
     "delCount": 0,
     "noGeomCount": 2,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "sherwood_arboretum": {
     "bounds": [
@@ -1930,7 +1957,8 @@
         "Cupaniopsis anacardioides",
         12
       ]
-    ]
+    ],
+    "differentSpecies": 245
   },
   "sydney": {
     "bounds": [
@@ -2043,7 +2071,8 @@
         "Angophora costata",
         320
       ]
-    ]
+    ],
+    "differentSpecies": 231
   },
   "madison": {
     "bounds": [
@@ -2055,7 +2084,8 @@
     "keepCount": 107044,
     "delCount": 5467,
     "noGeomCount": 0,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "pdx-street": {
     "bounds": [
@@ -2067,7 +2097,8 @@
     "keepCount": 218602,
     "delCount": 0,
     "noGeomCount": 0,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "pdx-park": {
     "bounds": [
@@ -2148,7 +2179,8 @@
         "Quercus garryana",
         258
       ]
-    ]
+    ],
+    "differentSpecies": 277
   },
   "nyc": {
     "bounds": [
@@ -2233,7 +2265,8 @@
         "Prunus cerasifera",
         6879
       ]
-    ]
+    ],
+    "differentSpecies": 118
   },
   "washington-dc": {
     "bounds": [
@@ -2330,7 +2363,8 @@
         "Cladrastis lutea",
         1931
       ]
-    ]
+    ],
+    "differentSpecies": 139
   },
   "buffalo-ny": {
     "bounds": [
@@ -2415,7 +2449,8 @@
         "Acer x freemanii",
         799
       ]
-    ]
+    ],
+    "differentSpecies": 202
   },
   "san_francisco": {
     "bounds": [
@@ -2516,7 +2551,8 @@
         "Pyrus kawakamii",
         1969
       ]
-    ]
+    ],
+    "differentSpecies": 420
   },
   "philadelphia": {
     "bounds": [
@@ -2528,7 +2564,8 @@
     "keepCount": 111993,
     "delCount": 0,
     "noGeomCount": 0,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "denver": {
     "bounds": [
@@ -2645,7 +2682,8 @@
         "Catalpa speciosa",
         2962
       ]
-    ]
+    ],
+    "differentSpecies": 297
   },
   "boulder": {
     "bounds": [
@@ -2762,7 +2800,8 @@
         "Juniperus scopulorum",
         518
       ]
-    ]
+    ],
+    "differentSpecies": 198
   },
   "cambridge": {
     "bounds": [
@@ -2851,7 +2890,8 @@
         "Styphnolobium japonicum",
         359
       ]
-    ]
+    ],
+    "differentSpecies": 133
   },
   "berkeley": {
     "bounds": [
@@ -2944,7 +2984,8 @@
         "Broadleaf deciduous",
         502
       ]
-    ]
+    ],
+    "differentSpecies": 226
   },
   "pittsburgh": {
     "bounds": [
@@ -3033,7 +3074,8 @@
         "Acer saccharinum",
         433
       ]
-    ]
+    ],
+    "differentSpecies": 207
   },
   "colombus": {
     "bounds": [
@@ -3045,7 +3087,8 @@
     "keepCount": 151919,
     "delCount": 0,
     "noGeomCount": 1,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "barcelona": {
     "bounds": [
@@ -3134,7 +3177,8 @@
         "Magnolia grandiflora",
         1852
       ]
-    ]
+    ],
+    "differentSpecies": 206
   },
   "london": {
     "bounds": [
@@ -3215,7 +3259,8 @@
         "Sorbus aria",
         7132
       ]
-    ]
+    ],
+    "differentSpecies": 1153
   },
   "birmingham": {
     "bounds": [
@@ -3292,7 +3337,8 @@
         "Pyrus calleryana",
         786
       ]
-    ]
+    ],
+    "differentSpecies": 194
   },
   "bristol": {
     "bounds": [
@@ -3397,7 +3443,8 @@
         "Sorbus aria",
         526
       ]
-    ]
+    ],
+    "differentSpecies": 351
   },
   "paris": {
     "bounds": [
@@ -3494,7 +3541,8 @@
         "Taxus baccata",
         2056
       ]
-    ]
+    ],
+    "differentSpecies": 716
   },
   "lyon": {
     "bounds": [
@@ -3591,7 +3639,8 @@
         "Koelreuteria paniculata",
         983
       ]
-    ]
+    ],
+    "differentSpecies": 239
   },
   "bordeaux": {
     "bounds": [
@@ -3720,7 +3769,8 @@
         "Tilia x flavescens 'glenleven'",
         357
       ]
-    ]
+    ],
+    "differentSpecies": 405
   },
   "nice": {
     "bounds": [
@@ -3732,7 +3782,8 @@
     "keepCount": 32592,
     "delCount": 0,
     "noGeomCount": 0,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "grenoble": {
     "bounds": [
@@ -3849,7 +3900,8 @@
         "Cedrus atlantica",
         320
       ]
-    ]
+    ],
+    "differentSpecies": 340
   },
   "montpellier": {
     "bounds": [
@@ -3930,7 +3982,8 @@
         "Fraxinus angustifilia",
         337
       ]
-    ]
+    ],
+    "differentSpecies": 182
   },
   "grand_paris_seine_ouest": {
     "bounds": [
@@ -4027,7 +4080,8 @@
         "Magnolia grandiflora",
         240
       ]
-    ]
+    ],
+    "differentSpecies": 257
   },
   "agen": {
     "bounds": [
@@ -4148,7 +4202,8 @@
         "Prunus serrulata",
         56
       ]
-    ]
+    ],
+    "differentSpecies": 173
   },
   "saint_quentinois": {
     "bounds": [
@@ -4233,7 +4288,8 @@
         "Pyrus calleryana",
         128
       ]
-    ]
+    ],
+    "differentSpecies": 143
   },
   "metz": {
     "bounds": [
@@ -4245,7 +4301,8 @@
     "keepCount": 12441,
     "delCount": 0,
     "noGeomCount": 0,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "seine_saint_denis": {
     "bounds": [
@@ -4346,7 +4403,8 @@
         "Acer campestre",
         291
       ]
-    ]
+    ],
+    "differentSpecies": 116
   },
   "versailles": {
     "bounds": [
@@ -4358,7 +4416,8 @@
     "keepCount": 6974,
     "delCount": 0,
     "noGeomCount": 9,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "nevers": {
     "bounds": [
@@ -4439,13 +4498,15 @@
         "Acer saccharinum",
         57
       ]
-    ]
+    ],
+    "differentSpecies": 64
   },
   "toulouse": {
     "keepCount": 551,
     "delCount": 0,
     "noGeomCount": 0,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "orleans": {
     "bounds": [
@@ -4514,7 +4575,8 @@
         "Castanea undefined",
         284
       ]
-    ]
+    ],
+    "differentSpecies": 100
   },
   "saint_egreve": {
     "bounds": [
@@ -4575,7 +4637,8 @@
         "Acer campestre",
         30
       ]
-    ]
+    ],
+    "differentSpecies": 76
   },
   "bayonne": {
     "bounds": [
@@ -4696,7 +4759,8 @@
         "Pinus pinea",
         126
       ]
-    ]
+    ],
+    "differentSpecies": 229
   },
   "issy": {
     "bounds": [
@@ -4769,7 +4833,8 @@
         "Sophora -",
         22
       ]
-    ]
+    ],
+    "differentSpecies": 20
   },
   "rennes1": {
     "bounds": [
@@ -4786,7 +4851,8 @@
         "Quercus robur",
         768
       ]
-    ]
+    ],
+    "differentSpecies": 313
   },
   "rennes2": {
     "bounds": [
@@ -4891,7 +4957,8 @@
         "Cercis siliquastrum",
         236
       ]
-    ]
+    ],
+    "differentSpecies": 138
   },
   "mulhouse": {
     "bounds": [
@@ -5000,7 +5067,8 @@
         "Prunus avium",
         337
       ]
-    ]
+    ],
+    "differentSpecies": 246
   },
   "montreal": {
     "bounds": [
@@ -5089,7 +5157,8 @@
         "Pinus nigra",
         3209
       ]
-    ]
+    ],
+    "differentSpecies": 328
   },
   "quebec": {
     "bounds": [
@@ -5186,7 +5255,8 @@
         "Populus deltoides",
         1311
       ]
-    ]
+    ],
+    "differentSpecies": 174
   },
   "longueuil": {
     "bounds": [
@@ -5243,7 +5313,8 @@
         "Betula populifolia",
         757
       ]
-    ]
+    ],
+    "differentSpecies": 89
   },
   "calgary": {
     "bounds": [
@@ -5300,7 +5371,8 @@
         "Larix sibirica",
         5451
       ]
-    ]
+    ],
+    "differentSpecies": 116
   },
   "edmonton": {
     "bounds": [
@@ -5385,7 +5457,8 @@
         "Acer negundo",
         3893
       ]
-    ]
+    ],
+    "differentSpecies": 109
   },
   "ottawa": {
     "bounds": [
@@ -5482,7 +5555,8 @@
         "Hedge end",
         2372
       ]
-    ]
+    ],
+    "differentSpecies": 162
   },
   "moncton": {
     "bounds": [
@@ -5494,7 +5568,8 @@
     "keepCount": 9703,
     "delCount": 0,
     "noGeomCount": 0,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "waterloo": {
     "bounds": [
@@ -5583,7 +5658,8 @@
         "Malus var",
         440
       ]
-    ]
+    ],
+    "differentSpecies": 93
   },
   "winnipeg": {
     "bounds": [
@@ -5644,7 +5720,8 @@
         "Acer saccharinum",
         3370
       ]
-    ]
+    ],
+    "differentSpecies": 111
   },
   "vancouver": {
     "bounds": [
@@ -5773,7 +5850,8 @@
         "Betula pendula",
         1239
       ]
-    ]
+    ],
+    "differentSpecies": 312
   },
   "surrey": {
     "bounds": [
@@ -5902,7 +5980,8 @@
         "Nyssa sylvatica",
         1103
       ]
-    ]
+    ],
+    "differentSpecies": 316
   },
   "toronto": {
     "bounds": [
@@ -5999,7 +6078,8 @@
         "Celtis occidentalis",
         6055
       ]
-    ]
+    ],
+    "differentSpecies": 162
   },
   "lisbon": {
     "bounds": [
@@ -6084,7 +6164,8 @@
         "Melia azedarach",
         636
       ]
-    ]
+    ],
+    "differentSpecies": 231
   },
   "vienna": {
     "bounds": [
@@ -6193,7 +6274,8 @@
         "Prunus cerasifera",
         2197
       ]
-    ]
+    ],
+    "differentSpecies": 316
   },
   "belfast": {
     "bounds": [
@@ -6314,7 +6396,8 @@
         "Sorbus aria",
         380
       ]
-    ]
+    ],
+    "differentSpecies": 136
   },
   "copenhagen": {
     "bounds": [
@@ -6383,7 +6466,8 @@
         "Sorbus latifolia",
         618
       ]
-    ]
+    ],
+    "differentSpecies": 218
   },
   "buenos_aires": {
     "bounds": [
@@ -6488,7 +6572,8 @@
         "Populus x canadensis",
         527
       ]
-    ]
+    ],
+    "differentSpecies": 266
   },
   "buenos_aires2": {
     "bounds": [
@@ -6557,7 +6642,8 @@
         "Acer negundo",
         4991
       ]
-    ]
+    ],
+    "differentSpecies": 365
   },
   "hamburg": {
     "bounds": [
@@ -6642,7 +6728,8 @@
         "Prunus avium",
         2303
       ]
-    ]
+    ],
+    "differentSpecies": 308
   },
   "santiago": {
     "bounds": [
@@ -6654,7 +6741,8 @@
     "keepCount": 25486,
     "delCount": 0,
     "noGeomCount": 0,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "loudoun": {
     "bounds": [
@@ -6736,7 +6824,8 @@
         "Pyrus calleryana",
         62
       ]
-    ]
+    ],
+    "differentSpecies": 104
   },
   "providence": {
     "bounds": [
@@ -6813,7 +6902,8 @@
         "Tilia americana",
         235
       ]
-    ]
+    ],
+    "differentSpecies": 97
   },
   "cornell": {
     "bounds": [
@@ -6914,7 +7004,8 @@
         "Crataegus crusgalli",
         89
       ]
-    ]
+    ],
+    "differentSpecies": 212
   },
   "cary": {
     "keepCount": 29,
@@ -6926,7 +7017,8 @@
       35.7031674,
       -78.7669396,
       35.83216
-    ]
+    ],
+    "differentSpecies": 0
   },
   "fingal": {
     "bounds": [
@@ -6999,7 +7091,8 @@
         "Tilia x europaea",
         459
       ]
-    ]
+    ],
+    "differentSpecies": 117
   },
   "edinburgh": {
     "bounds": [
@@ -7068,7 +7161,8 @@
         "Crataegus monogyna",
         691
       ]
-    ]
+    ],
+    "differentSpecies": 174
   },
   "dundee": {
     "bounds": [
@@ -7157,7 +7251,8 @@
         "Quercus rubra",
         47
       ]
-    ]
+    ],
+    "differentSpecies": 153
   },
   "york": {
     "bounds": [
@@ -7246,7 +7341,8 @@
         "Carpinus betulus",
         201
       ]
-    ]
+    ],
+    "differentSpecies": 137
   },
   "york-private": {
     "bounds": [
@@ -7327,7 +7423,8 @@
         "Prunus cerasifera",
         15
       ]
-    ]
+    ],
+    "differentSpecies": 66
   },
   "strathcona": {
     "keepCount": 34174,
@@ -7339,7 +7436,8 @@
       -113.34129652247644,
       53.76143262367053,
       -112.90217562521096
-    ]
+    ],
+    "differentSpecies": 0
   },
   "regina": {
     "bounds": [
@@ -7351,7 +7449,8 @@
     "keepCount": 114542,
     "delCount": 28255,
     "noGeomCount": 9,
-    "speciesCounts": []
+    "speciesCounts": [],
+    "differentSpecies": 0
   },
   "umea": {
     "bounds": [
@@ -7404,7 +7503,8 @@
         "Salix alba",
         316
       ]
-    ]
+    ],
+    "differentSpecies": 116
   },
   "palmerston_north": {
     "bounds": [
@@ -7509,7 +7609,8 @@
         "Sophora microphylla",
         146
       ]
-    ]
+    ],
+    "differentSpecies": 152
   },
   "north_vancouver": {
     "bounds": [
@@ -7594,7 +7695,8 @@
         "Liquidambar styaciflua",
         35
       ]
-    ]
+    ],
+    "differentSpecies": 80
   },
   "white_rock": {
     "bounds": [
@@ -7683,7 +7785,8 @@
         "Cercidiphyllum japonicum",
         62
       ]
-    ]
+    ],
+    "differentSpecies": 157
   },
   "halle": {
     "bounds": [
@@ -7776,7 +7879,8 @@
         "Pyrus calleryana",
         384
       ]
-    ]
+    ],
+    "differentSpecies": 131
   },
   "utrecht": {
     "bounds": [
@@ -7881,7 +7985,8 @@
         "Sorbus intermedia",
         1723
       ]
-    ]
+    ],
+    "differentSpecies": 273
   },
   "leipzig": {
     "keepCount": 60623,
@@ -7950,7 +8055,8 @@
       51.2477313,
       12.5371276,
       51.437062
-    ]
+    ],
+    "differentSpecies": 105
   },
   "bonn": {
     "bounds": [
@@ -8051,7 +8157,8 @@
         "Pinus nigra",
         692
       ]
-    ]
+    ],
+    "differentSpecies": 237
   },
   "koeln": {
     "bounds": [
@@ -8088,7 +8195,8 @@
         "Carpinus betulus",
         2372
       ]
-    ]
+    ],
+    "differentSpecies": 308
   },
   "berlin": {
     "bounds": [
@@ -8193,7 +8301,8 @@
         "Quercus spec.",
         6058
       ]
-    ]
+    ],
+    "differentSpecies": 361
   },
   "frankfurt": {
     "bounds": [
@@ -8290,7 +8399,8 @@
         "Tilia platyphyllos",
         1359
       ]
-    ]
+    ],
+    "differentSpecies": 277
   },
   "hamburg_hafen": {
     "bounds": [
@@ -8391,7 +8501,8 @@
         "Betula spec.",
         49
       ]
-    ]
+    ],
+    "differentSpecies": 79
   },
   "basel": {
     "bounds": [
@@ -8484,7 +8595,8 @@
         "Quercus rubra",
         314
       ]
-    ]
+    ],
+    "differentSpecies": 333
   },
   "kelowna": {
     "bounds": [
@@ -8540,6 +8652,1673 @@
       [
         "Tilia cordata",
         284
+      ]
+    ],
+    "differentSpecies": 100
+  },
+  "unley": {
+    "bounds": [
+      138.5720234,
+      -34.966408,
+      138.6417857,
+      -34.9406968
+    ],
+    "keepCount": 2394,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [],
+    "differentSpecies": 0
+  },
+  "oslo": {
+    "bounds": [
+      10.0378409,
+      58.9975238,
+      10.9346137,
+      59.9753779
+    ],
+    "keepCount": 32884,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [
+      [
+        "Acer platanoides",
+        2610
+      ],
+      [
+        "Ulmus glabra",
+        1175
+      ],
+      [
+        "Betula pendula",
+        910
+      ],
+      [
+        "Aesculus hippocastanum",
+        662
+      ],
+      [
+        "Tilia cordata",
+        432
+      ],
+      [
+        "Acer psuedoplatanus",
+        432
+      ],
+      [
+        "Betula pubescens",
+        374
+      ],
+      [
+        "Fraxinus excelsior",
+        331
+      ]
+    ],
+    "differentSpecies": 229
+  },
+  "zurich": {
+    "keepCount": 0,
+    "delCount": 0,
+    "noGeomCount": 14,
+    "speciesCounts": [],
+    "differentSpecies": 0
+  },
+  "rochester": {
+    "bounds": [
+      -77.7312737,
+      43.0502169,
+      -77.476931,
+      43.2667579
+    ],
+    "keepCount": 129199,
+    "delCount": 24,
+    "noGeomCount": 336,
+    "speciesCounts": [],
+    "differentSpecies": 0
+  },
+  "amsterdam1": {
+    "bounds": [
+      4.825745,
+      52.279698,
+      5.020079,
+      52.395041
+    ],
+    "keepCount": 70000,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [
+      [
+        "Fraxinus excelsior",
+        4783
+      ],
+      [
+        "Quercus robur",
+        3941
+      ],
+      [
+        "Platanus hispanica",
+        3572
+      ],
+      [
+        "Tilia europaea",
+        3386
+      ],
+      [
+        "Alnus glutinosa",
+        3313
+      ],
+      [
+        "Acer campestre",
+        3190
+      ],
+      [
+        "Acer pseudoplatanus",
+        2925
+      ],
+      [
+        "Betula pendula",
+        2379
+      ],
+      [
+        "Salix alba",
+        2233
+      ],
+      [
+        "Carpinus betulus",
+        1824
+      ],
+      [
+        "Ulmus hollandica",
+        1562
+      ],
+      [
+        "Crataegus monogyna",
+        1476
+      ],
+      [
+        "Robinia pseudoacacia",
+        1465
+      ],
+      [
+        "Fagus sylvatica",
+        1364
+      ],
+      [
+        "Populus canadensis",
+        1296
+      ],
+      [
+        "Acer platanoides",
+        1278
+      ],
+      [
+        "Ilex aquifolium",
+        1090
+      ],
+      [
+        "Populus nigra",
+        1026
+      ],
+      [
+        "Gleditsia triacanthos",
+        996
+      ],
+      [
+        "Taxus baccata",
+        942
+      ],
+      [
+        "Alnus cordata",
+        885
+      ],
+      [
+        "Prunus avium",
+        817
+      ],
+      [
+        "Ulmus minor",
+        811
+      ],
+      [
+        "Populus canescens",
+        796
+      ],
+      [
+        "Aesculus hippocastanum",
+        737
+      ]
+    ],
+    "differentSpecies": 590
+  },
+  "amsterdam2": {
+    "bounds": [
+      4.767961,
+      52.31735,
+      5.052825,
+      52.425246
+    ],
+    "keepCount": 70000,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [
+      [
+        "Platanus hispanica",
+        6194
+      ],
+      [
+        "Fraxinus excelsior",
+        4961
+      ],
+      [
+        "Tilia europaea",
+        4645
+      ],
+      [
+        "Ulmus hollandica",
+        2847
+      ],
+      [
+        "Acer campestre",
+        2708
+      ],
+      [
+        "Quercus robur",
+        2262
+      ],
+      [
+        "Acer pseudoplatanus",
+        2204
+      ],
+      [
+        "Robinia pseudoacacia",
+        2054
+      ],
+      [
+        "Salix alba",
+        2048
+      ],
+      [
+        "Carpinus betulus",
+        2003
+      ],
+      [
+        "Ulmus minor",
+        1980
+      ],
+      [
+        "Alnus glutinosa",
+        1798
+      ],
+      [
+        "Populus canadensis",
+        1451
+      ],
+      [
+        "Crataegus monogyna",
+        1374
+      ],
+      [
+        "Aesculus hippocastanum",
+        1245
+      ],
+      [
+        "Betula pendula",
+        1133
+      ],
+      [
+        "Populus nigra",
+        1079
+      ],
+      [
+        "Ulmus `dodoens`",
+        1070
+      ],
+      [
+        "Prunus serrulata",
+        892
+      ],
+      [
+        "Prunus avium",
+        880
+      ],
+      [
+        "Tilia cordata",
+        873
+      ],
+      [
+        "Ulmus `lobel`",
+        760
+      ],
+      [
+        "Tilia americana",
+        758
+      ],
+      [
+        "Acer platanoides",
+        713
+      ],
+      [
+        "Gleditsia triacanthos",
+        701
+      ]
+    ],
+    "differentSpecies": 349
+  },
+  "amsterdam3": {
+    "bounds": [
+      4.758425,
+      52.293852,
+      5.025905,
+      52.424666
+    ],
+    "keepCount": 70000,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [
+      [
+        "Fraxinus excelsior",
+        5641
+      ],
+      [
+        "Ulmus hollandica",
+        5174
+      ],
+      [
+        "Tilia europaea",
+        3825
+      ],
+      [
+        "Salix alba",
+        3177
+      ],
+      [
+        "Platanus hispanica",
+        2758
+      ],
+      [
+        "Populus canadensis",
+        2609
+      ],
+      [
+        "Quercus robur",
+        2407
+      ],
+      [
+        "Acer pseudoplatanus",
+        2293
+      ],
+      [
+        "Acer campestre",
+        2222
+      ],
+      [
+        "Carpinus betulus",
+        1582
+      ],
+      [
+        "Alnus glutinosa",
+        1517
+      ],
+      [
+        "Betula pendula",
+        1463
+      ],
+      [
+        "Ulmus `dodoens`",
+        1352
+      ],
+      [
+        "Tilia americana",
+        1200
+      ],
+      [
+        "Acer platanoides",
+        1142
+      ],
+      [
+        "Robinia pseudoacacia",
+        1105
+      ],
+      [
+        "Aesculus hippocastanum",
+        977
+      ],
+      [
+        "Ulmus `lobel`",
+        924
+      ],
+      [
+        "Tilia tomentosa",
+        913
+      ],
+      [
+        "Populus nigra",
+        843
+      ],
+      [
+        "Pyrus calleryana",
+        804
+      ],
+      [
+        "Populus canescens",
+        804
+      ],
+      [
+        "Tilia cordata",
+        803
+      ],
+      [
+        "Gleditsia triacanthos",
+        788
+      ],
+      [
+        "Crataegus monogyna",
+        732
+      ],
+      [
+        "Liquidambar styraciflua",
+        721
+      ],
+      [
+        "Betula cv.",
+        708
+      ]
+    ],
+    "differentSpecies": 342
+  },
+  "amsterdam4": {
+    "bounds": [
+      4.759187,
+      52.289306,
+      5.019427,
+      52.423793
+    ],
+    "keepCount": 49431,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [
+      [
+        "Ulmus hollandica",
+        4086
+      ],
+      [
+        "Tilia europaea",
+        2975
+      ],
+      [
+        "Salix alba",
+        2841
+      ],
+      [
+        "Platanus hispanica",
+        2575
+      ],
+      [
+        "Quercus robur",
+        2000
+      ],
+      [
+        "Acer campestre",
+        1594
+      ],
+      [
+        "Fraxinus excelsior",
+        1543
+      ],
+      [
+        "Tilia cordata",
+        1346
+      ],
+      [
+        "Acer pseudoplatanus",
+        1308
+      ],
+      [
+        "Carpinus betulus",
+        1080
+      ],
+      [
+        "Ulmus `dodoens`",
+        1059
+      ],
+      [
+        "Alnus glutinosa",
+        956
+      ],
+      [
+        "Populus canadensis",
+        913
+      ],
+      [
+        "Robinia pseudoacacia",
+        864
+      ],
+      [
+        "Betula pendula",
+        783
+      ],
+      [
+        "Gleditsia triacanthos",
+        782
+      ],
+      [
+        "Ulmus cv.",
+        732
+      ],
+      [
+        "Tilia tomentosa",
+        690
+      ],
+      [
+        "Liquidambar styraciflua",
+        600
+      ],
+      [
+        "Acer platanoides",
+        562
+      ],
+      [
+        "Ulmus `new",
+        543
+      ],
+      [
+        "Quercus palustris",
+        523
+      ],
+      [
+        "Ulmus minor",
+        520
+      ],
+      [
+        "Fagus sylvatica",
+        497
+      ]
+    ],
+    "differentSpecies": 340
+  },
+  "welland": {
+    "bounds": [
+      -79.2904741,
+      42.92746,
+      -79.1887307,
+      43.0273432
+    ],
+    "keepCount": 11361,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [],
+    "differentSpecies": 0
+  },
+  "ajax": {
+    "bounds": [
+      -79.0843989,
+      43.816048,
+      -78.9716467,
+      43.9169832
+    ],
+    "keepCount": 49392,
+    "delCount": 0,
+    "noGeomCount": 76,
+    "speciesCounts": [],
+    "differentSpecies": 0
+  },
+  "prince_george": {
+    "bounds": [
+      -122.813686,
+      53.8588408,
+      -122.730277,
+      53.9915562
+    ],
+    "keepCount": 3845,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [
+      [
+        "Fraxinus pennsylvanic",
+        669
+      ],
+      [
+        "Ulmus americana",
+        503
+      ],
+      [
+        "Picea pungens",
+        415
+      ],
+      [
+        "Picea glauca",
+        339
+      ],
+      [
+        "Betula papyrifera",
+        321
+      ],
+      [
+        "Tilia cordata",
+        133
+      ],
+      [
+        "Sorbus aucuparia",
+        113
+      ],
+      [
+        "Prunus padus",
+        89
+      ],
+      [
+        "Acer negundo",
+        88
+      ],
+      [
+        "Populus trichnocarpa",
+        84
+      ],
+      [
+        "Acer saccharinum",
+        80
+      ],
+      [
+        "Prunus virginiana",
+        79
+      ],
+      [
+        "Populus tremula",
+        64
+      ],
+      [
+        "Salix alba",
+        52
+      ],
+      [
+        "Quercus macrocarpa",
+        48
+      ]
+    ],
+    "differentSpecies": 59
+  },
+  "oakville": {
+    "bounds": [
+      -79.7842792,
+      43.3719321,
+      -79.6252201,
+      43.5218892
+    ],
+    "keepCount": 182410,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [
+      [
+        "Thuja occidentalis",
+        15719
+      ],
+      [
+        "Acer platanoides",
+        14684
+      ],
+      [
+        "Fraxinus pennsylvanica",
+        9661
+      ],
+      [
+        "Picea pungens",
+        9137
+      ],
+      [
+        "Gleditsia triacanthos",
+        8518
+      ],
+      [
+        "Tilia cordata",
+        6552
+      ],
+      [
+        "Acer rubrum",
+        6461
+      ],
+      [
+        "Acer saccharum",
+        6238
+      ],
+      [
+        "Shrub variety",
+        5703
+      ],
+      [
+        "Quercus rubra",
+        5584
+      ],
+      [
+        "Fraxinus americana",
+        5200
+      ],
+      [
+        "Acer saccharinum",
+        4700
+      ],
+      [
+        "Picea glauca",
+        3466
+      ],
+      [
+        "Syringa reticulata",
+        3371
+      ],
+      [
+        "Acer freemanii",
+        3212
+      ],
+      [
+        "Pinus strobus",
+        3130
+      ],
+      [
+        "Ulmus japonica",
+        2919
+      ],
+      [
+        "Picea abies",
+        2707
+      ],
+      [
+        "Pinus nigra",
+        2581
+      ],
+      [
+        "Celtis occidentalis",
+        2393
+      ],
+      [
+        "Gymnocladus dioica",
+        1887
+      ]
+    ],
+    "differentSpecies": 191
+  },
+  "victoria_bc": {
+    "bounds": [
+      -123.3942975,
+      48.4062991,
+      -123.3226595,
+      48.4499789
+    ],
+    "keepCount": 32846,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [
+      [
+        "Quercus garryana",
+        4453
+      ],
+      [
+        "Prunus cerasifera",
+        2051
+      ],
+      [
+        "Prunus serrulata",
+        1687
+      ],
+      [
+        "Acer rubrum",
+        1155
+      ],
+      [
+        "Ulmus carpinifolia",
+        1129
+      ],
+      [
+        "Pseudotsuga menziesii",
+        1118
+      ],
+      [
+        "Crataegus oxyacantha",
+        1108
+      ],
+      [
+        "Acer macrophyllum",
+        971
+      ],
+      [
+        "Aesculus hippocastanum",
+        785
+      ],
+      [
+        "Carpinus betulus",
+        773
+      ],
+      [
+        "Pinus nigra",
+        740
+      ],
+      [
+        "Betula papyrifera",
+        725
+      ],
+      [
+        "Prunus yedoensis",
+        666
+      ],
+      [
+        "Aesculus carnea",
+        610
+      ],
+      [
+        "Acer campestre",
+        588
+      ],
+      [
+        "Thuja plicata",
+        501
+      ],
+      [
+        "Populus tremuloides",
+        472
+      ],
+      [
+        "Betula pendula",
+        446
+      ],
+      [
+        "Salix scouleriana",
+        445
+      ],
+      [
+        "Fraxinus ornus",
+        435
+      ],
+      [
+        "Pinus sylvestris",
+        365
+      ],
+      [
+        "Fagus sylvatica",
+        333
+      ]
+    ],
+    "differentSpecies": 297
+  },
+  "kamloops": {
+    "bounds": [
+      -120.48686,
+      50.6339541,
+      -120.0666514,
+      50.8612596
+    ],
+    "keepCount": 17260,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [],
+    "differentSpecies": 0
+  },
+  "chestermere": {
+    "keepCount": 6899,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [],
+    "differentSpecies": 5
+  },
+  "new_west_west": {
+    "bounds": [
+      -122.957539,
+      49.17691,
+      -122.9081482,
+      49.2186895
+    ],
+    "keepCount": 3089,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [
+      [
+        "Cornus kousa",
+        145
+      ],
+      [
+        "Acer griseum",
+        143
+      ],
+      [
+        "Acer palmatum",
+        120
+      ],
+      [
+        "Acer platanoides",
+        115
+      ],
+      [
+        "Acer rubrum",
+        111
+      ],
+      [
+        "Robinia pseudoacacia",
+        96
+      ],
+      [
+        "Parrotia persica",
+        80
+      ],
+      [
+        "Ginkgo biloba",
+        79
+      ],
+      [
+        "Prunus cerasifera",
+        76
+      ],
+      [
+        "Fagus sylvatica",
+        72
+      ],
+      [
+        "Cladrastis lutea",
+        59
+      ],
+      [
+        "Styrax japonicus",
+        56
+      ],
+      [
+        "Carpinus betulus",
+        52
+      ],
+      [
+        "Nyssa sylvatica",
+        50
+      ],
+      [
+        "Fraxinus excelsior",
+        48
+      ],
+      [
+        "Cercis canadensis",
+        48
+      ],
+      [
+        "Hibiscus syriacus",
+        47
+      ],
+      [
+        "Sorbus aria",
+        46
+      ],
+      [
+        "Magnolia kobus",
+        41
+      ],
+      [
+        "Cercidiphyllum japonicum",
+        40
+      ],
+      [
+        "Sorbus aucuparia",
+        39
+      ],
+      [
+        "Magnolia liliiflora",
+        38
+      ],
+      [
+        "Fraxinus ornus",
+        37
+      ],
+      [
+        "Gleditsia triacanthos",
+        35
+      ],
+      [
+        "Quercus acutissima",
+        35
+      ],
+      [
+        "Aesculus hippocastanum",
+        33
+      ],
+      [
+        "Populus tremula",
+        33
+      ],
+      [
+        "Fraxinus angustifolia",
+        32
+      ],
+      [
+        "Carpinus japonica",
+        32
+      ],
+      [
+        "Magnolia m.",
+        32
+      ],
+      [
+        "Catalpa x erubescens (purpurea)",
+        32
+      ]
+    ],
+    "differentSpecies": 156
+  },
+  "new_west_east": {
+    "bounds": [
+      -122.9262629,
+      49.2040572,
+      -122.8777468,
+      49.2349353
+    ],
+    "keepCount": 3144,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [
+      [
+        "Prunus serrulata",
+        183
+      ],
+      [
+        "Acer rubrum",
+        122
+      ],
+      [
+        "Acer griseum",
+        119
+      ],
+      [
+        "Acer palmatum",
+        102
+      ],
+      [
+        "Cornus kousa",
+        101
+      ],
+      [
+        "Ginkgo biloba",
+        88
+      ],
+      [
+        "Acer platanoides",
+        80
+      ],
+      [
+        "Cercis canadensis",
+        72
+      ],
+      [
+        "Magnolia m.",
+        69
+      ],
+      [
+        "Magnolia kobus",
+        69
+      ],
+      [
+        "Fagus sylvatica",
+        56
+      ],
+      [
+        "Hibiscus syriacus",
+        54
+      ],
+      [
+        "Parrotia persica",
+        51
+      ],
+      [
+        "Cornus mas",
+        42
+      ],
+      [
+        "Styrax japonicus",
+        41
+      ],
+      [
+        "Nyssa sylvatica",
+        37
+      ],
+      [
+        "Robinia pseudoacacia",
+        33
+      ]
+    ],
+    "differentSpecies": 153
+  },
+  "maple_ridge": {
+    "bounds": [
+      -122.6680135,
+      49.176802,
+      -122.4273935,
+      49.2565599
+    ],
+    "keepCount": 10778,
+    "delCount": 0,
+    "noGeomCount": 6,
+    "speciesCounts": [
+      [
+        "Acer rubrum",
+        2460
+      ],
+      [
+        "Liquidambar styraciflua",
+        859
+      ],
+      [
+        "Sorbus aucuparia",
+        652
+      ],
+      [
+        "Prunus serrulata",
+        547
+      ],
+      [
+        "Carpinus betulus",
+        448
+      ],
+      [
+        "Prunus x yedoensis",
+        430
+      ],
+      [
+        "Liquidamber styraciflua",
+        350
+      ],
+      [
+        "Acer platanoides",
+        310
+      ],
+      [
+        "Acer campestre",
+        256
+      ],
+      [
+        "Tilia cordata",
+        239
+      ],
+      [
+        "Cercidiphyllum japonicum",
+        235
+      ],
+      [
+        "Gleditsia t.",
+        152
+      ],
+      [
+        "Parrotia persica",
+        148
+      ],
+      [
+        "Quercus rubra",
+        142
+      ],
+      [
+        "Platanus acerifolia",
+        133
+      ],
+      [
+        "Styrax japonicus",
+        130
+      ],
+      [
+        "Fagus sylvatica",
+        124
+      ],
+      [
+        "Cornus kousa",
+        119
+      ],
+      [
+        "Acer truncatum",
+        109
+      ]
+    ],
+    "differentSpecies": 95
+  },
+  "barrie": {
+    "bounds": [
+      -79.7425001,
+      44.3338855,
+      -79.6051442,
+      44.4197076
+    ],
+    "keepCount": 659,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [],
+    "differentSpecies": 0
+  },
+  "victoriaville": {
+    "bounds": [
+      -72.025211,
+      46.0302495,
+      -71.9016941,
+      46.1022731
+    ],
+    "keepCount": 7762,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "speciesCounts": [],
+    "differentSpecies": 0
+  },
+  "rostock": {
+    "bounds": [
+      12.0069906,
+      53.9964371,
+      12.3472586,
+      54.2443312
+    ],
+    "keepCount": 74096,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 0,
+    "speciesCounts": []
+  },
+  "chemnitz": {
+    "bounds": [
+      12.7682619,
+      50.7475976,
+      13.0495866,
+      50.9016939
+    ],
+    "keepCount": 48369,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 210,
+    "speciesCounts": [
+      [
+        "Acer platanoides",
+        6559
+      ],
+      [
+        "Fraxinus excelsior",
+        4463
+      ],
+      [
+        "Tilia cordata",
+        4101
+      ],
+      [
+        "Acer pseudoplatanus",
+        3540
+      ],
+      [
+        "Quercus robur",
+        2626
+      ],
+      [
+        "Tilia platyphyllos",
+        2272
+      ],
+      [
+        "Aesculus hippocastanum",
+        2002
+      ],
+      [
+        "Betula pendula",
+        1803
+      ],
+      [
+        "Tilia x euchlora",
+        1597
+      ],
+      [
+        "Robinia pseudoacacia",
+        856
+      ],
+      [
+        "Alnus glutinosa",
+        735
+      ],
+      [
+        "Carpinus betulus",
+        706
+      ],
+      [
+        "Platanus x acerifolia",
+        649
+      ],
+      [
+        "Fagus sylvatica",
+        560
+      ],
+      [
+        "Populus x canadensis",
+        545
+      ]
+    ]
+  },
+  "wesel": {
+    "bounds": [
+      6.4850533,
+      51.6184974,
+      6.7126003,
+      51.7197262
+    ],
+    "keepCount": 14260,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 189,
+    "speciesCounts": [
+      [
+        "Quercus robur",
+        1867
+      ],
+      [
+        "Fraxinus excelsior",
+        844
+      ],
+      [
+        "Acer pseudoplatanus",
+        777
+      ],
+      [
+        "Tilia cordata",
+        718
+      ],
+      [
+        "Acer platanoides",
+        669
+      ],
+      [
+        "Carpinus betulus",
+        632
+      ],
+      [
+        "Acer campestre",
+        452
+      ],
+      [
+        "Platanus x hybrida",
+        449
+      ],
+      [
+        "Waldartiger bestand",
+        403
+      ],
+      [
+        "Fagus sylvatica",
+        349
+      ],
+      [
+        "Tilia europaea",
+        336
+      ],
+      [
+        "Betula pendula",
+        250
+      ],
+      [
+        "Fraxinus ornus",
+        245
+      ],
+      [
+        "Platanus acerifolia",
+        245
+      ],
+      [
+        "Tilia platyphyllos",
+        231
+      ],
+      [
+        "Prunus serrulata",
+        212
+      ],
+      [
+        "Salix spec.",
+        205
+      ],
+      [
+        "Populus canadensis",
+        200
+      ],
+      [
+        "Picea omorika",
+        191
+      ],
+      [
+        "Prunus avium",
+        187
+      ],
+      [
+        "Pyrus calleryana",
+        182
+      ],
+      [
+        "Liquidambar styraciflua",
+        174
+      ],
+      [
+        "Robinia pseudoacacia",
+        172
+      ]
+    ]
+  },
+  "linz": {
+    "bounds": [
+      14.2472603,
+      48.2161552,
+      14.3910892,
+      48.3526255
+    ],
+    "keepCount": 26233,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 327,
+    "speciesCounts": [
+      [
+        "Acer platanoides",
+        1630
+      ],
+      [
+        "Tilia cordata",
+        1607
+      ],
+      [
+        "Carpinus betulus",
+        1586
+      ],
+      [
+        "Quercus robur",
+        1476
+      ],
+      [
+        "Betula pendula",
+        1395
+      ],
+      [
+        "Platanus hispanica",
+        1008
+      ],
+      [
+        "Fraxinus excelsior",
+        965
+      ],
+      [
+        "Fagus sylvatica",
+        821
+      ],
+      [
+        "Acer campestre",
+        625
+      ],
+      [
+        "Acer pseudoplatanus",
+        616
+      ],
+      [
+        "Pinus nigra",
+        559
+      ],
+      [
+        "Aesculus hippocastanum",
+        495
+      ],
+      [
+        "Liriodendron tulipifera",
+        445
+      ],
+      [
+        "Salix alba",
+        416
+      ],
+      [
+        "Robinia pseudoacacia",
+        329
+      ],
+      [
+        "Corylus colurna",
+        264
+      ]
+    ]
+  },
+  "luxembourg": {
+    "bounds": [
+      5.7677427,
+      49.4551422,
+      6.5137679,
+      50.1643772
+    ],
+    "keepCount": 535,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 49,
+    "speciesCounts": [
+      [
+        "Fagus sylvatica",
+        60
+      ],
+      [
+        "Aesculus hippocastanum",
+        32
+      ],
+      [
+        "Quercus robur",
+        26
+      ],
+      [
+        "Fraxinus excelsior",
+        25
+      ],
+      [
+        "Tilia platyphyllos",
+        14
+      ],
+      [
+        "Juglans regia",
+        12
+      ],
+      [
+        "Pseudotsuga menz.",
+        10
+      ],
+      [
+        "Tilia cordata",
+        9
+      ],
+      [
+        "Salix alba",
+        9
+      ],
+      [
+        "Pyrus communis",
+        8
+      ],
+      [
+        "Castanea sativa",
+        7
+      ],
+      [
+        "Sorbus domestica",
+        7
+      ],
+      [
+        "Platanus acerifolia",
+        6
+      ],
+      [
+        "Robinia pseudoacacia",
+        6
+      ]
+    ]
+  },
+  "haag": {
+    "bounds": [
+      4.205282,
+      52.0147407,
+      88800.661,
+      459300.2367612
+    ],
+    "keepCount": 137463,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 489,
+    "speciesCounts": [
+      [
+        "Fraxinus excelsior",
+        7858
+      ],
+      [
+        "Quercus robur",
+        7457
+      ],
+      [
+        "Acer pseudoplatanus",
+        5625
+      ],
+      [
+        "Ulmus hollandica",
+        5363
+      ],
+      [
+        "Salix alba",
+        4821
+      ],
+      [
+        "Alnus glutinosa",
+        4773
+      ],
+      [
+        "Tilia x europaea",
+        4718
+      ],
+      [
+        "Robinia pseudoacacia",
+        4050
+      ],
+      [
+        "Platanus x hispanica",
+        3676
+      ],
+      [
+        "Populus canadensis",
+        3127
+      ],
+      [
+        "Tilia x europaea 'pallida'",
+        3119
+      ],
+      [
+        "Prunus avium",
+        2858
+      ],
+      [
+        "Aesculus hippocastanum",
+        2473
+      ],
+      [
+        "Fagus sylvatica",
+        2343
+      ],
+      [
+        "Prunus serrulata",
+        2318
+      ],
+      [
+        "Pyrus calleryana",
+        2294
+      ],
+      [
+        "Carpinus betulus",
+        2138
+      ],
+      [
+        "Acer campestre",
+        1915
+      ],
+      [
+        "Tilia cordata",
+        1786
+      ],
+      [
+        "Betula pendula",
+        1764
+      ],
+      [
+        "Ulmus minor",
+        1750
+      ],
+      [
+        "Sorbus intermedia",
+        1721
+      ],
+      [
+        "Gleditsia triacanthos",
+        1622
+      ],
+      [
+        "Tilia x europaea 'euchlora'",
+        1620
+      ],
+      [
+        "Tilia tomentosa",
+        1569
+      ],
+      [
+        "Alnus x spaethii 'spaeth'",
+        1555
+      ],
+      [
+        "Quercus cerris",
+        1530
+      ],
+      [
+        "Liquidambar styraciflua",
+        1449
+      ],
+      [
+        "Corylus colurna",
+        1444
       ]
     ]
   }

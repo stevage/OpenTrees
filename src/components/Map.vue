@@ -261,6 +261,11 @@ export default {
         });
         EventBus.$on('vis-mode', mode => this.$nextTick(() => this.mode = mode))
         EventBus.$on('resize', () => this.$nextTick(() => this.map.resize()));
+        EventBus.$on('species-filter', filter => map.U.setFilter([...visLayers, 'trees-inner'], [
+            'any',
+                ['in', filter, ['get', 'scientific']],
+                ['in', filter, ['get', 'genus']]
+            ]));
         map.on('moveend', () => {
             if (this.mode === 'local') {
                 this.updateLocal();
@@ -331,7 +336,7 @@ const stops = visType => flatten(visGroups[visType].map(([name, color, stop]) =>
 const COMMONSCALE = 10;
 const visGroups = {
     none: [],
-    speciesSouth: [
+    species: [
         ['Eucalyptus', "hsl(90,90%,30%)", ['in', ['get', 'genus'], ['literal', ['Eucalyptus']]]], 
         ['Corymbia,  Angophora', "hsl(90,30%,60%)", ['in', ['get', 'genus'], ['literal', ['Corymbia', 'Angophora']]]], 
         ['Lophostemon', "hsl(90,90%,60%)", ['in', ['get', 'genus'], ['literal', ['Lophostemon']]]], 
@@ -372,7 +377,7 @@ const visGroups = {
             ['in', ['get', 'species'], ['literal', ['indica', 'eugenioides', 'japonicus', 'japonica']]],
             ['in', ['get', 'scientific'], ['literal', ['Agathis robusta', 'Pittosporum tenuifolium', 'Agathis australis','Cordyline australis', 'Hibiscus syriacus']]]]], 
     ],
-    species: [
+    /*speciesNew: [
         ['Gum', "hsl(90,90%,30%)", ['in', ['get', 'genus'], ['literal', ['Eucalyptus', 'Corymbia', 'Angophora', 'Lophostemon']]]], 
         ['Maple', "hsl(40,90%,30%)", ['in', ['get', 'genus'], ['literal', ['Acer']]]], 
         ['Oak', "hsl(60,70%,40%)", ['in', ['get', 'genus'], ['literal', ['Quercus']]]], 
@@ -381,7 +386,7 @@ const visGroups = {
         ['Linden', "hsl(120,80%,60%)", ['in', ['get', 'genus'], ['literal', ['Tilia']]]], 
         ['Ash', "hsl(140,70%,60%)", ['in', ['get', 'genus'], ['literal', ['Fraxinus']]]], 
         ['Conifer', "hsl(210,70%,60%)", ['in', ['get', 'genus'], ['literal', ['Pinus', 'Araucaria', 'Cupressus', 'Cupressocyparis', 'Podocarpus', 'Platycladus', 'Thuja', 'Hesperocyparis', 
-                'Callitris', 'Cedrus', 'Picea' /* spruce */, 'Abies','Cunninghamia','Chamaecyparis','Sequoiadendron', 'Sequoia','Thujopsis','Taxus', 'Lepidopthamnus',]]]],
+                'Callitris', 'Cedrus', 'Picea', 'Abies','Cunninghamia','Chamaecyparis','Sequoiadendron', 'Sequoia','Thujopsis','Taxus', 'Lepidopthamnus',]]]],
         ['Palms', 'hsl(240, 50%,40%)', ['in', ['get', 'genus'], ['literal', ['Phoenix', 'Washingtonia', 'Jubaea', 'Chamaerops','Syagrus','Livistona','Trachycarpus']]]], 
         ['Chestnut', "hsl(240,30%,60%)", ['in', ['get', 'genus'], ['literal', ['Aesculus']]]], 
         ['Elm', "hsl(0,30%,60%)", ['in', ['get', 'genus'], ['literal', ['Ulmus']]]], 
@@ -390,7 +395,7 @@ const visGroups = {
         // ['', "hsl(90,30%,60%)", ['in', ['get', 'genus'], ['literal', ['']]]], 
         ['East Asian exotics', "hsl(310,80%,30%)", ['in', ['get', 'genus'], ['literal', ['Ginkgo','Koelreuteria','Zelkova','Styphnolobium','Cercidiphyllum']]]], 
         ['', "hsl(90,30%,60%)", ['in', ['get', 'genus'], ['literal', ['']]]], 
-    ],
+    ],*/
 
     family: [
         ['Unknown', 'hsla(0, 0%, 0%, 0.3)', ['==', ['coalesce', ['get', 'family'], ''], '']],
@@ -441,10 +446,10 @@ const visGroups = {
 
         // no idea about Paris' single letter codes really
         ['Over-mature', 'hsla(0, 80%,50%, 0.8)', ['Over-mature','Over-Mature','Over Mature','On Maintenance', 'Senescent','Scenescent','Decline','M','Arbre vieillissant','sénescent','vieux','Veteran']],
-        ['Mature', 'hsla(40, 100%, 50%, 0.9)', ['Mature','A','Arbre adulte','adulte','Adulte','Fully Mature']],
-        ['Semi-mature', 'hsla(100, 50%, 50%, 0.9)', ['Semi-mature','Semi-Mature','Semi mature','Early-Mature','JA','Young Mature','Middle Aged']],
+        ['Mature', 'hsla(40, 100%, 50%, 0.9)', ['Mature','A','Arbre adulte','adulte','Adulte','Fully Mature','Volwassen']],
+        ['Semi-mature', 'hsla(100, 50%, 50%, 0.9)', ['Semi-mature','Semi-Mature','Semi mature','Early-Mature','JA','Young Mature','Middle Aged','Halfwas']],
         // where does "Vigorous" go?
-        ['Young', 'hsla(160, 90%, 50%, 1)', ['Young','Juvenile','J','Arbre jeune','jeune','Jeune','Immature']],
+        ['Young', 'hsla(160, 90%, 50%, 1)', ['Young','Juvenile','J','Arbre jeune','jeune','Jeune','Immature','Jong']],
         ['New', 'hsla(220, 100%, 50%, 1)', ['New','New Planting','Newly Planted']],
         // ['Very poor', 'hsla(0, 100%, 30%, 1)', ['Very Poor', 'Dying','dying', 'Dying tree',  '20', '30',  'Critical']],
         // ['Dead', 'hsla(330, 30%,10%, 0.9)', ['Dead','dead','Stump','stump', '0', '10', 'SOUCHE' /* stump*/]],

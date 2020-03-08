@@ -4,6 +4,6 @@ import sourceStats from './source-stats.json';
 console.log({sources});
 console.log({sourceStats});
 export default sources.map(source => ({
-    ...source,
+    ...{ ... source, crosswalk: source.crosswalk || {} },
     ...(sourceStats[source.id])
 }));

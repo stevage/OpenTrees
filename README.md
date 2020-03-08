@@ -1,6 +1,6 @@
 # [opentrees.org](https://opentrees.org)
 
-A static website for browsing tree data collected from many councils around Australia, with the magic of vector tiles. (The scripts to download and process the data into vector tiles are here: https://github.com/stevage/opentrees-data)
+A static website for browsing tree data collected from many municpal governments around the world, with the magic of vector tiles. (The scripts to download and process the data into vector tiles are here: https://github.com/stevage/opentrees-data)
 
 Previous versions of the site:
 
@@ -12,4 +12,4 @@ Previous versions of the site:
 ## Author
 All code (so far) written by Steve Bennett (stevage@gmail.com, stevebennett.me, @stevage1)
 
-All code released under Creative Commons Attribution (CC-BY 3.0 AU)
+All code released under Creative Commons Attribution Non-Commercial (CC-BY-NC 4.0)

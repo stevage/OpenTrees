@@ -11,9 +11,13 @@
                 SourceInfo
             #map-container.relative.flex-auto
                 Map
-                #overlay.absolute.ba.b--gray.shadow-3.ml2-ns.mt2-ns.mw5.mw-none-ns.overflow-y-scroll
+                #overlay.absolute.ba.b--gray.shadow-3.ml2-ns.mt2-ns.mw5.mw-none-ns.overflow-y-scroll(v-if="!showStats")
+                    TreeSearch
                     Mode
                     Legend
+                    
+                .absolute.w-100.h-100.pa2.center(v-if="showStats")
+                    Stats
                     
         #bottom.bt.b--light-gray.flex-none.pa1.shadow-3
             | Created by <a href="https://twitter.com/stevage1/">Steve Bennett</a>. 
@@ -28,6 +32,8 @@ import FeatureInfo from './components/FeatureInfo.vue'
 import SourceInfo from './components/SourceInfo.vue'
 import Mode from './components/Mode.vue';
 import Legend from './components/Legend.vue';
+import Stats from './components/Stats.vue';
+import TreeSearch from './components/TreeSearch.vue';
 import { EventBus } from './EventBus';
 import stats from './stats.json';
 window.app = { }
@@ -35,7 +41,8 @@ export default {
     name: 'app',
     data() {
         return {
-            stats
+            stats,
+            showStats: location.hash.match(/stats/)
         }
     },
     components: {
@@ -44,6 +51,8 @@ export default {
       SourceInfo,
       Mode,
       Legend,
+      Stats,
+      TreeSearch
     },
     created() {
         window.app.App = this;
