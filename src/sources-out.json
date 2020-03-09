@@ -307,17 +307,6 @@
     }
   },
   {
-    "id": "zurich",
-    "country": "Switzerland",
-    "short": "Zurich",
-    "long": "",
-    "download": "https://www.ogd.stadt-zuerich.ch/geodaten/download/Baumkataster?format=10008",
-    "info": "https://data.stadt-zuerich.ch/dataset/geo_baumkataster",
-    "format": "csv",
-    "srs": "EPSG:2056",
-    "crosswalk": {}
-  },
-  {
     "id": "amsterdam1",
     "country": "Netherlands",
     "short": "Amsterdam",
@@ -390,7 +379,7 @@
   },
   {
     "id": "linz",
-    "country": "Austraia",
+    "country": "Austria",
     "short": "Linz",
     "long": "",
     "download": "http://data.linz.gv.at/katalog/umwelt/baumkataster/2020/FME_BaumdatenBearbeitet_OGD_20200225.csv",
@@ -2163,6 +2152,290 @@
       "note": "NOTES",
       "dbh": "x => String(x.DBH).replace('\"','') * INCHES"
     }
+  },
+  {
+    "id": "seattle",
+    "country": "USA",
+    "short": "Seattle",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/0b8c124ace214943ab0379623937eccb_6.zip",
+    "info": "http://hub.arcgis.com/datasets/SeattleCityGIS::trees",
+    "format": "zip",
+    "crosswalk": {
+      "ref": "UNITID",
+      "health": "CONDITION",
+      "owner": "OWNERSHIP",
+      "updated": "LAST_VERIF",
+      "planted": "PLANTED_DA",
+      "scientific": "SCIENTIFIC",
+      "common": "COMMON_NAM",
+      "height": "x => x.TREEHEIGHT / FEET",
+      "dbh": "x => x.DIAM * INCHES",
+      "condition": "x => ['Very poor', 'Poor','Fair','Good','Excellent'][x.CONDITIO_3 - 1]"
+    }
+  },
+  {
+    "id": "cupertino",
+    "country": "USA",
+    "short": "Cupertino",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/caa50a924b7d4b5ba8e8a4cbfd0d7f13_29.csv",
+    "info": "http://hub.arcgis.com/datasets/Cupertino::trees",
+    "format": "csv",
+    "latitudeField": "LONG",
+    "longitudeField": "LAT",
+    "crosswalk": {
+      "ref": "AssetID",
+      "updated": "UpdateDate",
+      "scientific": "Species",
+      "common": "SpeciesCommonName",
+      "location": "LocationType",
+      "health": "Condition",
+      "dbh": "x => Number(x.DiameterBreastHeight) * INCHES",
+      "height": "x => Number(x.Height) / FEET"
+    },
+    "centre": [
+      -122.03987,
+      37.31706
+    ]
+  },
+  {
+    "id": "oxnard",
+    "country": "USA",
+    "short": "Oxnard",
+    "long": "City of Oxnard",
+    "download": "https://opendata.arcgis.com/datasets/a5aa2d1dfd344ef79d61507d33cdbc02_1.csv",
+    "info": "http://hub.arcgis.com/datasets/a5aa2d1dfd344ef79d61507d33cdbc02_1",
+    "format": "csv",
+    "crosswalk": {
+      "scientific": "BOTANICALN",
+      "common": "COMMONNAME",
+      "dbh": "x => Number(x.DBH) * INCHES",
+      "height": "x => Number(x.HEIGHT) / FEET"
+    }
+  },
+  {
+    "id": "wake_forest",
+    "country": "USA",
+    "short": "Wake Forest",
+    "long": "Town of Wake Forest",
+    "download": "https://opendata.arcgis.com/datasets/ba930858554a43cca1be2f06a44d2449_0.csv",
+    "info": "http://hub.arcgis.com/datasets/wakeforestnc::trees",
+    "crosswalk": {
+      "scientific": "SPECIES_LA",
+      "common": "SPECIES_CO",
+      "health": "STATUS"
+    }
+  },
+  {
+    "id": "aurora",
+    "country": "USA",
+    "short": "Aurora",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/1dbb32bf07ca421db4f01dac6beb812d_85.csv",
+    "info": "http://hub.arcgis.com/datasets/AuroraCo::trees-city",
+    "format": "",
+    "crosswalk": {
+      "ref": "TREE_ID_NO",
+      "common": "SPECIES",
+      "health": "CONDITION",
+      "updated": "ACTIVITY_DATE",
+      "dbh": "x => Number(x.DIAMETER) * INCHES"
+    }
+  },
+  {
+    "id": "bakersfield",
+    "short": "Bakersfield",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/b7a17f7ecb564be4b26ced85016ed1da_0.csv",
+    "info": "http://hub.arcgis.com/datasets/cob::city-trees?geometry=-129.468%2C33.767%2C-108.539%2C36.903",
+    "crosswalk": {
+      "updated": "DATE_",
+      "scientific": "BOTANICAL_",
+      "common": "COMMON_N",
+      "health": "RATING",
+      "note": "COMMENT",
+      "ref": "TREE_ID",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)",
+      "height": "tree => numeric(Number(tree[field]) / 3.280084)",
+      "crown": "tree => numeric(Number(tree[field]) / 3.280084)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "las_vegas",
+    "short": "Las Vegas",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/23364bb40f2640ff841ba4a8680b6421_0.csv",
+    "info": "http://hub.arcgis.com/datasets/lasvegas::trees",
+    "format": "",
+    "crosswalk": {
+      "location": "LOC_TYPE",
+      "scientific": "BOTANICAL",
+      "common": "COMMON",
+      "dbh": "DBH",
+      "spread": "WIDTH",
+      "height": "HEIGHT",
+      "health": "COND",
+      "note": "NOTES"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "mountain_view",
+    "short": "Mountain View",
+    "long": "City of Mountain View",
+    "download": "https://opendata.arcgis.com/datasets/72667718eb9b427d95b6eb55e25c36a7_0.csv",
+    "info": "http://hub.arcgis.com/datasets/MountainView::trees",
+    "format": "",
+    "crosswalk": {
+      "scientific": "SPECIES",
+      "common": "NAME",
+      "ref": "FACILITYID",
+      "age": "TREEAGE",
+      "planted": "INSTALLDATE",
+      "health": "CONDITION",
+      "updated": "LASTUPDATE",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)",
+      "height": "tree => numeric(Number(tree[field]) / 3.280084)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "three_rivers",
+    "short": "Three Rivers",
+    "long": "Three Rivers Park District",
+    "download": "https://opendata.arcgis.com/datasets/ffbb9401412141a79c7164ade8d2ee2d_0.csv",
+    "info": "http://hub.arcgis.com/datasets/trpd::managed-trees-open-data?geometry=-96.405%2C44.562%2C-90.563%2C45.243",
+    "crosswalk": {
+      "common": "CommonName",
+      "scientific": "ScientificName",
+      "planted": "YearPlanted",
+      "ref": "CartedID"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "richardson",
+    "short": "Richardson",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/cd10a9e85354488dbdb697ce97ccb064_0.csv",
+    "info": "http://hub.arcgis.com/datasets/richardson::trees",
+    "crosswalk": {
+      "common": "NAME",
+      "genus": "GENUS",
+      "species": "SPECIES",
+      "age": "TREEAGE",
+      "owner": "OWNEDBY",
+      "structure": "TRUNKSTRCT",
+      "note": "COMMENTS",
+      "updated": "last_edited_date",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)",
+      "height": "tree => numeric(Number(tree[field]) / 3.280084)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "allentown",
+    "short": "Allentown",
+    "long": "City of Allentown",
+    "download": "https://opendata.arcgis.com/datasets/4383052db35e4f93bbd83e5bde468a00_0.csv",
+    "info": "http://hub.arcgis.com/datasets/AllentownPA::city-trees",
+    "crosswalk": {
+      "common": "TR_COMMON",
+      "scientific": "TR_GENUS",
+      "health": "CONDITION",
+      "updated": "INPUT_DATE",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "sioux_falls",
+    "short": "Sioux Falls",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/c880d62ae5fb4652b1f8e6cbca244107_10.csv",
+    "info": "http://hub.arcgis.com/datasets/cityofsfgis::trees",
+    "crosswalk": {
+      "ref": "AssetID",
+      "location": "Location",
+      "common": "FullName",
+      "scientific": "Species",
+      "family": "Family",
+      "Spread": "Spread",
+      "health": "Condition",
+      "Note": "SpecialComments",
+      "updated": "last_edited_date",
+      "height": "tree => numeric(Number(tree[field]) / 3.280084)",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "amherst",
+    "short": "Amherst",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/b4a74ab24f114f22b438a19e589f6f76_0.zip",
+    "info": "http://hub.arcgis.com/datasets/AmherstMA::street-trees",
+    "crosswalk": {
+      "ref": "TreeID",
+      "updated": "LastEdit",
+      "common": "Species",
+      "note": "Notes"
+    },
+    "centre": [
+      -72.49307,
+      42.3818
+    ],
+    "country": "USA"
+  },
+  {
+    "id": "colorado_springs",
+    "short": "Colorado Springs",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/91758518026d4b1089f2180602399d73_0.csv",
+    "info": "http://hub.arcgis.com/datasets/coloradosprings::trees/data?geometry=-106.259%2C38.699%2C-103.338%2C39.073",
+    "crosswalk": {
+      "common": "Common_Name",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "marysville_oh",
+    "short": "Marysville",
+    "long": "City of Marysville",
+    "download": "https://opendata.arcgis.com/datasets/44b6c7a1307d48ff99d2034b5695c149_0.csv",
+    "info": "http://hub.arcgis.com/datasets/Marysville::individual-trees-sites",
+    "crosswalk": {
+      "ref": "treeid",
+      "common": "common",
+      "genus": "genus",
+      "species": "sp_epith",
+      "variety": "variety",
+      "location": "type",
+      "health": "trcond",
+      "updated": "last_edited_date",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)",
+      "height": "tree => numeric(Number(tree[field]) / 3.280084)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "springfield_mo",
+    "short": "Springfield",
+    "long": "City of Springfield",
+    "download": "https://opendata.arcgis.com/datasets/7a890a7b54d6438f80bd60e5e34c8e62_34.csv",
+    "info": "http://hub.arcgis.com/datasets/COSMO::tree-inventory",
+    "crosswalk": {
+      "health": "Condition",
+      "common": "TreeType",
+      "scientific": "SciName",
+      "height": "Height",
+      "spread": "Spread",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
   },
   {
     "id": "halle",

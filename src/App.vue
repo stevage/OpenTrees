@@ -12,7 +12,7 @@
             #map-container.relative.flex-auto
                 Map
                 #overlay.absolute.ba.b--gray.shadow-3.ml2-ns.mt2-ns.mw5.mw-none-ns.overflow-y-scroll(v-if="!showStats")
-                    TreeSearch
+                    //- TreeSearch
                     Mode
                     Legend
                     

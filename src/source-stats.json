@@ -1240,8 +1240,8 @@
       144.7321866,
       -36.4867586
     ],
-    "keepCount": 80657,
-    "delCount": 0,
+    "keepCount": 80566,
+    "delCount": 91,
     "noGeomCount": 0,
     "speciesCounts": [
       [
@@ -1258,7 +1258,7 @@
       ],
       [
         "Eucalyptus sideroxylon",
-        4100
+        4090
       ],
       [
         "Callistemon viminalis",
@@ -1266,11 +1266,11 @@
       ],
       [
         "Eucalyptus melliodora",
-        3402
+        3400
       ],
       [
         "Ulmus procera",
-        2624
+        2623
       ],
       [
         "Prunus cerasifera",
@@ -1278,7 +1278,7 @@
       ],
       [
         "Corymbia maculata",
-        1896
+        1886
       ],
       [
         "Eucalyptus tricarpa",
@@ -1286,15 +1286,15 @@
       ],
       [
         "Fraxinus angustifolia",
-        1791
+        1790
       ],
       [
         "Pyrus calleryana",
-        1755
+        1747
       ],
       [
         "Angophora costata",
-        1624
+        1618
       ],
       [
         "Fraxinus oxycarpa",
@@ -1314,11 +1314,11 @@
       ],
       [
         "Melaleuca linariifolia",
-        1113
+        1111
       ],
       [
         "Ulmus parvifolia",
-        1082
+        1080
       ],
       [
         "Corymbia citriodora",
@@ -1460,8 +1460,8 @@
       144.818193,
       -37.816515
     ],
-    "keepCount": 44832,
-    "delCount": 21,
+    "keepCount": 44815,
+    "delCount": 38,
     "noGeomCount": 6,
     "speciesCounts": [],
     "differentSpecies": 0
@@ -1861,8 +1861,8 @@
       152.9776716,
       -27.5290642
     ],
-    "keepCount": 1181,
-    "delCount": 0,
+    "keepCount": 1180,
+    "delCount": 1,
     "noGeomCount": 0,
     "speciesCounts": [
       [
@@ -1958,7 +1958,7 @@
         12
       ]
     ],
-    "differentSpecies": 245
+    "differentSpecies": 244
   },
   "sydney": {
     "bounds": [
@@ -10319,6 +10319,1123 @@
       [
         "Corylus colurna",
         1444
+      ]
+    ]
+  },
+  "seattle": {
+    "bounds": [
+      -122.4190238,
+      47.495836,
+      -122.2385829,
+      47.7340691
+    ],
+    "keepCount": 165630,
+    "delCount": 0,
+    "noGeomCount": 42,
+    "differentSpecies": 414,
+    "speciesCounts": [
+      [
+        "Prunus cerasifera",
+        8246
+      ],
+      [
+        "Acer rubrum",
+        7543
+      ],
+      [
+        "Acer platanoides",
+        6304
+      ],
+      [
+        "Acer palmatum",
+        4577
+      ],
+      [
+        "Pyrus calleryana",
+        4470
+      ],
+      [
+        "Acer truncatum",
+        3751
+      ],
+      [
+        "Crataegus laevigata",
+        3645
+      ],
+      [
+        "Liquidambar styraciflua",
+        3377
+      ],
+      [
+        "Prunus x blireiana",
+        2887
+      ],
+      [
+        "Tilia cordata",
+        2718
+      ],
+      [
+        "Cornus kousa",
+        2540
+      ],
+      [
+        "Prunus serrulata",
+        2469
+      ],
+      [
+        "Betula pendula",
+        2367
+      ],
+      [
+        "Quercus rubra",
+        2339
+      ],
+      [
+        "Styrax japonicus",
+        2294
+      ],
+      [
+        "Acer griseum",
+        2238
+      ],
+      [
+        "Fraxinus pennsylvanica",
+        1832
+      ],
+      [
+        "Acer macrophyllum",
+        1794
+      ],
+      [
+        "Cercidiphyllum japonicum",
+        1765
+      ],
+      [
+        "Platanus x acerifolia",
+        1743
+      ],
+      [
+        "Zelkova serrata",
+        1686
+      ]
+    ]
+  },
+  "cupertino": {
+    "bounds": [
+      -122.0902223,
+      -122.0902223,
+      37.338167,
+      37.338167
+    ],
+    "keepCount": 27270,
+    "delCount": 341,
+    "noGeomCount": 0,
+    "differentSpecies": 245,
+    "speciesCounts": [
+      [
+        "Pistacia chinensis",
+        2055
+      ],
+      [
+        "Sequoia sempervirens",
+        1540
+      ],
+      [
+        "Quercus agrifolia",
+        1426
+      ],
+      [
+        "Pyrus calleryana",
+        1267
+      ],
+      [
+        "Cupressus sempervirens",
+        1193
+      ],
+      [
+        "Liquidambar styraciflua",
+        1061
+      ],
+      [
+        "Magnolia grandiflora",
+        927
+      ],
+      [
+        "Cinnamomum camphora",
+        862
+      ],
+      [
+        "Fraxinus velutina",
+        677
+      ],
+      [
+        "Ginkgo biloba",
+        608
+      ],
+      [
+        "Fraxinus uhdei",
+        512
+      ],
+      [
+        "Fraxinus angustifolia",
+        504
+      ],
+      [
+        "Acer rubrum",
+        490
+      ],
+      [
+        "Pittosporum tenuifolium",
+        417
+      ],
+      [
+        "Prunus cerasifera",
+        380
+      ],
+      [
+        "Platanus x hispanica 'bloodgood'",
+        373
+      ],
+      [
+        "Lagerstroemia indica",
+        369
+      ],
+      [
+        "Fraxinus americana",
+        359
+      ],
+      [
+        "Tristaniopsis laurina",
+        320
+      ]
+    ]
+  },
+  "oxnard": {
+    "bounds": [
+      -119.2424425,
+      34.1474391,
+      -119.1252127,
+      34.2518801
+    ],
+    "keepCount": 52109,
+    "delCount": 8925,
+    "noGeomCount": 0,
+    "differentSpecies": 233,
+    "speciesCounts": [
+      [
+        "Magnolia grandiflora",
+        4109
+      ],
+      [
+        "Syagrus romanzoffianum",
+        3950
+      ],
+      [
+        "Cupaniopsis anacardioides",
+        2935
+      ],
+      [
+        "Liquidambar styraciflua",
+        2907
+      ],
+      [
+        "Cinnamomum camphora",
+        2442
+      ],
+      [
+        "Washingtonia robusta",
+        2441
+      ],
+      [
+        "Lophostemon confertus",
+        2285
+      ],
+      [
+        "Metrosideros excelsus",
+        2018
+      ],
+      [
+        "Tipuana tipu",
+        1939
+      ],
+      [
+        "Pyrus kawakamii",
+        1604
+      ],
+      [
+        "Afrocarpus gracilior",
+        1600
+      ],
+      [
+        "Eucalyptus globulus",
+        1275
+      ],
+      [
+        "Melaleuca quinquenervia",
+        1178
+      ],
+      [
+        "Ulmus parvifolia",
+        1173
+      ],
+      [
+        "Platanus x hispanica",
+        1135
+      ],
+      [
+        "Brachychiton populneus",
+        974
+      ],
+      [
+        "Pinus canariensis",
+        898
+      ],
+      [
+        "Prunus cerasifera",
+        879
+      ],
+      [
+        "Schinus terebinthifolius",
+        754
+      ],
+      [
+        "Pyrus calleryana",
+        726
+      ],
+      [
+        "Lagerstroemia indica",
+        634
+      ],
+      [
+        "Ficus microcarpa",
+        583
+      ],
+      [
+        "Ligustrum lucidum",
+        572
+      ]
+    ]
+  },
+  "wake_forest": {
+    "bounds": [
+      -78.5536864,
+      35.9068963,
+      -78.4637252,
+      36.0135101
+    ],
+    "keepCount": 16719,
+    "delCount": 32,
+    "noGeomCount": 0,
+    "differentSpecies": 105,
+    "speciesCounts": [
+      [
+        "Lagerstroemia indica",
+        2016
+      ],
+      [
+        "Acer rubrum",
+        1887
+      ],
+      [
+        "Quercus phellos",
+        1262
+      ],
+      [
+        "Ulmus parvifolia",
+        658
+      ],
+      [
+        "Pistacia chinensis",
+        587
+      ],
+      [
+        "Zelkova serrata",
+        545
+      ],
+      [
+        "Prunus cerasifera",
+        506
+      ],
+      [
+        "Pinus taeda",
+        367
+      ],
+      [
+        "Quercus acutissima",
+        356
+      ],
+      [
+        "Cornus florida",
+        348
+      ],
+      [
+        "Pyrus calleryana",
+        309
+      ],
+      [
+        "Magnolia grandiflora",
+        300
+      ],
+      [
+        "Cercis canadensis",
+        274
+      ],
+      [
+        "Cupressus x leylandii",
+        268
+      ],
+      [
+        "Juniperus virginiana",
+        236
+      ],
+      [
+        "Quercus lyrata",
+        230
+      ],
+      [
+        "Broadleaf evergreen",
+        219
+      ],
+      [
+        "Ulmus americana",
+        211
+      ],
+      [
+        "Quercus palustris",
+        210
+      ],
+      [
+        "Acer saccharum",
+        206
+      ],
+      [
+        "Liquidambar styraciflua",
+        190
+      ],
+      [
+        "Ilex opaca",
+        168
+      ]
+    ]
+  },
+  "aurora": {
+    "bounds": [
+      -104.8845824,
+      39.5748424,
+      -104.6738621,
+      39.8015574
+    ],
+    "keepCount": 57871,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 0,
+    "speciesCounts": []
+  },
+  "bakersfield": {
+    "bounds": [
+      -119.1651745,
+      35.2698567,
+      -118.8432475,
+      35.4306347
+    ],
+    "keepCount": 66492,
+    "delCount": 0,
+    "noGeomCount": 144,
+    "differentSpecies": 271,
+    "speciesCounts": [
+      [
+        "Sequoia sempervirens",
+        5518
+      ],
+      [
+        "Lagerstroemia indica",
+        4635
+      ],
+      [
+        "Liquidamber styraciflua",
+        3714
+      ],
+      [
+        "Pyrus calleryana",
+        3147
+      ],
+      [
+        "Prunus cerasifera",
+        2950
+      ],
+      [
+        "Ulmus parviolia",
+        2373
+      ],
+      [
+        "Platanus racemosa",
+        2106
+      ],
+      [
+        "Syagrus romanzoffianum",
+        1811
+      ],
+      [
+        "Alnus rhombifolia",
+        1658
+      ],
+      [
+        "Pistacia chinensis",
+        1467
+      ],
+      [
+        "Pinus canariensis",
+        1463
+      ],
+      [
+        "Cupressus sempervirens",
+        1343
+      ],
+      [
+        "Cinnamomus camphora",
+        1333
+      ],
+      [
+        "Pyrus kawakamii",
+        1164
+      ],
+      [
+        "Fraxinus oxycarpa",
+        1145
+      ],
+      [
+        "Magnolia grandiflora",
+        1117
+      ],
+      [
+        "Quercus lobata",
+        1045
+      ],
+      [
+        "Morus alba",
+        958
+      ],
+      [
+        "Washingtonia filifera",
+        842
+      ],
+      [
+        "Fraxinus velutina",
+        837
+      ],
+      [
+        "Washingtonia robusta",
+        714
+      ],
+      [
+        "Populus fremontii",
+        699
+      ],
+      [
+        "Platanus acerifolia",
+        666
+      ]
+    ]
+  },
+  "las_vegas": {
+    "bounds": [
+      -115.3503962,
+      36.1434506,
+      -115.028758,
+      36.3668639
+    ],
+    "keepCount": 39512,
+    "delCount": 828,
+    "noGeomCount": 0,
+    "differentSpecies": 135,
+    "speciesCounts": [
+      [
+        "Pinus brutia",
+        5889
+      ],
+      [
+        "Fraxinus velutina",
+        2516
+      ],
+      [
+        "Washingtonia robusta",
+        1950
+      ],
+      [
+        "Fraxinus x velutina",
+        1949
+      ],
+      [
+        "Acacia stenophylla",
+        1628
+      ],
+      [
+        "Vitex agnus-castus",
+        1487
+      ],
+      [
+        "Prosopis chilensis",
+        1279
+      ],
+      [
+        "Pistacia chinensis",
+        1139
+      ],
+      [
+        "Chilopsis linearis",
+        1134
+      ],
+      [
+        "Fraxinus angustifolia",
+        1108
+      ],
+      [
+        "Chitalpa tashkentensis",
+        1094
+      ],
+      [
+        "Phoenix dactylifera",
+        942
+      ],
+      [
+        "Prosopis glandulosa",
+        871
+      ],
+      [
+        "Vachellia farnesiana",
+        764
+      ],
+      [
+        "Morus alba",
+        661
+      ],
+      [
+        "Prosopis velutina",
+        645
+      ],
+      [
+        "Parkinsonia x 'desert museum'",
+        613
+      ],
+      [
+        "Quercus virginiana",
+        555
+      ],
+      [
+        "Rhus lancea",
+        492
+      ],
+      [
+        "Ulmus parvifolia",
+        489
+      ],
+      [
+        "Pistacia x atlantica",
+        474
+      ],
+      [
+        "Ulmus pumila",
+        434
+      ],
+      [
+        "Pinus halepensis",
+        416
+      ]
+    ]
+  },
+  "mountain_view": {
+    "bounds": [
+      -122.1174452,
+      37.357965,
+      -122.0438399,
+      37.4337416
+    ],
+    "keepCount": 34048,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 255,
+    "speciesCounts": [
+      [
+        "Sequoia sempervirens",
+        2870
+      ],
+      [
+        "Platanus x acerifolia",
+        2571
+      ],
+      [
+        "Pistacia chinensis",
+        2059
+      ],
+      [
+        "Liquidambar styraciflua",
+        1705
+      ],
+      [
+        "Magnolia grandiflora",
+        1561
+      ],
+      [
+        "Lagerstroemia indica",
+        1316
+      ],
+      [
+        "Ginkgo biloba",
+        1051
+      ],
+      [
+        "Acer platanoides",
+        895
+      ],
+      [
+        "Quercus coccinea",
+        781
+      ],
+      [
+        "Pinus canariensis",
+        780
+      ],
+      [
+        "Pyrus calleryana",
+        776
+      ],
+      [
+        "Acer rubrum",
+        735
+      ],
+      [
+        "Fraxinus oxycarpa",
+        643
+      ],
+      [
+        "Prunus cerasifera",
+        526
+      ],
+      [
+        "Quercus agrifolia",
+        488
+      ],
+      [
+        "Cinnamomum camphora",
+        377
+      ],
+      [
+        "Ulmus parvifolia",
+        364
+      ],
+      [
+        "Fraxinus velutina",
+        361
+      ],
+      [
+        "Liriodendron tulipifera",
+        349
+      ]
+    ]
+  },
+  "three_rivers": {
+    "bounds": [
+      -93.7550303,
+      44.5727724,
+      -93.2191543,
+      45.2325309
+    ],
+    "keepCount": 9475,
+    "delCount": 0,
+    "noGeomCount": 1,
+    "differentSpecies": 51,
+    "speciesCounts": [
+      [
+        "Acer saccharum",
+        1380
+      ],
+      [
+        "Fraxinus pennsylvanica",
+        1343
+      ],
+      [
+        "Tilia americana",
+        1324
+      ],
+      [
+        "Quercus macrocarpa",
+        919
+      ],
+      [
+        "Quercus rubra",
+        672
+      ],
+      [
+        "Celtis occidentalis",
+        555
+      ],
+      [
+        "Acer saccharinum",
+        326
+      ],
+      [
+        "Quercus alba",
+        263
+      ],
+      [
+        "Prunus serotina",
+        245
+      ],
+      [
+        "Picea glauca",
+        237
+      ],
+      [
+        "Populus tremuloides",
+        217
+      ],
+      [
+        "Carya cordiformis",
+        213
+      ],
+      [
+        "Acer negundo",
+        121
+      ],
+      [
+        "Pinus strobus",
+        106
+      ],
+      [
+        "Betula nigra",
+        104
+      ],
+      [
+        "Juniperus virginiana",
+        97
+      ]
+    ]
+  },
+  "richardson": {
+    "bounds": [
+      -96.7664492,
+      32.931664,
+      -96.6157868,
+      33.000393
+    ],
+    "keepCount": 4533,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 13,
+    "speciesCounts": [
+      [
+        "Quercus virginiana",
+        710
+      ],
+      [
+        "Ilex vomitoria",
+        178
+      ],
+      [
+        "Taxodium distichum",
+        173
+      ],
+      [
+        "Carya illinoinensis",
+        168
+      ],
+      [
+        "Quercus macrocarpa",
+        86
+      ],
+      [
+        "Ulmus americana",
+        57
+      ],
+      [
+        "Liquidambar styraciflua",
+        49
+      ]
+    ]
+  },
+  "allentown": {
+    "bounds": [
+      -75.5483639,
+      40.5556525,
+      -75.4216066,
+      40.6337831
+    ],
+    "keepCount": 10496,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 58,
+    "speciesCounts": [
+      [
+        "Acer platanoides",
+        2806
+      ],
+      [
+        "Acer rubrum",
+        2700
+      ],
+      [
+        "Platanus occidentalis",
+        1517
+      ],
+      [
+        "Tilia cordata",
+        374
+      ],
+      [
+        "Pyrus calleryana",
+        371
+      ],
+      [
+        "Acer saccharinum",
+        317
+      ],
+      [
+        "Gleditsia triacanthos",
+        271
+      ],
+      [
+        "Zelkova serrata",
+        215
+      ],
+      [
+        "Quercus coccinea",
+        122
+      ]
+    ]
+  },
+  "sioux_falls": {
+    "bounds": [
+      -96.8451317,
+      43.4660975,
+      -96.6011015,
+      43.6159476
+    ],
+    "keepCount": 62594,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 180,
+    "speciesCounts": [
+      [
+        "Fraxinus pennsylvanica",
+        21509
+      ],
+      [
+        "Acer platanoides",
+        5726
+      ],
+      [
+        "Acer freemanii",
+        4712
+      ],
+      [
+        "Acer saccharinum",
+        4319
+      ],
+      [
+        "Tilia cordata",
+        3091
+      ],
+      [
+        "Gleditsia triacanthos",
+        2350
+      ],
+      [
+        "Celtis occidentalis",
+        1609
+      ],
+      [
+        "Picea pungens",
+        1290
+      ],
+      [
+        "Acer saccharum",
+        1278
+      ],
+      [
+        "Acer rubrum",
+        989
+      ],
+      [
+        "Picea glauca",
+        750
+      ],
+      [
+        "Quercus macrocarpa",
+        702
+      ]
+    ]
+  },
+  "amherst": {
+    "bounds": [
+      -72.7498777,
+      42.1138426,
+      -72.0886039,
+      42.4989592
+    ],
+    "keepCount": 40593,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 0,
+    "speciesCounts": []
+  },
+  "colorado_springs": {
+    "bounds": [
+      -104.8971604,
+      38.7516124,
+      -104.687947,
+      39.0118922
+    ],
+    "keepCount": 24331,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 0,
+    "speciesCounts": []
+  },
+  "marysville_oh": {
+    "bounds": [
+      -83.3970308,
+      40.2009113,
+      -83.3060878,
+      40.2732913
+    ],
+    "keepCount": 13125,
+    "delCount": 0,
+    "noGeomCount": 2,
+    "differentSpecies": 96,
+    "speciesCounts": [
+      [
+        "Acer rubrum",
+        1902
+      ],
+      [
+        "Pyrus calleryana",
+        650
+      ],
+      [
+        "Acer x freemanii",
+        524
+      ],
+      [
+        "Gleditsia triacanthos",
+        465
+      ],
+      [
+        "Acer platanoides",
+        274
+      ],
+      [
+        "Syringa reticulata",
+        210
+      ],
+      [
+        "Acer saccharum",
+        163
+      ],
+      [
+        "Liquidambar styraciflua",
+        151
+      ],
+      [
+        "Tilia americana",
+        146
+      ],
+      [
+        "Tilia cordata",
+        144
+      ],
+      [
+        "Quercus bicolor",
+        139
+      ]
+    ]
+  },
+  "springfield_mo": {
+    "bounds": [
+      -93.4028929,
+      37.0967534,
+      -93.1957203,
+      37.2609155
+    ],
+    "keepCount": 23072,
+    "delCount": 0,
+    "noGeomCount": 0,
+    "differentSpecies": 207,
+    "speciesCounts": [
+      [
+        "Cercis canadensis",
+        1670
+      ],
+      [
+        "Acer saccharinum",
+        1067
+      ],
+      [
+        "Acer saccharum",
+        984
+      ],
+      [
+        "Acer rubrum",
+        949
+      ],
+      [
+        "Pyrus calleryana",
+        849
+      ],
+      [
+        "Celtis occidentalis",
+        835
+      ],
+      [
+        "Juglans nigra",
+        833
+      ],
+      [
+        "Morus alba",
+        740
+      ],
+      [
+        "Ulmus pumila",
+        729
+      ],
+      [
+        "Cornus florida",
+        611
+      ],
+      [
+        "Prunus serotina",
+        595
+      ],
+      [
+        "Juniperus virginiana",
+        585
+      ],
+      [
+        "Ulmus americana",
+        483
+      ],
+      [
+        "Pinus strobus",
+        483
+      ],
+      [
+        "Quercus palustris",
+        479
+      ],
+      [
+        "Liquidambar styraciflua",
+        439
+      ],
+      [
+        "Taxodium distichum",
+        303
+      ],
+      [
+        "Acer x freemanii",
+        265
+      ],
+      [
+        "Ilex x attenuata fosteri",
+        241
       ]
     ]
   }

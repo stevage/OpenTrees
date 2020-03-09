@@ -91,12 +91,14 @@ export default {
                 circleRadius: { stops: [[10,4], [12, 6], [16, 8], [20, 18]] },
                 circleOpacity:0.5
             });
-            map.U.addCircle('trees-vis-species', 'trees', {
-                sourceLayer: 'trees',
-                circleColor: ['case', ...stops('species'), 'hsla(0,0%,0%,0.3)'],
-                circleRadius: { stops: [[10, 1], [12, 2], [17, 6], [ 20, 18], ] },
-                circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
-            });
+            for (const submode of ['1', '2']) {
+                map.U.addCircle(`trees-vis-species${submode}`, 'trees', {
+                    sourceLayer: 'trees',
+                    circleColor: ['case', ...stops(`species${submode}`), 'hsla(0,0%,0%,0.3)'],
+                    circleRadius: { stops: [[10, 1], [12, 2], [17, 6], [ 20, 18], ] },
+                    circleOpacity:['interpolate', ['linear'], ['zoom'], 13, 0.5, 17, 1]
+                });
+            }
             map.U.addCircle('trees-vis-family', 'trees', {
                 sourceLayer: 'trees',
                 circleColor: ['case', ...stops('family'), 'hsla(0,0%,0%,0.3)'],
@@ -336,7 +338,7 @@ const stops = visType => flatten(visGroups[visType].map(([name, color, stop]) =>
 const COMMONSCALE = 10;
 const visGroups = {
     none: [],
-    species: [
+    species1: [
         ['Eucalyptus', "hsl(90,90%,30%)", ['in', ['get', 'genus'], ['literal', ['Eucalyptus']]]], 
         ['Corymbia,  Angophora', "hsl(90,30%,60%)", ['in', ['get', 'genus'], ['literal', ['Corymbia', 'Angophora']]]], 
         ['Lophostemon', "hsl(90,90%,60%)", ['in', ['get', 'genus'], ['literal', ['Lophostemon']]]], 
@@ -377,7 +379,7 @@ const visGroups = {
             ['in', ['get', 'species'], ['literal', ['indica', 'eugenioides', 'japonicus', 'japonica']]],
             ['in', ['get', 'scientific'], ['literal', ['Agathis robusta', 'Pittosporum tenuifolium', 'Agathis australis','Cordyline australis', 'Hibiscus syriacus']]]]], 
     ],
-    /*speciesNew: [
+    species2: [
         ['Gum', "hsl(90,90%,30%)", ['in', ['get', 'genus'], ['literal', ['Eucalyptus', 'Corymbia', 'Angophora', 'Lophostemon']]]], 
         ['Maple', "hsl(40,90%,30%)", ['in', ['get', 'genus'], ['literal', ['Acer']]]], 
         ['Oak', "hsl(60,70%,40%)", ['in', ['get', 'genus'], ['literal', ['Quercus']]]], 
@@ -395,7 +397,7 @@ const visGroups = {
         // ['', "hsl(90,30%,60%)", ['in', ['get', 'genus'], ['literal', ['']]]], 
         ['East Asian exotics', "hsl(310,80%,30%)", ['in', ['get', 'genus'], ['literal', ['Ginkgo','Koelreuteria','Zelkova','Styphnolobium','Cercidiphyllum']]]], 
         ['', "hsl(90,30%,60%)", ['in', ['get', 'genus'], ['literal', ['']]]], 
-    ],*/
+    ],
 
     family: [
         ['Unknown', 'hsla(0, 0%, 0%, 0.3)', ['==', ['coalesce', ['get', 'family'], ''], '']],
@@ -423,9 +425,9 @@ const visGroups = {
 
     rarity: [
         // these were: 1, 5, 20, 100, 1000, 10000
-        ['Super common', 'hsla(210, 90%,60%, 0.5)', 100e3],
-        ['Very common', 'hsla(160, 90%,60%, 0.6)', 5000],
-        ['Common', 'hsla(120, 80%,60%, 0.7)', 500],
+        ['Super common', 'hsla(210, 90%,60%, 0.5)', 300e3],
+        ['Very common', 'hsla(160, 90%,60%, 0.6)', 20e3],
+        ['Common', 'hsla(120, 80%,60%, 0.7)', 2000],
         ['Average', 'hsla(60, 80%,50%, 0.8)', 100],
         ['Rare', 'hsla(30, 80%, 50%, 0.9)', 12],
         ['Very rare', 'hsla(0, 100%, 40%, 1)', 1],
@@ -433,13 +435,13 @@ const visGroups = {
 
     ],
     health: [
-
-        ['Good', 'hsla(130, 80%,50%, 0.8)', ['Good', 'Excellent', 'good', 'excellent', 'Very Good', 'High vigour', '80','90','100', 'VIVANT']],
-        ['Fair', 'hsla(70, 100%, 50%, 0.9)', ['Fair','fair', 'Medium vigour','60','70',]],
-        ['Poor', 'hsla(30, 80%, 50%, 1)', ['Poor','poor', 'Low vigour', 'Dead wood', '40', '50',]],
-        ['Very poor', 'hsla(0, 100%, 30%, 1)', ['Very Poor', 'Dying','dying', 'Dying tree',  '20', '30',  'Critical']],
+        ['Excellent', 'hsla(170, 100%,50%, 0.8)', [ 'Very Good','Excellent', 'excellent', '90','95','100']],
+        ['Good', 'hsla(130, 80%,50%, 0.8)', ['Good',  'good', 'High vigour', '80','83', '85','VIVANT']],
+        ['Fair', 'hsla(70, 80%, 40%, 0.9)', ['Fair','fair', 'Medium vigour','60','68', '70','Alive']], // seriously where does "alive" go?
+        ['Poor', 'hsla(30, 80%, 50%, 1)', ['Poor','poor', 'Low vigour', 'Dead wood', '40', '50','53',]],
+        ['Very poor', 'hsla(0, 100%, 30%, 1)', ['Very Poor', 'Dying','dying', 'Dying tree',  '20', '25','30',  'Critical']],
         ['Dead', 'hsla(330, 30%,10%, 0.9)', ['Dead','dead','Stump','stump', '0', '10', 'SOUCHE' /* stump*/]],
-        ['N/A', 'hsla(0,0%,50%,0.5)', ['','N/A']],
+        ['N/A', 'hsla(0,0%,50%,0.5)', ['','N/A',' ']],
         ['Other', 'hsla(260,80%,50%,0.7)', ['Other']],
     ],
     maturity: [
