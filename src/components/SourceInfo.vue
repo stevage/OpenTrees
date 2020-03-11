@@ -8,8 +8,12 @@
 
         .ma2
             h3 Accessing data:
-            p(v-if="p.info") 
-                a(:href="p.info" target="_blank") Information about the dataset.
+            p(v-if="p.info") Data provided by 
+                a(:href="p.info" target="_blank") {{ p.long || p.short || p.id }}
+                | .
+            p(v-else) Data provided by {{ p.long || p.short || p.id }}
+            p(v-if="licenseUrl") License: 
+                a(:href="licenseUrl" target="_blank") {{ p.license }}
 
             p
                 a(:href="p.download" target="_blank") Download the raw data.
@@ -112,6 +116,16 @@ export default {
     computed: {
         p() {
             return this.source ;
+        },
+        licenseUrl() {
+            if (this.p.license) {
+                if (this.p.license.match(/^http/)) {
+                    return this.p.license;
+                } else {
+                    return `https://spdx.org/licenses/${this.p.license}`;
+                }
+            }
+            return undefined;
         }
     },
     created() {

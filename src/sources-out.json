@@ -17,52 +17,6 @@
     }
   },
   {
-    "id": "london",
-    "download": "https://data.london.gov.uk/download/local-authority-maintained-trees/c52e733d-bf7e-44b8-9c97-827cb2bc53be/london_street_trees_gla_20180214.csv",
-    "format": "csv",
-    "short": "London",
-    "long": "Greater London Authority",
-    "country": "UK",
-    "centre": [
-      -0.1051,
-      51.5164
-    ],
-    "crosswalk": {
-      "ref": "gla_id",
-      "scientific": "species_name",
-      "common": "common_name",
-      "description": "display_name"
-    }
-  },
-  {
-    "id": "birmingham",
-    "download": "https://cc-p-birmingham.ckan.io/dataset/e9c314fc-fb6d-4189-a19c-7eec962733a8/resource/4bfd9191-a520-42fb-9ebf-8fefaededf6c/download/trees-dec2016.csv",
-    "format": "csv",
-    "short": "Birmingham",
-    "country": "UK",
-    "crosswalk": {
-      "scientific": "species",
-      "maturity": "age",
-      "height": "height",
-      "location": "site_name"
-    }
-  },
-  {
-    "id": "bristol",
-    "country": "UK",
-    "download": "https://opendata.bristol.gov.uk/explore/dataset/trees/download/?format=geojson&timezone=Australia/Sydney&lang=en",
-    "info": "https://opendata.bristol.gov.uk/explore/dataset/trees/export/",
-    "format": "geojson",
-    "crosswalk": {
-      "dbh": "dbh",
-      "height": "crown_height",
-      "common": "full_common_name",
-      "scientific": "latin_name",
-      "crown": "x => x['crown_width']"
-    },
-    "short": "Bristol"
-  },
-  {
     "id": "vienna",
     "country": "Austria",
     "download": "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:BAUMKATOGD&srsName=EPSG:4326&outputFormat=csv",
@@ -75,25 +29,8 @@
       "scientific": "GATTUNG_ART",
       "crown": "KRONENDURCHMESSER",
       "dbh": "x => x.STAMMUNGFANG / 3.14159 * 2"
-    }
-  },
-  {
-    "id": "belfast",
-    "country": "UK",
-    "download": "https://www.belfastcity.gov.uk/nmsruntime/saveasdialog.aspx?lID=14543&sID=2430",
-    "info": "https://www.belfastcity.gov.uk/council/Openandlinkeddata/opendatasets.aspx",
-    "format": "csv",
-    "short": "Belfast",
-    "crosswalk": {
-      "location": "TYPEOFTREE",
-      "common": "SPECIESTYPE",
-      "scientific": "SPECIES",
-      "maturity": "AGE",
-      "health": "CONDITION",
-      "dbh": "DIAMETERinCENTIMETRES",
-      "spread": "SPREADRADIUSinMETRES",
-      "height": "TREEHEIGHTinMETRES"
-    }
+    },
+    "license": "CC-BY-4.0"
   },
   {
     "id": "copenhagen",
@@ -141,21 +78,6 @@
     "primary": "buenos_aires"
   },
   {
-    "id": "hamburg",
-    "country": "Germany",
-    "short": "Hamburg",
-    "download": "http://daten-hamburg.de/umwelt_klima/strassenbaumkataster/Strassenbaumkataster_HH_2019-06-19.zip",
-    "format": "zip",
-    "filename": "Strassenbaumkataster_HH_2019-06-19.gml",
-    "crosswalk": {
-      "ref": "baumid",
-      "scientific": "art_latein",
-      "common": "art_deutsch",
-      "planted": "pflanzjahr",
-      "dbh": "stammumfang"
-    }
-  },
-  {
     "id": "santiago",
     "country": "Spain",
     "short": "Santiago de Compostela",
@@ -187,84 +109,6 @@
     }
   },
   {
-    "id": "edinburgh",
-    "country": "UK",
-    "short": "Edinburgh",
-    "long": "",
-    "download": "https://data.edinburghcouncilmaps.info/datasets/4dfc8f18a40346009b9fc32cbee34039_39.zip",
-    "info": "https://data.edinburghcouncilmaps.info/datasets/4dfc8f18a40346009b9fc32cbee34039_39",
-    "format": "zip",
-    "crosswalk": {
-      "scientific": "LatinName",
-      "common": "CommonName",
-      "height": "Height",
-      "spread": "Spread",
-      "maturity": "AgeGroup",
-      "bh": "DiameterAt"
-    }
-  },
-  {
-    "id": "dundee",
-    "country": "UK",
-    "short": "Dundee",
-    "long": "Dundee City Council",
-    "download": "https://data.dundeecity.gov.uk/datastore/dump/e54ef90a-76e5-415e-a272-5e489d9f5c67",
-    "info": "https://data.dundeecity.gov.uk/dataset/trees",
-    "format": "csv",
-    "crosswalk": {
-      "ref": "TREE_NUMBER",
-      "height": "HEIGHT_M",
-      "circumference": "GIRTH",
-      "maturity": "AGE_CLASS",
-      "scientific": "SCIENTIFIC_NAME",
-      "common": "POPULAR_NAME"
-    }
-  },
-  {
-    "id": "york",
-    "country": "UK",
-    "short": "York",
-    "long": "City of York Council",
-    "download": "https://opendata.arcgis.com/datasets/30f38f358843467daa2d93074a03b8d5_3.csv",
-    "info": "https://data.gov.uk/dataset/12dcc527-a7e2-4b23-a3c5-1501053ff0f5/council-owned-trees",
-    "format": "csv",
-    "crosswalk": {
-      "ref": "TREEID",
-      "scientific": "BOTANICAL",
-      "common": "SPECIES"
-    }
-  },
-  {
-    "id": "york-private",
-    "country": "UK",
-    "short": "York",
-    "long": "",
-    "download": "https://opendata.arcgis.com/datasets/a602aca10afb49659720b435d3f54023_18.csv",
-    "info": "https://data.gov.uk/dataset/c166b067-5a9d-487b-a37d-4d350f8cff51/private-trees",
-    "format": "csv",
-    "crosswalk": {
-      "owner": "OWNER",
-      "common": "SPECIES",
-      "scientific": "BOTANICAL"
-    },
-    "primary": "york"
-  },
-  {
-    "id": "umea",
-    "country": "Sweden",
-    "short": "Umea",
-    "long": "",
-    "download": "https://opendata.umea.se/explore/dataset/trad-som-forvaltas-av-gator-och-parker/download/?format=shp&timezone=Europe/Stockholm&lang=en",
-    "info": "https://opendata.umea.se/explore/dataset/trad-som-forvaltas-av-gator-och-parker/export/?disjunctive.tradart_vetenskap_namn_1_1_2&disjunctive.tradart_svenskt_namn_1_1_3",
-    "format": "zip",
-    "crosswalk": {
-      "scientific": "tradart_vet",
-      "common": "tradart_sve",
-      "location": "gatu_eller",
-      "date": "planterings"
-    }
-  },
-  {
     "id": "palmerston_north",
     "country": "New Zealand",
     "short": "Palmerston North",
@@ -282,14 +126,14 @@
     "country": "Switzerland",
     "short": "Basel",
     "long": "",
-    "download": "https://opendata.arcgis.com/datasets/3f81c83f4f4548a8b619f605019e238d_1.zip",
-    "info": "https://hub.arcgis.com/datasets/swissgeohub::baumbestand-baum",
+    "download": "https://data.bs.ch/explore/dataset/100052/download/?format=shp&timezone=Australia/Sydney&lang=en",
+    "info": "https://data.bs.ch/explore/dataset/100052/information/",
     "format": "zip",
     "crosswalk": {
-      "planted": "PFLANZDATU",
-      "age": "BAUMALTER",
-      "scientific": "x => String(x.ART).replace(/ \\(.*/, '')",
-      "common": "x => (String(x.ART).match(/\\((.*)\\)/) || ['',''])[1]"
+      "planted": "pflanzdatu",
+      "age": "baumalter",
+      "scientific": "x => String(x.art).replace(/ \\(.*/, '')",
+      "common": "x => (String(x.art).match(/\\((.*)\\)/) || ['',''])[1]"
     }
   },
   {
@@ -307,81 +151,10 @@
     }
   },
   {
-    "id": "amsterdam1",
-    "country": "Netherlands",
-    "short": "Amsterdam",
-    "long": "Gemeente Amsterdam",
-    "download": "https://maps.amsterdam.nl/open_geodata/excel.php?KAARTLAAG=BOMEN&THEMA=bomen1",
-    "info": "https://maps.amsterdam.nl/open_geodata/?k=254",
-    "format": "csv",
-    "crosswalk": {
-      "common": "Soortnaam_NL",
-      "scientific": "Soortnaam_WTS",
-      "location": "Boomtype",
-      "height": "Boomhoogte",
-      "planted": "Plantjaar",
-      "owner": "Eigenaar"
-    }
-  },
-  {
-    "id": "amsterdam2",
-    "country": "Netherlands",
-    "short": "Amsterdam",
-    "long": "Gemeente Amsterdam",
-    "download": "https://maps.amsterdam.nl/open_geodata/excel.php?KAARTLAAG=BOMEN&THEMA=bomen2",
-    "info": "https://maps.amsterdam.nl/open_geodata/?k=255",
-    "format": "csv",
-    "crosswalk": {
-      "common": "Soortnaam_NL",
-      "scientific": "Soortnaam_WTS",
-      "location": "Boomtype",
-      "height": "Boomhoogte",
-      "planted": "Plantjaar",
-      "owner": "Eigenaar"
-    },
-    "primary": "amsterdam1"
-  },
-  {
-    "id": "amsterdam3",
-    "country": "Netherlands",
-    "short": "Amsterdam",
-    "long": "Gemeente Amsterdam",
-    "download": "https://maps.amsterdam.nl/open_geodata/excel.php?KAARTLAAG=BOMEN&THEMA=bomen3",
-    "info": "https://maps.amsterdam.nl/open_geodata/?k=256",
-    "format": "csv",
-    "crosswalk": {
-      "common": "Soortnaam_NL",
-      "scientific": "Soortnaam_WTS",
-      "location": "Boomtype",
-      "height": "Boomhoogte",
-      "planted": "Plantjaar",
-      "owner": "Eigenaar"
-    },
-    "primary": "amsterdam1"
-  },
-  {
-    "id": "amsterdam4",
-    "country": "Netherlands",
-    "short": "Amsterdam",
-    "long": "Gemeente Amsterdam",
-    "download": "https://maps.amsterdam.nl/open_geodata/excel.php?KAARTLAAG=BOMEN&THEMA=bomen4",
-    "info": "https://maps.amsterdam.nl/open_geodata/?k=257",
-    "format": "csv",
-    "crosswalk": {
-      "common": "Soortnaam_NL",
-      "scientific": "Soortnaam_WTS",
-      "location": "Boomtype",
-      "height": "Boomhoogte",
-      "planted": "Plantjaar",
-      "owner": "Eigenaar"
-    },
-    "primary": "amsterdam1"
-  },
-  {
     "id": "linz",
     "country": "Austria",
     "short": "Linz",
-    "long": "",
+    "long": "City of Linz",
     "download": "http://data.linz.gv.at/katalog/umwelt/baumkataster/2020/FME_BaumdatenBearbeitet_OGD_20200225.csv",
     "info": "https://www.data.gv.at/katalog/dataset/baumkataster",
     "format": "csv",
@@ -393,7 +166,8 @@
       "crown": "Schirmdurchmesser",
       "dbh": "Stammumfang",
       "species": "x => x.Art !== '0' ? x.Art : undefined"
-    }
+    },
+    "license": "CC-BY-4.0"
   },
   {
     "id": "luxembourg",
@@ -410,28 +184,33 @@
     }
   },
   {
-    "id": "haag",
-    "country": "Netherlands",
-    "short": "Den Haag",
+    "id": "chile-osm",
+    "country": "Chile",
+    "short": "Chile (OSM)",
     "long": "",
-    "download": "https://ckan.dataplatform.nl/dataset/dd3873f6-b2d0-42e8-94c7-f7b47dcb71f0/resource/7ac8ba4a-586e-43f2-b12e-014079c83f00/download/bomen-csv.zip",
-    "info": "https://data.overheid.nl/dataset/bomen-csv",
-    "format": "csv",
-    "zip": true,
-    "latitudeField": "LAT",
-    "longitudeField": "LONG",
+    "download": "https://emscycletours.site44.com/opentrees-data/chile.geojson",
+    "info": "",
+    "format": "",
     "crosswalk": {
-      "ref": "BOOMNUMMER",
-      "scientific": "BOOMSOORT_WETENSCHAPPELIJ",
-      "dbh": "STAMDIAMETERKLASSE",
-      "maturity": "LEEFTIJDSKLASSE",
-      "age": "LEEFTIJD",
-      "owner": "EIGENAAR"
+      "common": "name"
     },
     "centre": [
-      4.2777,
-      52.0642
+      -70.877,
+      -29.859
     ]
+  },
+  {
+    "id": "antwerpen_be",
+    "country": "Belgium",
+    "short": "Antwerp",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/0293af55ca454b44ba789ee14c82543a_676.zip",
+    "info": "https://portaal-stadantwerpen.opendata.arcgis.com/datasets/boom/data",
+    "crosswalk": {
+      "scientific": "LATBOOMSOO",
+      "dbh": "STAMOMTREK",
+      "ref": "ANTW_ID"
+    }
   },
   {
     "id": "montreal",
@@ -2438,6 +2217,437 @@
     "country": "USA"
   },
   {
+    "id": "anaheim_ca",
+    "short": "Anaheim",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/0f96c6cf73904424bc9ce14197990201_41.csv",
+    "info": "https://data-anaheim.opendata.arcgis.com/datasets/city-trees",
+    "crosswalk": {
+      "common": "COMMONNAME",
+      "scientific": "BOTANICALNAME",
+      "dbh": "DBH",
+      "height": "HEIGHT"
+    },
+    "centre": [
+      -117.86,
+      33.83
+    ],
+    "country": "USA"
+  },
+  {
+    "id": "charlottesville_nc",
+    "short": "Charlottesville",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/e7c856379492408e9543a25d684b8311_79.csv",
+    "info": "http://hub.arcgis.com/datasets/charlottesville::tree-inventory-point",
+    "format": "",
+    "crosswalk": {
+      "planted": "Install_Date",
+      "common": "Common_Name",
+      "owner": "Agency",
+      "genus": "Genus",
+      "species": "Species",
+      "updated": "last_edited_date"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "west_chester_pa",
+    "short": "West Chester",
+    "long": "West Chester Borough",
+    "download": "https://opendata.arcgis.com/datasets/7fdf2b5d2b674e99b33e8d77d052e30c_0.csv",
+    "info": "http://hub.arcgis.com/datasets/WCUPAGIS::borotrees-1?geometry=-87.273%2C38.460%2C-63.905%2C41.408",
+    "format": "",
+    "crosswalk": {
+      "ref": "ID_1",
+      "genus": "Genus",
+      "species": "Species_1",
+      "common": "CommonName",
+      "health": "Condition_1",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "durango_co",
+    "short": "Durango",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/3e3e00d6224b43ee9acc514244fffdb9_0.csv",
+    "info": "http://hub.arcgis.com/datasets/CityOfDurango::city-trees",
+    "format": "",
+    "crosswalk": {
+      "planted": "DATEID",
+      "ref": "ID",
+      "common": "COMMON",
+      "genus": "GENUS",
+      "species": "SPECIES",
+      "variety": "CULTIVAR",
+      "health": "CONDITION",
+      "updated": "LASTMODDATE",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "washington_me",
+    "short": "Washington",
+    "long": "Washington County",
+    "download": "https://opendata.arcgis.com/datasets/ae14fc063c1e44a995e750805b1c864b_0.csv",
+    "info": "http://hub.arcgis.com/datasets/WCMN::tree-inventory",
+    "format": "",
+    "crosswalk": {
+      "common": "Tree_Type",
+      "health": "Health",
+      "note": "Comments",
+      "ref": "OBJECTID"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "westerville_oh",
+    "short": "Westerville",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/137785bc78da47b4a2159f9c76218d55_0.csv",
+    "info": "http://hub.arcgis.com/datasets/Westerville::comm-parks-rec-trees/data?geometry=-83.315%2C40.085%2C-82.585%2C40.177",
+    "format": "",
+    "crosswalk": {
+      "common": "COMMON_NAME",
+      "location": "TREE_TYPE",
+      "health": "CONDITION",
+      "scientific": "SCIENTIFIC",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "st_augustine_fl",
+    "short": "St Augustine",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/8372c7d0f5a24764bd10f62f0b2f1b65_0.csv",
+    "info": "http://hub.arcgis.com/datasets/STAUG::trees?geometry=-93.005%2C28.223%2C-69.637%2C31.556",
+    "format": "",
+    "crosswalk": {
+      "updated": "INSPECT_DT",
+      "note": "NOTES",
+      "scientific": "SPP",
+      "dbh": "DBH"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "weston_fl",
+    "short": "Weston",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/c95f89a4db39414a89f5c29bcb6fb48d_6.csv",
+    "info": "http://hub.arcgis.com/datasets/westonfl::trees",
+    "format": "",
+    "crosswalk": {
+      "common": "NAME",
+      "genus": "GENUS",
+      "species": "SPECIES",
+      "age": "TREEAGE",
+      "health": "CONDITION",
+      "owner": "OWNEDBY",
+      "updated": "LASTUPDATE",
+      "scientific": "BOTNAME",
+      "family": "FAMILY",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)",
+      "height": "tree => numeric(Number(tree[field]) / 3.280084)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "pacific_grove_ca",
+    "short": "Pacific Grove",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/87bcc6e824214422be859b3251350829_3.csv",
+    "info": "http://hub.arcgis.com/datasets/CityPacificGrove::trees",
+    "format": "",
+    "crosswalk": {
+      "common": "Type",
+      "scientific": "BOTANICAL",
+      "variety": "CULTIVAR",
+      "comment": "NOTES",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)",
+      "condition": "x => String(x.CONDITION).split(' - ')[0]"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "bozeman_mt",
+    "short": "Bozeman",
+    "long": "City of Bozeman",
+    "download": "https://opendata.arcgis.com/datasets/ba0dea7927184014a8b84e64af5c7684_0.csv",
+    "info": "http://hub.arcgis.com/datasets/bozeman::trees",
+    "format": "",
+    "crosswalk": {
+      "genus": "Genus",
+      "species": "Species",
+      "variety": "Cultivar",
+      "health": "Condition",
+      "updated": "last_edited_date",
+      "common": "Common_Name",
+      "ref": "FacilityID",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "champaign_il",
+    "short": "Champaign",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/979bbeefffea408e8f1cb7a397196c64_22.csv",
+    "info": "http://hub.arcgis.com/datasets/cityofchampaign::city-owned-trees",
+    "format": "",
+    "crosswalk": {
+      "ref": "ID",
+      "scientific": "SPP",
+      "common": "COMMON",
+      "health": "COND",
+      "updated": "INSPECT_DT",
+      "note": "NOTES",
+      "family": "FAMILY",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "placentia_ca",
+    "short": "Placentia",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/8efcbe9c80ed42a29e6ad5483bd01c32_0.csv",
+    "info": "http://hub.arcgis.com/datasets/placentia::city-trees",
+    "format": "",
+    "crosswalk": {
+      "ref": "INVENTORYI",
+      "scientific": "BOTANICALN",
+      "common": "COMMONNAME",
+      "dbh": "DBH",
+      "height": "HEIGHT",
+      "updated": "EditDate"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "sarasota_fl",
+    "short": "Sarasota",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/4deeb30f44bc4b60847cf43aed1a4670_0.csv",
+    "info": "http://hub.arcgis.com/datasets/sarasota::tree-inventory",
+    "format": "",
+    "crosswalk": {
+      "scientific": "Species",
+      "health": "Condition",
+      "owner": "Ownership",
+      "note": "Notes",
+      "updated": "last_edited_date",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)",
+      "height": "tree => numeric(Number(tree[field]) / 3.280084)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "nichols_arboretum",
+    "short": "Nichols Arboretum",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/febee55e7dac43298952af77c8f8d809_0.csv",
+    "info": "http://hub.arcgis.com/datasets/umich::nichols-arboretum-inventory-survey",
+    "format": "",
+    "crosswalk": {
+      "common": "COMMON",
+      "scientific": "BOTANICAL",
+      "variety": "CULTIVAR",
+      "health": "COND",
+      "note": "NOTES",
+      "updated": "DATE",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "unt",
+    "short": "UNT",
+    "long": "University of North Texas",
+    "download": "https://opendata.arcgis.com/datasets/ee33bf4535cd47bbb1c5661d2333d834_0.csv",
+    "info": "http://hub.arcgis.com/datasets/untgis::tree",
+    "format": "",
+    "crosswalk": {
+      "note": "NOTES",
+      "common": "NAME_COMN",
+      "ref": "UNT_ID"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "escondido_ca",
+    "short": "Escondido",
+    "long": "City of Escondido",
+    "download": "https://opendata.arcgis.com/datasets/ac9caf3c7a9847b78100cc8860ddf51a_0.csv",
+    "info": "http://hub.arcgis.com/datasets/CityofEscondido::tree-inventory?geometry=-122.895%2C32.313%2C-111.211%2C33.923",
+    "format": "",
+    "crosswalk": {
+      "ref": "TREEID",
+      "scientific": "BOTANICAL",
+      "common": "COMMON",
+      "dbh": "DBH_RANGE",
+      "health": "CONDITION",
+      "updated": "LAST_EDITED_DATE",
+      "height": "tree => numeric(Number(tree[field]) / 3.280084)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "wylie_tx",
+    "short": "Wylie",
+    "long": "City of Wylie",
+    "download": "https://opendata.arcgis.com/datasets/82060fffb84045fdafbe2a56c989b353_0.csv",
+    "info": "http://hub.arcgis.com/datasets/WylieTX::treesurvey",
+    "format": "",
+    "crosswalk": {
+      "ref": "TK_ID",
+      "common": "COMMON",
+      "health": "CONDITION",
+      "updated": "INSPECT_DT",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "auburn_me",
+    "short": "Auburn",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/91bffc476216422481b511a48796a327_0.csv",
+    "info": "http://hub.arcgis.com/datasets/AuburnME::treeinventory?geometry=-81.930%2C42.701%2C-58.562%2C45.462",
+    "format": "",
+    "crosswalk": {
+      "ref": "ID",
+      "common": "COMMON",
+      "scientific": "BOTANICAL",
+      "dbh": "DBH",
+      "health": "COND",
+      "note": "NOTES"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "hudson_river_park",
+    "short": "Hudson River Park",
+    "long": "Hudson River Park Trust",
+    "download": "https://opendata.arcgis.com/datasets/51b5e5da030f4331af48cb052f2d2d5e_1.csv",
+    "info": "http://hub.arcgis.com/datasets/SustainableMSU::tree",
+    "format": "",
+    "crosswalk": {
+      "scientific": "Species_Latin_Name",
+      "common": "Species_Common_Name",
+      "structure": "Structural_Value",
+      "ref": "HRPT_Numbering_1",
+      "height": "tree => numeric(Number(tree[field]) / 3.280084)",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "cape_coral_fl",
+    "short": "Cape Coral",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/e988fe06668e44ea996a53c4365531b9_0.csv",
+    "info": "http://hub.arcgis.com/datasets/CapeGIS::tree-inventory",
+    "format": "",
+    "crosswalk": {
+      "common": "SPECIES",
+      "dbh": "DBH",
+      "crown": "CANOPY",
+      "location": "SITE",
+      "health": "CONDITION",
+      "updated": "last_edited_date",
+      "heaght": "HEIGHT",
+      "note": "COMMENTS"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "naperville_il",
+    "short": "Naperville",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/51d4726531cd4ef99bfa24b99ae3ba24_0.csv",
+    "info": "http://hub.arcgis.com/datasets/naperville::right-of-way-tree-inventory",
+    "format": "",
+    "crosswalk": {
+      "common": "ROWTREE_TYPE",
+      "ref": "FACILITYID",
+      "health": "CONDITION_CLASS",
+      "updated": "DATE_CHANGED",
+      "planted": "DatePlanted",
+      "family": "FAMILY",
+      "variety": "CULTIVAR",
+      "genus": "GENUS",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "san_jose_ca1",
+    "short": "San Jose",
+    "long": "San Jose Medians and Backups",
+    "download": "https://opendata.arcgis.com/datasets/0b0ad30145394b1588ff09ef1a7c9225_1.csv",
+    "info": "http://hub.arcgis.com/datasets/csjdotgis::trees-medians-and-backups",
+    "format": "",
+    "crosswalk": {
+      "scientific": "NAMESCIENTIFIC",
+      "age": "TREEAGE",
+      "note": "NOTES",
+      "updated": "EditDate",
+      "owner": "OWNEDBY",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)",
+      "height": "tree => numeric(Number(tree[field]) / 3.280084)",
+      "crown": "tree => numeric(Number(tree[field]) / 3.280084)",
+      "health": "x=> String(x.CONDITION).split(' ')[0]"
+    },
+    "country": "USA"
+  },
+  {
+    "id": "san_jose_ca2",
+    "short": "San Jose",
+    "long": "San Jose Special Districts",
+    "download": "https://opendata.arcgis.com/datasets/0b0ad30145394b1588ff09ef1a7c9225_0.csv",
+    "info": "http://hub.arcgis.com/datasets/csjdotgis::trees-special-districts",
+    "format": "",
+    "crosswalk": {
+      "scientific": "NAMESCIENTIFIC",
+      "age": "TREEAGE",
+      "note": "NOTES",
+      "updated": "EditDate",
+      "owner": "OWNEDBY",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)",
+      "height": "tree => numeric(Number(tree[field]) / 3.280084)",
+      "crown": "tree => numeric(Number(tree[field]) / 3.280084)",
+      "health": "x=> String(x.CONDITION).split(' ')[0]"
+    },
+    "primary": "san_jose_ca1",
+    "country": "USA"
+  },
+  {
+    "id": "san_jose_ca3",
+    "short": "San Jose",
+    "long": "San Jose General Fund",
+    "download": "https://opendata.arcgis.com/datasets/0b0ad30145394b1588ff09ef1a7c9225_2.csv",
+    "info": "http://hub.arcgis.com/datasets/csjdotgis::trees-general-fund-street",
+    "format": "",
+    "crosswalk": {
+      "scientific": "NAMESCIENTIFIC",
+      "age": "TREEAGE",
+      "note": "NOTES",
+      "updated": "EditDate",
+      "owner": "OWNEDBY",
+      "dbh": "tree => numeric(Number(tree[field]) * 2.54)",
+      "height": "tree => numeric(Number(tree[field]) / 3.280084)",
+      "crown": "tree => numeric(Number(tree[field]) / 3.280084)",
+      "health": "x=> String(x.CONDITION).split(' ')[0]"
+    },
+    "primary": "san_jose_ca1",
+    "country": "USA"
+  },
+  {
     "id": "halle",
     "country": "Germany",
     "short": "Halle",
@@ -2623,6 +2833,367 @@
       "height": "BAUMHOEHE",
       "scientific": "x => String(x.GA_LANG).split(', ')[0]",
       "common": "x => String(x.GA_LANG).split(', ')[1]"
+    }
+  },
+  {
+    "id": "ulm",
+    "short": "Ulm",
+    "long": "",
+    "download": "http://daten.ulm.de/sites/default/files/20180921_Baeume_1.xlsx",
+    "info": "http://www.daten.ulm.de/datenkatalog/metadaten/baumbestand-stadt-ulm-testdatensatz",
+    "format": "xlsx",
+    "filename": "ulm.vrt",
+    "srs": "EPSG:31467",
+    "gdal_options": "-skipfailures",
+    "crosswalk": {
+      "scientific": "Baumart_botanisch",
+      "common": "Baumart",
+      "height": "Baumhöhe_(aktuell)",
+      "crown": "Kronendurchm_(aktuell)",
+      "dbh": "Stammdurchm_(aktuell)",
+      "health": "Vitalitaetsstatus_(aktuell)",
+      "planted": "Pflanzjahr_geschaetzt",
+      "updated": "Standortermittlung_am"
+    },
+    "country": "Germany"
+  },
+  {
+    "id": "hamburg",
+    "country": "Germany",
+    "short": "Hamburg",
+    "download": "http://daten-hamburg.de/umwelt_klima/strassenbaumkataster/Strassenbaumkataster_HH_2019-06-19.zip",
+    "format": "zip",
+    "filename": "Strassenbaumkataster_HH_2019-06-19.gml",
+    "crosswalk": {
+      "ref": "baumid",
+      "scientific": "art_latein",
+      "common": "art_deutsch",
+      "planted": "pflanzjahr",
+      "dbh": "stammumfang"
+    }
+  },
+  {
+    "id": "umea",
+    "country": "Sweden",
+    "short": "Umea",
+    "long": "",
+    "download": "https://opendata.umea.se/explore/dataset/trad-som-forvaltas-av-gator-och-parker/download/?format=shp&timezone=Europe/Stockholm&lang=en",
+    "info": "https://opendata.umea.se/explore/dataset/trad-som-forvaltas-av-gator-och-parker/export/?disjunctive.tradart_vetenskap_namn_1_1_2&disjunctive.tradart_svenskt_namn_1_1_3",
+    "format": "zip",
+    "crosswalk": {
+      "scientific": "tradart_vet",
+      "common": "tradart_sve",
+      "location": "gatu_eller",
+      "date": "planterings"
+    }
+  },
+  {
+    "id": "tradportalen",
+    "info": "https://www.tradportalen.se/Summary.aspx",
+    "download": "https://tradportalen.s3.eu-north-1.amazonaws.com/tradportalen.zip",
+    "format": "zip",
+    "filename": "data/combined.json",
+    "short": "Trädportalen",
+    "long": "Trädportalen",
+    "country": "Sweden",
+    "crosswalk": {
+      "height": "Height",
+      "scientific": "x => String(x.Species).split(', ')[1]",
+      "common": "x => String(x.Species).split(', ')[0]",
+      "dbh": "x => Number(x['TrunkCircumference']) / 3.14159 * 2"
+    }
+  },
+  {
+    "id": "belfast",
+    "country": "UK",
+    "download": "https://www.belfastcity.gov.uk/nmsruntime/saveasdialog.aspx?lID=14543&sID=2430",
+    "info": "https://www.belfastcity.gov.uk/council/Openandlinkeddata/opendatasets.aspx",
+    "format": "csv",
+    "short": "Belfast",
+    "crosswalk": {
+      "location": "TYPEOFTREE",
+      "common": "SPECIESTYPE",
+      "scientific": "SPECIES",
+      "maturity": "AGE",
+      "health": "CONDITION",
+      "dbh": "DIAMETERinCENTIMETRES",
+      "spread": "SPREADRADIUSinMETRES",
+      "height": "TREEHEIGHTinMETRES"
+    }
+  },
+  {
+    "id": "london",
+    "download": "https://data.london.gov.uk/download/local-authority-maintained-trees/c52e733d-bf7e-44b8-9c97-827cb2bc53be/london_street_trees_gla_20180214.csv",
+    "format": "csv",
+    "short": "London",
+    "long": "Greater London Authority",
+    "country": "UK",
+    "centre": [
+      -0.1051,
+      51.5164
+    ],
+    "crosswalk": {
+      "ref": "gla_id",
+      "scientific": "species_name",
+      "common": "common_name",
+      "description": "display_name"
+    }
+  },
+  {
+    "id": "birmingham",
+    "download": "https://cc-p-birmingham.ckan.io/dataset/e9c314fc-fb6d-4189-a19c-7eec962733a8/resource/4bfd9191-a520-42fb-9ebf-8fefaededf6c/download/trees-dec2016.csv",
+    "format": "csv",
+    "short": "Birmingham",
+    "country": "UK",
+    "crosswalk": {
+      "scientific": "species",
+      "maturity": "age",
+      "height": "height",
+      "location": "site_name"
+    }
+  },
+  {
+    "id": "bristol",
+    "country": "UK",
+    "download": "https://opendata.bristol.gov.uk/explore/dataset/trees/download/?format=geojson&timezone=Australia/Sydney&lang=en",
+    "info": "https://opendata.bristol.gov.uk/explore/dataset/trees/export/",
+    "format": "geojson",
+    "crosswalk": {
+      "dbh": "dbh",
+      "height": "crown_height",
+      "common": "full_common_name",
+      "scientific": "latin_name",
+      "crown": "x => x['crown_width']"
+    },
+    "short": "Bristol"
+  },
+  {
+    "id": "edinburgh",
+    "country": "UK",
+    "short": "Edinburgh",
+    "long": "",
+    "download": "https://data.edinburghcouncilmaps.info/datasets/4dfc8f18a40346009b9fc32cbee34039_39.zip",
+    "info": "https://data.edinburghcouncilmaps.info/datasets/4dfc8f18a40346009b9fc32cbee34039_39",
+    "format": "zip",
+    "crosswalk": {
+      "scientific": "LatinName",
+      "common": "CommonName",
+      "height": "Height",
+      "spread": "Spread",
+      "maturity": "AgeGroup",
+      "bh": "DiameterAt"
+    }
+  },
+  {
+    "id": "dundee",
+    "country": "UK",
+    "short": "Dundee",
+    "long": "Dundee City Council",
+    "download": "https://data.dundeecity.gov.uk/datastore/dump/e54ef90a-76e5-415e-a272-5e489d9f5c67",
+    "info": "https://data.dundeecity.gov.uk/dataset/trees",
+    "format": "csv",
+    "crosswalk": {
+      "ref": "TREE_NUMBER",
+      "height": "HEIGHT_M",
+      "circumference": "GIRTH",
+      "maturity": "AGE_CLASS",
+      "scientific": "SCIENTIFIC_NAME",
+      "common": "POPULAR_NAME"
+    }
+  },
+  {
+    "id": "york",
+    "country": "UK",
+    "short": "York",
+    "long": "City of York Council",
+    "download": "https://opendata.arcgis.com/datasets/30f38f358843467daa2d93074a03b8d5_3.csv",
+    "info": "https://data.gov.uk/dataset/12dcc527-a7e2-4b23-a3c5-1501053ff0f5/council-owned-trees",
+    "format": "csv",
+    "crosswalk": {
+      "ref": "TREEID",
+      "scientific": "BOTANICAL",
+      "common": "SPECIES"
+    }
+  },
+  {
+    "id": "york-private",
+    "country": "UK",
+    "short": "York",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/a602aca10afb49659720b435d3f54023_18.csv",
+    "info": "https://data.gov.uk/dataset/c166b067-5a9d-487b-a37d-4d350f8cff51/private-trees",
+    "format": "csv",
+    "crosswalk": {
+      "owner": "OWNER",
+      "common": "SPECIES",
+      "scientific": "BOTANICAL"
+    },
+    "primary": "york"
+  },
+  {
+    "id": "amsterdam1",
+    "country": "Netherlands",
+    "short": "Amsterdam",
+    "long": "Gemeente Amsterdam",
+    "download": "https://maps.amsterdam.nl/open_geodata/excel.php?KAARTLAAG=BOMEN&THEMA=bomen1",
+    "info": "https://maps.amsterdam.nl/open_geodata/?k=254",
+    "format": "csv",
+    "crosswalk": {
+      "common": "Soortnaam_NL",
+      "scientific": "Soortnaam_WTS",
+      "location": "Boomtype",
+      "height": "Boomhoogte",
+      "planted": "Plantjaar",
+      "owner": "Eigenaar"
+    }
+  },
+  {
+    "id": "amsterdam2",
+    "country": "Netherlands",
+    "short": "Amsterdam",
+    "long": "Gemeente Amsterdam",
+    "download": "https://maps.amsterdam.nl/open_geodata/excel.php?KAARTLAAG=BOMEN&THEMA=bomen2",
+    "info": "https://maps.amsterdam.nl/open_geodata/?k=255",
+    "format": "csv",
+    "crosswalk": {
+      "common": "Soortnaam_NL",
+      "scientific": "Soortnaam_WTS",
+      "location": "Boomtype",
+      "height": "Boomhoogte",
+      "planted": "Plantjaar",
+      "owner": "Eigenaar"
+    },
+    "primary": "amsterdam1"
+  },
+  {
+    "id": "amsterdam3",
+    "country": "Netherlands",
+    "short": "Amsterdam",
+    "long": "Gemeente Amsterdam",
+    "download": "https://maps.amsterdam.nl/open_geodata/excel.php?KAARTLAAG=BOMEN&THEMA=bomen3",
+    "info": "https://maps.amsterdam.nl/open_geodata/?k=256",
+    "format": "csv",
+    "crosswalk": {
+      "common": "Soortnaam_NL",
+      "scientific": "Soortnaam_WTS",
+      "location": "Boomtype",
+      "height": "Boomhoogte",
+      "planted": "Plantjaar",
+      "owner": "Eigenaar"
+    },
+    "primary": "amsterdam1"
+  },
+  {
+    "id": "amsterdam4",
+    "country": "Netherlands",
+    "short": "Amsterdam",
+    "long": "Gemeente Amsterdam",
+    "download": "https://maps.amsterdam.nl/open_geodata/excel.php?KAARTLAAG=BOMEN&THEMA=bomen4",
+    "info": "https://maps.amsterdam.nl/open_geodata/?k=257",
+    "format": "csv",
+    "crosswalk": {
+      "common": "Soortnaam_NL",
+      "scientific": "Soortnaam_WTS",
+      "location": "Boomtype",
+      "height": "Boomhoogte",
+      "planted": "Plantjaar",
+      "owner": "Eigenaar"
+    },
+    "primary": "amsterdam1"
+  },
+  {
+    "id": "haag",
+    "country": "Netherlands",
+    "short": "Den Haag",
+    "long": "",
+    "download": "https://ckan.dataplatform.nl/dataset/dd3873f6-b2d0-42e8-94c7-f7b47dcb71f0/resource/7ac8ba4a-586e-43f2-b12e-014079c83f00/download/bomen-csv.zip",
+    "info": "https://data.overheid.nl/dataset/bomen-csv",
+    "format": "csv",
+    "zip": true,
+    "latitudeField": "LAT",
+    "longitudeField": "LONG",
+    "crosswalk": {
+      "ref": "BOOMNUMMER",
+      "scientific": "BOOMSOORT_WETENSCHAPPELIJ",
+      "dbh": "STAMDIAMETERKLASSE",
+      "maturity": "LEEFTIJDSKLASSE",
+      "age": "LEEFTIJD",
+      "owner": "EIGENAAR"
+    },
+    "centre": [
+      4.2777,
+      52.0642
+    ]
+  },
+  {
+    "id": "hilversum",
+    "country": "Netherlands",
+    "short": "Hilversum",
+    "long": "",
+    "download": "https://ckan.dataplatform.nl/dataset/08fa5613-ec8f-4e43-ba2f-db986615075e/resource/2ae335c9-4228-4d4c-81a1-6688aa7218ac/download/bomenhilversum.csv",
+    "info": "https://data.overheid.nl/dataset/bomen-hilversum",
+    "format": "csv",
+    "crosswalk": {
+      "scientific": "BOOMSOORT_WETENSCHAPPELIJK",
+      "common": "BOOMSOORT_NEDERLANDS",
+      "height": "BOOMHOOGTE",
+      "planted": "PLANTSEIZOEN"
+    }
+  },
+  {
+    "id": "tilburg_nl",
+    "country": "Netherlands",
+    "short": "Tilburg",
+    "long": "",
+    "download": "https://ckan.dataplatform.nl/dataset/96b46ab5-7638-46bb-b416-c480170b9a84/resource/6f639eb1-7497-4fc7-831b-d24e077bfe45/download/bomen.csv",
+    "info": "https://data.overheid.nl/dataset/bomen-tilburg",
+    "format": "csv",
+    "crosswalk": {
+      "updated": "datum_gemeten",
+      "ref": "boomnummer",
+      "scientific": "latijnse_boomnaam",
+      "common": "nederlandse_boomnaam",
+      "planted": "plantjaar",
+      "dbh": "diameter_in_cm",
+      "height": "boomhoogte"
+    }
+  },
+  {
+    "id": "eindhoven_nl",
+    "country": "Netherlands",
+    "short": "Eindhoven",
+    "long": "",
+    "download": "https://ckan.dataplatform.nl/dataset/23d824dc-158f-4e23-8bbf-c10c00ce73cf/resource/0c8e87ba-0fde-48e4-a997-7abd04c7c692/download/bomen29-01.csv",
+    "info": "https://data.overheid.nl/dataset/bomen-eindhoven",
+    "format": "csv",
+    "crosswalk": {
+      "scientific": "LATIJNSENA",
+      "common": "BOOMSOORT",
+      "planted": "PLANTJAAR",
+      "height": "HOOGTE",
+      "dbh": "DIAMETER",
+      "health": "VITALITEIT"
+    }
+  },
+  {
+    "id": "amersfoot_nl",
+    "country": "Netherlands",
+    "short": "Amersfoot",
+    "long": "",
+    "download": "https://ckan.dataplatform.nl/dataset/a6054acf-3e41-4142-9b1a-52d73ff022f3/resource/7794f7e2-8bb9-45ba-9a9f-df910b09c40f/download/amersfoort-gemeentelijke_bomen.csv",
+    "info": "https://data.overheid.nl/dataset/amersfoort-gemeentelijke_bomen",
+    "format": "csv",
+    "crosswalk": {
+      "location": "BOOMKLASSE",
+      "height": "BOOMHOOGTE",
+      "owner": "BEHEERDER",
+      "crown": "KROONDIAMETER",
+      "dbh": "STAMDIAMETER",
+      "ref": "ID",
+      "common": "NEDERLANDSE_NAAM",
+      "scientific": "BOOMSOORT",
+      "planted": "PLANTJAAR",
+      "ule": "LEVENSVERW"
     }
   }
 ]

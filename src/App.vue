@@ -6,9 +6,12 @@
                 span.dark-green OpenTrees.org
                 span.dark-gray.ml2.ml4-ns.f3-ns {{ stats.openTrees.toLocaleString()}} open data trees from {{ stats.sources }} sources in {{ stats.countries.length}} countries.
         #middle.flex.flex-auto
-            #sidebar.br.b--gray.overflow-y-scroll.overflow-x-hidden
-                FeatureInfo
-                SourceInfo
+            #sidebar.br.b--gray.overflow-y-scroll.overflow-x-hidden.relative(v-show="panel")
+                i.close-btn.pa2.mt1.dark-green.pointer.fw6.fas.fa-times.z-5(@click="close" style="position:absolute;right:0;top:0; cursor:pointer;")
+                .panel
+                    FeatureInfo(v-show="panel==='FeatureInfo'")
+                    SourceInfo(v-show="panel==='SourceInfo'")
+                    About(v-if="panel==='About'")
             #map-container.relative.flex-auto
                 Map
                 #overlay.absolute.ba.b--gray.shadow-3.ml2-ns.mt2-ns.mw5.mw-none-ns.overflow-y-scroll(v-if="!showStats")
@@ -30,6 +33,7 @@
 import Map from './components/Map.vue'
 import FeatureInfo from './components/FeatureInfo.vue'
 import SourceInfo from './components/SourceInfo.vue'
+import About from './components/About.vue';
 import Mode from './components/Mode.vue';
 import Legend from './components/Legend.vue';
 import Stats from './components/Stats.vue';
@@ -42,7 +46,8 @@ export default {
     data() {
         return {
             stats,
-            showStats: location.hash.match(/stats/)
+            showStats: location.hash.match(/stats/),
+            panel: 'About'
         }
     },
     components: {
@@ -52,15 +57,28 @@ export default {
       Mode,
       Legend,
       Stats,
-      TreeSearch
+      TreeSearch,
+      About
     },
     created() {
         window.app.App = this;
+        EventBus.$on('source-select', source => this.panel = 'SourceInfo');
+        EventBus.$on('tree-select', tree => this.panel = 'FeatureInfo');
+        EventBus.$on('about', _ => this.panel = 'About');
+        EventBus.$on('panel-select', panel => this.panel = panel);
     },
     methods: {
         about() {
             EventBus.$emit('about');
             
+        },
+        close() {
+            this.panel='';
+        }
+    },
+    watch: {
+        panel(newValue, oldValue) {
+            EventBus.$emit('resize');
         }
     },
 }
@@ -120,6 +138,10 @@ a {
 }
 a:hover {
     color: hsl(100,30%,60%);
+}
+.panel {
+     width:300px; 
+     position:relative;
 }
     
 

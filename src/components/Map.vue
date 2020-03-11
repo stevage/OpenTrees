@@ -28,7 +28,7 @@ export default {
             center: [144.96, -37.81],
             zoom: 1,
 
-            style: !window.location.hash.match(/nomap/) ? 'mapbox://styles/stevage/ck6sws4g704uu1iqtvn25gj6v'
+            style: !window.location.hash.match(/nomap/) ? 'mapbox://styles/stevage/ck6sws4g704uu1iqtvn25gj6v/draft?v=1'
                 : { version: 8, sources: {}, layers: [], 
                     glyphs: `${window.location.origin}/font-glyphs/{fontstack}/{range}.pbf`
                 },
@@ -435,13 +435,13 @@ const visGroups = {
 
     ],
     health: [
-        ['Excellent', 'hsla(170, 100%,50%, 0.8)', [ 'Very Good','Excellent', 'excellent', '90','95','100']],
-        ['Good', 'hsla(130, 80%,50%, 0.8)', ['Good',  'good', 'High vigour', '80','83', '85','VIVANT']],
-        ['Fair', 'hsla(70, 80%, 40%, 0.9)', ['Fair','fair', 'Medium vigour','60','68', '70','Alive']], // seriously where does "alive" go?
-        ['Poor', 'hsla(30, 80%, 50%, 1)', ['Poor','poor', 'Low vigour', 'Dead wood', '40', '50','53',]],
-        ['Very poor', 'hsla(0, 100%, 30%, 1)', ['Very Poor', 'Dying','dying', 'Dying tree',  '20', '25','30',  'Critical']],
-        ['Dead', 'hsla(330, 30%,10%, 0.9)', ['Dead','dead','Stump','stump', '0', '10', 'SOUCHE' /* stump*/]],
-        ['N/A', 'hsla(0,0%,50%,0.5)', ['','N/A',' ']],
+        ['Excellent', 'hsla(170, 100%,50%, 0.8)', [ 'Very Good','Excellent', 'excellent', '90','95','100', 'VERY GOOD','EXCELLENT','EXCL']],
+        ['Good', 'hsla(130, 80%,50%, 0.8)', ['Good',  'good', 'High vigour', '80','83', '85','VIVANT','GOOD',]],
+        ['Fair', 'hsla(70, 80%, 40%, 0.9)', ['Fair','fair', 'Medium vigour','60','68', '70','Alive','FAIR',]], // seriously where does "alive" go?
+        ['Poor', 'hsla(30, 80%, 50%, 1)', ['Poor','poor', 'Low vigour', 'Dead wood', '40', '50','53','POOR']],
+        ['Very poor', 'hsla(0, 100%, 30%, 1)', ['Very Poor', 'Dying','dying', 'Dying tree',  '20', '25','30',  'Critical', 'VERY POOR']],
+        ['Dead', 'hsla(330, 30%,10%, 0.9)', ['Dead','dead','Stump','stump', '0', '10', 'SOUCHE' /* stump*/, 'DEAD']],
+        ['N/A', 'hsla(0,0%,50%,0.5)', ['','N/A',' ','Unassigned','Unknown','NA','Very']],
         ['Other', 'hsla(260,80%,50%,0.7)', ['Other']],
     ],
     maturity: [

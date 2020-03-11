@@ -43,7 +43,11 @@ export default {
             species: [
                 ['1','Australia'],
                 ['2','European']
-            ]
+            ],
+            // local: [
+            //     ['species','Species'],
+            //     ['common','Common name']
+            // ]
         }
     }),
     created() {
@@ -65,6 +69,7 @@ export default {
     },
     watch: {
         selectedMode() {
+            this.selectedSubmode = this.activeSubmodes ? this.activeSubmodes[0][0] : ''; 
             EventBus.$emit('vis-mode', this.selectedModeAndSubmode);
         },
         selectedSubmode() {
