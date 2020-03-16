@@ -1,38 +1,5 @@
 [
   {
-    "id": "barcelona",
-    "download": "https://opendata-ajuntament.barcelona.cat/data/dataset/27b3f8a7-e536-4eea-b025-ce094817b2bd/resource/28034af4-b636-48e7-b3df-fa1c422e6287/download",
-    "format": "csv",
-    "short": "Barcelona",
-    "long": "City of Barcelona",
-    "latitudeField": "LATITUD_WGS84",
-    "longitudeField": "LONGITUD_WGS84",
-    "country": "Spain",
-    "crosswalk": {
-      "common": "NOM_CASTELLA",
-      "scientific": "NOM_CIENTIFIC",
-      "planted": "DATA_PLANTACIO",
-      "ref": "CODI",
-      "crown": "x => ({ PETITA: 'small', MITJANA: 'average', GRAN: 'large' }[x.ALCADA] || x.ALCADA)"
-    }
-  },
-  {
-    "id": "vienna",
-    "country": "Austria",
-    "download": "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:BAUMKATOGD&srsName=EPSG:4326&outputFormat=csv",
-    "info": "https://www.data.gv.at/katalog/dataset/c91a4635-8b7d-43fe-9b27-d95dec8392a7",
-    "format": "csv",
-    "short": "Vienna",
-    "crosswalk": {
-      "ref": "BAUM_ID",
-      "height": "BAUMHOEHE",
-      "scientific": "GATTUNG_ART",
-      "crown": "KRONENDURCHMESSER",
-      "dbh": "x => x.STAMMUNGFANG / 3.14159 * 2"
-    },
-    "license": "CC-BY-4.0"
-  },
-  {
     "id": "copenhagen",
     "country": "Denmark",
     "download": "http://wfs-kbhkort.kk.dk/k101/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=k101:trae_basis&outputFormat=csv&SRSNAME=EPSG:4326",
@@ -76,18 +43,6 @@
       "height": "altura_arbol"
     },
     "primary": "buenos_aires"
-  },
-  {
-    "id": "santiago",
-    "country": "Spain",
-    "short": "Santiago de Compostela",
-    "long": "Concello de Santiago de Compostela",
-    "download": "https://datos.santiagodecompostela.gal/catalogo/dataset/60b1928e-32a9-442a-8f69-0215ba0862a4/resource/fab2344b-3c5c-466b-9e63-2e05e11fd9ce/download/arboredo_points.zip",
-    "info": "https://datos.santiagodecompostela.gal/catalogo/gl/dataset/arboredo",
-    "format": "zip",
-    "crosswalk": {
-      "location": "tipolexia"
-    }
   },
   {
     "id": "fingal",
@@ -149,6 +104,22 @@
       "scientific": "BotNavn",
       "common": "Artsnavn"
     }
+  },
+  {
+    "id": "vienna",
+    "country": "Austria",
+    "download": "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:BAUMKATOGD&srsName=EPSG:4326&outputFormat=csv",
+    "info": "https://www.data.gv.at/katalog/dataset/c91a4635-8b7d-43fe-9b27-d95dec8392a7",
+    "format": "csv",
+    "short": "Vienna",
+    "crosswalk": {
+      "ref": "BAUM_ID",
+      "height": "BAUMHOEHE",
+      "scientific": "GATTUNG_ART",
+      "crown": "KRONENDURCHMESSER",
+      "dbh": "x => x.STAMMUNGFANG / 3.14159 * 2"
+    },
+    "license": "CC-BY-4.0"
   },
   {
     "id": "linz",
@@ -2855,6 +2826,10 @@
       "planted": "Pflanzjahr_geschaetzt",
       "updated": "Standortermittlung_am"
     },
+    "centre": [
+      10,
+      48.4
+    ],
     "country": "Germany"
   },
   {
@@ -2950,7 +2925,11 @@
       "maturity": "age",
       "height": "height",
       "location": "site_name"
-    }
+    },
+    "centre": [
+      -1.8673,
+      52.47
+    ]
   },
   {
     "id": "bristol",
@@ -3195,5 +3174,233 @@
       "planted": "PLANTJAAR",
       "ule": "LEVENSVERW"
     }
+  },
+  {
+    "id": "dordrecht_nl",
+    "short": "Dordrecht",
+    "long": "",
+    "download": "https://ckan.dataplatform.nl/dataset/4c1cd59b-1057-4d47-bd84-f67a9cfd0f27/resource/94612e3e-eaac-4ac4-8db1-cdda2bdf361c/download/allebomendordrecht-2016-sep-2.csv",
+    "info": "https://data.overheid.nl/dataset/bomen-dordrecht",
+    "crosswalk": {
+      "ref": "ELEMENTNUMMER",
+      "scientific": "SRT_NAAM",
+      "common": "Nederlandse naam",
+      "height": "HOOGTE",
+      "dbh": "DIAMETER",
+      "installed": "AANLEGJAAR",
+      "owner": "EIGENDOM"
+    },
+    "license": "CC0-1.0",
+    "centre": [
+      4.67,
+      51.806
+    ],
+    "country": "Netherlands"
+  },
+  {
+    "id": "lelystad_nl",
+    "short": "Lelystad",
+    "long": "",
+    "download": "https://ckan.dataplatform.nl/dataset/a510615b-165d-442a-8956-1df78feb321e/resource/c6950c16-dff5-40b4-b1b5-0b2a2dffb382/download/bomen.csv",
+    "info": "https://data.overheid.nl/dataset/bomen-lelystad",
+    "crosswalk": {
+      "common": "SOORT_NED",
+      "scientific": "SOORT_LATIJN",
+      "height": "HOOGTE",
+      "health": "CONDITIE",
+      "updated": "INSPECTIEDATUM"
+    },
+    "license": "CC-BY-4.0",
+    "centre": [
+      5.478,
+      52.509
+    ],
+    "country": "Netherlands"
+  },
+  {
+    "id": "sliedrecht_nl",
+    "short": "Sliedrecht",
+    "long": "",
+    "download": "https://ckan.dataplatform.nl/dataset/ab8997d4-8c32-4f96-aa3e-d5961baeaf6f/resource/fc898475-4fa6-47f3-9a9a-8e85acb7b6a4/download/sliedrechtbomen20170412.csv",
+    "info": "https://data.overheid.nl/dataset/bomen-sliedrecht",
+    "crosswalk": {
+      "installed": "Aanlegjaar",
+      "common": "Naam_NL",
+      "ref": "Objectcode",
+      "scientific": "Boomsort"
+    },
+    "license": "CC0-1.0",
+    "centre": [
+      4.773,
+      51.82
+    ],
+    "srs": "EPSG:28992",
+    "country": "Netherlands"
+  },
+  {
+    "id": "assen_nl",
+    "short": "Assen",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/3ad3233b9b1c4fb0bffb23b36b0474c9_0.csv",
+    "info": "https://data.overheid.nl/dataset/dataset-bomen-assen#panel-4-downloadable-files",
+    "crosswalk": {
+      "ref": "BOOMNUMMER",
+      "updated": "DATUM",
+      "scientific": "BOOMSOORT",
+      "planted": "PLANTJAAR",
+      "height": "CODE_HOOGTE",
+      "health": "CONDITIE",
+      "owner": "EIGENAARSTYPE"
+    },
+    "license": "CC-BY-4.0",
+    "centre": [
+      6.5475,
+      52.991
+    ],
+    "country": "Netherlands"
+  },
+  {
+    "id": "arnhem_nl",
+    "short": "Arnhem",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/4d988cd7848049d3a574fcbd477985be_0.csv",
+    "info": "https://data.overheid.nl/dataset/bomenkaart-arnhem#panel-4-downloadable-files",
+    "crosswalk": {
+      "ref": "BEHEERCODE",
+      "scientific": "BOOMSOORT",
+      "common": "NEDERLANDSE_NAAM",
+      "planted": "PLANTJAAR",
+      "owner": "EIGENAAR"
+    },
+    "license": "CC-BY-4.0",
+    "centre": [
+      5.914,
+      51.984
+    ],
+    "country": "Netherlands"
+  },
+  {
+    "id": "delft_nl",
+    "short": "Delft",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/e510d480282944c3a16c8a46d3d99064_0.csv?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D",
+    "info": "https://data.overheid.nl/dataset/bomen-in-beheer-door-gemeente-delft",
+    "format": "csv",
+    "crosswalk": {
+      "ref": "ID_VELD",
+      "scientific": "BOOMSOORT_",
+      "height": "BOOMHOOGTE",
+      "health": "CONDITIE_K"
+    },
+    "license": "CC0-1.0",
+    "country": "Netherlands"
+  },
+  {
+    "id": "groningen_nl",
+    "short": "Groningen",
+    "long": "",
+    "download": " https://ckan.dataplatform.nl/dataset/9861d295-21cd-4ece-8648-88b141dc3532/resource/e5fa772f-cae6-42de-b0a8-261a8fe87ee8/download/gem_groningen_bomen.json ",
+    "info": "",
+    "crosswalk": {
+      "common": "NEDNAAM",
+      "scientific": "LATNAAM",
+      "owner": "OMSCHRIJVP"
+    },
+    "license": "CC0-1.0",
+    "country": "Netherlands"
+  },
+  {
+    "id": "alblasserdam_nl",
+    "short": "Alblasserdam",
+    "long": "",
+    "download": "https://ckan.dataplatform.nl/dataset/74c93ecc-82cc-46fa-8210-04818ae27279/resource/5bc33717-ff42-4aab-8bed-5ed0f618b1f8/download/gegevens-bomen-2017-alblasserdam.csv",
+    "info": "https://data.overheid.nl/dataset/bomen-alblasserdam",
+    "crosswalk": {
+      "scientific": "Boomsoort",
+      "common": "Boomsoort Nederlands"
+    },
+    "srs": "EPSG:28992",
+    "license": "CC0-1.0",
+    "country": "Netherlands"
+  },
+  {
+    "id": "zvartewaterland_nl",
+    "short": "Zvartewaterland",
+    "long": "",
+    "download": "https://opendata.arcgis.com/datasets/70e9a2ad03cf49a5a45b2076091b7ef3_0.csv",
+    "info": "https://data.overheid.nl/dataset/bomen-zwartewaterland",
+    "crosswalk": {
+      "common": "NEDBOOMSOORT",
+      "scientific": "LATBOOMSOORT",
+      "installed": "AANLEGJAAR"
+    },
+    "license": "CC-BY-4.0",
+    "country": "Netherlands"
+  },
+  {
+    "id": "barendrecht_nl",
+    "short": "Barendrecht",
+    "format": "csv",
+    "long": "",
+    "download": "https://maps.bar-organisatie.nl/Online/Open%20Data%20Portaal/Barendrecht/Bomen/Bomen.CSV",
+    "info": "https://data.overheid.nl/dataset/58765-bomen-barendrecht",
+    "crosswalk": {
+      "owner": "BEHEERDER",
+      "common": "NEDBOOMSOORT",
+      "scientific": "LATBOOMSOORT",
+      "dbh": "DIAMETER",
+      "installed": "AANLEGJAAR",
+      "updated": "INSPECTIEDATUM"
+    },
+    "license": "CC0-1.0",
+    "srs": "EPSG:28992",
+    "country": "Netherlands"
+  },
+  {
+    "id": "santiago",
+    "country": "Spain",
+    "short": "Santiago de Compostela",
+    "long": "Concello de Santiago de Compostela",
+    "download": "https://datos.santiagodecompostela.gal/catalogo/dataset/60b1928e-32a9-442a-8f69-0215ba0862a4/resource/fab2344b-3c5c-466b-9e63-2e05e11fd9ce/download/arboredo_points.zip",
+    "info": "https://datos.santiagodecompostela.gal/catalogo/gl/dataset/arboredo",
+    "format": "zip",
+    "crosswalk": {
+      "location": "tipolexia"
+    }
+  },
+  {
+    "id": "barcelona",
+    "download": "https://opendata-ajuntament.barcelona.cat/data/dataset/27b3f8a7-e536-4eea-b025-ce094817b2bd/resource/28034af4-b636-48e7-b3df-fa1c422e6287/download",
+    "format": "csv",
+    "short": "Barcelona",
+    "long": "City of Barcelona",
+    "latitudeField": "LATITUD_WGS84",
+    "longitudeField": "LONGITUD_WGS84",
+    "country": "Spain",
+    "crosswalk": {
+      "common": "NOM_CASTELLA",
+      "scientific": "NOM_CIENTIFIC",
+      "planted": "DATA_PLANTACIO",
+      "ref": "CODI",
+      "crown": "x => ({ PETITA: 'small', MITJANA: 'average', GRAN: 'large' }[x.ALCADA] || x.ALCADA)"
+    }
+  },
+  {
+    "id": "valencia_es",
+    "short": "Valencia",
+    "long": "",
+    "download": "http://mapas.valencia.es/lanzadera/opendata/arboles/JSON",
+    "info": "https://github.com/stevage/OpenTrees/issues/29",
+    "format": "geojson",
+    "crosswalk": {
+      "scientific": "planta",
+      "common": "castellano"
+    },
+    "license": "CC-BY-4.0",
+    "centre": [
+      -0.38564,
+      39.46454
+    ],
+    "country": "Spain"
   }
 ]

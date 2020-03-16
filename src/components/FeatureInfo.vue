@@ -19,7 +19,7 @@ div
                 tr(v-if="p.genus")
                     th Genus/species
                     td {{ p.genus }} {{ p.species }}
-                //- tr(v-if="p.species")
+                //- tr(v-if="p.species")d
                 //-     th Species
                 //-     td {{ p.species }}
             tr(v-if="p.common")
@@ -73,9 +73,9 @@ div
         p.f7.gray.mh2.i.mv0 Source: 
             a(href="#" @click="clickSource") {{ sourceName }}
             span(v-if="p.updated")  ({{ p.updated }})
-            span(v-if="p.license")
+            span(v-if="license")
                 |  (
-                a(:href="`https://spdx.org/licenses/${p.license}`" target="_blank") {{ p.license }}
+                a(:href="`https://spdx.org/licenses/${license}`" target="_blank") {{ license }}
                 | )
             
         p.f7.mh2.gray.i.mv0 See on 
@@ -102,11 +102,14 @@ export default {
             if (!r.scientific && r.genus) {
                 r.scientific = r.genus + (r.species ? ` ${r.species}`:'');
             }
-            r.license="CC-BY-2.0"
             return r;
         },
         imageUrl() {
             return this.p && this.p.image_url
+        },
+        license() {
+            const source = this.p.source && sources.find(s => s.id === this.p.source);
+            return source && source.license;
         },
         showExtra() {
             return window.location.hash.match(/debug/);

@@ -57,7 +57,7 @@ export default {
                     type: 'Feature',
                     properties: {
                         ...source,
-                        topTree: (source.speciesCounts.length ? source.speciesCounts[0][0] : '')
+                        topTree: (source.speciesCounts && source.speciesCounts.length ? source.speciesCounts[0][0] : '')
                     },
                     geometry: {
                         type: 'Point',

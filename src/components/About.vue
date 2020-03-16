@@ -13,7 +13,7 @@
         li To guide their choices of what to plant next.
         li To manage risk of branches falling.
         li To manage pruning, watering and inspection schedules.
-        li To plan ahead, so lots of old trees don't die at the same time.
+        li To plan for continuous canopy coverage as trees age.
     h4 There's a tree missing!
     p Every tree database is incomplete and out of date. A source might be missing a tree because:
         ul
