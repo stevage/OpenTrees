@@ -187,6 +187,7 @@
     "id": "montreal",
     "info": "http://donnees.ville.montreal.qc.ca/dataset/arbres",
     "download": "http://donnees.ville.montreal.qc.ca/dataset/3e3efad6-9f2f-4cc0-8f1b-92de1ccdb282/resource/c6c5afe8-10be-4539-8eae-93918ea9866e/download/arbres-publics.csv",
+    "ckan_api": "http://donnees.ville.montreal.qc.ca/api/3/action/package_show?id=arbres",
     "format": "csv",
     "crosswalk": {
       "scientific": "Essence_latin",
@@ -207,6 +208,7 @@
     "id": "quebec",
     "download": "https://www.donneesquebec.ca/recherche/fr/dataset/34103a43-3712-4a29-92e1-039e9188e915/resource/de031174-cbdf-4d69-869c-21cca8036279/download/vdq-arbrerepertorie.geojson",
     "info": "https://www.donneesquebec.ca/recherche/fr/dataset/vque_26",
+    "ckan_api": "https://www.donneesquebec.ca/recherche/fr/api/3/action/package_show?id=vque_26",
     "format": "csv",
     "crosswalk": {
       "scientific": "NOM_LATIN",
@@ -351,6 +353,7 @@
     "country": "Canada",
     "download": "https://data.surrey.ca/dataset/634d2f06-2214-49b3-9309-4baa51b61ec4/resource/86625e14-8d09-45e8-9b91-9d301d32b10e/download/parkspecimentrees.csv",
     "info": "https://data.surrey.ca/dataset/park-specimen-trees",
+    "ckan_api": "https://data.surrey.ca/api/3/action/package_show?id=park-specimen-trees",
     "format": "csv",
     "crosswalk": {
       "genus": "TREE_GENUS",
@@ -365,6 +368,7 @@
     "country": "Canada",
     "download": "https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/c1229af1-8ab6-4c71-b131-8be12da59c8e",
     "info": "https://open.toronto.ca/dataset/street-tree-data/",
+    "ckan_api": "https://ckan0.cf.opendata.inter.prod-toronto.ca/api/3/action/package_show?id=street-tree-data",
     "format": "zip",
     "filename": "TMMS_Open_Data_WGS84.shp",
     "gdal_options": "-skipfailures",
@@ -660,6 +664,7 @@
   {
     "id": "corangamite",
     "download": "https://data.gov.au/geoserver/corangamite-shire-trees/wfs?request=GetFeature&typeName=ckan_d9677ebb_f3db_45f3_88eb_04089debb9e0&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=corangamite-shire-trees",
     "format": "geojson",
     "gdal_options": "-s_srs EPSG:4326",
     "short": "Corangamite",
@@ -677,6 +682,7 @@
   {
     "id": "colac_otways",
     "download": "https://data.gov.au/geoserver/colac-otway-shire-trees/wfs?request=GetFeature&typeName=ckan_3ce1805b_cb81_4683_8f46_e7bd2d2a3b7c&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=colac-otway-shire-trees",
     "format": "geojson",
     "short": "Colac-Otways",
     "long": "Colac-Otways Shire",
@@ -697,6 +703,7 @@
   {
     "id": "ballarat",
     "download": "https://data.gov.au/geoserver/ballarattrees/wfs?request=GetFeature&typeName=ckan_eabaee3f_a563_449b_a04a_1ec847566ea1&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=ballarattrees",
     "format": "geojson",
     "short": "Ballarat",
     "long": "City of Ballarat",
@@ -726,6 +733,7 @@
   {
     "id": "manningham",
     "download": "https://data.gov.au/geoserver/manningham-streettrees/wfs?request=GetFeature&typeName=ckan_1aef5123_24ff_4084_a0f1_a52ca71e9e99&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=manningham-streettrees",
     "format": "geojson",
     "short": "Manningham",
     "long": "City of Manningham",
@@ -741,6 +749,7 @@
   {
     "id": "geelong",
     "download": "https://data.gov.au/geoserver/geelong-trees/wfs?request=GetFeature&typeName=ckan_13b1196c_7fb7_436a_86bc_ab24c16526de&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=geelong-trees",
     "format": "geojson",
     "short": "Geelong",
     "long": "City of Greater Geelong",
@@ -827,6 +836,7 @@
   {
     "id": "burnside",
     "download": "https://data.sa.gov.au/data/dataset/b7e1c8f6-169c-41bd-b5d7-140395a41c38/resource/6d1912aa-4775-4f5e-b00d-18456ad872a5/download/burnsidetrees.geojson",
+    "ckan_api": "https://data.sa.gov.au/data/api/3/action/package_show?id=burnside-street-trees",
     "format": "geojson",
     "short": "Burnside",
     "long": "City of Burnside",
@@ -861,6 +871,7 @@
   {
     "id": "hobsons_bay",
     "download": "https://data.gov.au/dataset/80051ffe-04d5-4602-b15b-60e0d0e3d153/resource/ea1ec6fc-02bd-4e36-8e43-c990b6a9268d/download/hbcc_street_and_park_trees.json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=hbcc-street-and-park-trees",
     "format": "geojson",
     "short": "Hobson's Bay",
     "long": "City of Hobson's Bay",
@@ -879,6 +890,7 @@
   {
     "id": "glenelg",
     "download": "https://data.gov.au/dataset/3721ad67-7b5b-4815-96b1-9d8b1a89dbd7/resource/b9ff3d44-17b4-4f87-8a28-2d540fa37d8f/download/Glenelg-Street-and-Park-Trees.csv",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=glenelg-street-and-park-trees",
     "format": "csv",
     "latitudeField": "lat",
     "longitudeField": "lon",
@@ -915,6 +927,7 @@
       "https://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/00e339ad-e411-48b2-8cfa-ed3dfa8209ca/download/Public-Trees-2013.shp",
       "https://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/3f4f3346-52d5-4084-94fc-877bf70c0a76/download/Public-Trees-2013.shx"
     ],
+    "ckan_api": "https://data.nsw.gov.au/data/api/3/action/package_show?id=public-trees-2013",
     "format": "shp",
     "keepExtension": true,
     "short": "Ryde",
@@ -927,6 +940,7 @@
   {
     "id": "southern_grampians",
     "download": "https://data.gov.au/geoserver/southern-grampians-street-and-park-trees/wfs?request=GetFeature&typeName=ckan_4a2843f5_8c01_438b_95f3_01ef0a518441&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=southern-grampians-street-and-park-trees",
     "format": "geojson",
     "short": "Southern Grampians",
     "long": "City of Southern Grampians",
@@ -944,6 +958,7 @@
   {
     "id": "prospect1",
     "download": "https://data.sa.gov.au/data/dataset/5d86d41e-b6c6-47d5-9b88-4d95916c5e76/resource/d1e30913-6e91-4a1f-b576-64120cc4b242/download/city-of-prospect-tree-species-in-reserves-2016.csv",
+    "ckan_api": "https://data.sa.gov.au/data/api/3/action/package_show?id=city-of-prospect-tree-species-in-reserves",
     "format": "csv",
     "short": "Prospect",
     "long": "City of Prospect",
@@ -997,6 +1012,7 @@
   {
     "id": "brimbank",
     "download": "https://data.gov.au/geoserver/brimbank-open-space-trees/wfs?request=GetFeature&typeName=ckan_7a57b5a1_2ca3_4171_be91_0d371cefd250&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=brimbank-open-space-trees",
     "format": "geojson",
     "short": "Brimbank",
     "long": "City of Brimbank",
@@ -1015,6 +1031,7 @@
   {
     "id": "bendigo",
     "download": "https://data.gov.au/geoserver/city-of-greater-bendigo-environment-trees/wfs?request=GetFeature&typeName=ckan_d17c9e50_fab1_40e6_b91d_6e665faf2656&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=city-of-greater-bendigo-environment-trees",
     "format": "geojson",
     "short": "Bendigo",
     "long": "City of Greater Bendigo",
@@ -1034,6 +1051,7 @@
   {
     "id": "shepparton",
     "download": "https://data.gov.au/dataset/e794491f-2eb7-4035-8b0c-f7248c28feda/resource/a1148573-68b9-4bd8-bda4-f08030d38c9d/download/greatersheppartoncitycouncilstreetandparktrees.zip",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=greater-shepparton-city-council-street-and-park-trees",
     "format": "zip",
     "filename": "Greater_Shepparton_City_Council_Street_and_Park_Trees.shp",
     "short": "Shepparton",
@@ -1065,6 +1083,7 @@
     "id": "wyndham",
     "download": "https://data.gov.au/dataset/0254dee0-5b26-484f-a5ae-5ca3cab46601/resource/fb06e7c8-d037-489b-a963-b747271f2e54/download/trees.json",
     "download_old2": "https://data.gov.au/dataset/0254dee0-5b26-484f-a5ae-5ca3cab46601/resource/4ab38849-d1de-4444-aeca-08719138d24f/download/trees.zip",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=wyndham-tree-and-latest-inpection-data",
     "gdal_options": "-s_srs unzip/OpenData_TI_Trees_LatestInspection.prj",
     "format": "zip",
     "filename": "OpenData_TI_Trees_LatestInspection.shp",
@@ -1086,6 +1105,7 @@
   {
     "id": "port_phillip",
     "download": "https://data.gov.au/dataset/6b72d22b-d824-4281-bd08-ab62e3c38415/resource/9b0d7d55-5267-464b-85d7-3d141d779bab/download/city-of-port-phillip-trees.geojson",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=city-of-port-phillip-trees",
     "format": "geojson",
     "short": "Port Phillip",
     "long": "City of Port Phillip",
@@ -1115,6 +1135,7 @@
   {
     "id": "boroondara",
     "download": "https://data.gov.au/geoserver/significant-tree/wfs?request=GetFeature&typeName=ckan_14e2b87e_c733_4071_b604_c0cb33d14a42&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=significant-tree",
     "format": "geojson",
     "short": "Boroondara",
     "long": "City of Boroondara",
@@ -1133,6 +1154,7 @@
   {
     "id": "yarra",
     "download": "https://data.gov.au/data/dataset/f3c88ce7-504b-4ef7-907f-686037f7420c/resource/6e4186b0-3e00-48f9-a09c-cb60d1d0d49f/download/yarra-street-and-park-trees.geojson",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=yarra-street-park-trees",
     "format": "geojson",
     "short": "Yarra",
     "long": "City of Yarra",
@@ -1162,6 +1184,7 @@
   {
     "id": "glen_eira",
     "download": "https://data.gov.au/geoserver/street-and-park-trees/wfs?request=GetFeature&typeName=ckan_0553b144_9145_4458_922f_5c6175d2e100&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=street-and-park-trees",
     "format": "geojson",
     "short": "Glen Eira",
     "long": "City of Glen Eira",
@@ -1178,6 +1201,7 @@
   {
     "id": "wodonga",
     "download": "https://data.gov.au/data/dataset/e7d6ebd3-04a8-4d73-b8ba-a9b82aa79b16/resource/180ba7ad-7bd7-490b-81f8-79c74ec0a915/download/tree.csv",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=tree-city-of-wodonga",
     "format": "csv",
     "filename": "wodonga.vrt",
     "short": "Wodonga",
@@ -1337,6 +1361,7 @@
     "country": "France",
     "download": "https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MTP_ArbresAlign.zip",
     "info": "https://data.montpellier3m.fr/dataset/arbres-dalignement-de-montpellier",
+    "ckan_api": "https://data.montpellier3m.fr/api/3/action/package_show?id=arbres-dalignement-de-montpellier",
     "format": "zip",
     "filename": "MMM_MTP_ArbresAlign.shp",
     "crosswalk": {
@@ -1807,6 +1832,7 @@
     "id": "pittsburgh",
     "country": "USA",
     "download": "https://data.wprdc.org/dataset/9ce31f01-1dfa-4a14-9969-a5c5507a4b40/resource/d876927a-d3da-44d1-82e1-24310cdb7baf/download/trees_img.geojson",
+    "ckan_api": "https://data.wprdc.org/api/3/action/package_show?id=city-trees",
     "info": "https://data.wprdc.org/dataset/city-trees",
     "format": "geojson",
     "centre": [
@@ -2687,6 +2713,7 @@
     "long": "Stadt Köln",
     "download": "https://offenedaten-koeln.de/sites/default/files/Bestand_Einzelbaeume_Koeln_0.csv",
     "info": "https://offenedaten-koeln.de/dataset/baumkataster-koeln",
+    "ckan_api": "https://offenedaten-koeln.de/api/3/action/package_show?id=baumkataster-koeln",
     "format": "csv",
     "srs": "EPSG:3044",
     "crosswalk": {
@@ -2899,6 +2926,7 @@
   {
     "id": "london",
     "download": "https://data.london.gov.uk/download/local-authority-maintained-trees/c52e733d-bf7e-44b8-9c97-827cb2bc53be/london_street_trees_gla_20180214.csv",
+    "ckan_api": "https://data.london.gov.uk/api/3/action/package_show?id=local-authority-maintained-trees",
     "format": "csv",
     "short": "London",
     "long": "Greater London Authority",
@@ -2917,6 +2945,7 @@
   {
     "id": "birmingham",
     "download": "https://cc-p-birmingham.ckan.io/dataset/e9c314fc-fb6d-4189-a19c-7eec962733a8/resource/4bfd9191-a520-42fb-9ebf-8fefaededf6c/download/trees-dec2016.csv",
+    "ckan_api": "https://cc-p-birmingham.ckan.io/api/3/action/package_show?id=e9c314fc-fb6d-4189-a19c-7eec962733a8",
     "format": "csv",
     "short": "Birmingham",
     "country": "UK",
@@ -2970,6 +2999,7 @@
     "long": "Dundee City Council",
     "download": "https://data.dundeecity.gov.uk/datastore/dump/e54ef90a-76e5-415e-a272-5e489d9f5c67",
     "info": "https://data.dundeecity.gov.uk/dataset/trees",
+    "ckan_api": "https://data.dundeecity.gov.uk/api/3/action/package_show?id=trees",
     "format": "csv",
     "crosswalk": {
       "ref": "TREE_NUMBER",
@@ -3087,6 +3117,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/dd3873f6-b2d0-42e8-94c7-f7b47dcb71f0/resource/7ac8ba4a-586e-43f2-b12e-014079c83f00/download/bomen-csv.zip",
     "info": "https://data.overheid.nl/dataset/bomen-csv",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-csv",
     "format": "csv",
     "zip": true,
     "latitudeField": "LAT",
@@ -3111,6 +3142,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/08fa5613-ec8f-4e43-ba2f-db986615075e/resource/2ae335c9-4228-4d4c-81a1-6688aa7218ac/download/bomenhilversum.csv",
     "info": "https://data.overheid.nl/dataset/bomen-hilversum",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-hilversum",
     "format": "csv",
     "crosswalk": {
       "scientific": "BOOMSOORT_WETENSCHAPPELIJK",
@@ -3126,6 +3158,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/96b46ab5-7638-46bb-b416-c480170b9a84/resource/6f639eb1-7497-4fc7-831b-d24e077bfe45/download/bomen.csv",
     "info": "https://data.overheid.nl/dataset/bomen-tilburg",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-tilburg",
     "format": "csv",
     "crosswalk": {
       "updated": "datum_gemeten",
@@ -3144,6 +3177,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/23d824dc-158f-4e23-8bbf-c10c00ce73cf/resource/0c8e87ba-0fde-48e4-a997-7abd04c7c692/download/bomen29-01.csv",
     "info": "https://data.overheid.nl/dataset/bomen-eindhoven",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-eindhoven",
     "format": "csv",
     "crosswalk": {
       "scientific": "LATIJNSENA",
@@ -3161,6 +3195,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/a6054acf-3e41-4142-9b1a-52d73ff022f3/resource/7794f7e2-8bb9-45ba-9a9f-df910b09c40f/download/amersfoort-gemeentelijke_bomen.csv",
     "info": "https://data.overheid.nl/dataset/amersfoort-gemeentelijke_bomen",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=amersfoort-gemeentelijke_bomen",
     "format": "csv",
     "crosswalk": {
       "location": "BOOMKLASSE",
@@ -3181,6 +3216,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/4c1cd59b-1057-4d47-bd84-f67a9cfd0f27/resource/94612e3e-eaac-4ac4-8db1-cdda2bdf361c/download/allebomendordrecht-2016-sep-2.csv",
     "info": "https://data.overheid.nl/dataset/bomen-dordrecht",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-dordrecht",
     "crosswalk": {
       "ref": "ELEMENTNUMMER",
       "scientific": "SRT_NAAM",
@@ -3202,6 +3238,7 @@
     "short": "Lelystad",
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/a510615b-165d-442a-8956-1df78feb321e/resource/c6950c16-dff5-40b4-b1b5-0b2a2dffb382/download/bomen.csv",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-lelystad",
     "info": "https://data.overheid.nl/dataset/bomen-lelystad",
     "crosswalk": {
       "common": "SOORT_NED",
@@ -3223,6 +3260,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/ab8997d4-8c32-4f96-aa3e-d5961baeaf6f/resource/fc898475-4fa6-47f3-9a9a-8e85acb7b6a4/download/sliedrechtbomen20170412.csv",
     "info": "https://data.overheid.nl/dataset/bomen-sliedrecht",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-sliedrecht",
     "crosswalk": {
       "installed": "Aanlegjaar",
       "common": "Naam_NL",
@@ -3300,7 +3338,7 @@
     "short": "Groningen",
     "long": "",
     "download": " https://ckan.dataplatform.nl/dataset/9861d295-21cd-4ece-8648-88b141dc3532/resource/e5fa772f-cae6-42de-b0a8-261a8fe87ee8/download/gem_groningen_bomen.json ",
-    "info": "",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=gem-groningen-bomen",
     "crosswalk": {
       "common": "NEDNAAM",
       "scientific": "LATNAAM",
@@ -3315,6 +3353,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/74c93ecc-82cc-46fa-8210-04818ae27279/resource/5bc33717-ff42-4aab-8bed-5ed0f618b1f8/download/gegevens-bomen-2017-alblasserdam.csv",
     "info": "https://data.overheid.nl/dataset/bomen-alblasserdam",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-alblasserdam",
     "crosswalk": {
       "scientific": "Boomsoort",
       "common": "Boomsoort Nederlands"
@@ -3363,6 +3402,7 @@
     "long": "Concello de Santiago de Compostela",
     "download": "https://datos.santiagodecompostela.gal/catalogo/dataset/60b1928e-32a9-442a-8f69-0215ba0862a4/resource/fab2344b-3c5c-466b-9e63-2e05e11fd9ce/download/arboredo_points.zip",
     "info": "https://datos.santiagodecompostela.gal/catalogo/gl/dataset/arboredo",
+    "ckan_api": "https://datos.santiagodecompostela.gal/catalogo/api/3/action/package_show?id=arboredo",
     "format": "zip",
     "crosswalk": {
       "location": "tipolexia"
@@ -3371,6 +3411,7 @@
   {
     "id": "barcelona",
     "download": "https://opendata-ajuntament.barcelona.cat/data/dataset/27b3f8a7-e536-4eea-b025-ce094817b2bd/resource/28034af4-b636-48e7-b3df-fa1c422e6287/download",
+    "ckan_api": "https://opendata-ajuntament.barcelona.cat/data/api/3/action/package_show?id=arbrat-viari",
     "format": "csv",
     "short": "Barcelona",
     "long": "City of Barcelona",
