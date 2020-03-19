@@ -205,7 +205,10 @@
     "centre": [
       -73.56,
       45.56
-    ]
+    ],
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution 4.0 International",
+    "license_url": "http://creativecommons.org/licenses/by/4.0/"
   },
   {
     "id": "quebec",
@@ -221,7 +224,10 @@
       "location": "NOM_TOPOGRAPHIE"
     },
     "short": "Quebec City",
-    "country": "Canada"
+    "country": "Canada",
+    "license_id": "cc-by",
+    "license_title": "Attribution (BY 4.0)",
+    "license_url": "https://www.donneesquebec.ca/fr/licence/#cc-by"
   },
   {
     "id": "longueuil",
@@ -366,7 +372,10 @@
       "species": "TREE_SPECIES",
       "variety": "TREE_VARIETY",
       "ule": "YRS_LIFE_EXPECTANCY"
-    }
+    },
+    "license_id": "OGL-Surrey",
+    "license_title": "Open Government License - City of Surrey",
+    "license_url": "http://data.surrey.ca/pages/open-government-licence-surrey"
   },
   {
     "id": "toronto",
@@ -382,7 +391,10 @@
       "dbh": "DBH_TRUNK",
       "common": "COMMON_NAM",
       "scientific": "BOTANICAL_"
-    }
+    },
+    "license_id": "open-government-licence-toronto",
+    "license_title": "Open Government Licence – Toronto",
+    "license_url": "https://open.toronto.ca/open-data-license/"
   },
   {
     "id": "lisbon",
@@ -697,7 +709,10 @@
       "scientific": "species",
       "common": "name",
       "location": "x => ({ 'STREET TREE': 'street', 'PARK TREE': 'park' }[x.tree_type] || '')"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution 3.0 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "colac_otways",
@@ -718,7 +733,10 @@
       "maturity": "life_stage",
       "scientific": "x => `${x.genus_desc} ${x.spec_desc}`.trim()",
       "location": "x => x.location_t.split(' ')[1]"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution 3.0 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "ballarat",
@@ -748,7 +766,10 @@
       "ule_min": "ule_min",
       "ule_max": "ule_max",
       "genus": "() => undefined"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution 3.0 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "manningham",
@@ -764,7 +785,10 @@
       "scientific": "species",
       "height": "height",
       "dbh": "dbh"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution 3.0 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "geelong",
@@ -794,7 +818,10 @@
       "ule_min": "ule_min",
       "ule_max": "ule_max",
       "scientific": "x => x.genus + ' ' + (x.species || '').toLowerCase()"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution 3.0 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "melbourne",
@@ -867,7 +894,10 @@
       "height": "TreeHeight",
       "scientific": "BotanicalN",
       "dbh": "Circumfere"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution",
+    "license_url": "http://creativecommons.org/licenses/by/4.0"
   },
   {
     "id": "launceston",
@@ -906,7 +936,10 @@
     "centre": [
       144.833,
       -37.85
-    ]
+    ],
+    "license_id": "cc-by-2.5",
+    "license_title": "Creative Commons Attribution 2.5 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/2.5/au/"
   },
   {
     "id": "glenelg",
@@ -938,7 +971,9 @@
       "ule": "ule",
       "ule_min": "ule_min",
       "ule_max": "ule_max"
-    }
+    },
+    "license_id": "other-open",
+    "license_title": "Other (Open)"
   },
   {
     "id": "ryde",
@@ -956,7 +991,10 @@
     "country": "Australia",
     "crosswalk": {
       "height": "Height"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution",
+    "license_url": "http://www.opendefinition.org/licenses/cc-by"
   },
   {
     "id": "southern_grampians",
@@ -974,7 +1012,10 @@
       "height": "height",
       "crown": "crown",
       "maturity": "maturity"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution 3.0 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "prospect1",
@@ -995,7 +1036,10 @@
       "structure": "Tree Structure",
       "height": "Tree Height",
       "dbh": "x => x['Tree Circumference'] + ' circumference'"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution",
+    "license_url": "http://creativecommons.org/licenses/by/4.0"
   },
   {
     "id": "prospect2",
@@ -1048,7 +1092,10 @@
       "maturity": "age",
       "height": "height",
       "crown": "spread"
-    }
+    },
+    "license_id": "cc-by-2.5",
+    "license_title": "Creative Commons Attribution 2.5 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/2.5/au/"
   },
   {
     "id": "bendigo",
@@ -1068,7 +1115,10 @@
     "centre": [
       144.298,
       -36.755
-    ]
+    ],
+    "license_id": "cc-by-2.5",
+    "license_title": "Creative Commons Attribution 2.5 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/2.5/au/"
   },
   {
     "id": "shepparton",
@@ -1099,7 +1149,10 @@
       "ule": "ule",
       "ule_min": "ule_min",
       "ule_max": "ule_max"
-    }
+    },
+    "license_id": "cc-by-4.0",
+    "license_title": "Creative Commons Attribution 4.0 International",
+    "license_url": "http://creativecommons.org/licenses/by/4.0"
   },
   {
     "id": "wyndham",
@@ -1122,7 +1175,10 @@
       "health": "health",
       "ule": "useful_life_expectancy",
       "structure": "structure"
-    }
+    },
+    "license_id": "cc-by-2.5",
+    "license_title": "Creative Commons Attribution 2.5 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/2.5/au/"
   },
   {
     "id": "port_phillip",
@@ -1152,7 +1208,10 @@
       "ule": "ule",
       "ule_min": "ule_min",
       "ule_max": "ule_max"
-    }
+    },
+    "license_id": "cc-by-2.5",
+    "license_title": "Creative Commons Attribution 2.5 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/2.5/au/"
   },
   {
     "id": "boroondara",
@@ -1171,7 +1230,10 @@
       "description": "significan",
       "location": "locality",
       "dbh": "x => x.girth + ' girth'"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution 3.0 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "yarra",
@@ -1201,7 +1263,10 @@
       "ule_min": "ule_min",
       "ule_max": "ule_max",
       "species": "s => (s.species || '').replace(/^[A-Z]\\. /, '')"
-    }
+    },
+    "license_id": "cc-by-4.0",
+    "license_title": "Creative Commons Attribution 4.0 International",
+    "license_url": "http://creativecommons.org/licenses/by/4.0"
   },
   {
     "id": "glen_eira",
@@ -1218,7 +1283,10 @@
       "height": "height",
       "crown": "spread",
       "location": "locationty"
-    }
+    },
+    "license_id": "cc-by-2.5",
+    "license_title": "Creative Commons Attribution 2.5 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/2.5/au/"
   },
   {
     "id": "wodonga",
@@ -1237,7 +1305,10 @@
     "centre": [
       146.86,
       -36.125
-    ]
+    ],
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution 3.0 Australia",
+    "license_url": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "hobart",
@@ -1397,7 +1468,9 @@
       "crown": "couronnem",
       "height": "hauteurm"
     },
-    "short": "Montpellier"
+    "short": "Montpellier",
+    "license_id": "odc-odbl",
+    "license_title": "Open Data Commons Open Database License (ODbL)"
   },
   {
     "id": "grand_paris_seine_ouest",
@@ -1876,7 +1949,10 @@
       "scientific": "scientific_name",
       "height": "height",
       "health": "condition"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "Creative Commons Attribution",
+    "license_url": "http://www.opendefinition.org/licenses/cc-by"
   },
   {
     "id": "colombus",
@@ -2802,7 +2878,8 @@
     "centre": [
       6.9796,
       50.9356
-    ]
+    ],
+    "license_url": "https://creativecommons.org/licenses/by/3.0/de/"
   },
   {
     "id": "berlin",
@@ -3018,7 +3095,9 @@
       "scientific": "species_name",
       "common": "common_name",
       "description": "display_name"
-    }
+    },
+    "license_id": "ogl-v3",
+    "license_title": "UK Open Government Licence (OGL v3)"
   },
   {
     "id": "birmingham",
@@ -3036,7 +3115,10 @@
     "centre": [
       -1.8673,
       52.47
-    ]
+    ],
+    "license_id": "uk-ogl",
+    "license_title": "UK Open Government Licence (OGL)",
+    "license_url": "http://reference.data.gov.uk/id/open-government-licence"
   },
   {
     "id": "bristol",
@@ -3086,7 +3168,10 @@
       "maturity": "AGE_CLASS",
       "scientific": "SCIENTIFIC_NAME",
       "common": "POPULAR_NAME"
-    }
+    },
+    "license_id": "OGL-UK-3.0",
+    "license_title": "Open Government Licence 3.0 (United Kingdom)",
+    "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
   },
   {
     "id": "york",
@@ -3213,7 +3298,10 @@
     "centre": [
       4.2777,
       52.0642
-    ]
+    ],
+    "license_id": "cc-by",
+    "license_title": "CC-BY",
+    "license_url": "http://creativecommons.org/licenses/by/4.0/deed.nl"
   },
   {
     "id": "hilversum",
@@ -3229,7 +3317,10 @@
       "common": "BOOMSOORT_NEDERLANDS",
       "height": "BOOMHOOGTE",
       "planted": "PLANTSEIZOEN"
-    }
+    },
+    "license_id": "cc-0",
+    "license_title": "CC-0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.nl"
   },
   {
     "id": "tilburg_nl",
@@ -3248,7 +3339,10 @@
       "planted": "plantjaar",
       "dbh": "diameter_in_cm",
       "height": "boomhoogte"
-    }
+    },
+    "license_id": "cc-0",
+    "license_title": "CC-0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.nl"
   },
   {
     "id": "eindhoven_nl",
@@ -3266,7 +3360,10 @@
       "height": "HOOGTE",
       "dbh": "DIAMETER",
       "health": "VITALITEIT"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "CC-BY",
+    "license_url": "http://creativecommons.org/licenses/by/4.0/deed.nl"
   },
   {
     "id": "amersfoot_nl",
@@ -3288,7 +3385,10 @@
       "scientific": "BOOMSOORT",
       "planted": "PLANTJAAR",
       "ule": "LEVENSVERW"
-    }
+    },
+    "license_id": "cc-by",
+    "license_title": "CC-BY",
+    "license_url": "http://creativecommons.org/licenses/by/4.0/deed.nl"
   },
   {
     "id": "dordrecht_nl",
@@ -3311,7 +3411,10 @@
       4.67,
       51.806
     ],
-    "country": "Netherlands"
+    "country": "Netherlands",
+    "license_id": "cc-0",
+    "license_title": "CC-0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.nl"
   },
   {
     "id": "lelystad_nl",
@@ -3332,7 +3435,10 @@
       5.478,
       52.509
     ],
-    "country": "Netherlands"
+    "country": "Netherlands",
+    "license_id": "cc-by",
+    "license_title": "CC-BY",
+    "license_url": "http://creativecommons.org/licenses/by/4.0/deed.nl"
   },
   {
     "id": "sliedrecht_nl",
@@ -3353,7 +3459,10 @@
       51.82
     ],
     "srs": "EPSG:28992",
-    "country": "Netherlands"
+    "country": "Netherlands",
+    "license_id": "cc-0",
+    "license_title": "CC-0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.nl"
   },
   {
     "id": "assen_nl",
@@ -3428,7 +3537,10 @@
       "owner": "OMSCHRIJVP"
     },
     "license": "CC0-1.0",
-    "country": "Netherlands"
+    "country": "Netherlands",
+    "license_id": "cc-by",
+    "license_title": "CC-BY",
+    "license_url": "http://creativecommons.org/licenses/by/4.0/deed.nl"
   },
   {
     "id": "alblasserdam_nl",
@@ -3443,7 +3555,10 @@
     },
     "srs": "EPSG:28992",
     "license": "CC0-1.0",
-    "country": "Netherlands"
+    "country": "Netherlands",
+    "license_id": "cc-0",
+    "license_title": "CC-0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.nl"
   },
   {
     "id": "zvartewaterland_nl",
@@ -3490,7 +3605,8 @@
     "format": "zip",
     "crosswalk": {
       "location": "tipolexia"
-    }
+    },
+    "license_url": "https://creativecommons.org/licenses/by/4.0/deed.gl"
   },
   {
     "id": "barcelona",
@@ -3508,7 +3624,10 @@
       "planted": "DATA_PLANTACIO",
       "ref": "CODI",
       "crown": "x => ({ PETITA: 'small', MITJANA: 'average', GRAN: 'large' }[x.ALCADA] || x.ALCADA)"
-    }
+    },
+    "license_id": "CC-BY-4.0",
+    "license_title": "Creative Commons Attribution 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
   },
   {
     "id": "valencia_es",
