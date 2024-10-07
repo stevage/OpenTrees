@@ -263,11 +263,19 @@ export default {
         });
         EventBus.$on('vis-mode', mode => this.$nextTick(() => this.mode = mode))
         EventBus.$on('resize', () => this.$nextTick(() => this.map.resize()));
-        EventBus.$on('species-filter', filter => map.U.setFilter([...visLayers, 'trees-inner'], [
-            'any',
-                ['in', filter, ['get', 'scientific']],
-                ['in', filter, ['get', 'genus']]
-            ]));
+        EventBus.$on('species-filter', (filter) =>
+            map.U.setFilter(
+                [...visLayers, 'trees-inner'],
+                filter
+                    ? [
+                          'any',
+                          ['in', filter, ['get', 'scientific']],
+                          ['in', filter, ['get', 'genus']],
+                          ['in', filter, ['get', 'common']],
+                      ]
+                    : true
+            )
+        );
         map.on('moveend', () => {
             if (this.mode === 'local') {
                 this.updateLocal();
