@@ -19,29 +19,32 @@ const textapi = wikiapi + '&prop=extracts&redirects&titles=';
 const imageapi = wikiapi + '&prop=pageimages&redirects&titles=';
 
 export default {
-    name: "Wikipedia",
+    name: 'Wikipedia',
     data: () => ({
         imageUrl: undefined,
-        text:undefined,
+        text: undefined,
         title: undefined,
-        loading: false
+        loading: false,
     }),
     props: ['searchTerm'],
     created() {
         window.Wikipedia = this;
     },
-    mounted () {
+    mounted() {
         this.doSearch();
     },
     computed: {
         wikiLink() {
-            return `http://en.wikipedia.org/wiki/${encodeURIComponent(this.title)}`;
+            return `http://en.wikipedia.org/wiki/${encodeURIComponent(
+                this.title
+            )}`;
         },
         wikiSearchLink() {
-            return `https://en.wikipedia.org/w/index.php?search=${this.searchTerm}`;
+            return `https://en.wikipedia.org/w/index.php?search=${
+                this.searchTerm
+            }`;
             // return `http://en.wikipedia.org/wiki/${encodeURIComponent(this.searchTerm)}`;
-            
-        }
+        },
     },
     methods: {
         doSearch() {
@@ -58,45 +61,55 @@ export default {
                 return;
             }
             console.log('Searching Wikipedia for: ' + this.searchTerm);
-            
-            axios.get(imageapi + encodeURIComponent(this.searchTerm)).then(response => {
-                const pages = response.data.query.pages;
-                const page = pages[Object.keys(pages)[0]];
-                if (page && page.thumbnail && page.thumbnail.source) {
-                    // TODO: if there is no high res image available, then the call to thumb/600px- fails. Not easy to handle
-                    // without making the failing call and then trying again.
-                    const thumb = page.thumbnail.source.replace(/\/\d\dpx-/, window.devicePixelRatio > 1 ? '/600px-' : '/300px-');
-                    this.imageUrl = thumb;
-                }
-            });
-            
-            axios.get(textapi + encodeURIComponent(this.searchTerm)).then(response => {
-                this.loading = false;
-                const pages = response.data.query.pages;
-                const page = pages[Object.keys(pages)[0]];
 
-                if (page && page.extract) {
-                    this.title = page.title;
-                    this.text = page.extract
-                } else {
-                    this.imageUrl = undefined;
-                    this.text = undefined;
-                }
-            });
-        }
+            axios
+                .get(imageapi + encodeURIComponent(this.searchTerm))
+                .then((response) => {
+                    const pages = response.data.query.pages;
+                    const page = pages[Object.keys(pages)[0]];
+                    if (page && page.thumbnail && page.thumbnail.source) {
+                        // TODO: if there is no high res image available, then the call to thumb/600px- fails. Not easy to handle
+                        // without making the failing call and then trying again.
+                        const thumb = page.thumbnail.source.replace(
+                            /\/\d\dpx-/,
+                            window.devicePixelRatio > 1 ? '/600px-' : '/300px-'
+                        );
+                        this.imageUrl = thumb;
+                    }
+                });
+
+            axios
+                .get(textapi + encodeURIComponent(this.searchTerm))
+                .then((response) => {
+                    this.loading = false;
+                    const pages = response.data.query.pages;
+                    const page = pages[Object.keys(pages)[0]];
+
+                    if (page && page.extract) {
+                        this.title = page.title;
+                        this.text = page.extract;
+                    } else {
+                        this.imageUrl = undefined;
+                        this.text = undefined;
+                    }
+                });
+        },
     },
     watch: {
         searchTerm() {
             this.doSearch();
-        }
-            
-    }
-}
-
-
+        },
+    },
+};
 </script>
 
 <style>
-#Wikipedia h2 { font-size: 16px; margin-bottom:0;padding:0;}
-#Wikipedia p { margin-top:0; }
+#Wikipedia h2 {
+    font-size: 16px;
+    margin-bottom: 0;
+    padding: 0;
+}
+#Wikipedia p {
+    margin-top: 0;
+}
 </style>
