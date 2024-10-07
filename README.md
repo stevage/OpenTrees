@@ -1,6 +1,6 @@
 # [opentrees.org](https://opentrees.org)
 
-A static website for browsing tree data collected from many municpal governments around the world, with the magic of vector tiles. (The scripts to download and process the data into vector tiles are here: https://github.com/stevage/opentrees-data)
+A static website for browsing tree data collected from many municipal governments around the world, with the magic of vector tiles. (The scripts to download and process the data into vector tiles are here: https://github.com/stevage/opentrees-data)
 
 Previous versions of the site:
 
