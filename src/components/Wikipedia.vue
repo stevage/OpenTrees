@@ -13,10 +13,8 @@
 
 <script>
 import axios from 'axios';
-const corsAnywhere = ''; //'https://cors-anywhere.herokuapp.com/';
 const wikiapi =
-    corsAnywhere +
-    'http://en.wikipedia.org/w/api.php?action=query&format=json&origin=*';
+    'https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*';
 const textapi = wikiapi + '&prop=extracts&redirects&titles=';
 const imageapi = wikiapi + '&prop=pageimages&redirects&titles=';
 
