@@ -2,7 +2,7 @@
   {
     "id": "copenhagen",
     "country": "Denmark",
-    "download": "http://wfs-kbhkort.kk.dk/k101/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=k101:trae_basis&outputFormat=csv&SRSNAME=EPSG:4326",
+    "download": "https://wfs-kbhkort.kk.dk/k101/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=k101:trae_basis&outputFormat=csv&SRSNAME=EPSG:4326",
     "info": "https://www.opendata.dk/city-of-copenhagen/trae_basis",
     "format": "csv",
     "crosswalk": {
@@ -17,7 +17,7 @@
     "id": "buenos_aires",
     "country": "Argentina",
     "short": "Buenos Aires",
-    "download": "http://cdn.buenosaires.gob.ar/datosabiertos/datasets/arbolado-en-espacios-verdes/arbolado-en-espacios-verdes.csv",
+    "download": "https://cdn.buenosaires.gob.ar/datosabiertos/datasets/arbolado-en-espacios-verdes/arbolado-en-espacios-verdes.csv",
     "info": "https://data.buenosaires.gob.ar/dataset/arbolado-espacios-verdes",
     "format": "csv",
     "crosswalk": {
@@ -33,7 +33,7 @@
     "id": "buenos_aires2",
     "country": "Argentina",
     "short": "Buenos Aires",
-    "download": "http://cdn.buenosaires.gob.ar/datosabiertos/datasets/arbolado-publico-lineal/arbolado-publico-lineal-2017-2018.geojson",
+    "download": "https://cdn.buenosaires.gob.ar/datosabiertos/datasets/arbolado-publico-lineal/arbolado-publico-lineal-2017-2018.geojson",
     "info": "https://data.buenosaires.gob.ar/dataset/arbolado-publico-lineal",
     "format": "geojson",
     "crosswalk": {
@@ -49,7 +49,7 @@
     "country": "Ireland",
     "short": "Fingal",
     "long": "Fingal County",
-    "download": "http://data.fingal.ie/datasets/csv/Trees.csv",
+    "download": "https://data.fingal.ie/datasets/csv/Trees.csv",
     "info": "https://data.smartdublin.ie/dataset/tableview/ebf9151e-fd30-442e-93cb-fa88c2affc93",
     "format": "csv",
     "crosswalk": {
@@ -69,7 +69,8 @@
     "short": "Palmerston North",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/077787e2299541bc8d2c2dbf8d7dc4e4_18.zip?outSR=%7B%22latestWkid%22%3A2193%2C%22wkid%22%3A2193%7D",
-    "info": "http://data-pncc.opendata.arcgis.com/datasets/077787e2299541bc8d2c2dbf8d7dc4e4_18/data",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=077787e2299541bc8d2c2dbf8d7dc4e4",
+    "info": "https://data-pncc.opendata.arcgis.com/datasets/077787e2299541bc8d2c2dbf8d7dc4e4_18/data",
     "format": "zip",
     "crosswalk": {
       "scientific": "botanical_",
@@ -97,6 +98,7 @@
     "short": "Oslo",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/f256d2d837554edab8b53bb6af90bc8d_19.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=f256d2d837554edab8b53bb6af90bc8d",
     "info": "https://hub.arcgis.com/datasets/f256d2d837554edab8b53bb6af90bc8d_19?geometry=10.516%2C59.709%2C10.873%2C59.884",
     "format": "zip",
     "crosswalk": {
@@ -176,6 +178,7 @@
     "short": "Antwerp",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/0293af55ca454b44ba789ee14c82543a_676.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=0293af55ca454b44ba789ee14c82543a",
     "info": "https://portaal-stadantwerpen.opendata.arcgis.com/datasets/boom/data",
     "crosswalk": {
       "scientific": "LATBOOMSOO",
@@ -187,6 +190,7 @@
     "id": "montreal",
     "info": "http://donnees.ville.montreal.qc.ca/dataset/arbres",
     "download": "http://donnees.ville.montreal.qc.ca/dataset/3e3efad6-9f2f-4cc0-8f1b-92de1ccdb282/resource/c6c5afe8-10be-4539-8eae-93918ea9866e/download/arbres-publics.csv",
+    "ckan_api": "http://donnees.ville.montreal.qc.ca/api/3/action/package_show?id=arbres",
     "format": "csv",
     "crosswalk": {
       "scientific": "Essence_latin",
@@ -201,12 +205,16 @@
     "centre": [
       -73.56,
       45.56
-    ]
+    ],
+    "license": "CC-BY-4.0",
+    "licenseName": "Creative Commons Attribution 4.0 International",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0/"
   },
   {
     "id": "quebec",
     "download": "https://www.donneesquebec.ca/recherche/fr/dataset/34103a43-3712-4a29-92e1-039e9188e915/resource/de031174-cbdf-4d69-869c-21cca8036279/download/vdq-arbrerepertorie.geojson",
     "info": "https://www.donneesquebec.ca/recherche/fr/dataset/vque_26",
+    "ckan_api": "https://www.donneesquebec.ca/recherche/fr/api/3/action/package_show?id=vque_26",
     "format": "csv",
     "crosswalk": {
       "scientific": "NOM_LATIN",
@@ -216,7 +224,10 @@
       "location": "NOM_TOPOGRAPHIE"
     },
     "short": "Quebec City",
-    "country": "Canada"
+    "country": "Canada",
+    "license": "CC-BY-4.0",
+    "licenseName": "Attribution (BY 4.0)",
+    "licenseUrl": "https://www.donneesquebec.ca/fr/licence/#cc-by"
   },
   {
     "id": "longueuil",
@@ -271,6 +282,7 @@
     "id": "ottawa",
     "info": "https://ouverte.ottawa.ca/datasets/inventaire-des-arbres",
     "download": "https://opendata.arcgis.com/datasets/451e904e2753453eb699b2e853ab5857_1.csv",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=451e904e2753453eb699b2e853ab5857",
     "format": "csv",
     "crosswalk": {
       "scientific": "SPECIES",
@@ -281,8 +293,9 @@
   },
   {
     "id": "moncton",
-    "info": "http://ouvert.moncton.ca/datasets/arbres",
+    "info": "https://ouvert.moncton.ca/datasets/arbres",
     "download": "https://opendata.arcgis.com/datasets/60d5b564e732444b81a650c7c4aa548a_0.csv?outSR=%7B%22latestWkid%22%3A2953%2C%22wkid%22%3A2036%7D",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=60d5b564e732444b81a650c7c4aa548a",
     "format": "csv",
     "country": "Canada",
     "srs": "EPSG:2953",
@@ -301,8 +314,9 @@
   {
     "id": "waterloo",
     "country": "Canada",
-    "info": "http://data.waterloo.ca/datasets/2447415303e74bb9acdf0f43c2236b72_0",
+    "info": "https://data.waterloo.ca/datasets/2447415303e74bb9acdf0f43c2236b72_0",
     "download": "https://opendata.arcgis.com/datasets/2447415303e74bb9acdf0f43c2236b72_0.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=2447415303e74bb9acdf0f43c2236b72",
     "format": "zip",
     "short": "Waterloo",
     "crosswalk": {
@@ -349,15 +363,19 @@
     "short": "Surrey",
     "long": "City of Surrey",
     "country": "Canada",
-    "download": "http://data.surrey.ca/dataset/634d2f06-2214-49b3-9309-4baa51b61ec4/resource/86625e14-8d09-45e8-9b91-9d301d32b10e/download/parkspecimentrees.csv",
+    "download": "https://data.surrey.ca/dataset/634d2f06-2214-49b3-9309-4baa51b61ec4/resource/86625e14-8d09-45e8-9b91-9d301d32b10e/download/parkspecimentrees.csv",
     "info": "https://data.surrey.ca/dataset/park-specimen-trees",
+    "ckan_api": "https://data.surrey.ca/api/3/action/package_show?id=park-specimen-trees",
     "format": "csv",
     "crosswalk": {
       "genus": "TREE_GENUS",
       "species": "TREE_SPECIES",
       "variety": "TREE_VARIETY",
       "ule": "YRS_LIFE_EXPECTANCY"
-    }
+    },
+    "license": "OGL-Surrey",
+    "licenseName": "Open Government License - City of Surrey",
+    "licenseUrl": "http://data.surrey.ca/pages/open-government-licence-surrey"
   },
   {
     "id": "toronto",
@@ -365,6 +383,7 @@
     "country": "Canada",
     "download": "https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/c1229af1-8ab6-4c71-b131-8be12da59c8e",
     "info": "https://open.toronto.ca/dataset/street-tree-data/",
+    "ckan_api": "https://ckan0.cf.opendata.inter.prod-toronto.ca/api/3/action/package_show?id=street-tree-data",
     "format": "zip",
     "filename": "TMMS_Open_Data_WGS84.shp",
     "gdal_options": "-skipfailures",
@@ -372,12 +391,16 @@
       "dbh": "DBH_TRUNK",
       "common": "COMMON_NAM",
       "scientific": "BOTANICAL_"
-    }
+    },
+    "license": "OGL-Toronto",
+    "licenseName": "Open Government Licence – Toronto",
+    "licenseUrl": "https://open.toronto.ca/open-data-license/"
   },
   {
     "id": "lisbon",
     "country": "Canada",
     "download": "https://opendata.arcgis.com/datasets/202d0f1a7f234e449761af8af14436d6_0.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=202d0f1a7f234e449761af8af14436d6",
     "info": "http://geodados.cm-lisboa.pt/datasets/arvoredo?geometry=-9.312%2C38.745%2C-9.148%2C38.768",
     "format": "zip",
     "filename": "Arvoredo.shp",
@@ -426,8 +449,8 @@
     "country": "Canada",
     "short": "North Vancouver",
     "long": "",
-    "download": "http://geoweb.dnv.org/Products/Data/SHP/EnvStreetTree_shp.zip",
-    "info": "http://geoweb.dnv.org/data/index.php",
+    "download": "https://geoweb.dnv.org/Products/Data/SHP/EnvStreetTree_shp.zip",
+    "info": "https://geoweb.dnv.org/data/index.php",
     "format": "zip",
     "crosswalk": {
       "common": "COMMONNAME",
@@ -460,7 +483,8 @@
     "short": "Kelowna",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/39d13a47b8f94cce82a9b4c86efc8ee7_114.zip?outSR=26911",
-    "info": "http://opendata.kelowna.ca/datasets/39d13a47b8f94cce82a9b4c86efc8ee7/data?geometry=-119.693%2C49.577%2C-119.178%2C49.887",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=39d13a47b8f94cce82a9b4c86efc8ee7",
+    "info": "https://opendata.kelowna.ca/datasets/39d13a47b8f94cce82a9b4c86efc8ee7/data?geometry=-119.693%2C49.577%2C-119.178%2C49.887",
     "format": "zip",
     "crosswalk": {
       "genus": "GENUS",
@@ -480,7 +504,8 @@
     "short": "Welland",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/4357fb7835fe49b39197a9440b2e868b_0.zip",
-    "info": "http://hub.arcgis.com/datasets/welland::welland-trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=4357fb7835fe49b39197a9440b2e868b",
+    "info": "https://hub.arcgis.com/datasets/welland::welland-trees",
     "format": "zip",
     "crosswalk": {
       "description": "Genus",
@@ -495,7 +520,8 @@
     "short": "Ajax",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/c5d5ff5351a54fdb8d3934abbb5cda9a_8.zip",
-    "info": "http://hub.arcgis.com/datasets/TownofAjax::town-trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=c5d5ff5351a54fdb8d3934abbb5cda9a",
+    "info": "https://hub.arcgis.com/datasets/TownofAjax::town-trees",
     "format": "zip",
     "crosswalk": {
       "dbh": "DBH",
@@ -510,7 +536,8 @@
     "short": "Prince George",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/054e46bee4594eb787d574266c832430_3.zip",
-    "info": "http://hub.arcgis.com/datasets/CityofPG::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=054e46bee4594eb787d574266c832430",
+    "info": "https://hub.arcgis.com/datasets/CityofPG::trees",
     "format": "zip",
     "crosswalk": {
       "planted": "TreePlantD",
@@ -532,7 +559,8 @@
     "short": "Oakville",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/66e3b95688394391a433fd29873aff20_10.zip",
-    "info": "http://hub.arcgis.com/datasets/ExploreOakville::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=66e3b95688394391a433fd29873aff20",
+    "info": "https://hub.arcgis.com/datasets/ExploreOakville::trees",
     "format": "zip",
     "crosswalk": {
       "dbh": "DBH",
@@ -548,7 +576,8 @@
     "short": "Victoria",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/36e90771770542baaa89afddce69195a_15.zip",
-    "info": "http://hub.arcgis.com/datasets/VicMap::tree-species",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=36e90771770542baaa89afddce69195a",
+    "info": "https://hub.arcgis.com/datasets/VicMap::tree-species",
     "format": "zip",
     "crosswalk": {
       "scientific": "Species",
@@ -565,7 +594,8 @@
     "short": "Kamloops",
     "long": "City of Kamloops",
     "download": "https://opendata.arcgis.com/datasets/e14c04be6c6c4692b70147edb937088c_25.zip",
-    "info": "http://hub.arcgis.com/datasets/kamloops::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=e14c04be6c6c4692b70147edb937088c",
+    "info": "https://hub.arcgis.com/datasets/kamloops::trees",
     "format": "zip",
     "crosswalk": {
       "common": "SPECIES",
@@ -580,7 +610,8 @@
     "short": "Chestermere",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/72e47f7c7b194047936ebb0ce3c4d32e_0.zip",
-    "info": "http://hub.arcgis.com/datasets/Chestermere::tree-points",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=72e47f7c7b194047936ebb0ce3c4d32e",
+    "info": "https://hub.arcgis.com/datasets/Chestermere::tree-points",
     "format": "zip",
     "crosswalk": {
       "common": "Species",
@@ -596,7 +627,8 @@
     "short": "New West",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/eb043d306e4b4652a10b4b7b51f718ab_102.zip",
-    "info": "http://hub.arcgis.com/datasets/newwestcity::trees-west",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=eb043d306e4b4652a10b4b7b51f718ab",
+    "info": "https://hub.arcgis.com/datasets/newwestcity::trees-west",
     "format": "zip",
     "crosswalk": {
       "scientific": "Scientific",
@@ -610,7 +642,8 @@
     "short": "New West",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/341e47f1d4cd4b4aa14a8804b992cc7e_101.zip",
-    "info": "http://hub.arcgis.com/datasets/newwestcity::trees-east",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=341e47f1d4cd4b4aa14a8804b992cc7e",
+    "info": "https://hub.arcgis.com/datasets/newwestcity::trees-east",
     "format": "zip",
     "crosswalk": {
       "scientific": "Scientific",
@@ -625,7 +658,8 @@
     "short": "Maple Ridge",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/290505c676d64cf09989eca1320aedd3_5.zip",
-    "info": "http://hub.arcgis.com/datasets/mapleridge::street-tree",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=290505c676d64cf09989eca1320aedd3",
+    "info": "https://hub.arcgis.com/datasets/mapleridge::street-tree",
     "format": "zip",
     "crosswalk": {
       "species": "Species",
@@ -639,7 +673,8 @@
     "short": "Barrie",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/16123463ba3d48859a83f4883a414a45_7.zip",
-    "info": "http://hub.arcgis.com/datasets/barrie::tree-location",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=16123463ba3d48859a83f4883a414a45",
+    "info": "https://hub.arcgis.com/datasets/barrie::tree-location",
     "format": "zip",
     "crosswalk": {
       "ref": "ASSETID",
@@ -653,13 +688,15 @@
     "short": "Victoriaville",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/ae1c4b5613334d8a823359565fafb911_12.zip",
-    "info": "http://hub.arcgis.com/datasets/victoriaville::tree",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=ae1c4b5613334d8a823359565fafb911",
+    "info": "https://hub.arcgis.com/datasets/victoriaville::tree",
     "format": "zip",
     "crosswalk": {}
   },
   {
     "id": "corangamite",
     "download": "https://data.gov.au/geoserver/corangamite-shire-trees/wfs?request=GetFeature&typeName=ckan_d9677ebb_f3db_45f3_88eb_04089debb9e0&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=corangamite-shire-trees",
     "format": "geojson",
     "gdal_options": "-s_srs EPSG:4326",
     "short": "Corangamite",
@@ -672,11 +709,15 @@
       "scientific": "species",
       "common": "name",
       "location": "x => ({ 'STREET TREE': 'street', 'PARK TREE': 'park' }[x.tree_type] || '')"
-    }
+    },
+    "license": "CC-BY-3.0",
+    "licenseName": "Creative Commons Attribution 3.0 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "colac_otways",
-    "download": "http://data.gov.au/geoserver/colac-otway-shire-trees/wfs?request=GetFeature&typeName=ckan_3ce1805b_cb81_4683_8f46_e7bd2d2a3b7c&outputFormat=json",
+    "download": "https://data.gov.au/geoserver/colac-otway-shire-trees/wfs?request=GetFeature&typeName=ckan_3ce1805b_cb81_4683_8f46_e7bd2d2a3b7c&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=colac-otway-shire-trees",
     "format": "geojson",
     "short": "Colac-Otways",
     "long": "Colac-Otways Shire",
@@ -692,11 +733,15 @@
       "maturity": "life_stage",
       "scientific": "x => `${x.genus_desc} ${x.spec_desc}`.trim()",
       "location": "x => x.location_t.split(' ')[1]"
-    }
+    },
+    "license": "CC-BY-3.0",
+    "licenseName": "Creative Commons Attribution 3.0 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "ballarat",
     "download": "https://data.gov.au/geoserver/ballarattrees/wfs?request=GetFeature&typeName=ckan_eabaee3f_a563_449b_a04a_1ec847566ea1&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=ballarattrees",
     "format": "geojson",
     "short": "Ballarat",
     "long": "City of Ballarat",
@@ -721,11 +766,15 @@
       "ule_min": "ule_min",
       "ule_max": "ule_max",
       "genus": "() => undefined"
-    }
+    },
+    "license": "CC-BY-3.0",
+    "licenseName": "Creative Commons Attribution 3.0 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "manningham",
     "download": "https://data.gov.au/geoserver/manningham-streettrees/wfs?request=GetFeature&typeName=ckan_1aef5123_24ff_4084_a0f1_a52ca71e9e99&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=manningham-streettrees",
     "format": "geojson",
     "short": "Manningham",
     "long": "City of Manningham",
@@ -736,11 +785,15 @@
       "scientific": "species",
       "height": "height",
       "dbh": "dbh"
-    }
+    },
+    "license": "CC-BY-3.0",
+    "licenseName": "Creative Commons Attribution 3.0 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "geelong",
     "download": "https://data.gov.au/geoserver/geelong-trees/wfs?request=GetFeature&typeName=ckan_13b1196c_7fb7_436a_86bc_ab24c16526de&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=geelong-trees",
     "format": "geojson",
     "short": "Geelong",
     "long": "City of Greater Geelong",
@@ -765,7 +818,10 @@
       "ule_min": "ule_min",
       "ule_max": "ule_max",
       "scientific": "x => x.genus + ' ' + (x.species || '').toLowerCase()"
-    }
+    },
+    "license": "CC-BY-3.0",
+    "licenseName": "Creative Commons Attribution 3.0 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "melbourne",
@@ -788,7 +844,7 @@
   },
   {
     "id": "adelaide",
-    "download": "http://opendata.adelaidecitycouncil.com/street_trees/street_trees.csv",
+    "download": "https://opendata.adelaidecitycouncil.com/street_trees/street_trees.csv",
     "format": "vrt",
     "filename": "adelaide.vrt",
     "gdal_options": "-skipfailures",
@@ -812,7 +868,7 @@
   },
   {
     "id": "waite",
-    "download": "http://data.sa.gov.au/storage/f/2014-06-23T06%3A12%3A22.180Z/waitetreeid-2014-app-joined-19062014.zip",
+    "download": "https://data.sa.gov.au/storage/f/2014-06-23T06%3A12%3A22.180Z/waitetreeid-2014-app-joined-19062014.zip",
     "format": "zip",
     "filename": "WaiteTreeID_2014_App_Joined_19062014.shp",
     "short": "Waite Arboretum",
@@ -827,6 +883,7 @@
   {
     "id": "burnside",
     "download": "https://data.sa.gov.au/data/dataset/b7e1c8f6-169c-41bd-b5d7-140395a41c38/resource/6d1912aa-4775-4f5e-b00d-18456ad872a5/download/burnsidetrees.geojson",
+    "ckan_api": "https://data.sa.gov.au/data/api/3/action/package_show?id=burnside-street-trees",
     "format": "geojson",
     "short": "Burnside",
     "long": "City of Burnside",
@@ -837,11 +894,15 @@
       "height": "TreeHeight",
       "scientific": "BotanicalN",
       "dbh": "Circumfere"
-    }
+    },
+    "license": "CC-BY-4.0",
+    "licenseName": "Creative Commons Attribution",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0"
   },
   {
     "id": "launceston",
     "download": "http://lcc.launceston.opendata.arcgis.com/datasets/63b09a3688804a17b0edc4b3b072a0d7_1.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=63b09a3688804a17b0edc4b3b072a0d7",
     "format": "zip",
     "filename": "Trees.shp",
     "short": "Launceston",
@@ -861,6 +922,7 @@
   {
     "id": "hobsons_bay",
     "download": "https://data.gov.au/dataset/80051ffe-04d5-4602-b15b-60e0d0e3d153/resource/ea1ec6fc-02bd-4e36-8e43-c990b6a9268d/download/hbcc_street_and_park_trees.json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=hbcc-street-and-park-trees",
     "format": "geojson",
     "short": "Hobson's Bay",
     "long": "City of Hobson's Bay",
@@ -874,11 +936,15 @@
     "centre": [
       144.833,
       -37.85
-    ]
+    ],
+    "license": "CC-BY-2.5",
+    "licenseName": "Creative Commons Attribution 2.5 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/2.5/au/"
   },
   {
     "id": "glenelg",
-    "download": "http://data.gov.au/dataset/3721ad67-7b5b-4815-96b1-9d8b1a89dbd7/resource/b9ff3d44-17b4-4f87-8a28-2d540fa37d8f/download/Glenelg-Street-and-Park-Trees.csv",
+    "download": "https://data.gov.au/dataset/3721ad67-7b5b-4815-96b1-9d8b1a89dbd7/resource/b9ff3d44-17b4-4f87-8a28-2d540fa37d8f/download/Glenelg-Street-and-Park-Trees.csv",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=glenelg-street-and-park-trees",
     "format": "csv",
     "latitudeField": "lat",
     "longitudeField": "lon",
@@ -905,16 +971,19 @@
       "ule": "ule",
       "ule_min": "ule_min",
       "ule_max": "ule_max"
-    }
+    },
+    "license": "other-open",
+    "licenseName": "Other (Open)"
   },
   {
     "id": "ryde",
     "download": [
-      "http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/47843888-f9b6-4ae3-ba80-9318ff60a120/download/Public-Trees-2013.dbf",
-      "http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/1372b28f-4201-46ab-9099-be0458a317bb/download/Public-Trees-2013.prj",
-      "http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/00e339ad-e411-48b2-8cfa-ed3dfa8209ca/download/Public-Trees-2013.shp",
-      "http://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/3f4f3346-52d5-4084-94fc-877bf70c0a76/download/Public-Trees-2013.shx"
+      "https://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/47843888-f9b6-4ae3-ba80-9318ff60a120/download/Public-Trees-2013.dbf",
+      "https://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/1372b28f-4201-46ab-9099-be0458a317bb/download/Public-Trees-2013.prj",
+      "https://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/00e339ad-e411-48b2-8cfa-ed3dfa8209ca/download/Public-Trees-2013.shp",
+      "https://data.nsw.gov.au/data/dataset/f7cd2071-642e-4cac-9d28-d7ddf5635c39/resource/3f4f3346-52d5-4084-94fc-877bf70c0a76/download/Public-Trees-2013.shx"
     ],
+    "ckan_api": "https://data.nsw.gov.au/data/api/3/action/package_show?id=public-trees-2013",
     "format": "shp",
     "keepExtension": true,
     "short": "Ryde",
@@ -922,11 +991,15 @@
     "country": "Australia",
     "crosswalk": {
       "height": "Height"
-    }
+    },
+    "license": "CC-BY",
+    "licenseName": "Creative Commons Attribution",
+    "licenseUrl": "http://www.opendefinition.org/licenses/cc-by"
   },
   {
     "id": "southern_grampians",
-    "download": "http://data.gov.au/geoserver/southern-grampians-street-and-park-trees/wfs?request=GetFeature&typeName=ckan_4a2843f5_8c01_438b_95f3_01ef0a518441&outputFormat=json",
+    "download": "https://data.gov.au/geoserver/southern-grampians-street-and-park-trees/wfs?request=GetFeature&typeName=ckan_4a2843f5_8c01_438b_95f3_01ef0a518441&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=southern-grampians-street-and-park-trees",
     "format": "geojson",
     "short": "Southern Grampians",
     "long": "City of Southern Grampians",
@@ -939,11 +1012,15 @@
       "height": "height",
       "crown": "crown",
       "maturity": "maturity"
-    }
+    },
+    "license": "CC-BY-3.0",
+    "licenseName": "Creative Commons Attribution 3.0 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "prospect1",
     "download": "https://data.sa.gov.au/data/dataset/5d86d41e-b6c6-47d5-9b88-4d95916c5e76/resource/d1e30913-6e91-4a1f-b576-64120cc4b242/download/city-of-prospect-tree-species-in-reserves-2016.csv",
+    "ckan_api": "https://data.sa.gov.au/data/api/3/action/package_show?id=city-of-prospect-tree-species-in-reserves",
     "format": "csv",
     "short": "Prospect",
     "long": "City of Prospect",
@@ -959,7 +1036,10 @@
       "structure": "Tree Structure",
       "height": "Tree Height",
       "dbh": "x => x['Tree Circumference'] + ' circumference'"
-    }
+    },
+    "license": "CC-BY-4.0",
+    "licenseName": "Creative Commons Attribution",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0"
   },
   {
     "id": "prospect2",
@@ -980,6 +1060,7 @@
   {
     "id": "perth",
     "download": "https://opendata.arcgis.com/datasets/c5ce51d9789a4e9a8510acb8c8f3ecf4_0.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=c5ce51d9789a4e9a8510acb8c8f3ecf4",
     "format": "zip",
     "filename": "PKS_AST_TREESMASTER_PV.shp",
     "short": "Perth",
@@ -997,6 +1078,7 @@
   {
     "id": "brimbank",
     "download": "https://data.gov.au/geoserver/brimbank-open-space-trees/wfs?request=GetFeature&typeName=ckan_7a57b5a1_2ca3_4171_be91_0d371cefd250&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=brimbank-open-space-trees",
     "format": "geojson",
     "short": "Brimbank",
     "long": "City of Brimbank",
@@ -1010,11 +1092,15 @@
       "maturity": "age",
       "height": "height",
       "crown": "spread"
-    }
+    },
+    "license": "CC-BY-2.5",
+    "licenseName": "Creative Commons Attribution 2.5 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/2.5/au/"
   },
   {
     "id": "bendigo",
     "download": "https://data.gov.au/geoserver/city-of-greater-bendigo-environment-trees/wfs?request=GetFeature&typeName=ckan_d17c9e50_fab1_40e6_b91d_6e665faf2656&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=city-of-greater-bendigo-environment-trees",
     "format": "geojson",
     "short": "Bendigo",
     "long": "City of Greater Bendigo",
@@ -1029,11 +1115,15 @@
     "centre": [
       144.298,
       -36.755
-    ]
+    ],
+    "license": "CC-BY-2.5",
+    "licenseName": "Creative Commons Attribution 2.5 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/2.5/au/"
   },
   {
     "id": "shepparton",
     "download": "https://data.gov.au/dataset/e794491f-2eb7-4035-8b0c-f7248c28feda/resource/a1148573-68b9-4bd8-bda4-f08030d38c9d/download/greatersheppartoncitycouncilstreetandparktrees.zip",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=greater-shepparton-city-council-street-and-park-trees",
     "format": "zip",
     "filename": "Greater_Shepparton_City_Council_Street_and_Park_Trees.shp",
     "short": "Shepparton",
@@ -1059,12 +1149,16 @@
       "ule": "ule",
       "ule_min": "ule_min",
       "ule_max": "ule_max"
-    }
+    },
+    "license": "CC-BY-4.0",
+    "licenseName": "Creative Commons Attribution 4.0 International",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0"
   },
   {
     "id": "wyndham",
     "download": "https://data.gov.au/dataset/0254dee0-5b26-484f-a5ae-5ca3cab46601/resource/fb06e7c8-d037-489b-a963-b747271f2e54/download/trees.json",
     "download_old2": "https://data.gov.au/dataset/0254dee0-5b26-484f-a5ae-5ca3cab46601/resource/4ab38849-d1de-4444-aeca-08719138d24f/download/trees.zip",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=wyndham-tree-and-latest-inpection-data",
     "gdal_options": "-s_srs unzip/OpenData_TI_Trees_LatestInspection.prj",
     "format": "zip",
     "filename": "OpenData_TI_Trees_LatestInspection.shp",
@@ -1081,11 +1175,15 @@
       "health": "health",
       "ule": "useful_life_expectancy",
       "structure": "structure"
-    }
+    },
+    "license": "CC-BY-2.5",
+    "licenseName": "Creative Commons Attribution 2.5 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/2.5/au/"
   },
   {
     "id": "port_phillip",
     "download": "https://data.gov.au/dataset/6b72d22b-d824-4281-bd08-ab62e3c38415/resource/9b0d7d55-5267-464b-85d7-3d141d779bab/download/city-of-port-phillip-trees.geojson",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=city-of-port-phillip-trees",
     "format": "geojson",
     "short": "Port Phillip",
     "long": "City of Port Phillip",
@@ -1110,11 +1208,15 @@
       "ule": "ule",
       "ule_min": "ule_min",
       "ule_max": "ule_max"
-    }
+    },
+    "license": "CC-BY-2.5",
+    "licenseName": "Creative Commons Attribution 2.5 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/2.5/au/"
   },
   {
     "id": "boroondara",
     "download": "https://data.gov.au/geoserver/significant-tree/wfs?request=GetFeature&typeName=ckan_14e2b87e_c733_4071_b604_c0cb33d14a42&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=significant-tree",
     "format": "geojson",
     "short": "Boroondara",
     "long": "City of Boroondara",
@@ -1128,11 +1230,15 @@
       "description": "significan",
       "location": "locality",
       "dbh": "x => x.girth + ' girth'"
-    }
+    },
+    "license": "CC-BY-3.0",
+    "licenseName": "Creative Commons Attribution 3.0 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "yarra",
     "download": "https://data.gov.au/data/dataset/f3c88ce7-504b-4ef7-907f-686037f7420c/resource/6e4186b0-3e00-48f9-a09c-cb60d1d0d49f/download/yarra-street-and-park-trees.geojson",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=yarra-street-park-trees",
     "format": "geojson",
     "short": "Yarra",
     "long": "City of Yarra",
@@ -1157,11 +1263,15 @@
       "ule_min": "ule_min",
       "ule_max": "ule_max",
       "species": "s => (s.species || '').replace(/^[A-Z]\\. /, '')"
-    }
+    },
+    "license": "CC-BY-4.0",
+    "licenseName": "Creative Commons Attribution 4.0 International",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0"
   },
   {
     "id": "glen_eira",
     "download": "https://data.gov.au/geoserver/street-and-park-trees/wfs?request=GetFeature&typeName=ckan_0553b144_9145_4458_922f_5c6175d2e100&outputFormat=json",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=street-and-park-trees",
     "format": "geojson",
     "short": "Glen Eira",
     "long": "City of Glen Eira",
@@ -1173,11 +1283,15 @@
       "height": "height",
       "crown": "spread",
       "location": "locationty"
-    }
+    },
+    "license": "CC-BY-2.5",
+    "licenseName": "Creative Commons Attribution 2.5 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/2.5/au/"
   },
   {
     "id": "wodonga",
     "download": "https://data.gov.au/data/dataset/e7d6ebd3-04a8-4d73-b8ba-a9b82aa79b16/resource/180ba7ad-7bd7-490b-81f8-79c74ec0a915/download/tree.csv",
+    "ckan_api": "https://data.gov.au/api/3/action/package_show?id=tree-city-of-wodonga",
     "format": "csv",
     "filename": "wodonga.vrt",
     "short": "Wodonga",
@@ -1191,11 +1305,15 @@
     "centre": [
       146.86,
       -36.125
-    ]
+    ],
+    "license": "CC-BY-3.0",
+    "licenseName": "Creative Commons Attribution 3.0 Australia",
+    "licenseUrl": "http://creativecommons.org/licenses/by/3.0/au/"
   },
   {
     "id": "hobart",
-    "download": "http://data-1-hobartcc.opendata.arcgis.com/datasets/d50fa3c9875d43fbb7e462248160e1ee_0.geojson",
+    "download": "https://data-1-hobartcc.opendata.arcgis.com/datasets/d50fa3c9875d43fbb7e462248160e1ee_0.geojson",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=d50fa3c9875d43fbb7e462248160e1ee",
     "format": "geojson",
     "short": "Hobart",
     "long": "City of Hobart",
@@ -1203,7 +1321,7 @@
   },
   {
     "id": "sherwood_arboretum",
-    "download": "http://www.spatial-data.brisbane.qld.gov.au/datasets/613169f42b43494499c83640392c43e5_0.geojson",
+    "download": "https://www.spatial-data.brisbane.qld.gov.au/datasets/613169f42b43494499c83640392c43e5_0.geojson",
     "format": "geojson",
     "short": "Sherwood Arboretum",
     "long": "Sherwood Arboretum (Brisbane)",
@@ -1240,7 +1358,8 @@
     "short": "Unley",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/910774507d6a42248a50f9922054a0a0_0.zip",
-    "info": "http://hub.arcgis.com/datasets/unley::trees/data",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=910774507d6a42248a50f9922054a0a0",
+    "info": "https://hub.arcgis.com/datasets/unley::trees/data",
     "format": "zip",
     "crosswalk": {
       "genus": "dom_genus_",
@@ -1306,7 +1425,7 @@
   },
   {
     "id": "nice",
-    "download": "http://opendata.nicecotedazur.org/data/storage/f/2019-07-22T07%3A41%3A29.958Z/ev-arbre-opendata-2019.geojson",
+    "download": "https://opendata.nicecotedazur.org/data/storage/f/2019-07-22T07%3A41%3A29.958Z/ev-arbre-opendata-2019.geojson",
     "info": "https://trouver.datasud.fr/dataset/sync149f50a-cartographie-des-arbres-communaux",
     "format": "geojson",
     "crosswalk": {
@@ -1337,6 +1456,7 @@
     "country": "France",
     "download": "https://data.montpellier3m.fr/sites/default/files/ressources/MMM_MTP_ArbresAlign.zip",
     "info": "https://data.montpellier3m.fr/dataset/arbres-dalignement-de-montpellier",
+    "ckan_api": "https://data.montpellier3m.fr/api/3/action/package_show?id=arbres-dalignement-de-montpellier",
     "format": "zip",
     "filename": "MMM_MTP_ArbresAlign.shp",
     "crosswalk": {
@@ -1348,7 +1468,10 @@
       "crown": "couronnem",
       "height": "hauteurm"
     },
-    "short": "Montpellier"
+    "short": "Montpellier",
+    "license": "ODbL-1.0",
+    "licenseName": "Open Data Commons Open Database License (ODbL)",
+    "licenseUrl": "http://www.opendatacommons.org/licenses/odbl/1.0/"
   },
   {
     "id": "grand_paris_seine_ouest",
@@ -1591,6 +1714,7 @@
   {
     "id": "madison",
     "download": "https://opendata.arcgis.com/datasets/b700541a20e446839b18d62426c266a3_0.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=b700541a20e446839b18d62426c266a3",
     "format": "zip",
     "short": "Madison",
     "country": "USA",
@@ -1603,6 +1727,7 @@
   {
     "id": "pdx-street",
     "download": "https://opendata.arcgis.com/datasets/eb67a0ad684d4bb6afda51dc065d1664_25.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=eb67a0ad684d4bb6afda51dc065d1664",
     "format": "zip",
     "filename": "Street_Trees.shp",
     "short": "Portland",
@@ -1621,6 +1746,7 @@
   {
     "id": "pdx-park",
     "download": "https://opendata.arcgis.com/datasets/83a7e3f6a1d94db09f24849ee90f4be2_220.zip?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D&session=undefined",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=83a7e3f6a1d94db09f24849ee90f4be2",
     "format": "zip",
     "filename": "Parks_Tree_Inventory.shp",
     "short": "Portland, Oregon",
@@ -1673,6 +1799,7 @@
   {
     "id": "washington-dc",
     "download": "https://opendata.arcgis.com/datasets/f6c3c04113944f23a7993f2e603abaf2_23.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=f6c3c04113944f23a7993f2e603abaf2",
     "format": "zip",
     "filename": "Urban_Forestry_Street_Trees.shp",
     "short": "Washington DC",
@@ -1729,6 +1856,7 @@
   {
     "id": "philadelphia",
     "download": "http://data.phl.opendata.arcgis.com/datasets/957f032f9c874327a1ad800abd887d17_0.csv",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=957f032f9c874327a1ad800abd887d17",
     "format": "csv",
     "short": "Philadelphia",
     "long": "City of Philadelphia",
@@ -1757,6 +1885,7 @@
     "id": "boulder",
     "country": "USA",
     "download": "https://opendata.arcgis.com/datasets/dbbae8bdb0a44d17934243b88e85ef2b_0.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=dbbae8bdb0a44d17934243b88e85ef2b",
     "info": "https://data-boulder.opendata.arcgis.com/datasets/dbbae8bdb0a44d17934243b88e85ef2b_0",
     "format": "zip",
     "short": "Boulder",
@@ -1807,6 +1936,7 @@
     "id": "pittsburgh",
     "country": "USA",
     "download": "https://data.wprdc.org/dataset/9ce31f01-1dfa-4a14-9969-a5c5507a4b40/resource/d876927a-d3da-44d1-82e1-24310cdb7baf/download/trees_img.geojson",
+    "ckan_api": "https://data.wprdc.org/api/3/action/package_show?id=city-trees",
     "info": "https://data.wprdc.org/dataset/city-trees",
     "format": "geojson",
     "centre": [
@@ -1820,13 +1950,17 @@
       "scientific": "scientific_name",
       "height": "height",
       "health": "condition"
-    }
+    },
+    "licensed": "CC-BY",
+    "licenseName": "Creative Commons Attribution",
+    "licenseUrl": "http://www.opendefinition.org/licenses/cc-by"
   },
   {
     "id": "colombus",
     "country": "USA",
     "download": "https://opendata.arcgis.com/datasets/674e4a358e8042f69a734f229a93823c_1.zip?outSR=%7B%22wkt%22%3A%22PROJCS%5B%5C%22Ohio%203402%2C%20Southern%20Zone%20(1983%2C%20US%20Survey%20feet)%5C%22%2CGEOGCS%5B%5C%22NAD%2083%20(Continental%20US)%5C%22%2CDATUM%5B%5C%22NAD%2083%20(Continental%20US)%5C%22%2CSPHEROID%5B%5C%22GRS%2080%5C%22%2C6378137.0%2C298.257222101%5D%5D%2CPRIMEM%5B%5C%22Greenwich%5C%22%2C0.0%5D%2CUNIT%5B%5C%22Degree%5C%22%2C0.0174532925199433%5D%5D%2CPROJECTION%5B%5C%22Lambert_Conformal_Conic%5C%22%5D%2CPARAMETER%5B%5C%22False_Easting%5C%22%2C1968500.0%5D%2CPARAMETER%5B%5C%22Central_Meridian%5C%22%2C-82.5%5D%2CPARAMETER%5B%5C%22Standard_Parallel_1%5C%22%2C38.7333333333%5D%2CPARAMETER%5B%5C%22Standard_Parallel_2%5C%22%2C40.0333333333%5D%2CPARAMETER%5B%5C%22Latitude_Of_Origin%5C%22%2C38.0%5D%2CUNIT%5B%5C%22U.S.%20Foot%5C%22%2C0.3048006096012%5D%5D%22%7D",
-    "info": "http://opendata.columbus.gov/datasets/public-owned-trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=674e4a358e8042f69a734f229a93823c",
+    "info": "https://opendata.columbus.gov/datasets/public-owned-trees",
     "format": "zip",
     "filename": "Public_Owned_Trees.shp",
     "short": "Colombus",
@@ -1893,7 +2027,8 @@
     "short": "Rochester",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/4c209944e2984b4a908a14b0cbe48075_0.zip",
-    "info": "http://hub.arcgis.com/datasets/RochesterNY::trees-open-data",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=4c209944e2984b4a908a14b0cbe48075",
+    "info": "https://hub.arcgis.com/datasets/RochesterNY::trees-open-data",
     "format": "zip",
     "crosswalk": {
       "description": "TREE_NAME",
@@ -1909,7 +2044,8 @@
     "short": "Seattle",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/0b8c124ace214943ab0379623937eccb_6.zip",
-    "info": "http://hub.arcgis.com/datasets/SeattleCityGIS::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=0b8c124ace214943ab0379623937eccb",
+    "info": "https://hub.arcgis.com/datasets/SeattleCityGIS::trees",
     "format": "zip",
     "crosswalk": {
       "ref": "UNITID",
@@ -1930,7 +2066,8 @@
     "short": "Cupertino",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/caa50a924b7d4b5ba8e8a4cbfd0d7f13_29.csv",
-    "info": "http://hub.arcgis.com/datasets/Cupertino::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=caa50a924b7d4b5ba8e8a4cbfd0d7f13",
+    "info": "https://hub.arcgis.com/datasets/Cupertino::trees",
     "format": "csv",
     "latitudeField": "LONG",
     "longitudeField": "LAT",
@@ -1955,7 +2092,8 @@
     "short": "Oxnard",
     "long": "City of Oxnard",
     "download": "https://opendata.arcgis.com/datasets/a5aa2d1dfd344ef79d61507d33cdbc02_1.csv",
-    "info": "http://hub.arcgis.com/datasets/a5aa2d1dfd344ef79d61507d33cdbc02_1",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=a5aa2d1dfd344ef79d61507d33cdbc02",
+    "info": "https://hub.arcgis.com/datasets/a5aa2d1dfd344ef79d61507d33cdbc02_1",
     "format": "csv",
     "crosswalk": {
       "scientific": "BOTANICALN",
@@ -1970,7 +2108,8 @@
     "short": "Wake Forest",
     "long": "Town of Wake Forest",
     "download": "https://opendata.arcgis.com/datasets/ba930858554a43cca1be2f06a44d2449_0.csv",
-    "info": "http://hub.arcgis.com/datasets/wakeforestnc::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=ba930858554a43cca1be2f06a44d2449",
+    "info": "https://hub.arcgis.com/datasets/wakeforestnc::trees",
     "crosswalk": {
       "scientific": "SPECIES_LA",
       "common": "SPECIES_CO",
@@ -1983,7 +2122,8 @@
     "short": "Aurora",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/1dbb32bf07ca421db4f01dac6beb812d_85.csv",
-    "info": "http://hub.arcgis.com/datasets/AuroraCo::trees-city",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=1dbb32bf07ca421db4f01dac6beb812d",
+    "info": "https://hub.arcgis.com/datasets/AuroraCo::trees-city",
     "format": "",
     "crosswalk": {
       "ref": "TREE_ID_NO",
@@ -1998,7 +2138,8 @@
     "short": "Bakersfield",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/b7a17f7ecb564be4b26ced85016ed1da_0.csv",
-    "info": "http://hub.arcgis.com/datasets/cob::city-trees?geometry=-129.468%2C33.767%2C-108.539%2C36.903",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=b7a17f7ecb564be4b26ced85016ed1da",
+    "info": "https://hub.arcgis.com/datasets/cob::city-trees?geometry=-129.468%2C33.767%2C-108.539%2C36.903",
     "crosswalk": {
       "updated": "DATE_",
       "scientific": "BOTANICAL_",
@@ -2017,7 +2158,8 @@
     "short": "Las Vegas",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/23364bb40f2640ff841ba4a8680b6421_0.csv",
-    "info": "http://hub.arcgis.com/datasets/lasvegas::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=23364bb40f2640ff841ba4a8680b6421",
+    "info": "https://hub.arcgis.com/datasets/lasvegas::trees",
     "format": "",
     "crosswalk": {
       "location": "LOC_TYPE",
@@ -2036,7 +2178,8 @@
     "short": "Mountain View",
     "long": "City of Mountain View",
     "download": "https://opendata.arcgis.com/datasets/72667718eb9b427d95b6eb55e25c36a7_0.csv",
-    "info": "http://hub.arcgis.com/datasets/MountainView::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=72667718eb9b427d95b6eb55e25c36a7",
+    "info": "https://hub.arcgis.com/datasets/MountainView::trees",
     "format": "",
     "crosswalk": {
       "scientific": "SPECIES",
@@ -2056,7 +2199,8 @@
     "short": "Three Rivers",
     "long": "Three Rivers Park District",
     "download": "https://opendata.arcgis.com/datasets/ffbb9401412141a79c7164ade8d2ee2d_0.csv",
-    "info": "http://hub.arcgis.com/datasets/trpd::managed-trees-open-data?geometry=-96.405%2C44.562%2C-90.563%2C45.243",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=ffbb9401412141a79c7164ade8d2ee2d",
+    "info": "https://hub.arcgis.com/datasets/trpd::managed-trees-open-data?geometry=-96.405%2C44.562%2C-90.563%2C45.243",
     "crosswalk": {
       "common": "CommonName",
       "scientific": "ScientificName",
@@ -2070,7 +2214,8 @@
     "short": "Richardson",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/cd10a9e85354488dbdb697ce97ccb064_0.csv",
-    "info": "http://hub.arcgis.com/datasets/richardson::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=cd10a9e85354488dbdb697ce97ccb064",
+    "info": "https://hub.arcgis.com/datasets/richardson::trees",
     "crosswalk": {
       "common": "NAME",
       "genus": "GENUS",
@@ -2090,7 +2235,8 @@
     "short": "Allentown",
     "long": "City of Allentown",
     "download": "https://opendata.arcgis.com/datasets/4383052db35e4f93bbd83e5bde468a00_0.csv",
-    "info": "http://hub.arcgis.com/datasets/AllentownPA::city-trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=4383052db35e4f93bbd83e5bde468a00",
+    "info": "https://hub.arcgis.com/datasets/AllentownPA::city-trees",
     "crosswalk": {
       "common": "TR_COMMON",
       "scientific": "TR_GENUS",
@@ -2105,7 +2251,8 @@
     "short": "Sioux Falls",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/c880d62ae5fb4652b1f8e6cbca244107_10.csv",
-    "info": "http://hub.arcgis.com/datasets/cityofsfgis::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=c880d62ae5fb4652b1f8e6cbca244107",
+    "info": "https://hub.arcgis.com/datasets/cityofsfgis::trees",
     "crosswalk": {
       "ref": "AssetID",
       "location": "Location",
@@ -2126,7 +2273,8 @@
     "short": "Amherst",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/b4a74ab24f114f22b438a19e589f6f76_0.zip",
-    "info": "http://hub.arcgis.com/datasets/AmherstMA::street-trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=b4a74ab24f114f22b438a19e589f6f76",
+    "info": "https://hub.arcgis.com/datasets/AmherstMA::street-trees",
     "crosswalk": {
       "ref": "TreeID",
       "updated": "LastEdit",
@@ -2144,7 +2292,8 @@
     "short": "Colorado Springs",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/91758518026d4b1089f2180602399d73_0.csv",
-    "info": "http://hub.arcgis.com/datasets/coloradosprings::trees/data?geometry=-106.259%2C38.699%2C-103.338%2C39.073",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=91758518026d4b1089f2180602399d73",
+    "info": "https://hub.arcgis.com/datasets/coloradosprings::trees/data?geometry=-106.259%2C38.699%2C-103.338%2C39.073",
     "crosswalk": {
       "common": "Common_Name",
       "dbh": "tree => numeric(Number(tree[field]) * 2.54)"
@@ -2156,7 +2305,8 @@
     "short": "Marysville",
     "long": "City of Marysville",
     "download": "https://opendata.arcgis.com/datasets/44b6c7a1307d48ff99d2034b5695c149_0.csv",
-    "info": "http://hub.arcgis.com/datasets/Marysville::individual-trees-sites",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=44b6c7a1307d48ff99d2034b5695c149",
+    "info": "https://hub.arcgis.com/datasets/Marysville::individual-trees-sites",
     "crosswalk": {
       "ref": "treeid",
       "common": "common",
@@ -2176,7 +2326,8 @@
     "short": "Springfield",
     "long": "City of Springfield",
     "download": "https://opendata.arcgis.com/datasets/7a890a7b54d6438f80bd60e5e34c8e62_34.csv",
-    "info": "http://hub.arcgis.com/datasets/COSMO::tree-inventory",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=7a890a7b54d6438f80bd60e5e34c8e62",
+    "info": "https://hub.arcgis.com/datasets/COSMO::tree-inventory",
     "crosswalk": {
       "health": "Condition",
       "common": "TreeType",
@@ -2192,6 +2343,7 @@
     "short": "Anaheim",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/0f96c6cf73904424bc9ce14197990201_41.csv",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=0f96c6cf73904424bc9ce14197990201",
     "info": "https://data-anaheim.opendata.arcgis.com/datasets/city-trees",
     "crosswalk": {
       "common": "COMMONNAME",
@@ -2210,7 +2362,8 @@
     "short": "Charlottesville",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/e7c856379492408e9543a25d684b8311_79.csv",
-    "info": "http://hub.arcgis.com/datasets/charlottesville::tree-inventory-point",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=e7c856379492408e9543a25d684b8311",
+    "info": "https://hub.arcgis.com/datasets/charlottesville::tree-inventory-point",
     "format": "",
     "crosswalk": {
       "planted": "Install_Date",
@@ -2227,7 +2380,8 @@
     "short": "West Chester",
     "long": "West Chester Borough",
     "download": "https://opendata.arcgis.com/datasets/7fdf2b5d2b674e99b33e8d77d052e30c_0.csv",
-    "info": "http://hub.arcgis.com/datasets/WCUPAGIS::borotrees-1?geometry=-87.273%2C38.460%2C-63.905%2C41.408",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=7fdf2b5d2b674e99b33e8d77d052e30c",
+    "info": "https://hub.arcgis.com/datasets/WCUPAGIS::borotrees-1?geometry=-87.273%2C38.460%2C-63.905%2C41.408",
     "format": "",
     "crosswalk": {
       "ref": "ID_1",
@@ -2244,7 +2398,8 @@
     "short": "Durango",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/3e3e00d6224b43ee9acc514244fffdb9_0.csv",
-    "info": "http://hub.arcgis.com/datasets/CityOfDurango::city-trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=3e3e00d6224b43ee9acc514244fffdb9",
+    "info": "https://hub.arcgis.com/datasets/CityOfDurango::city-trees",
     "format": "",
     "crosswalk": {
       "planted": "DATEID",
@@ -2264,7 +2419,8 @@
     "short": "Washington",
     "long": "Washington County",
     "download": "https://opendata.arcgis.com/datasets/ae14fc063c1e44a995e750805b1c864b_0.csv",
-    "info": "http://hub.arcgis.com/datasets/WCMN::tree-inventory",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=ae14fc063c1e44a995e750805b1c864b",
+    "info": "https://hub.arcgis.com/datasets/WCMN::tree-inventory",
     "format": "",
     "crosswalk": {
       "common": "Tree_Type",
@@ -2279,7 +2435,8 @@
     "short": "Westerville",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/137785bc78da47b4a2159f9c76218d55_0.csv",
-    "info": "http://hub.arcgis.com/datasets/Westerville::comm-parks-rec-trees/data?geometry=-83.315%2C40.085%2C-82.585%2C40.177",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=137785bc78da47b4a2159f9c76218d55",
+    "info": "https://hub.arcgis.com/datasets/Westerville::comm-parks-rec-trees/data?geometry=-83.315%2C40.085%2C-82.585%2C40.177",
     "format": "",
     "crosswalk": {
       "common": "COMMON_NAME",
@@ -2295,7 +2452,8 @@
     "short": "St Augustine",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/8372c7d0f5a24764bd10f62f0b2f1b65_0.csv",
-    "info": "http://hub.arcgis.com/datasets/STAUG::trees?geometry=-93.005%2C28.223%2C-69.637%2C31.556",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=8372c7d0f5a24764bd10f62f0b2f1b65",
+    "info": "https://hub.arcgis.com/datasets/STAUG::trees?geometry=-93.005%2C28.223%2C-69.637%2C31.556",
     "format": "",
     "crosswalk": {
       "updated": "INSPECT_DT",
@@ -2310,7 +2468,8 @@
     "short": "Weston",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/c95f89a4db39414a89f5c29bcb6fb48d_6.csv",
-    "info": "http://hub.arcgis.com/datasets/westonfl::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=c95f89a4db39414a89f5c29bcb6fb48d",
+    "info": "https://hub.arcgis.com/datasets/westonfl::trees",
     "format": "",
     "crosswalk": {
       "common": "NAME",
@@ -2332,7 +2491,8 @@
     "short": "Pacific Grove",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/87bcc6e824214422be859b3251350829_3.csv",
-    "info": "http://hub.arcgis.com/datasets/CityPacificGrove::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=87bcc6e824214422be859b3251350829",
+    "info": "https://hub.arcgis.com/datasets/CityPacificGrove::trees",
     "format": "",
     "crosswalk": {
       "common": "Type",
@@ -2349,7 +2509,8 @@
     "short": "Bozeman",
     "long": "City of Bozeman",
     "download": "https://opendata.arcgis.com/datasets/ba0dea7927184014a8b84e64af5c7684_0.csv",
-    "info": "http://hub.arcgis.com/datasets/bozeman::trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=ba0dea7927184014a8b84e64af5c7684",
+    "info": "https://hub.arcgis.com/datasets/bozeman::trees",
     "format": "",
     "crosswalk": {
       "genus": "Genus",
@@ -2368,7 +2529,8 @@
     "short": "Champaign",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/979bbeefffea408e8f1cb7a397196c64_22.csv",
-    "info": "http://hub.arcgis.com/datasets/cityofchampaign::city-owned-trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=979bbeefffea408e8f1cb7a397196c64",
+    "info": "https://hub.arcgis.com/datasets/cityofchampaign::city-owned-trees",
     "format": "",
     "crosswalk": {
       "ref": "ID",
@@ -2387,7 +2549,8 @@
     "short": "Placentia",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/8efcbe9c80ed42a29e6ad5483bd01c32_0.csv",
-    "info": "http://hub.arcgis.com/datasets/placentia::city-trees",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=8efcbe9c80ed42a29e6ad5483bd01c32",
+    "info": "https://hub.arcgis.com/datasets/placentia::city-trees",
     "format": "",
     "crosswalk": {
       "ref": "INVENTORYI",
@@ -2404,7 +2567,8 @@
     "short": "Sarasota",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/4deeb30f44bc4b60847cf43aed1a4670_0.csv",
-    "info": "http://hub.arcgis.com/datasets/sarasota::tree-inventory",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=4deeb30f44bc4b60847cf43aed1a4670",
+    "info": "https://hub.arcgis.com/datasets/sarasota::tree-inventory",
     "format": "",
     "crosswalk": {
       "scientific": "Species",
@@ -2422,7 +2586,8 @@
     "short": "Nichols Arboretum",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/febee55e7dac43298952af77c8f8d809_0.csv",
-    "info": "http://hub.arcgis.com/datasets/umich::nichols-arboretum-inventory-survey",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=febee55e7dac43298952af77c8f8d809",
+    "info": "https://hub.arcgis.com/datasets/umich::nichols-arboretum-inventory-survey",
     "format": "",
     "crosswalk": {
       "common": "COMMON",
@@ -2440,7 +2605,8 @@
     "short": "UNT",
     "long": "University of North Texas",
     "download": "https://opendata.arcgis.com/datasets/ee33bf4535cd47bbb1c5661d2333d834_0.csv",
-    "info": "http://hub.arcgis.com/datasets/untgis::tree",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=ee33bf4535cd47bbb1c5661d2333d834",
+    "info": "https://hub.arcgis.com/datasets/untgis::tree",
     "format": "",
     "crosswalk": {
       "note": "NOTES",
@@ -2454,7 +2620,8 @@
     "short": "Escondido",
     "long": "City of Escondido",
     "download": "https://opendata.arcgis.com/datasets/ac9caf3c7a9847b78100cc8860ddf51a_0.csv",
-    "info": "http://hub.arcgis.com/datasets/CityofEscondido::tree-inventory?geometry=-122.895%2C32.313%2C-111.211%2C33.923",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=ac9caf3c7a9847b78100cc8860ddf51a",
+    "info": "https://hub.arcgis.com/datasets/CityofEscondido::tree-inventory?geometry=-122.895%2C32.313%2C-111.211%2C33.923",
     "format": "",
     "crosswalk": {
       "ref": "TREEID",
@@ -2472,7 +2639,8 @@
     "short": "Wylie",
     "long": "City of Wylie",
     "download": "https://opendata.arcgis.com/datasets/82060fffb84045fdafbe2a56c989b353_0.csv",
-    "info": "http://hub.arcgis.com/datasets/WylieTX::treesurvey",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=82060fffb84045fdafbe2a56c989b353",
+    "info": "https://hub.arcgis.com/datasets/WylieTX::treesurvey",
     "format": "",
     "crosswalk": {
       "ref": "TK_ID",
@@ -2488,7 +2656,8 @@
     "short": "Auburn",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/91bffc476216422481b511a48796a327_0.csv",
-    "info": "http://hub.arcgis.com/datasets/AuburnME::treeinventory?geometry=-81.930%2C42.701%2C-58.562%2C45.462",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=91bffc476216422481b511a48796a327",
+    "info": "https://hub.arcgis.com/datasets/AuburnME::treeinventory?geometry=-81.930%2C42.701%2C-58.562%2C45.462",
     "format": "",
     "crosswalk": {
       "ref": "ID",
@@ -2505,7 +2674,8 @@
     "short": "Hudson River Park",
     "long": "Hudson River Park Trust",
     "download": "https://opendata.arcgis.com/datasets/51b5e5da030f4331af48cb052f2d2d5e_1.csv",
-    "info": "http://hub.arcgis.com/datasets/SustainableMSU::tree",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=51b5e5da030f4331af48cb052f2d2d5e",
+    "info": "https://hub.arcgis.com/datasets/SustainableMSU::tree",
     "format": "",
     "crosswalk": {
       "scientific": "Species_Latin_Name",
@@ -2522,7 +2692,8 @@
     "short": "Cape Coral",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/e988fe06668e44ea996a53c4365531b9_0.csv",
-    "info": "http://hub.arcgis.com/datasets/CapeGIS::tree-inventory",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=e988fe06668e44ea996a53c4365531b9",
+    "info": "https://hub.arcgis.com/datasets/CapeGIS::tree-inventory",
     "format": "",
     "crosswalk": {
       "common": "SPECIES",
@@ -2541,7 +2712,8 @@
     "short": "Naperville",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/51d4726531cd4ef99bfa24b99ae3ba24_0.csv",
-    "info": "http://hub.arcgis.com/datasets/naperville::right-of-way-tree-inventory",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=51d4726531cd4ef99bfa24b99ae3ba24",
+    "info": "https://hub.arcgis.com/datasets/naperville::right-of-way-tree-inventory",
     "format": "",
     "crosswalk": {
       "common": "ROWTREE_TYPE",
@@ -2561,7 +2733,8 @@
     "short": "San Jose",
     "long": "San Jose Medians and Backups",
     "download": "https://opendata.arcgis.com/datasets/0b0ad30145394b1588ff09ef1a7c9225_1.csv",
-    "info": "http://hub.arcgis.com/datasets/csjdotgis::trees-medians-and-backups",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=0b0ad30145394b1588ff09ef1a7c9225",
+    "info": "https://hub.arcgis.com/datasets/csjdotgis::trees-medians-and-backups",
     "format": "",
     "crosswalk": {
       "scientific": "NAMESCIENTIFIC",
@@ -2581,7 +2754,8 @@
     "short": "San Jose",
     "long": "San Jose Special Districts",
     "download": "https://opendata.arcgis.com/datasets/0b0ad30145394b1588ff09ef1a7c9225_0.csv",
-    "info": "http://hub.arcgis.com/datasets/csjdotgis::trees-special-districts",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=0b0ad30145394b1588ff09ef1a7c9225",
+    "info": "https://hub.arcgis.com/datasets/csjdotgis::trees-special-districts",
     "format": "",
     "crosswalk": {
       "scientific": "NAMESCIENTIFIC",
@@ -2602,7 +2776,8 @@
     "short": "San Jose",
     "long": "San Jose General Fund",
     "download": "https://opendata.arcgis.com/datasets/0b0ad30145394b1588ff09ef1a7c9225_2.csv",
-    "info": "http://hub.arcgis.com/datasets/csjdotgis::trees-general-fund-street",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=0b0ad30145394b1588ff09ef1a7c9225",
+    "info": "https://hub.arcgis.com/datasets/csjdotgis::trees-general-fund-street",
     "format": "",
     "crosswalk": {
       "scientific": "NAMESCIENTIFIC",
@@ -2657,6 +2832,7 @@
     "short": "Leipzig",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/918dfaa87b754c4384ddcf869cfd6dc6_0.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=918dfaa87b754c4384ddcf869cfd6dc6",
     "info": "https://hub.arcgis.com/datasets/esri-de-content::stra%C3%9Fenbaumkataster-leipzig",
     "format": "zip",
     "crosswalk": {
@@ -2672,7 +2848,8 @@
     "short": "Bonn",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/f8f130c1dd4e4ea9b5fe1f2385673cab_0.zip",
-    "info": "http://opendata.gis.ms.gov/datasets/esri-de-content::baumkataster-bonn",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=f8f130c1dd4e4ea9b5fe1f2385673cab",
+    "info": "https://opendata.gis.ms.gov/datasets/esri-de-content::baumkataster-bonn",
     "format": "zip",
     "crosswalk": {
       "ref": "baum_id",
@@ -2687,6 +2864,7 @@
     "long": "Stadt Köln",
     "download": "https://offenedaten-koeln.de/sites/default/files/Bestand_Einzelbaeume_Koeln_0.csv",
     "info": "https://offenedaten-koeln.de/dataset/baumkataster-koeln",
+    "ckan_api": "https://offenedaten-koeln.de/api/3/action/package_show?id=baumkataster-koeln",
     "format": "csv",
     "srs": "EPSG:3044",
     "crosswalk": {
@@ -2701,7 +2879,8 @@
     "centre": [
       6.9796,
       50.9356
-    ]
+    ],
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/de/"
   },
   {
     "id": "berlin",
@@ -2709,6 +2888,7 @@
     "short": "Berlin",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/05c3f9d7dea6422b86e30967811bddd7_0.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=05c3f9d7dea6422b86e30967811bddd7",
     "info": "",
     "format": "zip",
     "crosswalk": {
@@ -2729,6 +2909,7 @@
     "short": "Frankfurt",
     "long": "Frankfurt am Main",
     "download": "https://opendata.arcgis.com/datasets/8c50110f190e43599baf50701aaff13a_0.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=8c50110f190e43599baf50701aaff13a",
     "info": "https://hub.arcgis.com/datasets/esri-de-content::baumkataster-frankfurt-am-main",
     "format": "zip",
     "crosswalk": {
@@ -2745,6 +2926,7 @@
     "short": "Hamburg Hafen",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/35950460a3744fa4b088570b2df55718_0.zip",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=35950460a3744fa4b088570b2df55718",
     "info": "https://hub.arcgis.com/datasets/esri-de-content::stra%C3%9Fenbaumkataster-hamburg-hafen",
     "format": "zip",
     "crosswalk": {
@@ -2780,7 +2962,8 @@
     "short": "Chemnitz",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/70330324e2364b209f7511ca20581f83_0.zip?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D",
-    "info": "http://portal-chemnitz.opendata.arcgis.com/datasets/baeume?geometry=12.910%2C50.819%2C12.914%2C50.822",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=70330324e2364b209f7511ca20581f83",
+    "info": "https://portal-chemnitz.opendata.arcgis.com/datasets/baeume?geometry=12.910%2C50.819%2C12.914%2C50.822",
     "format": "zip",
     "crosswalk": {
       "ref": "BaumNummer",
@@ -2794,7 +2977,7 @@
     "country": "Germany",
     "short": "Wesel",
     "long": "",
-    "download": "http://data.geoportal-wesel.de/OPENDATA/Baumkataster/Baumkataster.geojson",
+    "download": "https://data.geoportal-wesel.de/OPENDATA/Baumkataster/Baumkataster.geojson",
     "info": "https://open.nrw/dataset/baumkataster-odp",
     "format": "geojson",
     "crosswalk": {
@@ -2836,7 +3019,7 @@
     "id": "hamburg",
     "country": "Germany",
     "short": "Hamburg",
-    "download": "http://daten-hamburg.de/umwelt_klima/strassenbaumkataster/Strassenbaumkataster_HH_2019-06-19.zip",
+    "download": "https://daten-hamburg.de/umwelt_klima/strassenbaumkataster/Strassenbaumkataster_HH_2019-06-19.zip",
     "format": "zip",
     "filename": "Strassenbaumkataster_HH_2019-06-19.gml",
     "crosswalk": {
@@ -2899,6 +3082,7 @@
   {
     "id": "london",
     "download": "https://data.london.gov.uk/download/local-authority-maintained-trees/c52e733d-bf7e-44b8-9c97-827cb2bc53be/london_street_trees_gla_20180214.csv",
+    "ckan_api": "https://data.london.gov.uk/api/3/action/package_show?id=local-authority-maintained-trees",
     "format": "csv",
     "short": "London",
     "long": "Greater London Authority",
@@ -2912,11 +3096,15 @@
       "scientific": "species_name",
       "common": "common_name",
       "description": "display_name"
-    }
+    },
+    "license": "OGL-UK-3.0",
+    "licenseName": "UK Open Government Licence (OGL v3)",
+    "licenseUrl": "http://reference.data.gov.uk/id/open-government-licence"
   },
   {
     "id": "birmingham",
     "download": "https://cc-p-birmingham.ckan.io/dataset/e9c314fc-fb6d-4189-a19c-7eec962733a8/resource/4bfd9191-a520-42fb-9ebf-8fefaededf6c/download/trees-dec2016.csv",
+    "ckan_api": "https://cc-p-birmingham.ckan.io/api/3/action/package_show?id=e9c314fc-fb6d-4189-a19c-7eec962733a8",
     "format": "csv",
     "short": "Birmingham",
     "country": "UK",
@@ -2929,7 +3117,10 @@
     "centre": [
       -1.8673,
       52.47
-    ]
+    ],
+    "license": "OGL-UK-3.0",
+    "licenseName": "UK Open Government Licence (OGL)",
+    "licenseUrl": "http://reference.data.gov.uk/id/open-government-licence"
   },
   {
     "id": "bristol",
@@ -2970,6 +3161,7 @@
     "long": "Dundee City Council",
     "download": "https://data.dundeecity.gov.uk/datastore/dump/e54ef90a-76e5-415e-a272-5e489d9f5c67",
     "info": "https://data.dundeecity.gov.uk/dataset/trees",
+    "ckan_api": "https://data.dundeecity.gov.uk/api/3/action/package_show?id=trees",
     "format": "csv",
     "crosswalk": {
       "ref": "TREE_NUMBER",
@@ -2978,7 +3170,10 @@
       "maturity": "AGE_CLASS",
       "scientific": "SCIENTIFIC_NAME",
       "common": "POPULAR_NAME"
-    }
+    },
+    "license": "OGL-UK-3.0",
+    "licenseName": "Open Government Licence 3.0 (United Kingdom)",
+    "licenseUrl": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
   },
   {
     "id": "york",
@@ -2986,6 +3181,7 @@
     "short": "York",
     "long": "City of York Council",
     "download": "https://opendata.arcgis.com/datasets/30f38f358843467daa2d93074a03b8d5_3.csv",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=30f38f358843467daa2d93074a03b8d5",
     "info": "https://data.gov.uk/dataset/12dcc527-a7e2-4b23-a3c5-1501053ff0f5/council-owned-trees",
     "format": "csv",
     "crosswalk": {
@@ -3000,6 +3196,7 @@
     "short": "York",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/a602aca10afb49659720b435d3f54023_18.csv",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=a602aca10afb49659720b435d3f54023",
     "info": "https://data.gov.uk/dataset/c166b067-5a9d-487b-a37d-4d350f8cff51/private-trees",
     "format": "csv",
     "crosswalk": {
@@ -3087,6 +3284,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/dd3873f6-b2d0-42e8-94c7-f7b47dcb71f0/resource/7ac8ba4a-586e-43f2-b12e-014079c83f00/download/bomen-csv.zip",
     "info": "https://data.overheid.nl/dataset/bomen-csv",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-csv",
     "format": "csv",
     "zip": true,
     "latitudeField": "LAT",
@@ -3102,7 +3300,10 @@
     "centre": [
       4.2777,
       52.0642
-    ]
+    ],
+    "license": "CC-BY-4.0",
+    "licenseName": "CC-BY",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0/deed.nl"
   },
   {
     "id": "hilversum",
@@ -3111,13 +3312,17 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/08fa5613-ec8f-4e43-ba2f-db986615075e/resource/2ae335c9-4228-4d4c-81a1-6688aa7218ac/download/bomenhilversum.csv",
     "info": "https://data.overheid.nl/dataset/bomen-hilversum",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-hilversum",
     "format": "csv",
     "crosswalk": {
       "scientific": "BOOMSOORT_WETENSCHAPPELIJK",
       "common": "BOOMSOORT_NEDERLANDS",
       "height": "BOOMHOOGTE",
       "planted": "PLANTSEIZOEN"
-    }
+    },
+    "license": "CC0-1.0",
+    "licenseName": "CC-0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.nl"
   },
   {
     "id": "tilburg_nl",
@@ -3126,6 +3331,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/96b46ab5-7638-46bb-b416-c480170b9a84/resource/6f639eb1-7497-4fc7-831b-d24e077bfe45/download/bomen.csv",
     "info": "https://data.overheid.nl/dataset/bomen-tilburg",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-tilburg",
     "format": "csv",
     "crosswalk": {
       "updated": "datum_gemeten",
@@ -3135,7 +3341,10 @@
       "planted": "plantjaar",
       "dbh": "diameter_in_cm",
       "height": "boomhoogte"
-    }
+    },
+    "license": "CC0-1.0",
+    "licenseName": "CC-0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.nl"
   },
   {
     "id": "eindhoven_nl",
@@ -3144,6 +3353,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/23d824dc-158f-4e23-8bbf-c10c00ce73cf/resource/0c8e87ba-0fde-48e4-a997-7abd04c7c692/download/bomen29-01.csv",
     "info": "https://data.overheid.nl/dataset/bomen-eindhoven",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-eindhoven",
     "format": "csv",
     "crosswalk": {
       "scientific": "LATIJNSENA",
@@ -3152,7 +3362,10 @@
       "height": "HOOGTE",
       "dbh": "DIAMETER",
       "health": "VITALITEIT"
-    }
+    },
+    "license": "CC-BY-4.0",
+    "licenseName": "CC-BY",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0/deed.nl"
   },
   {
     "id": "amersfoot_nl",
@@ -3161,6 +3374,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/a6054acf-3e41-4142-9b1a-52d73ff022f3/resource/7794f7e2-8bb9-45ba-9a9f-df910b09c40f/download/amersfoort-gemeentelijke_bomen.csv",
     "info": "https://data.overheid.nl/dataset/amersfoort-gemeentelijke_bomen",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=amersfoort-gemeentelijke_bomen",
     "format": "csv",
     "crosswalk": {
       "location": "BOOMKLASSE",
@@ -3173,7 +3387,10 @@
       "scientific": "BOOMSOORT",
       "planted": "PLANTJAAR",
       "ule": "LEVENSVERW"
-    }
+    },
+    "license": "CC-BY-4.0",
+    "licenseName": "CC-BY",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0/deed.nl"
   },
   {
     "id": "dordrecht_nl",
@@ -3181,6 +3398,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/4c1cd59b-1057-4d47-bd84-f67a9cfd0f27/resource/94612e3e-eaac-4ac4-8db1-cdda2bdf361c/download/allebomendordrecht-2016-sep-2.csv",
     "info": "https://data.overheid.nl/dataset/bomen-dordrecht",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-dordrecht",
     "crosswalk": {
       "ref": "ELEMENTNUMMER",
       "scientific": "SRT_NAAM",
@@ -3195,13 +3413,16 @@
       4.67,
       51.806
     ],
-    "country": "Netherlands"
+    "country": "Netherlands",
+    "licenseName": "CC-0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.nl"
   },
   {
     "id": "lelystad_nl",
     "short": "Lelystad",
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/a510615b-165d-442a-8956-1df78feb321e/resource/c6950c16-dff5-40b4-b1b5-0b2a2dffb382/download/bomen.csv",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-lelystad",
     "info": "https://data.overheid.nl/dataset/bomen-lelystad",
     "crosswalk": {
       "common": "SOORT_NED",
@@ -3215,7 +3436,9 @@
       5.478,
       52.509
     ],
-    "country": "Netherlands"
+    "country": "Netherlands",
+    "licenseName": "CC-BY",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0/deed.nl"
   },
   {
     "id": "sliedrecht_nl",
@@ -3223,6 +3446,7 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/ab8997d4-8c32-4f96-aa3e-d5961baeaf6f/resource/fc898475-4fa6-47f3-9a9a-8e85acb7b6a4/download/sliedrechtbomen20170412.csv",
     "info": "https://data.overheid.nl/dataset/bomen-sliedrecht",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-sliedrecht",
     "crosswalk": {
       "installed": "Aanlegjaar",
       "common": "Naam_NL",
@@ -3235,13 +3459,16 @@
       51.82
     ],
     "srs": "EPSG:28992",
-    "country": "Netherlands"
+    "country": "Netherlands",
+    "licenseName": "CC-0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.nl"
   },
   {
     "id": "assen_nl",
     "short": "Assen",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/3ad3233b9b1c4fb0bffb23b36b0474c9_0.csv",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=3ad3233b9b1c4fb0bffb23b36b0474c9",
     "info": "https://data.overheid.nl/dataset/dataset-bomen-assen#panel-4-downloadable-files",
     "crosswalk": {
       "ref": "BOOMNUMMER",
@@ -3264,6 +3491,7 @@
     "short": "Arnhem",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/4d988cd7848049d3a574fcbd477985be_0.csv",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=4d988cd7848049d3a574fcbd477985be",
     "info": "https://data.overheid.nl/dataset/bomenkaart-arnhem#panel-4-downloadable-files",
     "crosswalk": {
       "ref": "BEHEERCODE",
@@ -3284,6 +3512,7 @@
     "short": "Delft",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/e510d480282944c3a16c8a46d3d99064_0.csv?outSR=%7B%22latestWkid%22%3A3857%2C%22wkid%22%3A102100%7D",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=e510d480282944c3a16c8a46d3d99064",
     "info": "https://data.overheid.nl/dataset/bomen-in-beheer-door-gemeente-delft",
     "format": "csv",
     "crosswalk": {
@@ -3300,14 +3529,16 @@
     "short": "Groningen",
     "long": "",
     "download": " https://ckan.dataplatform.nl/dataset/9861d295-21cd-4ece-8648-88b141dc3532/resource/e5fa772f-cae6-42de-b0a8-261a8fe87ee8/download/gem_groningen_bomen.json ",
-    "info": "",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=gem-groningen-bomen",
     "crosswalk": {
       "common": "NEDNAAM",
       "scientific": "LATNAAM",
       "owner": "OMSCHRIJVP"
     },
-    "license": "CC0-1.0",
-    "country": "Netherlands"
+    "country": "Netherlands",
+    "license": "CC-BY-4.0",
+    "licenseName": "CC-BY",
+    "licenseUrl": "http://creativecommons.org/licenses/by/4.0/deed.nl"
   },
   {
     "id": "alblasserdam_nl",
@@ -3315,19 +3546,23 @@
     "long": "",
     "download": "https://ckan.dataplatform.nl/dataset/74c93ecc-82cc-46fa-8210-04818ae27279/resource/5bc33717-ff42-4aab-8bed-5ed0f618b1f8/download/gegevens-bomen-2017-alblasserdam.csv",
     "info": "https://data.overheid.nl/dataset/bomen-alblasserdam",
+    "ckan_api": "https://ckan.dataplatform.nl/api/3/action/package_show?id=bomen-alblasserdam",
     "crosswalk": {
       "scientific": "Boomsoort",
       "common": "Boomsoort Nederlands"
     },
     "srs": "EPSG:28992",
     "license": "CC0-1.0",
-    "country": "Netherlands"
+    "country": "Netherlands",
+    "licenseName": "CC-0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.nl"
   },
   {
     "id": "zvartewaterland_nl",
     "short": "Zvartewaterland",
     "long": "",
     "download": "https://opendata.arcgis.com/datasets/70e9a2ad03cf49a5a45b2076091b7ef3_0.csv",
+    "arcgis_page": "https://www.arcgis.com/home/item.html?id=70e9a2ad03cf49a5a45b2076091b7ef3",
     "info": "https://data.overheid.nl/dataset/bomen-zwartewaterland",
     "crosswalk": {
       "common": "NEDBOOMSOORT",
@@ -3363,14 +3598,17 @@
     "long": "Concello de Santiago de Compostela",
     "download": "https://datos.santiagodecompostela.gal/catalogo/dataset/60b1928e-32a9-442a-8f69-0215ba0862a4/resource/fab2344b-3c5c-466b-9e63-2e05e11fd9ce/download/arboredo_points.zip",
     "info": "https://datos.santiagodecompostela.gal/catalogo/gl/dataset/arboredo",
+    "ckan_api": "https://datos.santiagodecompostela.gal/catalogo/api/3/action/package_show?id=arboredo",
     "format": "zip",
     "crosswalk": {
       "location": "tipolexia"
-    }
+    },
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/deed.gl"
   },
   {
     "id": "barcelona",
     "download": "https://opendata-ajuntament.barcelona.cat/data/dataset/27b3f8a7-e536-4eea-b025-ce094817b2bd/resource/28034af4-b636-48e7-b3df-fa1c422e6287/download",
+    "ckan_api": "https://opendata-ajuntament.barcelona.cat/data/api/3/action/package_show?id=arbrat-viari",
     "format": "csv",
     "short": "Barcelona",
     "long": "City of Barcelona",
@@ -3383,13 +3621,16 @@
       "planted": "DATA_PLANTACIO",
       "ref": "CODI",
       "crown": "x => ({ PETITA: 'small', MITJANA: 'average', GRAN: 'large' }[x.ALCADA] || x.ALCADA)"
-    }
+    },
+    "license": "CC-BY-4.0",
+    "licenseName": "Creative Commons Attribution 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
   },
   {
     "id": "valencia_es",
     "short": "Valencia",
     "long": "",
-    "download": "http://mapas.valencia.es/lanzadera/opendata/arboles/JSON",
+    "download": "https://mapas.valencia.es/lanzadera/opendata/arboles/JSON",
     "info": "https://github.com/stevage/OpenTrees/issues/29",
     "format": "geojson",
     "crosswalk": {
