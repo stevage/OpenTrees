@@ -90,7 +90,7 @@ export default {
 
             map.U.addVector(
                 'trees',
-                window.location.hostname === 'localhoost'
+                window.location.hostname === 'localhost'
                     ? 'http://localhost:4011/index.json'
                     : 'mapbox://stevage.9slh6b3l'
             );
